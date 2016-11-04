@@ -14,7 +14,6 @@
 		2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
 		286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */; };
 		2868167C1DCAB3D20089BEA6 /* DA_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868167B1DCAB3D20089BEA6 /* DA_MobileTests.m */; };
-		286816871DCAB3D20089BEA6 /* DA_MobileUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816861DCAB3D20089BEA6 /* DA_MobileUITests.m */; };
 		286816A01DCAB4610089BEA6 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */; };
 		286816A21DCAB4770089BEA6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 286816A11DCAB4770089BEA6 /* libxml2.tbd */; };
 		286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A41DCAB7230089BEA6 /* TFHpple.m */; };
@@ -55,8 +54,6 @@
 		2868167B1DCAB3D20089BEA6 /* DA_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DA_MobileTests.m; sourceTree = "<group>"; };
 		2868167D1DCAB3D20089BEA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DA MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		286816861DCAB3D20089BEA6 /* DA_MobileUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DA_MobileUITests.m; sourceTree = "<group>"; };
-		286816881DCAB3D20089BEA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		286816A11DCAB4770089BEA6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		286816A31DCAB7230089BEA6 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 			children = (
 				286816601DCAB3D20089BEA6 /* DA Mobile */,
 				2868167A1DCAB3D20089BEA6 /* DA MobileTests */,
-				286816851DCAB3D20089BEA6 /* DA MobileUITests */,
 				2868165F1DCAB3D20089BEA6 /* Products */,
 				2868169E1DCAB4600089BEA6 /* Frameworks */,
 			);
@@ -120,15 +116,9 @@
 		286816601DCAB3D20089BEA6 /* DA Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				286816AE1DCAB94B0089BEA6 /* TFHpple */,
-				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
-				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
-				286816671DCAB3D20089BEA6 /* ViewController.h */,
-				286816681DCAB3D20089BEA6 /* ViewController.m */,
 				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
-				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
-				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
-				286816721DCAB3D20089BEA6 /* Info.plist */,
+				2879F6C01DCB5CA200DAEE52 /* ViewController */,
+				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				286816611DCAB3D20089BEA6 /* Supporting Files */,
 			);
 			path = "DA Mobile";
@@ -137,6 +127,11 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
+				286816721DCAB3D20089BEA6 /* Info.plist */,
+				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
+				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
+				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
 				286816621DCAB3D20089BEA6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,15 +144,6 @@
 				2868167D1DCAB3D20089BEA6 /* Info.plist */,
 			);
 			path = "DA MobileTests";
-			sourceTree = "<group>";
-		};
-		286816851DCAB3D20089BEA6 /* DA MobileUITests */ = {
-			isa = PBXGroup;
-			children = (
-				286816861DCAB3D20089BEA6 /* DA_MobileUITests.m */,
-				286816881DCAB3D20089BEA6 /* Info.plist */,
-			);
-			path = "DA MobileUITests";
 			sourceTree = "<group>";
 		};
 		2868169E1DCAB4600089BEA6 /* Frameworks */ = {
@@ -181,6 +167,15 @@
 				286816A81DCAB7230089BEA6 /* XPathQuery.m */,
 			);
 			name = TFHpple;
+			sourceTree = "<group>";
+		};
+		2879F6C01DCB5CA200DAEE52 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				286816671DCAB3D20089BEA6 /* ViewController.h */,
+				286816681DCAB3D20089BEA6 /* ViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286816871DCAB3D20089BEA6 /* DA_MobileUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +471,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-Mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -491,6 +486,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-Mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
