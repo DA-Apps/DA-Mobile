@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="htk-Lc-Lxr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,10 +19,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k10-pW-1ix">
+                                <rect key="frame" x="5" y="67" width="120" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-x9-jhX">
+                                        <rect key="frame" x="8" y="8" width="85" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NKq-wv-kHC"/>
+                                    <constraint firstAttribute="width" constant="120" id="ynT-JS-pGm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0H-b8-UGl">
+                                <rect key="frame" x="230" y="67" width="140" height="200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="WTj-UO-081">
+                                        <rect key="frame" x="28" y="19" width="83" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.68235294117647061" green="0.84705882352941175" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="9BJ-w3-wna"/>
+                                    <constraint firstAttribute="height" constant="200" id="DZb-Y9-mpK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                        <constraints>
+                            <constraint firstItem="X0H-b8-UGl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="C7D-tb-aKW"/>
+                            <constraint firstItem="k10-pW-1ix" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="GQX-cy-n9I"/>
+                            <constraint firstAttribute="trailing" secondItem="X0H-b8-UGl" secondAttribute="trailing" constant="5" id="kd3-0s-LrA"/>
+                            <constraint firstItem="k10-pW-1ix" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="r2d-HC-z01"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bulletin" id="OgH-ys-nN6">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="zvR-mf-RxJ">
+                        <barButtonItem key="leftBarButtonItem" id="zvR-mf-RxJ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4nG-bp-x0V">
                                 <rect key="frame" x="16" y="8" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -30,35 +69,23 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuView" destination="k10-pW-1ix" id="veY-nv-taZ"/>
+                        <outlet property="menuWidth" destination="ynT-JS-pGm" id="EA2-mw-HlO"/>
+                        <outlet property="weatherView" destination="X0H-b8-UGl" id="6wz-Vi-TQg"/>
+                        <outlet property="weatherWidth" destination="9BJ-w3-wna" id="GjF-o3-DvR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1079.2" y="104.7976011994003"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="NKP-b5-MEf">
-            <objects>
-                <viewController id="htk-Lc-Lxr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yZo-eH-9E9"/>
-                        <viewControllerLayoutGuide type="bottom" id="pdu-kS-IZ3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HlB-Nq-Bp8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2oB-Sz-hUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1058" y="803"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kzb-QH-oLX">
             <objects>
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="dvx-zK-3gT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="upC-Z6-cSs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="upC-Z6-cSs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -79,6 +106,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cloudy" width="746" height="550"/>
         <image name="menu.png" width="100" height="100"/>
     </resources>
 </document>

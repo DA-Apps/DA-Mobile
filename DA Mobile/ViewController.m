@@ -16,6 +16,25 @@
 
 @implementation ViewController
 
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return nil;
+}
+
+
+-(void)setShadowforView:(UIView *)view{
+    
+    view.layer.cornerRadius = 15;
+    view.layer.shadowRadius = 2.0f;
+    view.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    view.layer.shadowOffset = CGSizeMake(-1.0f, 3.0f);
+    view.layer.shadowOpacity = 0.8f;
+    view.layer.masksToBounds = NO;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -54,6 +73,12 @@
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menu"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    [self setShadowforView:self.menuView];
+    [self setShadowforView:self.weatherView];
+    
+    self.menuWidth.constant = self.view.frame.size.width / 2 - 8;
+    self.weatherWidth.constant = self.view.frame.size.width / 2 - 8;
 }
 
 - (void)didReceiveMemoryWarning {

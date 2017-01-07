@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UIView *weatherView;
+@property (weak, nonatomic) IBOutlet UICollectionView *postsView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuWidth;
 
 @end
 
