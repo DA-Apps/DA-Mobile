@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3501E20A2580074FE55 /* SWRevealViewController.m */; };
+		2811A3601E20A2A40074FE55 /* CustomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3541E20A2A40074FE55 /* CustomAnimationController.m */; };
+		2811A3611E20A2A40074FE55 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3571E20A2A40074FE55 /* RearViewController.m */; };
+		2811A3621E20A2A40074FE55 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2811A3591E20A2A40074FE55 /* RearViewController.xib */; };
+		2811A3631E20A2A40074FE55 /* FrontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A35C1E20A2A40074FE55 /* FrontViewController.m */; };
+		2811A3641E20A2A40074FE55 /* FrontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2811A35E1E20A2A40074FE55 /* FrontViewController.xib */; };
+		2811A3661E20A4140074FE55 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2811A3651E20A4140074FE55 /* menu.png */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
 		286816691DCAB3D20089BEA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816681DCAB3D20089BEA6 /* ViewController.m */; };
@@ -40,6 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2811A34F1E20A2580074FE55 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		2811A3501E20A2580074FE55 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		2811A3531E20A2A40074FE55 /* CustomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimationController.h; sourceTree = "<group>"; };
+		2811A3541E20A2A40074FE55 /* CustomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimationController.m; sourceTree = "<group>"; };
+		2811A3561E20A2A40074FE55 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
+		2811A3571E20A2A40074FE55 /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RearViewController.m; sourceTree = "<group>"; };
+		2811A3581E20A2A40074FE55 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RearViewController.xib; sourceTree = "<group>"; };
+		2811A35B1E20A2A40074FE55 /* FrontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontViewController.h; sourceTree = "<group>"; };
+		2811A35C1E20A2A40074FE55 /* FrontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontViewController.m; sourceTree = "<group>"; };
+		2811A35D1E20A2A40074FE55 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FrontViewController.xib; sourceTree = "<group>"; };
+		2811A3651E20A4140074FE55 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		286816621DCAB3D20089BEA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		286816641DCAB3D20089BEA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +111,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2811A3521E20A2640074FE55 /* SMRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2811A34F1E20A2580074FE55 /* SWRevealViewController.h */,
+				2811A3501E20A2580074FE55 /* SWRevealViewController.m */,
+			);
+			name = SMRevealViewController;
+			sourceTree = "<group>";
+		};
+		2811A3551E20A2A40074FE55 /* Animation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2811A3531E20A2A40074FE55 /* CustomAnimationController.h */,
+				2811A3541E20A2A40074FE55 /* CustomAnimationController.m */,
+			);
+			name = "Animation Controllers";
+			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
+			sourceTree = "<group>";
+		};
+		2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */ = {
+			isa = PBXGroup;
+			children = (
+				2811A3561E20A2A40074FE55 /* RearViewController.h */,
+				2811A3571E20A2A40074FE55 /* RearViewController.m */,
+				2811A3591E20A2A40074FE55 /* RearViewController.xib */,
+			);
+			name = "RearViewController (Rear)";
+			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
+			sourceTree = "<group>";
+		};
+		2811A35F1E20A2A40074FE55 /* FrontViewController (Front) */ = {
+			isa = PBXGroup;
+			children = (
+				2811A35B1E20A2A40074FE55 /* FrontViewController.h */,
+				2811A35C1E20A2A40074FE55 /* FrontViewController.m */,
+				2811A35E1E20A2A40074FE55 /* FrontViewController.xib */,
+			);
+			name = "FrontViewController (Front)";
+			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
+			sourceTree = "<group>";
+		};
 		286816551DCAB3D10089BEA6 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +176,10 @@
 			isa = PBXGroup;
 			children = (
 				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
+				2811A3551E20A2A40074FE55 /* Animation Controllers */,
+				2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */,
+				2811A35F1E20A2A40074FE55 /* FrontViewController (Front) */,
+				2811A3521E20A2640074FE55 /* SMRevealViewController */,
 				2879F6C01DCB5CA200DAEE52 /* ViewController */,
 				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				286816611DCAB3D20089BEA6 /* Supporting Files */,
@@ -127,6 +190,7 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2811A3651E20A4140074FE55 /* menu.png */,
 				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
@@ -287,7 +351,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2811A3621E20A2A40074FE55 /* RearViewController.xib in Resources */,
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
+				2811A3661E20A4140074FE55 /* menu.png in Resources */,
+				2811A3641E20A2A40074FE55 /* FrontViewController.xib in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 			);
@@ -314,10 +381,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */,
 				286816691DCAB3D20089BEA6 /* ViewController.m in Sources */,
 				286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */,
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
+				2811A3631E20A2A40074FE55 /* FrontViewController.m in Sources */,
+				2811A3611E20A2A40074FE55 /* RearViewController.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
+				2811A3601E20A2A40074FE55 /* CustomAnimationController.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 			);
@@ -354,6 +425,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2811A3591E20A2A40074FE55 /* RearViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2811A3581E20A2A40074FE55 /* en */,
+			);
+			name = RearViewController.xib;
+			sourceTree = "<group>";
+		};
+		2811A35E1E20A2A40074FE55 /* FrontViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2811A35D1E20A2A40074FE55 /* en */,
+			);
+			name = FrontViewController.xib;
+			sourceTree = "<group>";
+		};
 		2868166A1DCAB3D20089BEA6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

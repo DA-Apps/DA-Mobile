@@ -8,12 +8,15 @@
 
 #import "ViewController.h"
 #import "TFHpple.h"
+#import "SWRevealViewController.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +44,13 @@
     
     NSLog(@"%@", objects);
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.title = NSLocalizedString(@"Front View", nil);
+    
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    [revealController panGestureRecognizer];
+    [revealController tapGestureRecognizer];
 }
 
 
@@ -49,5 +59,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Example Code
+
+- (IBAction)pushExample:(id)sender
+{
+    UIViewController *stubController = [[UIViewController alloc] init];
+    stubController.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:stubController animated:YES];
+}
 
 @end
