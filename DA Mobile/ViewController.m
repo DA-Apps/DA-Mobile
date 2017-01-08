@@ -24,6 +24,32 @@
     return nil;
 }
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid" forIndexPath:indexPath];
+    cell.textLabel.text = [self.foods objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    return cell;
+    
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.foods.count;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+    
+}
+
 
 -(void)setShadowforView:(UIView *)view{
     
@@ -34,8 +60,6 @@
     view.layer.shadowOpacity = 0.8f;
     view.layer.masksToBounds = NO;
 }
-
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,7 +85,8 @@
         [objects addObject:[[element firstChild] content]];
     }
     
-    NSLog(@"%@", objects);
+    self.foods = objects;
+    [self.table reloadData];
     // Do any additional setup after loading the view, typically from a nib.
     
     
@@ -74,11 +99,14 @@
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
+    
     [self setShadowforView:self.menuView];
     [self setShadowforView:self.weatherView];
+    [self setShadowforView:self.table];
     
     self.menuWidth.constant = self.view.frame.size.width / 2 - 8;
     self.weatherWidth.constant = self.view.frame.size.width / 2 - 8;
+    
 }
 
 - (void)didReceiveMemoryWarning {
