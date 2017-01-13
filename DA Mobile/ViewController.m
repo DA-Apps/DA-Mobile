@@ -48,20 +48,29 @@
         return self.weathers.count;
     }
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 
+#pragma mark - CollectionView Delegate
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    
+    UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
+    NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
+    cell.title.text = [dic objectForKey:@"title"];
+    cell.summery.text = [dic objectForKey:@"summery"];
+    cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+    return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return nil;
+    return self.posts.count;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
 
 #pragma mark - Private
@@ -123,13 +132,19 @@
         //search for title of post
         NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
         NSString *title = [(TFHppleElement *)[titles firstObject] text];
+        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        title = [title stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         
         //search for summery of post
         NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
         NSString *summery = [(TFHppleElement *)[summeries firstObject] text];
+        summery = [summery stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         
         //retreive timestamp
         NSString *timeStamp = [[[element firstChildWithTagName:@"div"] firstChildWithClassName:@"summary-meta"] text];
+        timeStamp = [timeStamp stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        timeStamp = [timeStamp stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         
         //construct the dic
         NSDictionary *dic = @{@"timestamp": timeStamp,
@@ -151,6 +166,8 @@
     [self setShadowforView:self.weatherView masksToBounds:NO];
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
+    [self setShadowforView:self.postsBackground masksToBounds:NO];
+    //[self setShadowforView:self.postsView masksToBounds:YES];
 }
 
 -(CLLocationCoordinate2D) getLocation{
@@ -230,7 +247,11 @@
     
     TFHpple *data = [self retrieveData];
     [self parseMenuData:data];
-    [self getPostsData:data];
+    self.posts = [self getPostsData:data];
+    
+    self.postsView.dataSource = self;
+    self.postsView.delegate = self;
+    [self.postsView reloadData];
     
     [super viewDidLoad];
 }

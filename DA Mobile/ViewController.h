@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YQL.h"
 #import <CoreLocation/CoreLocation.h>
+#import "UICollectionViewCellPosts.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
+@property (weak, nonatomic) IBOutlet UIImageView *postsBackground;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuWidth;
 
