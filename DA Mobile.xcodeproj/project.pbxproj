@@ -23,6 +23,9 @@
 		286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A61DCAB7230089BEA6 /* TFHppleElement.m */; };
 		286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A81DCAB7230089BEA6 /* XPathQuery.m */; };
 		286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */; };
+		28ACA04E1E228A6D0092075E /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ACA04D1E228A6D0092075E /* YQL.m */; };
+		28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0501E228A890092075E /* CoreLocation.framework */; };
+		28ACA0531E2290220092075E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0521E2290220092075E /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,10 @@
 		286816A71DCAB7230089BEA6 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		286816A81DCAB7230089BEA6 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		28ACA04C1E228A6D0092075E /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQL.h; sourceTree = "<group>"; };
+		28ACA04D1E228A6D0092075E /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
+		28ACA0501E228A890092075E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		28ACA0521E2290220092075E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */,
 				286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */,
+				28ACA0531E2290220092075E /* MapKit.framework in Frameworks */,
 				286816A21DCAB4770089BEA6 /* libxml2.tbd in Frameworks */,
 				286816A01DCAB4610089BEA6 /* libxml2.2.tbd in Frameworks */,
 			);
@@ -154,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
+				28ACA04F1E228A710092075E /* Weather API */,
 				2811A3551E20A2A40074FE55 /* Animation Controllers */,
 				2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */,
 				2811A3521E20A2640074FE55 /* SMRevealViewController */,
@@ -180,6 +190,8 @@
 		2868169E1DCAB4600089BEA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28ACA0521E2290220092075E /* MapKit.framework */,
+				28ACA0501E228A890092075E /* CoreLocation.framework */,
 				286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */,
 				286816A11DCAB4770089BEA6 /* libxml2.tbd */,
 				2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */,
@@ -207,6 +219,15 @@
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		28ACA04F1E228A710092075E /* Weather API */ = {
+			isa = PBXGroup;
+			children = (
+				28ACA04C1E228A6D0092075E /* YQL.h */,
+				28ACA04D1E228A6D0092075E /* YQL.m */,
+			);
+			name = "Weather API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +299,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8NZ8K5GNH8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					286816761DCAB3D20089BEA6 = {
 						CreatedOnToolsVersion = 8.1;
@@ -352,6 +378,7 @@
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
 				281070341E215CF90031648E /* RearViewController.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
+				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 				281070311E215CB30031648E /* CustomAnimationController.m in Sources */,
