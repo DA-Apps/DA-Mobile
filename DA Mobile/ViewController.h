@@ -12,7 +12,10 @@
 
 @property (strong, nonatomic) NSMutableArray *foods;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> NeilNie/master
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
