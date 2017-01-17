@@ -55,6 +55,11 @@
 
 #pragma mark - CollectionView Delegate
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    return CGSizeMake(self.view.frame.size.width - 10, 200);
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
@@ -62,6 +67,7 @@
     cell.title.text = [dic objectForKey:@"title"];
     cell.summery.text = [dic objectForKey:@"summery"];
     cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+    [self setShadowforView:cell masksToBounds:NO];
     return cell;
 }
 
@@ -167,7 +173,6 @@
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.postsBackground masksToBounds:NO];
-    //[self setShadowforView:self.postsView masksToBounds:YES];
 }
 
 -(CLLocationCoordinate2D) getLocation{
@@ -209,17 +214,22 @@
 -(void)getForcast{
     
     self.weathers = [self queryWeatherAPI];
+
     if (self.weathers) {
         self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
         [self.weathers removeLastObject];
-        [self.weatherTable reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.weatherTable reloadData];
+        });
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getForcast];
         }];
         [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alert animated:YES completion:nil];
+        });
     }
 }
 
@@ -235,22 +245,19 @@
     self.navigationItem.leftBarButtonItem = revealButtonItem;
     
     [self setupShadows];
-    self.menuWidth.constant = self.view.frame.size.width / 2 - 8;
-    self.weatherWidth.constant = self.view.frame.size.width / 2 - 8;
+    self.menuWidth.constant = self.view.frame.size.width / 2 + 10;
+    self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
     
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
         [self.locationManager requestWhenInUseAuthorization];
+    }else{
+        [self getForcast];
     }
-    
-    [self getForcast];
     
     TFHpple *data = [self retrieveData];
     [self parseMenuData:data];
     self.posts = [self getPostsData:data];
-    
-    self.postsView.dataSource = self;
-    self.postsView.delegate = self;
     [self.postsView reloadData];
     
     [super viewDidLoad];
