@@ -11,6 +11,10 @@
 		281070341E215CF90031648E /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070331E215CF90031648E /* RearViewController.m */; };
 		281070361E215D140031648E /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281070351E215D140031648E /* RearViewController.xib */; };
 		2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3501E20A2580074FE55 /* SWRevealViewController.m */; };
+		284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */; };
+		284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */; };
+		284A4DC51E290324004F5226 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DC31E290324004F5226 /* background.png */; };
+		284A4DC61E290324004F5226 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DC41E290324004F5226 /* background2.png */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
 		286816691DCAB3D20089BEA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816681DCAB3D20089BEA6 /* ViewController.m */; };
@@ -23,6 +27,9 @@
 		286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A61DCAB7230089BEA6 /* TFHppleElement.m */; };
 		286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A81DCAB7230089BEA6 /* XPathQuery.m */; };
 		286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */; };
+		28ACA04E1E228A6D0092075E /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ACA04D1E228A6D0092075E /* YQL.m */; };
+		28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0501E228A890092075E /* CoreLocation.framework */; };
+		28ACA0531E2290220092075E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0521E2290220092075E /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,11 @@
 		281070351E215D140031648E /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RearViewController.xib; path = "DA Mobile/RearViewController.xib"; sourceTree = SOURCE_ROOT; };
 		2811A34F1E20A2580074FE55 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2811A3501E20A2580074FE55 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewCellPosts.h; path = ../UICollectionViewCellPosts.h; sourceTree = "<group>"; };
+		284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewCellPosts.m; path = ../UICollectionViewCellPosts.m; sourceTree = "<group>"; };
+		284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UICollectionViewCellPosts.xib; path = ../UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
+		284A4DC31E290324004F5226 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		284A4DC41E290324004F5226 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		286816621DCAB3D20089BEA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		286816641DCAB3D20089BEA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +83,10 @@
 		286816A71DCAB7230089BEA6 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		286816A81DCAB7230089BEA6 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		28ACA04C1E228A6D0092075E /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQL.h; sourceTree = "<group>"; };
+		28ACA04D1E228A6D0092075E /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
+		28ACA0501E228A890092075E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		28ACA0521E2290220092075E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */,
 				286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */,
+				28ACA0531E2290220092075E /* MapKit.framework in Frameworks */,
 				286816A21DCAB4770089BEA6 /* libxml2.tbd in Frameworks */,
 				286816A01DCAB4610089BEA6 /* libxml2.2.tbd in Frameworks */,
 			);
@@ -131,6 +149,25 @@
 			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
 			sourceTree = "<group>";
 		};
+		284A4DC11E2900C9004F5226 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */,
+				284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		284A4DC21E2900D9004F5226 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
+				284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */,
+				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
 		286816551DCAB3D10089BEA6 = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +190,14 @@
 		286816601DCAB3D20089BEA6 /* DA Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
+				284A4DC21E2900D9004F5226 /* Nibs */,
+				286816AE1DCAB94B0089BEA6 /* TFHpple */,
+				28ACA04F1E228A710092075E /* Weather API */,
+				284A4DC11E2900C9004F5226 /* Views */,
 				2811A3551E20A2A40074FE55 /* Animation Controllers */,
 				2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */,
 				2811A3521E20A2640074FE55 /* SMRevealViewController */,
 				2879F6C01DCB5CA200DAEE52 /* ViewController */,
-				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				286816611DCAB3D20089BEA6 /* Supporting Files */,
 			);
 			path = "DA Mobile";
@@ -167,7 +206,8 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
+				284A4DC31E290324004F5226 /* background.png */,
+				284A4DC41E290324004F5226 /* background2.png */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
 				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
@@ -180,6 +220,8 @@
 		2868169E1DCAB4600089BEA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28ACA0521E2290220092075E /* MapKit.framework */,
+				28ACA0501E228A890092075E /* CoreLocation.framework */,
 				286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */,
 				286816A11DCAB4770089BEA6 /* libxml2.tbd */,
 				2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */,
@@ -207,6 +249,15 @@
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		28ACA04F1E228A710092075E /* Weather API */ = {
+			isa = PBXGroup;
+			children = (
+				28ACA04C1E228A6D0092075E /* YQL.h */,
+				28ACA04D1E228A6D0092075E /* YQL.m */,
+			);
+			name = "Weather API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +329,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8NZ8K5GNH8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					286816761DCAB3D20089BEA6 = {
 						CreatedOnToolsVersion = 8.1;
@@ -318,9 +374,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */,
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
+				284A4DC61E290324004F5226 /* background2.png in Resources */,
 				281070361E215D140031648E /* RearViewController.xib in Resources */,
+				284A4DC51E290324004F5226 /* background.png in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,8 +411,10 @@
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
 				281070341E215CF90031648E /* RearViewController.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
+				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
+				284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */,
 				281070311E215CB30031648E /* CustomAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
