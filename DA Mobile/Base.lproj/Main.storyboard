@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,32 +23,59 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k10-pW-1ix">
                                 <rect key="frame" x="5" y="67" width="120" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-x9-jhX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8i-x9-jhX">
                                         <rect key="frame" x="8" y="8" width="85" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-s7-8dj">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" id="ejL-aI-Gxy">
+                                                <rect key="frame" x="0.0" y="28" width="120" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ejL-aI-Gxy" id="d4H-vg-seI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="cih-ll-RuP"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="7Zj-bd-1M9"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eDF-s7-8dj" secondAttribute="trailing" id="9pg-Is-9Cq"/>
+                                    <constraint firstItem="eDF-s7-8dj" firstAttribute="leading" secondItem="k10-pW-1ix" secondAttribute="leading" id="J9D-ap-Dpa"/>
                                     <constraint firstAttribute="height" constant="200" id="NKq-wv-kHC"/>
+                                    <constraint firstAttribute="bottom" secondItem="eDF-s7-8dj" secondAttribute="bottom" id="Q65-Cc-llU"/>
+                                    <constraint firstItem="eDF-s7-8dj" firstAttribute="top" secondItem="k10-pW-1ix" secondAttribute="top" id="a3G-C9-eKo"/>
                                     <constraint firstAttribute="width" constant="120" id="ynT-JS-pGm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0H-b8-UGl">
                                 <rect key="frame" x="230" y="67" width="140" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="WTj-UO-081">
-                                        <rect key="frame" x="28" y="19" width="83" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="WTj-UO-081">
+                                        <rect key="frame" x="27" y="20" width="86" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="boL-0b-1je"/>
+                                            <constraint firstAttribute="width" constant="86" id="oMK-OH-tnm"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.68235294117647061" green="0.84705882352941175" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="WTj-UO-081" firstAttribute="centerX" secondItem="X0H-b8-UGl" secondAttribute="centerX" id="2ft-IE-GDD"/>
                                     <constraint firstAttribute="width" constant="140" id="9BJ-w3-wna"/>
                                     <constraint firstAttribute="height" constant="200" id="DZb-Y9-mpK"/>
+                                    <constraint firstItem="WTj-UO-081" firstAttribute="top" secondItem="X0H-b8-UGl" secondAttribute="top" constant="20" id="xfs-5d-Msj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -72,6 +99,7 @@
                     <connections>
                         <outlet property="menuView" destination="k10-pW-1ix" id="veY-nv-taZ"/>
                         <outlet property="menuWidth" destination="ynT-JS-pGm" id="EA2-mw-HlO"/>
+                        <outlet property="table" destination="eDF-s7-8dj" id="phl-B0-Tae"/>
                         <outlet property="weatherView" destination="X0H-b8-UGl" id="6wz-Vi-TQg"/>
                         <outlet property="weatherWidth" destination="9BJ-w3-wna" id="GjF-o3-DvR"/>
                     </connections>
