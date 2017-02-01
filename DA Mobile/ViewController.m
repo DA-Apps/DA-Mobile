@@ -56,7 +56,7 @@
 #pragma mark - CollectionView Delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     return CGSizeMake(self.view.frame.size.width - 10, 200);
 }
 
@@ -110,7 +110,7 @@
 -(void)parseMenuData:(TFHpple *)parser{
     
     // 3
-    NSString *tutorialsXpathQueryString = @"//li[@class='dh-dish-name']";
+    NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
     NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
     
     // 4
@@ -130,7 +130,7 @@
     
     NSMutableArray *objects = [[NSMutableArray alloc] init];
     for (TFHppleElement *element in tutorialsNodes) {
-    
+        
         //get image src
         NSArray *imgs = [element searchWithXPathQuery:@"//img[@class='attachment-post-thumbnail size-post-thumbnail wp-post-image']"];
         NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"src"];
@@ -153,10 +153,14 @@
         timeStamp = [timeStamp stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         
         //construct the dic
-        NSDictionary *dic = @{@"timestamp": timeStamp,
-                              @"img_src": imgSrc,
-                              @"title": title,
-                              @"summery": summery};
+        NSDictionary *dic;
+        if (timeStamp && imgSrc && title && summery && timeStamp
+            && [timeStamp isKindOfClass:[NSString class]] && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && [imgSrc isKindOfClass:[NSString class]]) {
+            dic = @{@"timestamp": timeStamp,
+                    @"img_src": imgSrc,
+                    @"title": title,
+                    @"summery": summery};
+        }
         
         if (objects.count > 5)
             break;
@@ -214,7 +218,7 @@
 -(void)getForcast{
     
     self.weathers = [self queryWeatherAPI];
-
+    
     if (self.weathers) {
         self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
         [self.weathers removeLastObject];

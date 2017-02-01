@@ -27,7 +27,7 @@
 */
 
 #import "RearViewController.h"
-
+#import "AtheleticsViewController.h"
 #import "SWRevealViewController.h"
 #import "ViewController.h"
 
@@ -127,20 +127,21 @@
 
     // otherwise we'll create a new frontViewController and push it with animation
 
-    UIViewController *newFrontController = nil;
+    UINavigationController *newFrontController = nil;
 
     if (row == 0)
     {
+        
         //newFrontController = [[FrontViewController alloc] init];
     }
     
-    else if (row == 1)
-    {
-        //newFrontController = [[MapViewController alloc] init];
+    else if (row == 1){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"athletics"];
     }
 
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-    [revealController pushFrontViewController:navigationController animated:YES];
+    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
+    [revealController pushFrontViewController:newFrontController animated:YES];
     
     _presentedRow = row;  // <- store the presented row
 }
