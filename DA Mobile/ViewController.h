@@ -10,6 +10,7 @@
 #import "YQL.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UICollectionViewCellPosts.h"
+#import "DetailViewController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
