@@ -11,6 +11,7 @@
 		281070341E215CF90031648E /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070331E215CF90031648E /* RearViewController.m */; };
 		281070361E215D140031648E /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281070351E215D140031648E /* RearViewController.xib */; };
 		2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3501E20A2580074FE55 /* SWRevealViewController.m */; };
+		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
 		284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */; };
 		284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */; };
 		284A4DC51E290324004F5226 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DC31E290324004F5226 /* background.png */; };
@@ -58,6 +59,8 @@
 		281070351E215D140031648E /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RearViewController.xib; path = "DA Mobile/RearViewController.xib"; sourceTree = SOURCE_ROOT; };
 		2811A34F1E20A2580074FE55 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2811A3501E20A2580074FE55 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		2841DB3F1E567B2A007A1B2E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		2841DB401E567B2A007A1B2E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewCellPosts.h; path = ../UICollectionViewCellPosts.h; sourceTree = "<group>"; };
 		284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewCellPosts.m; path = ../UICollectionViewCellPosts.m; sourceTree = "<group>"; };
 		284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UICollectionViewCellPosts.xib; path = ../UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 			children = (
 				286816671DCAB3D20089BEA6 /* ViewController.h */,
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
+				2841DB3F1E567B2A007A1B2E /* DetailViewController.h */,
+				2841DB401E567B2A007A1B2E /* DetailViewController.m */,
 				28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */,
 				28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */,
 			);
@@ -419,6 +424,7 @@
 				28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */,
 				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
+				2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 				284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */,
 				281070311E215CB30031648E /* CustomAnimationController.m in Sources */,

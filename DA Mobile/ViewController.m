@@ -16,7 +16,38 @@
 
 @implementation ViewController
 
+#pragma mark - Location Manager
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.weathers == nil) {
+        [self getForcast];
+    }
+}
+
+-(CLLocationCoordinate2D) getLocation{
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    [self.locationManager startUpdatingLocation];
+    CLLocation *location = [self.locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    return coordinate;
+}
+
+
 #pragma mark - UITableView Delegate
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    if ([tableView isEqual:self.table])
+        return @"upcoming meal";
+    else
+        return @"forecast";
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -42,11 +73,10 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([tableView isEqual:self.table]) {
+    if ([tableView isEqual:self.table])
         return self.foods.count;
-    }else{
+    else
         return self.weathers.count;
-    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,14 +139,11 @@
 
 -(void)parseMenuData:(TFHpple *)parser{
     
-    // 3
     NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
     NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
     
-    // 4
     NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
     for (TFHppleElement *element in tutorialsNodes) {
-        
         [objects addObject:[[element firstChild] content]];
     }
     
@@ -155,18 +182,16 @@
         //construct the dic
         NSDictionary *dic;
         if (timeStamp && imgSrc && title && summery && timeStamp
-            && [timeStamp isKindOfClass:[NSString class]] && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && [imgSrc isKindOfClass:[NSString class]]) {
+            && [timeStamp isKindOfClass:[NSString class]] && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && [imgSrc isKindOfClass:[NSString class]])
             dic = @{@"timestamp": timeStamp,
                     @"img_src": imgSrc,
                     @"title": title,
                     @"summery": summery};
-        }
         
         if (objects.count > 5)
             break;
-        else
+        else if (dic)
             [objects addObject:dic];
-        
     }
     return objects;
 }
@@ -177,20 +202,6 @@
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.postsBackground masksToBounds:NO];
-}
-
--(CLLocationCoordinate2D) getLocation{
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager requestWhenInUseAuthorization];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    [self.locationManager startUpdatingLocation];
-    CLLocation *location = [self.locationManager location];
-    CLLocationCoordinate2D coordinate = [location coordinate];
-    
-    return coordinate;
 }
 
 -(NSMutableArray *)queryWeatherAPI{
@@ -253,11 +264,10 @@
     self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
     
     self.locationManager = [[CLLocationManager alloc] init];
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
         [self.locationManager requestWhenInUseAuthorization];
-    }else{
+    else
         [self getForcast];
-    }
     
     TFHpple *data = [self retrieveData];
     [self parseMenuData:data];
@@ -270,6 +280,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
+        DetailViewController *vc = [segue destinationViewController];
+        NSDictionary *dic = [self.posts objectAtIndex:[self.table indexPathForSelectedRow].row];
+        vc.contentImage = [dic objectForKey:@"summery"];
+        vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+    }
 }
 
 @end
