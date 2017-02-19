@@ -77,11 +77,11 @@
     NSString *text = nil;
     if (row == 0)
     {
-        text = @"Front View Controller";
+        text = @"Home";
     }
     else if (row == 1)
     {
-        text = @"Map View Controller";
+        text = @"DAinfo";
     }
     else if (row == 2)
     {
@@ -131,13 +131,13 @@
 
     if (row == 0)
     {
-        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
         //newFrontController = [[FrontViewController alloc] init];
     }
     
     else if (row == 1){
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"athletics"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu/dainfo/index.cfm"]];
     }
 
     //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
