@@ -1,6 +1,6 @@
 
 /*
-
+ 
  Copyright (c) 2013 Joan Lluch <joan.lluch@sweetwilliamsl.com>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,7 @@
  Original code:
  Copyright (c) 2011, Philip Kluz (Philip.Kluz@zuui.org)
  
-*/
+ */
 
 #import "RearViewController.h"
 #import "AtheleticsViewController.h"
@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
     self.title = NSLocalizedString(@"Rear View", nil);
 }
 
@@ -68,12 +68,12 @@
     static NSString *cellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     NSInteger row = indexPath.row;
-
+    
     if (nil == cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
-	
+    
     NSString *text = nil;
     if (row == 0)
     {
@@ -85,15 +85,15 @@
     }
     else if (row == 2)
     {
-        text = @"Enter Presentation Mode";
+        text = @"Email";
     }
     else if (row == 3)
     {
-        text = @"Resign Presentation Mode";
+        text = @"Canvas";
     }
-
+    
     cell.textLabel.text = NSLocalizedString( text,nil );
-	
+    
     return cell;
 }
 
@@ -114,21 +114,11 @@
         [revealController setFrontViewPosition:FrontViewPositionLeft animated:YES];
         return;
     }
-    else if (row == 2)
-    {
-        [revealController setFrontViewPosition:FrontViewPositionRightMost animated:YES];
-        return;
-    }
-    else if (row == 3)
-    {
-        [revealController setFrontViewPosition:FrontViewPositionRight animated:YES];
-        return;
-    }
-
+    
     // otherwise we'll create a new frontViewController and push it with animation
-
+    
     UINavigationController *newFrontController = nil;
-
+    
     if (row == 0)
     {
         
@@ -139,11 +129,19 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"athletics"];
     }
-
+    
+    else if (row == 2){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://mail.deerfield.edu/owa/"]];
+    }
+    else if (row == 3){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.instructure.com/"]];
+    }
+    
     //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
     [revealController pushFrontViewController:newFrontController animated:YES];
     
     _presentedRow = row;  // <- store the presented row
+    
 }
 
 @end
