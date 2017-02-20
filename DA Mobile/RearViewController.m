@@ -121,13 +121,17 @@
     
     if (row == 0)
     {
-        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
         //newFrontController = [[FrontViewController alloc] init];
     }
-    
     else if (row == 1){
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"athletics"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu/"]];
+        
+    }else if (row == 2){
+        
+    }else if (row == 3){
+        
     }
     
     else if (row == 2){
