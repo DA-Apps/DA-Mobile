@@ -14,7 +14,6 @@
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
 		284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */; };
 		284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */; };
-		284A4DC51E290324004F5226 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DC31E290324004F5226 /* background.png */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
 		286816691DCAB3D20089BEA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816681DCAB3D20089BEA6 /* ViewController.m */; };
@@ -63,7 +62,6 @@
 		284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewCellPosts.h; path = ../UICollectionViewCellPosts.h; sourceTree = "<group>"; };
 		284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewCellPosts.m; path = ../UICollectionViewCellPosts.m; sourceTree = "<group>"; };
 		284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UICollectionViewCellPosts.xib; path = ../UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
-		284A4DC31E290324004F5226 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		286816621DCAB3D20089BEA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		286816641DCAB3D20089BEA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				284A4DC31E290324004F5226 /* background.png */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
 				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
@@ -385,7 +382,6 @@
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
 				281070361E215D140031648E /* RearViewController.xib in Resources */,
-				284A4DC51E290324004F5226 /* background.png in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

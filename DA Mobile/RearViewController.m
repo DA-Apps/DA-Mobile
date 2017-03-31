@@ -77,11 +77,11 @@
     NSString *text = nil;
     if (row == 0)
     {
-        text = @"Front View Controller";
+        text = @"Home";
     }
     else if (row == 1)
     {
-        text = @"Map View Controller";
+        text = @"DAInfo";
     }
     else if (row == 2)
     {
@@ -128,12 +128,7 @@
     else if (row == 1){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu/"]];
         
-    }else if (row == 2){
-        
-    }else if (row == 3){
-        
     }
-    
     else if (row == 2){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://mail.deerfield.edu/owa/"]];
     }
