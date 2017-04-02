@@ -14,11 +14,22 @@
 
 @implementation DetailViewController
 
+-(void)setShadowforView:(UIView *)view masksToBounds:(BOOL)masksToBounds{
+    
+    view.layer.cornerRadius = 15;
+    view.layer.shadowRadius = 2.0f;
+    view.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    view.layer.shadowOffset = CGSizeMake(-1.0f, 3.0f);
+    view.layer.shadowOpacity = 0.8f;
+    view.layer.masksToBounds = masksToBounds;
+}
+
 - (void)viewDidLoad {
     
     self.contentView.text = self.contentString;
     self.imageView.image = self.contentImage;
     self.titleLabel.text = self.titleString;
+    [self setShadowforView:self.contentView masksToBounds:NO];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
