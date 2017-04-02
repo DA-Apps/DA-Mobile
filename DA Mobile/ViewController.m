@@ -286,6 +286,15 @@
     }
 }
 
+-(void)syncExtension{
+    
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    
+    [sharedDefaults setObject:self.foods forKey:@"menuData"];
+    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+    [sharedDefaults synchronize];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -311,6 +320,8 @@
     [self parseMenuData:data];
     self.posts = [self getPostsData:data];
     [self.postsView reloadData];
+    
+    [self syncExtension];
     
     [super viewDidLoad];
 }

@@ -30,6 +30,13 @@
 		28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0501E228A890092075E /* CoreLocation.framework */; };
 		28ACA0531E2290220092075E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0521E2290220092075E /* MapKit.framework */; };
 		28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */; };
+		28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B84EAE1E9018560041BD5D /* NotificationCenter.framework */; };
+		28B84EB31E9018560041BD5D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B84EB21E9018560041BD5D /* TodayViewController.m */; };
+		28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EB41E9018560041BD5D /* MainInterface.storyboard */; };
+		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
+		28B84EC41E9033F00041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC31E9033F00041BD5D /* Assets.xcassets */; };
+		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +54,28 @@
 			remoteGlobalIDString = 2868165D1DCAB3D10089BEA6;
 			remoteInfo = "DA Mobile";
 		};
+		28B84EB81E9018560041BD5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28B84EAC1E9018560041BD5D;
+			remoteInfo = "DA Mobile Widget";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		28B84EBE1E9018560041BD5D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2810702F1E215CB30031648E /* CustomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnimationController.h; path = "DA Mobile/CustomAnimationController.h"; sourceTree = SOURCE_ROOT; };
@@ -69,7 +97,7 @@
 		286816671DCAB3D20089BEA6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		286816681DCAB3D20089BEA6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2868166B1DCAB3D20089BEA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2868166D1DCAB3D20089BEA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2868166D1DCAB3D20089BEA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../DA Mobile/Assets.xcassets"; sourceTree = "<group>"; };
 		286816701DCAB3D20089BEA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		286816721DCAB3D20089BEA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286816771DCAB3D20089BEA6 /* DA MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DA MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +117,16 @@
 		28ACA0521E2290220092075E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtheleticsViewController.h; sourceTree = "<group>"; };
 		28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtheleticsViewController.m; sourceTree = "<group>"; };
+		28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DA Mobile Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B84EAE1E9018560041BD5D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		28B84EB11E9018560041BD5D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		28B84EB21E9018560041BD5D /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		28B84EB51E9018560041BD5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		28B84EB71E9018560041BD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B84EBF1E901C0D0041BD5D /* DA Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile.entitlements"; sourceTree = "<group>"; };
+		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
+		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +153,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B84EAA1E9018560041BD5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				286816601DCAB3D20089BEA6 /* DA Mobile */,
+				28B84EB01E9018560041BD5D /* DA Mobile Widget */,
 				2868165F1DCAB3D20089BEA6 /* Products */,
 				2868169E1DCAB4600089BEA6 /* Frameworks */,
 			);
@@ -185,6 +232,7 @@
 				2868165E1DCAB3D20089BEA6 /* DA Mobile.app */,
 				286816771DCAB3D20089BEA6 /* DA MobileTests.xctest */,
 				286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */,
+				28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +240,7 @@
 		286816601DCAB3D20089BEA6 /* DA Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				28B84EBF1E901C0D0041BD5D /* DA Mobile.entitlements */,
 				284A4DC21E2900D9004F5226 /* Nibs */,
 				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				28ACA04F1E228A710092075E /* Weather API */,
@@ -208,10 +257,11 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28B84EC31E9033F00041BD5D /* Assets.xcassets */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
 				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
-				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
+				28B84EC11E9030C70041BD5D /* icon.png */,
 				286816621DCAB3D20089BEA6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -225,6 +275,7 @@
 				286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */,
 				286816A11DCAB4770089BEA6 /* libxml2.tbd */,
 				2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */,
+				28B84EAE1E9018560041BD5D /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +315,19 @@
 			name = "Weather API";
 			sourceTree = "<group>";
 		};
+		28B84EB01E9018560041BD5D /* DA Mobile Widget */ = {
+			isa = PBXGroup;
+			children = (
+				28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */,
+				28B84EB11E9018560041BD5D /* TodayViewController.h */,
+				28B84EB21E9018560041BD5D /* TodayViewController.m */,
+				28B84EB41E9018560041BD5D /* MainInterface.storyboard */,
+				28B84EB71E9018560041BD5D /* Info.plist */,
+				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
+			);
+			path = "DA Mobile Widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,10 +338,12 @@
 				2868165A1DCAB3D10089BEA6 /* Sources */,
 				2868165B1DCAB3D10089BEA6 /* Frameworks */,
 				2868165C1DCAB3D10089BEA6 /* Resources */,
+				28B84EBE1E9018560041BD5D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				28B84EB91E9018560041BD5D /* PBXTargetDependency */,
 			);
 			name = "DA Mobile";
 			productName = "DA Mobile";
@@ -320,6 +386,23 @@
 			productReference = 286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		28B84EAC1E9018560041BD5D /* DA Mobile Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28B84EBD1E9018560041BD5D /* Build configuration list for PBXNativeTarget "DA Mobile Widget" */;
+			buildPhases = (
+				28B84EA91E9018560041BD5D /* Sources */,
+				28B84EAA1E9018560041BD5D /* Frameworks */,
+				28B84EAB1E9018560041BD5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DA Mobile Widget";
+			productName = "DA Mobile Widget";
+			productReference = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -334,8 +417,17 @@
 						DevelopmentTeam = 8NZ8K5GNH8;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -350,6 +442,16 @@
 						DevelopmentTeam = 8NZ8K5GNH8;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2868165D1DCAB3D10089BEA6;
+					};
+					28B84EAC1E9018560041BD5D = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 8NZ8K5GNH8;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -369,6 +471,7 @@
 				2868165D1DCAB3D10089BEA6 /* DA Mobile */,
 				286816761DCAB3D20089BEA6 /* DA MobileTests */,
 				286816811DCAB3D20089BEA6 /* DA MobileUITests */,
+				28B84EAC1E9018560041BD5D /* DA Mobile Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -380,7 +483,9 @@
 			files = (
 				284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */,
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
+				28B84EC21E9030C70041BD5D /* icon.png in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
+				28B84EC41E9033F00041BD5D /* Assets.xcassets in Resources */,
 				281070361E215D140031648E /* RearViewController.xib in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 			);
@@ -397,6 +502,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B84EAB1E9018560041BD5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */,
+				28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +551,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28B84EA91E9018560041BD5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B84EB31E9018560041BD5D /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -449,6 +571,11 @@
 			isa = PBXTargetDependency;
 			target = 2868165D1DCAB3D10089BEA6 /* DA Mobile */;
 			targetProxy = 286816831DCAB3D20089BEA6 /* PBXContainerItemProxy */;
+		};
+		28B84EB91E9018560041BD5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28B84EAC1E9018560041BD5D /* DA Mobile Widget */;
+			targetProxy = 28B84EB81E9018560041BD5D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -467,6 +594,14 @@
 				286816701DCAB3D20089BEA6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		28B84EB41E9018560041BD5D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28B84EB51E9018560041BD5D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -568,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
 				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
@@ -583,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
 				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
@@ -644,6 +781,36 @@
 			};
 			name = Release;
 		};
+		28B84EBB1E9018560041BD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		28B84EBC1E9018560041BD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,6 +849,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		28B84EBD1E9018560041BD5D /* Build configuration list for PBXNativeTarget "DA Mobile Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B84EBB1E9018560041BD5D /* Debug */,
+				28B84EBC1E9018560041BD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

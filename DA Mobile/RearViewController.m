@@ -51,17 +51,15 @@
 {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Rear View", nil);
+    self.title = NSLocalizedString(@"Menu", nil);
 }
 
 
 #pragma marl - UITableView Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,23 +74,15 @@
     
     NSString *text = nil;
     if (row == 0)
-    {
         text = @"Home";
-    }
     else if (row == 1)
-    {
         text = @"DAInfo";
-    }
     else if (row == 2)
-    {
         text = @"Email";
-    }
     else if (row == 3)
-    {
         text = @"Canvas";
-    }
     
-    cell.textLabel.text = NSLocalizedString( text,nil );
+    cell.textLabel.text = NSLocalizedString(text, nil);
     
     return cell;
 }
@@ -109,21 +99,16 @@
     // if we are trying to push the same row or perform an operation that does not imply frontViewController replacement
     // we'll just set position and return
     
-    if ( row == _presentedRow )
-    {
+    if ( row == _presentedRow ){
         [revealController setFrontViewPosition:FrontViewPositionLeft animated:YES];
         return;
     }
     
-    // otherwise we'll create a new frontViewController and push it with animation
-    
-    UINavigationController *newFrontController = nil;
-    
-    if (row == 0)
-    {
+    if (row == 0){
+        UINavigationController *newFrontController = nil;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        //newFrontController = [[FrontViewController alloc] init];
+        [revealController pushFrontViewController:newFrontController animated:YES];
     }
     else if (row == 1){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu/"]];
@@ -135,10 +120,6 @@
     else if (row == 3){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.instructure.com/"]];
     }
-    
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-    [revealController pushFrontViewController:newFrontController animated:YES];
-    
     _presentedRow = row;  // <- store the presented row
     
 }
