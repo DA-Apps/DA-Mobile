@@ -24,11 +24,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UITableView *weatherTable;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
-@property (weak, nonatomic) IBOutlet UIImageView *tempIcon;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
+@property (weak, nonatomic) IBOutlet UIImageView *postsBackground;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuWidth;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 
 @end
 
