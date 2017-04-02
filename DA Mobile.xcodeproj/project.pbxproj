@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232432ECC2DCF7C5EF30F6AF /* libPods-DA Mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */; };
 		281070311E215CB30031648E /* CustomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070301E215CB30031648E /* CustomAnimationController.m */; };
 		281070341E215CF90031648E /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070331E215CF90031648E /* RearViewController.m */; };
 		281070361E215D140031648E /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281070351E215D140031648E /* RearViewController.xib */; };
@@ -35,25 +36,11 @@
 		28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EB41E9018560041BD5D /* MainInterface.storyboard */; };
 		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
-		28B84EC41E9033F00041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC31E9033F00041BD5D /* Assets.xcassets */; };
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
+		F4EAB71D1A91594D658ECA5E /* libPods-DA Mobile Widget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		286816781DCAB3D20089BEA6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2868165D1DCAB3D10089BEA6;
-			remoteInfo = "DA Mobile";
-		};
-		286816831DCAB3D20089BEA6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2868165D1DCAB3D10089BEA6;
-			remoteInfo = "DA Mobile";
-		};
 		28B84EB81E9018560041BD5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
@@ -78,6 +65,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08395B49F13BBFDBE64A8E80 /* Pods-DA Mobile Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.release.xcconfig"; sourceTree = "<group>"; };
+		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		2810702F1E215CB30031648E /* CustomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnimationController.h; path = "DA Mobile/CustomAnimationController.h"; sourceTree = SOURCE_ROOT; };
 		281070301E215CB30031648E /* CustomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnimationController.m; path = "DA Mobile/CustomAnimationController.m"; sourceTree = SOURCE_ROOT; };
 		281070321E215CF90031648E /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RearViewController.h; path = "DA Mobile/RearViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -100,8 +91,6 @@
 		2868166D1DCAB3D20089BEA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../DA Mobile/Assets.xcassets"; sourceTree = "<group>"; };
 		286816701DCAB3D20089BEA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		286816721DCAB3D20089BEA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		286816771DCAB3D20089BEA6 /* DA MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DA MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DA MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		286816A11DCAB4770089BEA6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		286816A31DCAB7230089BEA6 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
@@ -127,6 +116,8 @@
 		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
 		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,20 +130,7 @@
 				28ACA0531E2290220092075E /* MapKit.framework in Frameworks */,
 				286816A21DCAB4770089BEA6 /* libxml2.tbd in Frameworks */,
 				286816A01DCAB4610089BEA6 /* libxml2.2.tbd in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		286816741DCAB3D20089BEA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2868167F1DCAB3D20089BEA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				232432ECC2DCF7C5EF30F6AF /* libPods-DA Mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */,
+				F4EAB71D1A91594D658ECA5E /* libPods-DA Mobile Widget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +202,7 @@
 				28B84EB01E9018560041BD5D /* DA Mobile Widget */,
 				2868165F1DCAB3D20089BEA6 /* Products */,
 				2868169E1DCAB4600089BEA6 /* Frameworks */,
+				7196A0D59C0E5A9F51CD81F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,8 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				2868165E1DCAB3D20089BEA6 /* DA Mobile.app */,
-				286816771DCAB3D20089BEA6 /* DA MobileTests.xctest */,
-				286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */,
 				28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */,
 			);
 			name = Products;
@@ -276,6 +254,8 @@
 				286816A11DCAB4770089BEA6 /* libxml2.tbd */,
 				2868169F1DCAB4610089BEA6 /* libxml2.2.tbd */,
 				28B84EAE1E9018560041BD5D /* NotificationCenter.framework */,
+				014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */,
+				0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -328,6 +308,17 @@
 			path = "DA Mobile Widget";
 			sourceTree = "<group>";
 		};
+		7196A0D59C0E5A9F51CD81F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */,
+				159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */,
+				9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */,
+				08395B49F13BBFDBE64A8E80 /* Pods-DA Mobile Widget.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,10 +326,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2868168B1DCAB3D20089BEA6 /* Build configuration list for PBXNativeTarget "DA Mobile" */;
 			buildPhases = (
+				361D21320713192F8F44589F /* [CP] Check Pods Manifest.lock */,
 				2868165A1DCAB3D10089BEA6 /* Sources */,
 				2868165B1DCAB3D10089BEA6 /* Frameworks */,
 				2868165C1DCAB3D10089BEA6 /* Resources */,
 				28B84EBE1E9018560041BD5D /* Embed App Extensions */,
+				B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */,
+				8DAEDD8AC3D331B725C5A5D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,49 +344,15 @@
 			productReference = 2868165E1DCAB3D20089BEA6 /* DA Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		286816761DCAB3D20089BEA6 /* DA MobileTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2868168E1DCAB3D20089BEA6 /* Build configuration list for PBXNativeTarget "DA MobileTests" */;
-			buildPhases = (
-				286816731DCAB3D20089BEA6 /* Sources */,
-				286816741DCAB3D20089BEA6 /* Frameworks */,
-				286816751DCAB3D20089BEA6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				286816791DCAB3D20089BEA6 /* PBXTargetDependency */,
-			);
-			name = "DA MobileTests";
-			productName = "DA MobileTests";
-			productReference = 286816771DCAB3D20089BEA6 /* DA MobileTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		286816811DCAB3D20089BEA6 /* DA MobileUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 286816911DCAB3D20089BEA6 /* Build configuration list for PBXNativeTarget "DA MobileUITests" */;
-			buildPhases = (
-				2868167E1DCAB3D20089BEA6 /* Sources */,
-				2868167F1DCAB3D20089BEA6 /* Frameworks */,
-				286816801DCAB3D20089BEA6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				286816841DCAB3D20089BEA6 /* PBXTargetDependency */,
-			);
-			name = "DA MobileUITests";
-			productName = "DA MobileUITests";
-			productReference = 286816821DCAB3D20089BEA6 /* DA MobileUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		28B84EAC1E9018560041BD5D /* DA Mobile Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28B84EBD1E9018560041BD5D /* Build configuration list for PBXNativeTarget "DA Mobile Widget" */;
 			buildPhases = (
+				ACB4F6A915369E6894857165 /* [CP] Check Pods Manifest.lock */,
 				28B84EA91E9018560041BD5D /* Sources */,
 				28B84EAA1E9018560041BD5D /* Frameworks */,
 				28B84EAB1E9018560041BD5D /* Resources */,
+				7DFD2FDFCC988466CF80E489 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -409,7 +369,7 @@
 		286816561DCAB3D10089BEA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Yongyang Nie";
 				TargetAttributes = {
 					2868165D1DCAB3D10089BEA6 = {
@@ -430,18 +390,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					286816761DCAB3D20089BEA6 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8NZ8K5GNH8;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2868165D1DCAB3D10089BEA6;
-					};
-					286816811DCAB3D20089BEA6 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8NZ8K5GNH8;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2868165D1DCAB3D10089BEA6;
 					};
 					28B84EAC1E9018560041BD5D = {
 						CreatedOnToolsVersion = 8.3;
@@ -469,8 +417,6 @@
 			projectRoot = "";
 			targets = (
 				2868165D1DCAB3D10089BEA6 /* DA Mobile */,
-				286816761DCAB3D20089BEA6 /* DA MobileTests */,
-				286816811DCAB3D20089BEA6 /* DA MobileUITests */,
 				28B84EAC1E9018560041BD5D /* DA Mobile Widget */,
 			);
 		};
@@ -485,23 +431,8 @@
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
 				28B84EC21E9030C70041BD5D /* icon.png in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
-				28B84EC41E9033F00041BD5D /* Assets.xcassets in Resources */,
 				281070361E215D140031648E /* RearViewController.xib in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		286816751DCAB3D20089BEA6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		286816801DCAB3D20089BEA6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +446,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		361D21320713192F8F44589F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7DFD2FDFCC988466CF80E489 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DAEDD8AC3D331B725C5A5D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACB4F6A915369E6894857165 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2868165A1DCAB3D10089BEA6 /* Sources */ = {
@@ -537,20 +546,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		286816731DCAB3D20089BEA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2868167E1DCAB3D20089BEA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		28B84EA91E9018560041BD5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -562,16 +557,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		286816791DCAB3D20089BEA6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2868165D1DCAB3D10089BEA6 /* DA Mobile */;
-			targetProxy = 286816781DCAB3D20089BEA6 /* PBXContainerItemProxy */;
-		};
-		286816841DCAB3D20089BEA6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2868165D1DCAB3D10089BEA6 /* DA Mobile */;
-			targetProxy = 286816831DCAB3D20089BEA6 /* PBXContainerItemProxy */;
-		};
 		28B84EB91E9018560041BD5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 28B84EAC1E9018560041BD5D /* DA Mobile Widget */;
@@ -701,6 +686,7 @@
 		};
 		2868168C1DCAB3D20089BEA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
@@ -710,13 +696,14 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-Mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		2868168D1DCAB3D20089BEA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
@@ -726,63 +713,14 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-Mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		2868168F1DCAB3D20089BEA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
-				INFOPLIST_FILE = "DA MobileTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-MobileTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DA Mobile.app/DA Mobile";
-			};
-			name = Debug;
-		};
-		286816901DCAB3D20089BEA6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
-				INFOPLIST_FILE = "DA MobileTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-MobileTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DA Mobile.app/DA Mobile";
-			};
-			name = Release;
-		};
-		286816921DCAB3D20089BEA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
-				INFOPLIST_FILE = "DA MobileUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-MobileUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "DA Mobile";
-			};
-			name = Debug;
-		};
-		286816931DCAB3D20089BEA6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
-				INFOPLIST_FILE = "DA MobileUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.DA-MobileUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "DA Mobile";
 			};
 			name = Release;
 		};
 		28B84EBB1E9018560041BD5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
@@ -798,6 +736,7 @@
 		};
 		28B84EBC1E9018560041BD5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08395B49F13BBFDBE64A8E80 /* Pods-DA Mobile Widget.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
@@ -832,24 +771,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2868168E1DCAB3D20089BEA6 /* Build configuration list for PBXNativeTarget "DA MobileTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2868168F1DCAB3D20089BEA6 /* Debug */,
-				286816901DCAB3D20089BEA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		286816911DCAB3D20089BEA6 /* Build configuration list for PBXNativeTarget "DA MobileUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				286816921DCAB3D20089BEA6 /* Debug */,
-				286816931DCAB3D20089BEA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		28B84EBD1E9018560041BD5D /* Build configuration list for PBXNativeTarget "DA Mobile Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -857,6 +778,7 @@
 				28B84EBC1E9018560041BD5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -49,6 +49,27 @@
         return @"forecast";
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width - 10, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width - 10, 22)];
+    [label setFont:[UIFont boldSystemFontOfSize:13]];
+    
+    if ([tableView isEqual:self.weatherTable]) {
+        NSString *string = @"forecast";
+        [label setText:string];
+        [view setBackgroundColor:[UIColor whiteColor]];
+    }else{
+        NSString *string = @"upcoming meal";
+        [label setText:string];
+        [view setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:137.0/255.0 blue:40.0/255.0 alpha:1.0]];
+        label.textColor = [UIColor whiteColor];
+    }
+    
+    [view addSubview:label];
+    return view;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([tableView isEqual:self.table]) {
@@ -65,15 +86,10 @@
         NSString *str = [NSString stringWithFormat:@"%@ - %@", [dic objectForKey:@"low"], [dic objectForKey:@"high"]];
         cell.textLabel.text = [dic objectForKey:@"date"];
         cell.detailTextLabel.text = str;
-        
-        //String used to present weather type
-        //associated picture
         cell.imageView.image = [ViewController imageWithImage:[self setWeatherImage:[dic objectForKey:@"text"]] scaledToSize:CGSizeMake(25, 25)];
-        
         
         return cell;
     }
-    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -205,11 +221,9 @@
 }
 
 -(void)setupShadows{
-    [self setShadowforView:self.menuView masksToBounds:NO];
-    [self setShadowforView:self.weatherView masksToBounds:NO];
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
-    [self setShadowforView:self.postsBackground masksToBounds:NO];
+    [self setShadowforView:self.weatherView masksToBounds:NO];
 }
 
 -(NSMutableArray *)queryWeatherAPI{
@@ -265,6 +279,7 @@
     [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
     [sharedDefaults synchronize];
 }
+
 -(UIImage*) setWeatherImage:(NSString*) weatherType {
     
     if ([weatherType containsString:@"Cloudy"]) {
