@@ -25,7 +25,9 @@
 }
 
 -(CLLocationCoordinate2D) getLocation{
-
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -47,27 +49,6 @@
         return @"forecast";
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width - 10, 22)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width - 10, 22)];
-    [label setFont:[UIFont boldSystemFontOfSize:13]];
-    
-    if ([tableView isEqual:self.weatherTable]) {
-        NSString *string = @"forecast";
-        [label setText:string];
-        [view setBackgroundColor:[UIColor whiteColor]];
-    }else{
-        NSString *string = @"upcoming meal";
-        [label setText:string];
-        [view setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:137.0/255.0 blue:40.0/255.0 alpha:1.0]];
-        label.textColor = [UIColor whiteColor];
-    }
-    
-    [view addSubview:label];
-    return view;
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([tableView isEqual:self.table]) {
@@ -77,12 +58,19 @@
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weatherCellid" forIndexPath:indexPath];
+        
+        //find the dictionary in self.weathers array at the correct index.
         NSDictionary *dic = [self.weathers objectAtIndex:indexPath.row];
+        
         NSString *str = [NSString stringWithFormat:@"%@ - %@", [dic objectForKey:@"low"], [dic objectForKey:@"high"]];
         cell.textLabel.text = [dic objectForKey:@"date"];
         cell.detailTextLabel.text = str;
-        cell.imageView.image = [ViewController imageWithImage:
-                                [self getWeatherIcon:[dic objectForKey:@"text"]] scaledToSize:CGSizeMake(25, 25)];
+        
+        //String used to present weather type
+        //associated picture
+        cell.imageView.image = [ViewController imageWithImage:[self setWeatherImage:[dic objectForKey:@"text"]] scaledToSize:CGSizeMake(25, 25)];
+        
+        
         return cell;
     }
     
@@ -217,9 +205,11 @@
 }
 
 -(void)setupShadows{
+    [self setShadowforView:self.menuView masksToBounds:NO];
     [self setShadowforView:self.weatherView masksToBounds:NO];
-    [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.table masksToBounds:YES];
+    [self setShadowforView:self.weatherTable masksToBounds:YES];
+    [self setShadowforView:self.postsBackground masksToBounds:NO];
 }
 
 -(NSMutableArray *)queryWeatherAPI{
@@ -244,32 +234,13 @@
     }
 }
 
--(UIImage *)getWeatherIcon:(NSString *)string{
-
-    if ([string containsString:@"Sunny"] || [string containsString:@"Fair"]) {
-        return [UIImage imageNamed:@"sunny"];
-    }else if ([string containsString:@"Rainy"]){
-        return [UIImage imageNamed:@"rainy"];
-    }else if ([string containsString:@"Snow"]){
-        return [UIImage imageNamed:@"snow"];
-    }else if ([string containsString:@"Freezing"] || [string containsString:@"Sleet"]){
-        return [UIImage imageNamed:@"sleet"];
-    }else if ([string containsString:@"Windy"]){
-        return [UIImage imageNamed:@"windy"];
-    }else if ([string containsString:@"Cloudy"]){
-        return [UIImage imageNamed:@"cloudy"];
-    }else{
-        return [UIImage imageNamed:@"unknown"];
-    }
-}
-
 -(void)getForcast{
     
     self.weathers = [self queryWeatherAPI];
     
     if (self.weathers) {
         self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
-        self.tempIcon.image = [self getWeatherIcon:[[self.weathers lastObject] objectForKey:@"text"]];
+        self.weatherIcon.image = [self setWeatherImage: [[self.weathers lastObject] objectForKey:@"text"]];
         [self.weathers removeLastObject];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.weatherTable reloadData];
@@ -293,6 +264,36 @@
     [sharedDefaults setObject:self.foods forKey:@"menuData"];
     [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
     [sharedDefaults synchronize];
+}
+-(UIImage*) setWeatherImage:(NSString*) weatherType {
+    
+    if ([weatherType containsString:@"Cloudy"]) {
+        return [UIImage imageNamed:@"cloudy"];
+    }
+    else if ([weatherType containsString:@"Rainy"] || [weatherType containsString:@"Showers"]) {
+        return [UIImage imageNamed:@"rainy"];
+    }
+    else if ([weatherType containsString:@"Sunny"]) {
+        return [UIImage imageNamed:@"sunny"];
+    }
+    else if ([weatherType containsString:@"Snow"]) {
+        return [UIImage imageNamed:@"snow"];
+    }
+    else if ([weatherType containsString:@"Fair"]) {
+        return [UIImage imageNamed:@"snow"];
+    }
+    else if ([weatherType containsString:@"Sleet"]) {
+        return [UIImage imageNamed:@"sleet"];
+    }
+    else if ([weatherType containsString:@"Thunder"]) {
+        return [UIImage imageNamed:@"thunder"];
+    }
+    else if ([weatherType containsString:@"Windy"]) {
+        return [UIImage imageNamed:@"windy"];
+    }
+    else {
+        return [UIImage imageNamed:@"unknown"];
+    }
 }
 
 #pragma mark - View lifecycle
@@ -339,7 +340,7 @@
     
     if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
         DetailViewController *vc = [segue destinationViewController];
-        NSDictionary *dic = [self.posts objectAtIndex:[self.postsView indexPathsForSelectedItems].firstObject.row];
+        NSDictionary *dic = [self.posts objectAtIndex:[self.table indexPathForSelectedRow].row];
         vc.contentString = [dic objectForKey:@"summery"];
         vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
     }
