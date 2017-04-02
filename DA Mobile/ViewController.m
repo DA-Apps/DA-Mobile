@@ -355,9 +355,11 @@
     
     if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
         DetailViewController *vc = [segue destinationViewController];
-        NSDictionary *dic = [self.posts objectAtIndex:[self.table indexPathForSelectedRow].row];
+        NSDictionary *dic = [self.posts objectAtIndex:self.postsView.indexPathsForSelectedItems.firstObject.row];
+        
         vc.contentString = [dic objectForKey:@"summery"];
         vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+        vc.titleString = [dic objectForKey:@"title"];
     }
 }
 
