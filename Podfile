@@ -6,6 +6,7 @@ target 'DA Mobile' do
   # use_frameworks!
 
   # Pods for DA Mobile
+pod 'Realm'
 pod 'Onboard'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
