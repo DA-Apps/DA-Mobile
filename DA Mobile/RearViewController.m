@@ -58,7 +58,7 @@
 #pragma marl - UITableView Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,6 +81,8 @@
         text = @"Email";
     else if (row == 3)
         text = @"Canvas";
+    else if (row == 4)
+        text = @"Table Rotation";
     
     cell.textLabel.text = NSLocalizedString(text, nil);
     
@@ -119,6 +121,9 @@
     }
     else if (row == 3){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.instructure.com/"]];
+    }
+    else if (row == 4){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.edu/wp-content/uploads/2017/01/2017-Jan-Rotation-by-TABLE-2.pdf"]];
     }
     _presentedRow = row;  // <- store the presented row
     
