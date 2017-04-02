@@ -24,15 +24,19 @@
  
  */
 
-
 #import "AppDelegate.h"
-
+#import "TFHpple.h"
 #import "SWRevealViewController.h"
 #import "ViewController.h"
 #import "RearViewController.h"
 #import "CustomAnimationController.h"
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
+#import <FirebaseInstanceID/FirebaseInstanceID.h>
 
-@interface AppDelegate()<SWRevealViewControllerDelegate>
+@import UserNotifications;
+
+@interface AppDelegate() <SWRevealViewControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
 
 @implementation AppDelegate
@@ -42,6 +46,39 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [FIRApp configure];
+    
+    UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!granted) {
+            NSLog(@"%@", error);
+        }
+    }];
+    
+    // iOS 8 or later
+    // [START register_for_notifications]
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
+        UIUserNotificationType allNotificationTypes =
+        (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 10 or later
+        // For iOS 10 display notification (sent via APNS)
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!granted) {
+                NSLog(@"we have issues %@", error);
+            }
+        }];
+        // For iOS 10 data message (sent via FCM)
+        [FIRMessaging messaging].remoteMessageDelegate = self;
+    }
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
 
@@ -54,83 +91,149 @@
     SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
     revealController.delegate = self;
     
-    //revealController.bounceBackOnOverdraw=NO;
-    //revealController.stableDragOnOverdraw=YES;
-    
     self.viewController = revealController;
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
-
-//modify this to log
-#define LogDelegates 0
-
-#if LogDelegates
-- (NSString*)stringFromFrontViewPosition:(FrontViewPosition)position
-{
-    NSString *str = nil;
-    if ( position == FrontViewPositionLeftSideMostRemoved ) str = @"FrontViewPositionLeftSideMostRemoved";
-    if ( position == FrontViewPositionLeftSideMost) str = @"FrontViewPositionLeftSideMost";
-    if ( position == FrontViewPositionLeftSide) str = @"FrontViewPositionLeftSide";
-    if ( position == FrontViewPositionLeft ) str = @"FrontViewPositionLeft";
-    if ( position == FrontViewPositionRight ) str = @"FrontViewPositionRight";
-    if ( position == FrontViewPositionRightMost ) str = @"FrontViewPositionRightMost";
-    if ( position == FrontViewPositionRightMostRemoved ) str = @"FrontViewPositionRightMostRemoved";
-    return str;
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    NSString *dotw = [dateFormatter stringFromDate: [NSDate date]];
+    if (![dotw isEqualToString:@"Wednesday"] && ![dotw isEqualToString:@"Saturday"] && ![dotw isEqualToString:@"Sunday"]) {
+        [self triggerNotification:nil];
+        [NSTimer scheduledTimerWithTimeInterval:3600 target:self selector:@selector(triggerNotification:) userInfo:nil repeats:YES];
+    }
 }
 
-- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
+#pragma mark - Private
+
+-(void)triggerNotification:(NSTimer *)timer{
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"HH"];
+    NSDate *myDate = [NSDate date];
+    NSString *hour = [df stringFromDate:myDate];
+    if ([hour isEqualToString:@"11"]) {
+        
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+        content.title = @"What's for lunch today?";
+        content.body = [self getMenuData];
+        content.sound = [UNNotificationSound defaultSound];
+        
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+        
+        NSString *identifier = @"UYLocalNotification";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        
+        [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Something went wrong: %@",error);
+            }
+        }];
+        
+        if (timer) {
+            [timer invalidate];
+        }
+    }
 }
 
-- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
+-(NSString *)getMenuData{
+
+    NSURL *tutorialsUrl = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
+    NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
+    TFHpple *parser = [TFHpple hppleWithHTMLData:tutorialsHtmlData];
+    
+    NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
+    NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
+    
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
+    for (TFHppleElement *element in tutorialsNodes) {
+        [objects addObject:[[element firstChild] content]];
+    }
+    return [objects componentsJoinedByString:@", "];
 }
 
-- (void)revealController:(SWRevealViewController *)revealController animateToPosition:(FrontViewPosition)position
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), [self stringFromFrontViewPosition:position]);
+#pragma mark - Notification
+
+// [START receive_message]
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+
 }
 
-- (void)revealControllerPanGestureBegan:(SWRevealViewController *)revealController;
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+// [END receive_message]
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
 {
-    NSLog( @"%@", NSStringFromSelector(_cmd) );
+    completionHandler(UNNotificationPresentationOptionAlert + UNNotificationPresentationOptionSound);
 }
 
-- (void)revealControllerPanGestureEnded:(SWRevealViewController *)revealController;
-{
-    NSLog( @"%@", NSStringFromSelector(_cmd) );
+// Handle notification messages after display notification is tapped by the user.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    
 }
 
-- (void)revealController:(SWRevealViewController *)revealController panGestureBeganFromLocation:(CGFloat)location progress:(CGFloat)progress
-{
-    NSLog( @"%@: %f, %f", NSStringFromSelector(_cmd), location, progress);
+// [END ios_10_message_handling]
+
+// [START refresh_token]
+- (void)tokenRefreshNotification:(NSNotification *)notification {
+    // Note that this callback will be fired everytime a new token is generated, including the first
+    // time. So if you need to retrieve the token as soon as it is available this is where that
+    // should be done.
+    NSString *refreshedToken = [[FIRInstanceID instanceID] token];
+    NSLog(@"InstanceID token: %@", refreshedToken);
+    
+    // Connect to FCM since connection may have failed when attempted before having a token.
+    [self connectToFcm];
+}
+// [END refresh_token]
+
+// [START connect_to_fcm]
+- (void)connectToFcm {
+    // Won't connect since there is no token
+    if (![[FIRInstanceID instanceID] token]) {
+        return;
+    }
+    
+    // Disconnect previous FCM connection if it exists.
+    [[FIRMessaging messaging] disconnect];
+    
+    [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Unable to connect to FCM. %@", error);
+        } else {
+            NSLog(@"Connected to FCM.");
+        }
+    }];
+}
+// [END connect_to_fcm]
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Unable to register for remote notifications: %@", error);
 }
 
-- (void)revealController:(SWRevealViewController *)revealController panGestureMovedToLocation:(CGFloat)location progress:(CGFloat)progress
-{
-    NSLog( @"%@: %f, %f", NSStringFromSelector(_cmd), location, progress);
+// This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
+// If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
+// the InstanceID token.
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"APNs token retrieved: %@", deviceToken);
+    
+    // With swizzling disabled you must set the APNs token here.
+    // [[FIRInstanceID instanceID] setAPNSToken:deviceToken type:FIRInstanceIDAPNSTokenTypeSandbox];
 }
 
-- (void)revealController:(SWRevealViewController *)revealController panGestureEndedToLocation:(CGFloat)location progress:(CGFloat)progress
-{
-    NSLog( @"%@: %f, %f", NSStringFromSelector(_cmd), location, progress);
+// [START connect_on_active]
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [self connectToFcm];
 }
-
-- (void)revealController:(SWRevealViewController *)revealController willAddViewController:(UIViewController *)viewController forOperation:(SWRevealControllerOperation)operation animated:(BOOL)animated
-{
-    NSLog( @"%@: %@, %d", NSStringFromSelector(_cmd), viewController, operation);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didAddViewController:(UIViewController *)viewController forOperation:(SWRevealControllerOperation)operation animated:(BOOL)animated
-{
-    NSLog( @"%@: %@, %d", NSStringFromSelector(_cmd), viewController, operation);
-}
-
-#endif
+// [END connect_on_active]
 
 @end

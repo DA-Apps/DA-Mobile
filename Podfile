@@ -7,6 +7,9 @@ target 'DA Mobile' do
 
   # Pods for DA Mobile
 pod 'Onboard'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
 end
 
 target 'DA Mobile Widget' do
