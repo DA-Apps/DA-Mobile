@@ -31,6 +31,8 @@
 #import "ViewController.h"
 #import "RearViewController.h"
 #import "CustomAnimationController.h"
+@import UserNotifications;
+
 
 @interface AppDelegate()<SWRevealViewControllerDelegate>
 @end
@@ -42,6 +44,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!granted) {
+            NSLog(@"%@", error);
+        }
+    }];
+    UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+    content.title = @"What's Up DA";
+    content.body = @"Today is Sunday";
+    content.sound = [UNNotificationSound defaultSound];
+    
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:10 repeats:NO];
+    
+    NSString *identifier = @"UYLocalNotification";
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+    
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Something went wrong: %@",error);
+        }
+    }];
+
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
 
