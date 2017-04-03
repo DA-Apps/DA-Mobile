@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) NSMutableArray *titles;
 
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UITableView *weatherTable;

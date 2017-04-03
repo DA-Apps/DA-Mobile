@@ -30,6 +30,9 @@
     self.imageView.image = self.contentImage;
     self.titleLabel.text = self.titleString;
     [self setShadowforView:self.contentView masksToBounds:NO];
+    if (self.imageView.image == nil) {
+        self.imageHeight.constant = 30;
+    }
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

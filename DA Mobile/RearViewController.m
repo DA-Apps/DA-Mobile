@@ -1,6 +1,4 @@
-
 /*
- 
  Copyright (c) 2013 Joan Lluch <joan.lluch@sweetwilliamsl.com>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,7 +20,8 @@
  THE SOFTWARE.
  
  Original code:
- Copyright (c) 2011, Philip Kluz (Philip.Kluz@zuui.org)
+ Copyright (c) 2011, Philip Kluz
+ Copyright (c) 2016-2017 Yongyang Nie
  
  */
 
@@ -100,17 +99,10 @@
     
     // if we are trying to push the same row or perform an operation that does not imply frontViewController replacement
     // we'll just set position and return
-    
-    if ( row == _presentedRow ){
+
+    if (row == 0){
         [revealController setFrontViewPosition:FrontViewPositionLeft animated:YES];
         return;
-    }
-    
-    if (row == 0){
-        UINavigationController *newFrontController = nil;
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        newFrontController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-        [revealController pushFrontViewController:newFrontController animated:YES];
     }
     else if (row == 1){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu/"]];
@@ -126,7 +118,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.edu/wp-content/uploads/2017/01/2017-Jan-Rotation-by-TABLE-2.pdf"]];
     }
     _presentedRow = row;  // <- store the presented row
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -117,10 +117,16 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
+    
     NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
     cell.summery.text = [dic objectForKey:@"summery"];
-    cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+    
+    if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
+        cell.postWidth.constant = cell.frame.size.width;
+    else
+        cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+    
     [self setShadowforView:cell masksToBounds:NO];
     return cell;
 }
@@ -167,55 +173,58 @@
     NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
     
     NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
-    for (TFHppleElement *element in tutorialsNodes) {
+    for (TFHppleElement *element in tutorialsNodes)
         [objects addObject:[[element firstChild] content]];
-    }
     
-    self.foods = objects;
+    if (objects.count == 0)
+        self.table.hidden = YES;
+    else{
+        self.foods = objects;
+        self.table.hidden = NO;
+        [self.table reloadData];
+    }
 }
 
 -(NSMutableArray *)getPostsData:(TFHpple *)parser{
     
-    NSString *tutorialsXpathQueryString = @"//div[@class='content-summary-badge small has-thumbnail daily-link']";
-    NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
+    NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
     NSMutableArray *objects = [[NSMutableArray alloc] init];
-    for (TFHppleElement *element in tutorialsNodes) {
+    for (int i = 0; i < 2; i++) {
         
-        //get image src
-        NSArray *imgs = [element searchWithXPathQuery:@"//img[@class='attachment-post-thumbnail size-post-thumbnail wp-post-image']"];
-        NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"src"];
+        TFHppleElement *hppleElement = dailyPosts[i];
         
-        //search for title of post
-        NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
-        NSString *title = [(TFHppleElement *)[titles firstObject] text];
-        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        title = [title stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-        
-        //search for summery of post
-        NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
-        NSString *summery = [(TFHppleElement *)[summeries firstObject] text];
-        summery = [summery stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-        
-        //retreive timestamp
-        NSString *timeStamp = [[[element firstChildWithTagName:@"div"] firstChildWithClassName:@"summary-meta"] text];
-        timeStamp = [timeStamp stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        timeStamp = [timeStamp stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-        
-        //construct the dic
-        NSDictionary *dic;
-        if (timeStamp && imgSrc && title && summery && timeStamp
-            && [timeStamp isKindOfClass:[NSString class]] && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && [imgSrc isKindOfClass:[NSString class]])
-            dic = @{@"timestamp": timeStamp,
-                    @"img_src": imgSrc,
-                    @"title": title,
-                    @"summery": summery};
-        
-        if (objects.count > 5)
-            break;
-        else if (dic)
-            [objects addObject:dic];
+        NSArray *posts = [[[hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  first']"] arrayByAddingObjectsFromArray:
+                          [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
+                          [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
+
+        for (TFHppleElement *element in posts) {
+            //get image src
+            NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
+            NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
+            
+            //search for title of post
+            NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
+            NSString *title = [(TFHppleElement *)[titles firstObject] text];
+            title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            title = [title stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            
+            //search for summery of post
+            NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
+            NSString *summery = [(TFHppleElement *)[summeries firstObject] text];
+            summery = [summery stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            
+            //construct the dic
+            NSDictionary *dic;
+            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]])
+                dic = @{@"img_src": imgSrc? imgSrc : @"nil",
+                        @"title": title,
+                        @"summery": summery};
+            
+            if (dic)
+                [objects addObject:dic];
+        }
     }
     return objects;
 }
@@ -224,6 +233,7 @@
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.weatherView masksToBounds:NO];
+    [self setShadowforView:self.menuView masksToBounds:NO];
 }
 
 -(NSMutableArray *)queryWeatherAPI{
@@ -282,33 +292,24 @@
 
 -(UIImage*) setWeatherImage:(NSString*) weatherType {
     
-    if ([weatherType containsString:@"Cloudy"]) {
+    if ([weatherType containsString:@"Cloudy"])
         return [UIImage imageNamed:@"cloudy"];
-    }
-    else if ([weatherType containsString:@"Rainy"] || [weatherType containsString:@"Showers"]) {
+    else if ([weatherType containsString:@"Rainy"] || [weatherType containsString:@"Showers"])
         return [UIImage imageNamed:@"rainy"];
-    }
-    else if ([weatherType containsString:@"Sunny"]) {
+    else if ([weatherType containsString:@"Sunny"])
         return [UIImage imageNamed:@"sunny"];
-    }
-    else if ([weatherType containsString:@"Snow"]) {
+    else if ([weatherType containsString:@"Snow"])
         return [UIImage imageNamed:@"snow"];
-    }
-    else if ([weatherType containsString:@"Fair"]) {
+    else if ([weatherType containsString:@"Fair"])
         return [UIImage imageNamed:@"snow"];
-    }
-    else if ([weatherType containsString:@"Sleet"]) {
+    else if ([weatherType containsString:@"Sleet"])
         return [UIImage imageNamed:@"sleet"];
-    }
-    else if ([weatherType containsString:@"Thunder"]) {
+    else if ([weatherType containsString:@"Thunder"])
         return [UIImage imageNamed:@"thunder"];
-    }
-    else if ([weatherType containsString:@"Windy"]) {
+    else if ([weatherType containsString:@"Windy"])
         return [UIImage imageNamed:@"windy"];
-    }
-    else {
+    else
         return [UIImage imageNamed:@"unknown"];
-    }
 }
 
 #pragma mark - View lifecycle

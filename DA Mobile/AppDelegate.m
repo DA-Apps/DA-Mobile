@@ -55,9 +55,7 @@
             NSLog(@"%@", error);
         }
     }];
-    
-    // iOS 8 or later
-    // [START register_for_notifications]
+
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
         UIUserNotificationType allNotificationTypes =
         (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
@@ -65,8 +63,6 @@
         [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     } else {
-        // iOS 10 or later
-        // For iOS 10 display notification (sent via APNS)
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
         [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -74,11 +70,12 @@
                 NSLog(@"we have issues %@", error);
             }
         }];
-        // For iOS 10 data message (sent via FCM)
         [FIRMessaging messaging].remoteMessageDelegate = self;
     }
     [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
+    //--------------------------------------------------------------------------------
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
 
@@ -160,7 +157,10 @@
 
 #pragma mark - Notification
 
-// [START receive_message]
+-(void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage{
+    
+}
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
 }
@@ -169,10 +169,8 @@
     
     completionHandler(UIBackgroundFetchResultNewData);
 }
-// [END receive_message]
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-{
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
     completionHandler(UNNotificationPresentationOptionAlert + UNNotificationPresentationOptionSound);
 }
 
@@ -181,9 +179,6 @@
     
 }
 
-// [END ios_10_message_handling]
-
-// [START refresh_token]
 - (void)tokenRefreshNotification:(NSNotification *)notification {
     // Note that this callback will be fired everytime a new token is generated, including the first
     // time. So if you need to retrieve the token as soon as it is available this is where that
@@ -194,9 +189,7 @@
     // Connect to FCM since connection may have failed when attempted before having a token.
     [self connectToFcm];
 }
-// [END refresh_token]
 
-// [START connect_to_fcm]
 - (void)connectToFcm {
     // Won't connect since there is no token
     if (![[FIRInstanceID instanceID] token]) {
@@ -214,26 +207,17 @@
         }
     }];
 }
-// [END connect_to_fcm]
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Unable to register for remote notifications: %@", error);
 }
 
-// This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
-// If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
-// the InstanceID token.
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"APNs token retrieved: %@", deviceToken);
-    
-    // With swizzling disabled you must set the APNs token here.
-    // [[FIRInstanceID instanceID] setAPNSToken:deviceToken type:FIRInstanceIDAPNSTokenTypeSandbox];
 }
 
-// [START connect_on_active]
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [self connectToFcm];
 }
-// [END connect_on_active]
 
 @end
