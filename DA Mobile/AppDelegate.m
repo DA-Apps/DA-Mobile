@@ -92,6 +92,7 @@
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {

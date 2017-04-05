@@ -124,8 +124,10 @@
     
     if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
         cell.postWidth.constant = cell.frame.size.width;
-    else
+    else{
         cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+        cell.postWidth.constant = 150;
+    }
     
     [self setShadowforView:cell masksToBounds:NO];
     return cell;
@@ -336,10 +338,8 @@
     TFHpple *data = [self retrieveData];
     [self parseMenuData:data];
     self.posts = [self getPostsData:data];
-    [self.postsView reloadData];
-    
+
     [self syncExtension];
-    
     [super viewDidLoad];
 }
 
