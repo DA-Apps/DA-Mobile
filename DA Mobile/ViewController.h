@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YQL.h"
+
 #import <CoreLocation/CoreLocation.h>
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
+#import "YQL.h"
+#import <DGActivityIndicatorView.h>
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
@@ -20,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *timeStamp;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) NSMutableArray *titles;
+@property (strong, nonatomic) NSMutableArray <UIImage *>*images;
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;

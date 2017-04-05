@@ -125,7 +125,7 @@
     if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
         cell.postWidth.constant = cell.frame.size.width;
     else{
-        cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+        cell.image.image = [self.images objectAtIndex:indexPath.row];
         cell.postWidth.constant = 150;
     }
     
@@ -161,14 +161,6 @@
     view.layer.masksToBounds = masksToBounds;
 }
 
--(TFHpple *)retrieveData{
-    
-    NSURL *tutorialsUrl = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
-    NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
-    
-    return [TFHpple hppleWithHTMLData:tutorialsHtmlData];
-}
-
 -(void)parseMenuData:(TFHpple *)parser{
     
     NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
@@ -189,6 +181,7 @@
 
 -(NSMutableArray *)getPostsData:(TFHpple *)parser{
     
+    self.images = [NSMutableArray array];
     NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
     NSMutableArray *objects = [[NSMutableArray alloc] init];
@@ -204,6 +197,11 @@
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
+            if (imgSrc) {
+                [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]]]];
+            }else{
+                [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
+            }
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
@@ -314,6 +312,58 @@
         return [UIImage imageNamed:@"unknown"];
 }
 
+-(void)loadBulletin{
+    
+    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeDoubleBounce tintColor:[UIColor grayColor] size:50.0f];
+    int i = arc4random()%4;
+    switch (i) {
+        case 0:
+            activityIndicatorView.type = DGActivityIndicatorAnimationTypeTriplePulse;
+            break;
+        case 1:
+            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallPulse;
+            break;
+        case 2:
+            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
+            break;
+        case 3:
+            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallRotate;
+            break;
+        case 4:
+            activityIndicatorView.type = DGActivityIndicatorAnimationTypeCookieTerminator;
+            break;
+            
+        default:
+            break;
+    }
+    activityIndicatorView.frame = CGRectMake(self.postsView.center.x - 40, self.postsView.center.y - 40, 80.0f, 80.0f);
+    [self.view addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+    
+    NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
+        TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.posts = [self getPostsData:hpple];
+                [self parseMenuData:hpple];
+                [activityIndicatorView stopAnimating];
+                [self.postsView reloadData];
+                [self.table reloadData];
+            });
+        }else{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alert addAction:action];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+        }
+    }] resume];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -335,10 +385,7 @@
     else
         [self getForcast];
     
-    TFHpple *data = [self retrieveData];
-    [self parseMenuData:data];
-    self.posts = [self getPostsData:data];
-
+    [self loadBulletin];
     [self syncExtension];
     [super viewDidLoad];
 }

@@ -1,4 +1,5 @@
 PODS:
+  - DGActivityIndicatorView (2.1.1)
   - Firebase/Core (3.15.0):
     - FirebaseAnalytics (= 3.7.0)
     - FirebaseCore (= 3.5.2)
@@ -29,12 +30,14 @@ PODS:
   - Realm/Headers (2.5.0)
 
 DEPENDENCIES:
+  - DGActivityIndicatorView
   - Firebase/Core
   - Firebase/Messaging
   - Onboard
   - Realm
 
 SPEC CHECKSUMS:
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
@@ -45,6 +48,6 @@ SPEC CHECKSUMS:
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
 
-PODFILE CHECKSUM: 0e18b435ff22f3ba4509a450038b609770ac2954
+PODFILE CHECKSUM: 9fe74aae998e9183c9c8ef89bea1233c35393250
 
 COCOAPODS: 1.2.0
