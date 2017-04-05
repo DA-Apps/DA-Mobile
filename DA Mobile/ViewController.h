@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *titles;
 @property (strong, nonatomic) NSMutableArray <UIImage *>*images;
 
+@property (weak, nonatomic) IBOutlet DGActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;

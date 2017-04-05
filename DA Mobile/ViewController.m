@@ -288,6 +288,7 @@
     [sharedDefaults setObject:self.foods forKey:@"menuData"];
     [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
     [sharedDefaults synchronize];
+    NSLog(@"synced with extension");
 }
 
 -(UIImage*) setWeatherImage:(NSString*) weatherType {
@@ -313,32 +314,35 @@
 }
 
 -(void)loadBulletin{
+
+    self.indicator.tintColor = [UIColor grayColor];
+    self.indicator.size = 50.0f;
     
-    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeDoubleBounce tintColor:[UIColor grayColor] size:50.0f];
     int i = arc4random()%4;
     switch (i) {
         case 0:
-            activityIndicatorView.type = DGActivityIndicatorAnimationTypeTriplePulse;
+            self.indicator.type = DGActivityIndicatorAnimationTypeTriplePulse;
             break;
         case 1:
-            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallPulse;
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallPulse;
             break;
         case 2:
-            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
             break;
         case 3:
-            activityIndicatorView.type = DGActivityIndicatorAnimationTypeBallRotate;
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallRotate;
             break;
         case 4:
-            activityIndicatorView.type = DGActivityIndicatorAnimationTypeCookieTerminator;
+            self.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
             break;
             
         default:
             break;
     }
-    activityIndicatorView.frame = CGRectMake(self.postsView.center.x - 40, self.postsView.center.y - 40, 80.0f, 80.0f);
-    [self.view addSubview:activityIndicatorView];
-    [activityIndicatorView startAnimating];
+    self.indicator.frame = CGRectMake(self.postsView.center.x - 40, self.postsView.center.y - 40, 80.0f, 80.0f);
+    [self.view addSubview:self.indicator];
+    [self.indicator startAnimating];
+    self.indicator.hidden = NO;
     
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -348,9 +352,11 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.posts = [self getPostsData:hpple];
                 [self parseMenuData:hpple];
-                [activityIndicatorView stopAnimating];
+                [self.indicator stopAnimating];
+                self.indicator.hidden = YES;
                 [self.postsView reloadData];
                 [self.table reloadData];
+                [self syncExtension];
             });
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
@@ -386,7 +392,6 @@
         [self getForcast];
     
     [self loadBulletin];
-    [self syncExtension];
     [super viewDidLoad];
 }
 

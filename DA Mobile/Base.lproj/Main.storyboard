@@ -31,7 +31,7 @@
                                             <constraint firstAttribute="height" constant="55" id="oxe-nP-gXX"/>
                                         </constraints>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-80-Gb7">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-80-Gb7">
                                         <rect key="frame" x="0.0" y="71" width="180" height="129"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -214,6 +214,14 @@
                                     <constraint firstAttribute="bottom" secondItem="0KW-bA-lAN" secondAttribute="bottom" id="xmm-cZ-E9i"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAB-hT-jwt" customClass="DGActivityIndicatorView">
+                                <rect key="frame" x="162" y="442" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="llJ-gd-M04"/>
+                                    <constraint firstAttribute="width" constant="50" id="mnX-QO-iys"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
@@ -222,7 +230,9 @@
                             <constraint firstItem="kiM-9i-DV7" firstAttribute="top" secondItem="X0H-b8-UGl" secondAttribute="bottom" constant="8" id="Dfa-to-pYU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kiM-9i-DV7" secondAttribute="bottom" constant="8" id="PZf-O4-K8D"/>
                             <constraint firstItem="dRU-1M-sho" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="Pwg-1C-Hlo"/>
+                            <constraint firstItem="bAB-hT-jwt" firstAttribute="centerY" secondItem="kiM-9i-DV7" secondAttribute="centerY" id="cVG-O2-tnD"/>
                             <constraint firstAttribute="trailing" secondItem="kiM-9i-DV7" secondAttribute="trailing" constant="5" id="d05-bj-W9f"/>
+                            <constraint firstItem="bAB-hT-jwt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eQd-Of-nEp"/>
                             <constraint firstItem="dRU-1M-sho" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="if6-9m-Coa"/>
                             <constraint firstAttribute="trailing" secondItem="X0H-b8-UGl" secondAttribute="trailing" constant="5" id="kd3-0s-LrA"/>
                             <constraint firstItem="kiM-9i-DV7" firstAttribute="top" secondItem="dRU-1M-sho" secondAttribute="bottom" constant="8" id="oyf-Zd-r0E"/>
@@ -238,6 +248,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="bAB-hT-jwt" id="sf1-1d-sbH"/>
                         <outlet property="menuView" destination="dRU-1M-sho" id="5vo-D1-B0y"/>
                         <outlet property="menuWidth" destination="x4t-qr-qZp" id="XX0-c2-pvo"/>
                         <outlet property="postsView" destination="kiM-9i-DV7" id="0rR-a7-nPH"/>
