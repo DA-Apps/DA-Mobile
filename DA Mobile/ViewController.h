@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YQL.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
+#import "CollectionReusableHeader.h"
+#import "YQL.h"
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray *foods;
-@property (strong, nonatomic) NSMutableArray *weathers;
 @property (strong, nonatomic) NSMutableArray *timeStamp;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) NSMutableArray *titles;
+@property (strong, nonatomic) NSMutableArray <UIImage *>*images;
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end
 

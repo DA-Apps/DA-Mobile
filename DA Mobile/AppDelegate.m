@@ -26,17 +26,14 @@
 
 #import "AppDelegate.h"
 #import "TFHpple.h"
-#import "SWRevealViewController.h"
 #import "ViewController.h"
-#import "RearViewController.h"
-#import "CustomAnimationController.h"
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #import <FirebaseInstanceID/FirebaseInstanceID.h>
 
 @import UserNotifications;
 
-@interface AppDelegate() <SWRevealViewControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate>
+@interface AppDelegate() <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 @end
 
 @implementation AppDelegate
@@ -76,22 +73,6 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     //--------------------------------------------------------------------------------
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window = window;
-
-    RearViewController *rearViewController = [[RearViewController alloc] init];
-
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UINavigationController *frontNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
-    
-    SWRevealViewController *revealController = [[SWRevealViewController alloc] initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
-    revealController.delegate = self;
-    
-    self.viewController = revealController;
-    
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {

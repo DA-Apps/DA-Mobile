@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12100" systemVersion="16E154a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,28 +29,15 @@
                             <constraint firstAttribute="width" constant="150" id="ltf-F5-kg1"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-hy-Ucr">
-                        <rect key="frame" x="8" y="53" width="234" height="127"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
-                    </textView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.2627450980392157" green="0.58039215686274503" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Wa2-hy-Ucr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="3Re-gI-hA4"/>
-                <constraint firstItem="qhJ-Wz-0TA" firstAttribute="leading" secondItem="Wa2-hy-Ucr" secondAttribute="trailing" constant="8" id="477-Y0-fp6"/>
-                <constraint firstItem="Wa2-hy-Ucr" firstAttribute="top" secondItem="VlM-at-ww4" secondAttribute="bottom" constant="8" id="5Cn-gR-5Lh"/>
                 <constraint firstItem="qhJ-Wz-0TA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="78n-fy-xzc"/>
                 <constraint firstItem="qhJ-Wz-0TA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="B8o-xc-km2"/>
                 <constraint firstAttribute="trailing" secondItem="qhJ-Wz-0TA" secondAttribute="trailing" id="J9T-am-yjo"/>
                 <constraint firstItem="VlM-at-ww4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Nt1-5g-A2V"/>
                 <constraint firstAttribute="trailing" secondItem="qhJ-Wz-0TA" secondAttribute="trailing" id="OSO-uj-c5G"/>
-                <constraint firstAttribute="bottom" secondItem="Wa2-hy-Ucr" secondAttribute="bottom" constant="20" id="Zr4-Gs-Z5r"/>
                 <constraint firstAttribute="bottom" secondItem="qhJ-Wz-0TA" secondAttribute="bottom" id="trs-ed-HDc"/>
                 <constraint firstItem="VlM-at-ww4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="wag-ra-jO8"/>
             </constraints>
