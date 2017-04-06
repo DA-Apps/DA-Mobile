@@ -10,6 +10,7 @@
 #import "TFHpple.h"
 
 int cellIndex = 0;
+int colorIndex = 0;
 
 @interface ViewController ()
 
@@ -18,10 +19,11 @@ int cellIndex = 0;
 @implementation ViewController
 
 #pragma mark - Location Manager
-/*
+
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.weathers == nil) {
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.weather == nil) {
         [self getForcast];
+        NSLog(@"getting forcast");
     }
 }
 
@@ -37,42 +39,49 @@ int cellIndex = 0;
     CLLocationCoordinate2D coordinate = [location coordinate];
     
     return coordinate;
-}*/
+}
 
 #pragma mark - CollectionView Delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.row == 0) {
+        cellIndex = 0;
+    }
+    
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
             if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"]) {
-                return CGSizeMake(self.view.frame.size.width - 10, 200);
+                return CGSizeMake(self.view.frame.size.width, 200);
             }else{
-                return CGSizeMake(self.view.frame.size.width - 10, 250);
+                return CGSizeMake(self.view.frame.size.width, 280);
             }
             break;
         case 1:
             cellIndex = 2;
             if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"]) {
-                return CGSizeMake((self.view.frame.size.width - 26) / 2, 200);
+                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
             }else{
-                return CGSizeMake((self.view.frame.size.width - 26) / 2, 330);
+                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
             }
             break;
         case 2:
             cellIndex = 0;
-            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"]) {
-                return CGSizeMake((self.view.frame.size.width - 26) / 2, 200);
-            }else{
-                return CGSizeMake((self.view.frame.size.width - 26) / 2, 330);
-            }
+            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
+                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
+            else
+                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
             break;
             
         default:
             break;
     }
     return CGSizeMake(self.view.frame.size.width - 10, 200);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(12, 0, 12, 0);
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -83,22 +92,12 @@ int cellIndex = 0;
     
     NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
-    
-    switch (cellIndex) {
-        case 0:
-            cellIndex = 1;
-            cell.backgroundColor = [UIColor clearColor];
-            break;
-        case 1:
-            cellIndex = 2;
-            cell.backgroundColor = [UIColor clearColor];
-            break;
-        case 2:
-            cellIndex = 0;
-            cell.backgroundColor = [UIColor whiteColor];
-            break;
-        default:
-            break;
+
+    if(cell.frame.size.width > (self.view.frame.size.width-2) / 2){
+        cell.backgroundColor = [UIColor clearColor];
+    }else{
+        cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
+        cell.textHeight.constant = 80;
     }
     
     if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"]){
@@ -110,25 +109,11 @@ int cellIndex = 0;
 
         cell.image.hidden = NO;
         cell.indicator.hidden = YES;
-        /*[cell.indicator startAnimating];
-        NSURLSession *session = [NSURLSession sharedSession];
-        [[session dataTaskWithURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.image.image = [UIImage imageWithData:data];
-                [cell.indicator stopAnimating];
-                cell.indicator.hidden = YES;
-            });
-        }] resume];*/
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.image.image = [self.images objectAtIndex:indexPath.row];
-//        });
         cell.image.image = [self.images objectAtIndex:indexPath.row];
         cell.image.layer.cornerRadius = 5;
         cell.image.layer.masksToBounds = YES;
         cell.summery.hidden = YES;
     }
-    cell.layer.cornerRadius = 5;
-    cell.layer.masksToBounds = YES;
     return cell;
 }
 
@@ -176,14 +161,6 @@ int cellIndex = 0;
     
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = masksToBounds;
-}
-
--(TFHpple *)retrieveData{
-    
-    NSURL *tutorialsUrl = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
-    NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
-    
-    return [TFHpple hppleWithHTMLData:tutorialsHtmlData];
 }
 
 -(NSMutableArray *)getPostsData:(TFHpple *)parser{
@@ -242,8 +219,8 @@ int cellIndex = 0;
     [self setShadowforView:self.weatherView masksToBounds:NO];
     [self setShadowforView:self.menuView masksToBounds:NO];
 }
-/*
--(NSMutableArray *)queryWeatherAPI{
+
+-(NSDictionary *)queryWeatherAPI{
     
     CLLocationCoordinate2D coordinate = [self getLocation];
     YQL *yql = [[YQL alloc] init];
@@ -259,23 +236,17 @@ int cellIndex = 0;
         
     }else{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:results[@"query"][@"results"][@"channel"][@"item"][@"forecast"]];
-        NSDictionary *dic = results[@"query"][@"results"][@"channel"][@"item"][@"condition"];
-        [array addObject:dic];
-        return array;
+        return (NSDictionary *)array.firstObject;
     }
 }
 
 -(void)getForcast{
     
-    self.weathers = [self queryWeatherAPI];
+    self.weather = [self queryWeatherAPI];
     
-    if (self.weathers) {
-        self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
-        self.weatherIcon.image = [self setWeatherImage: [[self.weathers lastObject] objectForKey:@"text"]];
-        [self.weathers removeLastObject];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.weatherTable reloadData];
-        });
+    if (self.weather) {
+        self.tempLabel.text = [self.weather objectForKey:@"temp"];
+        self.weatherIcon.image = [self setWeatherImage: [self.weather objectForKey:@"text"]];
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -286,14 +257,14 @@ int cellIndex = 0;
             [self presentViewController:alert animated:YES completion:nil];
         });
     }
-}*/
+}
 
 -(void)syncExtension{
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
     
-    //[sharedDefaults setObject:self.foods forKey:@"menuData"];
-    //[sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+//    [sharedDefaults setObject:self.foods forKey:@"menuData"];
+//    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
     [sharedDefaults synchronize];
 }
 
@@ -319,6 +290,33 @@ int cellIndex = 0;
         return [UIImage imageNamed:@"unknown"];
 }
 
+-(void)startRefresh:(UIRefreshControl *)refresh{
+    
+    NSLog(@"begin");
+    NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
+        TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.posts = [self getPostsData:hpple];
+                [self.postsView reloadData];
+                [self syncExtension];
+                [refresh endRefreshing];
+                NSLog(@"finished");
+            });
+        }else{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alert addAction:action];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:alert animated:YES completion:nil];
+            });
+        }
+    }] resume];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -327,18 +325,18 @@ int cellIndex = 0;
     self.menuWidth.constant = self.view.frame.size.width / 2 + 10;
     self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
     self.images = [NSMutableArray array];
-    /*
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.postsView addSubview:refreshControl];
+    self.postsView.alwaysBounceVertical = YES;
+
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
         [self.locationManager requestWhenInUseAuthorization];
     else
         [self getForcast];
-     */
-    
-    TFHpple *data = [self retrieveData];
-    self.posts = [self getPostsData:data];
-    
-    [self syncExtension];
     
     [super viewDidLoad];
 }

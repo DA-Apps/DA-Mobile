@@ -13,13 +13,14 @@
 #import "CollectionReusableHeader.h"
 #import "YQL.h"
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate>
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *timeStamp;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (strong, nonatomic) NSMutableArray *titles;
 @property (strong, nonatomic) NSMutableArray <UIImage *>*images;
+@property (strong, nonatomic) NSDictionary *weather;
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;

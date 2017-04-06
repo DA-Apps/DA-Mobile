@@ -13,6 +13,9 @@
 @end
 
 @implementation DetailViewController
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)setShadowforView:(UIView *)view masksToBounds:(BOOL)masksToBounds{
     

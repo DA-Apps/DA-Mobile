@@ -13,7 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UITextView *summery;
 @property (nonatomic, weak) IBOutlet UIImageView *image;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *postWidth;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *textHeight;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @end
