@@ -11,6 +11,7 @@
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
 		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
 		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
+		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
@@ -34,7 +35,7 @@
 		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
-		28E8339F1E94782800614C73 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8339E1E94782800614C73 /* Post.m */; };
+		28E8339F1E94782800614C73 /* UserPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E8339E1E94782800614C73 /* UserPost.m */; };
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
 		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
 		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
@@ -74,6 +75,8 @@
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2822A6051E95C86600F52F92 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		2822A6061E95C86600F52F92 /* Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hearts.png; sourceTree = "<group>"; };
+		282ADC181E97213600701BC2 /* BulletinPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinPost.h; sourceTree = "<group>"; };
+		282ADC191E97213600701BC2 /* BulletinPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinPost.m; sourceTree = "<group>"; };
 		2841DB3F1E567B2A007A1B2E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2841DB401E567B2A007A1B2E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,8 +114,8 @@
 		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
 		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28E8339D1E94782800614C73 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = ../Post.h; sourceTree = "<group>"; };
-		28E8339E1E94782800614C73 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = ../Post.m; sourceTree = "<group>"; };
+		28E8339D1E94782800614C73 /* UserPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPost.h; path = ../UserPost.h; sourceTree = "<group>"; };
+		28E8339E1E94782800614C73 /* UserPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPost.m; path = ../UserPost.m; sourceTree = "<group>"; };
 		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
 		28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewCellPosts.m; sourceTree = "<group>"; };
 		28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
@@ -288,8 +291,10 @@
 		28E833A01E94782E00614C73 /* Realm Object */ = {
 			isa = PBXGroup;
 			children = (
-				28E8339D1E94782800614C73 /* Post.h */,
-				28E8339E1E94782800614C73 /* Post.m */,
+				282ADC181E97213600701BC2 /* BulletinPost.h */,
+				282ADC191E97213600701BC2 /* BulletinPost.m */,
+				28E8339D1E94782800614C73 /* UserPost.h */,
+				28E8339E1E94782800614C73 /* UserPost.m */,
 			);
 			name = "Realm Object";
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */,
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
+				282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */,
 				28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */,
 				28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */,
 				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
@@ -530,7 +536,7 @@
 				2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 				28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */,
-				28E8339F1E94782800614C73 /* Post.m in Sources */,
+				28E8339F1E94782800614C73 /* UserPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +692,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -703,7 +709,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -719,7 +725,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -736,7 +742,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

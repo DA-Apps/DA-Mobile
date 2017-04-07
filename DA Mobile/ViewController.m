@@ -60,18 +60,11 @@ int colorIndex = 0;
             break;
         case 1:
             cellIndex = 2;
-            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"]) {
-                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
-            }else{
-                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
-            }
+            return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
             break;
         case 2:
             cellIndex = 0;
-            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
-                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
-            else
-                return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
+            return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
             break;
             
         default:
@@ -100,7 +93,7 @@ int colorIndex = 0;
         cell.textHeight.constant = 80;
     }
     
-    if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"]){
+    /*if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"]){
         cell.image.hidden = YES;
         cell.summery.hidden = NO;
         cell.indicator.hidden = YES;
@@ -113,7 +106,13 @@ int colorIndex = 0;
         cell.image.layer.cornerRadius = 5;
         cell.image.layer.masksToBounds = YES;
         cell.summery.hidden = YES;
-    }
+    }*/
+    cell.image.hidden = NO;
+    cell.indicator.hidden = YES;
+    cell.image.image = [self.images objectAtIndex:indexPath.row];
+    cell.image.layer.cornerRadius = 5;
+    cell.image.layer.masksToBounds = YES;
+    cell.summery.hidden = YES;
     return cell;
 }
 
@@ -181,11 +180,10 @@ int colorIndex = 0;
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
             
-            if (imgSrc) {
+            if (imgSrc)
                 [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]]]];
-            }else{
+            else
                 [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
-            }
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
@@ -200,14 +198,12 @@ int colorIndex = 0;
             summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
             
             //construct the dic
-            NSDictionary *dic;
-            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]])
-                dic = @{@"img_src": imgSrc? imgSrc : @"nil",
+            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
+                NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                         @"title": title,
                         @"summery": summery};
-            
-            if (dic)
                 [objects addObject:dic];
+            }
         }
     }
     return objects;
@@ -333,7 +329,7 @@ int colorIndex = 0;
     self.postsView.alwaysBounceVertical = YES;
 
     self.locationManager = [[CLLocationManager alloc] init];
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
         [self.locationManager requestWhenInUseAuthorization];
     else
         [self getForcast];

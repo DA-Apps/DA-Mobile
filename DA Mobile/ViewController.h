@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
 #import <CoreLocation/CoreLocation.h>
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
 #import "YQL.h"
+#import "UserPost.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout>
 

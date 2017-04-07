@@ -1,14 +1,14 @@
 //
-//  Post.m
+//  BulletinPost.m
 //  DA Mobile
 //
-//  Created by Yongyang Nie on 4/4/17.
+//  Created by Yongyang Nie on 4/6/17.
 //  Copyright © 2017 Yongyang Nie. All rights reserved.
 //
 
-#import "Post.h"
+#import "BulletinPost.h"
 
-@implementation Post
+@implementation BulletinPost
 
 // Specify default values for properties
 
