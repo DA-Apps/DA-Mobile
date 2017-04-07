@@ -12,10 +12,11 @@
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
+#import "CollectionViewFlowLayout.h"
 #import "YQL.h"
 #import "UserPost.h"
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout>
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *timeStamp;
@@ -23,6 +24,9 @@
 @property (strong, nonatomic) NSMutableArray *titles;
 @property (strong, nonatomic) NSMutableArray <UIImage *>*images;
 @property (strong, nonatomic) NSDictionary *weather;
+@property (strong, nonatomic) NSMutableArray *upcomingMeals;
+@property (strong, nonatomic) NSMutableArray *birthdays;
+@property (strong, nonatomic) NSMutableArray<NSMutableArray *> *headerContent;
 
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;

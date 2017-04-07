@@ -18,6 +18,48 @@ int colorIndex = 0;
 
 @implementation ViewController
 
+#pragma mark - CollectionHeaderDelegate
+
+-(void)expandBirthday{
+    
+    int heightAnimation = 0;
+    
+    if (self.headerContent.lastObject.count == 0) {
+        [self.headerContent replaceObjectAtIndex:1 withObject:self.birthdays];
+        heightAnimation = 120;
+    }else{
+        heightAnimation = -120;
+        [self.headerContent replaceObjectAtIndex:1 withObject:[NSMutableArray array]];
+    }
+    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (header.frame.size.height != 300) {
+        [UIView animateWithDuration:0.2 animations:^{
+            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
+        }];
+    }
+    [self.postsView reloadData];
+}
+
+-(void)expandMenu{
+    
+    int heightAnimation = 0;
+    
+    if (self.headerContent.firstObject.count == 0) {
+        [self.headerContent replaceObjectAtIndex:0 withObject:self.upcomingMeals];
+        heightAnimation = 120;
+    }else{
+        [self.headerContent replaceObjectAtIndex:0 withObject:[NSMutableArray array]];
+        heightAnimation = -120;
+    }
+    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (header.frame.size.height != 300) {
+        [UIView animateWithDuration:0.2 animations:^{
+            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
+        }];
+    }
+    [self.postsView reloadData];
+}
+
 #pragma mark - Location Manager
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
@@ -48,15 +90,13 @@ int colorIndex = 0;
     if (indexPath.row == 0) {
         cellIndex = 0;
     }
-    
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
-            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"]) {
+            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
                 return CGSizeMake(self.view.frame.size.width, 200);
-            }else{
+            else
                 return CGSizeMake(self.view.frame.size.width, 280);
-            }
             break;
         case 1:
             cellIndex = 2;
@@ -85,7 +125,7 @@ int colorIndex = 0;
     
     NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
-
+    
     if(cell.frame.size.width > (self.view.frame.size.width-2) / 2){
         cell.backgroundColor = [UIColor clearColor];
     }else{
@@ -93,20 +133,6 @@ int colorIndex = 0;
         cell.textHeight.constant = 80;
     }
     
-    /*if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"]){
-        cell.image.hidden = YES;
-        cell.summery.hidden = NO;
-        cell.indicator.hidden = YES;
-        cell.summery.text = [dic objectForKey:@"summery"];
-    }else{
-
-        cell.image.hidden = NO;
-        cell.indicator.hidden = YES;
-        cell.image.image = [self.images objectAtIndex:indexPath.row];
-        cell.image.layer.cornerRadius = 5;
-        cell.image.layer.masksToBounds = YES;
-        cell.summery.hidden = YES;
-    }*/
     cell.image.hidden = NO;
     cell.indicator.hidden = YES;
     cell.image.image = [self.images objectAtIndex:indexPath.row];
@@ -124,17 +150,29 @@ int colorIndex = 0;
     return 1;
 }
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0)
+        return CGSizeMake(self.postsView.frame.size.width, 180);
+    else
+        return CGSizeMake(self.postsView.frame.size.width, 300);
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableview = nil;
     
-    if (kind == UICollectionElementKindSectionHeader) {
-        CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
         headerView.dateLabel.text = [self dateDescription];
         headerView.tempLabel.text = @"68";
         reusableview = headerView;
+        headerView.tableHeight.constant = 90;
+        headerView.array = [NSMutableArray array];
+        headerView.array = self.headerContent;
+        [headerView.table reloadData];
+        headerView.delegate = self;
     }
-
+    
     return reusableview;
 }
 
@@ -167,14 +205,26 @@ int colorIndex = 0;
     NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
     NSMutableArray *objects = [[NSMutableArray alloc] init];
+    
+    //loop for two days--------------------------------------------------
     for (int i = 0; i < 2; i++) {
         
         TFHppleElement *hppleElement = dailyPosts[i];
         
         NSArray *posts = [[[hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  first']"] arrayByAddingObjectsFromArray:
-                          [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
+                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
-
+        
+        NSArray *birthday = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
+        if (birthday.count != 0) {
+            NSArray *content = [(TFHppleElement *)birthday.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
+            
+            NSString *birthday = [self cleanString:[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""]];
+            NSArray* elements = [birthday componentsSeparatedByString:@"."];
+            self.birthdays = [NSMutableArray arrayWithArray:elements];
+        }
+        
+        //parse out all the posts------------------------------------------
         for (TFHppleElement *element in posts) {
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
@@ -187,26 +237,28 @@ int colorIndex = 0;
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
-            NSString *title = [(TFHppleElement *)[titles firstObject] text];
-            title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            title = [title stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
             
             //search for summery of post
             NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
-            NSString *summery = [(TFHppleElement *)[summeries firstObject] text];
-            summery = [summery stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
             
             //construct the dic
             if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
-                        @"title": title,
-                        @"summery": summery};
+                                      @"title": title,
+                                      @"summery": summery};
                 [objects addObject:dic];
             }
         }
     }
     return objects;
+}
+
+-(NSString *)cleanString:(NSString *)string{
+    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return string;
 }
 
 -(void)setupShadows{
@@ -259,8 +311,8 @@ int colorIndex = 0;
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
     
-//    [sharedDefaults setObject:self.foods forKey:@"menuData"];
-//    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+    //    [sharedDefaults setObject:self.foods forKey:@"menuData"];
+    //    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
     [sharedDefaults synchronize];
 }
 
@@ -288,6 +340,7 @@ int colorIndex = 0;
 
 -(void) parseMenu:(TFHpple *) data{
     
+    self.upcomingMeals = [NSMutableArray array];
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd-"];
@@ -301,23 +354,24 @@ int colorIndex = 0;
     NSString *mealType;
     
     if([day isEqualToString: @"Sun"]) {
-        if (hour < 11) {
-            mealType = @"BRUNCH";
-        } else {
-            mealType = @"DINNER";
-        }
+        if (hour < 12) mealType = @"BRUNCH";
+        else mealType = @"DINNER";
     } else {
         if (hour < 9)
             mealType = @"BREAKFAST";
-        else if (hour < 13)
-            mealType = @"LUNCH";
-        else
-            mealType = @"DINNER";
+        else if (hour < 13) mealType = @"LUNCH";
+        else mealType = @"DINNER";
+    }
+    if (hour > 18) {
+        mealType = @"BREAKFAST";
+        currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
+        [formatter setDateFormat:@"yyyy-MM-dd-"];
+        key = [formatter stringFromDate: currentTime];
     }
     key = [key stringByAppendingString:mealType];
     NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
-    NSLog(@"%@", foods);
-    
+    for (TFHppleElement *element in foods)
+        [self.upcomingMeals addObject:element.content];
 }
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
@@ -352,6 +406,10 @@ int colorIndex = 0;
 
 - (void)viewDidLoad {
     
+    self.headerContent = [NSMutableArray array];
+    [self.headerContent addObject:[NSMutableArray array]];
+    [self.headerContent addObject:[NSMutableArray array]];
+    
     [self setupShadows];
     self.menuWidth.constant = self.view.frame.size.width / 2 + 10;
     self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
@@ -362,7 +420,7 @@ int colorIndex = 0;
              forControlEvents:UIControlEventValueChanged];
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
-
+    
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
         [self.locationManager requestWhenInUseAuthorization];
