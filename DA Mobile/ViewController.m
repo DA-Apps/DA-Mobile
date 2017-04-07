@@ -286,6 +286,40 @@ int colorIndex = 0;
         return [UIImage imageNamed:@"unknown"];
 }
 
+-(void) parseMenu:(TFHpple *) data{
+    
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-"];
+    NSString *key = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"EE"];
+    NSString *day = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"HH"];
+    int hour = [[formatter stringFromDate: currentTime] intValue];
+    NSString *mealType;
+    
+    if([day isEqualToString: @"Sun"]) {
+        if (hour < 11) {
+            mealType = @"BRUNCH";
+        } else {
+            mealType = @"DINNER";
+        }
+    } else {
+        if (hour < 9)
+            mealType = @"BREAKFAST";
+        else if (hour < 13)
+            mealType = @"LUNCH";
+        else
+            mealType = @"DINNER";
+    }
+    key = [key stringByAppendingString:mealType];
+    NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
+    NSLog(@"%@", foods);
+    
+}
+
 -(void)startRefresh:(UIRefreshControl *)refresh{
     
     NSLog(@"begin");
@@ -297,6 +331,7 @@ int colorIndex = 0;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.posts = [self getPostsData:hpple];
                 [self.postsView reloadData];
+                [self parseMenu:hpple];
                 [self syncExtension];
                 [refresh endRefreshing];
                 NSLog(@"finished");

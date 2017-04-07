@@ -19,10 +19,35 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0AF3B6C9033469D28ACB5D4D84FFF743</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1AE669DB0A15E3313A460FB2DEAC0AFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54EE9541DC5CCA683869F827D5758753</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85308D912A25B0FDB5F72E43436F9B85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +57,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D5B9EAE7BB65FB776E1D8876DAC516BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D6AD2BB0A0A69E525DC2A32CB3BDB6E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E02E7B41D34EB3EC3D71D8E9BFE720B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E37FFFDFF119E6D112DEBD8CCC63F628</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA9D13261AF395CF5D54BB3203DF2A6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBA9754FB7A82758566D360BD30C2517</key>
 		<dict>
 			<key>primary</key>
 			<true/>
