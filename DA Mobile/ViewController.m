@@ -93,18 +93,18 @@ int colorIndex = 0;
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
-            if ([[[self.posts objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
-                return CGSizeMake(self.view.frame.size.width, 200);
+            if ([[[[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
+                return CGSizeMake(self.view.frame.size.width, 210);
             else
                 return CGSizeMake(self.view.frame.size.width, 280);
             break;
         case 1:
             cellIndex = 2;
-            return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
+            return CGSizeMake(self.view.frame.size.width, 160);
             break;
         case 2:
             cellIndex = 0;
-            return CGSizeMake((self.view.frame.size.width-2) / 2, 300);
+            return CGSizeMake(self.view.frame.size.width, 160);
             break;
             
         default:
@@ -118,72 +118,71 @@ int colorIndex = 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
-    cell.layer.shouldRasterize = YES;
-    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     
-    NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
-    cell.title.text = [dic objectForKey:@"title"];
-    
-    if(cell.frame.size.width > (self.view.frame.size.width-2) / 2){
-        cell.backgroundColor = [UIColor clearColor];
-    }else{
+    if(cell.frame.size.height == 160){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
-        cell.textHeight.constant = 80;
+    }else{
+        cell.backgroundColor = [UIColor clearColor];
     }
     
-    cell.image.hidden = NO;
-    cell.indicator.hidden = YES;
-    cell.image.image = [self.images objectAtIndex:indexPath.row];
+    NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.title.text = [dic objectForKey:@"title"];
+    cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
-    cell.summery.hidden = YES;
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.posts.count;
+    return self.posts[section].count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return self.posts.count;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0)
+    if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
         return CGSizeMake(self.postsView.frame.size.width, 180);
+    else if (section != 0)
+        return CGSizeMake(self.postsView.frame.size.width, 100);
     else
         return CGSizeMake(self.postsView.frame.size.width, 300);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionReusableView *reusableview = nil;
-    
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
-        headerView.dateLabel.text = [self dateDescription];
+        headerView.tempLabel.hidden = NO;
+        headerView.weatherIcon.hidden = NO;
+        headerView.table.hidden = NO;
+        headerView.dateLabel.text = [self dateDescription:[NSDate date]];
         headerView.tempLabel.text = @"68";
-        reusableview = headerView;
-        headerView.tableHeight.constant = 90;
         headerView.array = [NSMutableArray array];
         headerView.array = self.headerContent;
         [headerView.table reloadData];
         headerView.delegate = self;
+    }else if (kind == UICollectionElementKindSectionHeader && indexPath.section != 0){
+        headerView.dateLabel.text = [self dateDescription:[NSDate dateWithTimeInterval:-86400*indexPath.section sinceDate:[NSDate date]]];
+        headerView.tempLabel.hidden = YES;
+        headerView.weatherIcon.hidden = YES;
+        headerView.table.hidden = YES;
     }
     
-    return reusableview;
+    return headerView;
 }
 
 #pragma mark - Private
 
--(NSString *)dateDescription{
+-(NSString *)dateDescription:(NSDate *)date{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMMM dd"];
-    NSDate *today = [NSDate date];
-    return [formatter stringFromDate:today];
+    return [formatter stringFromDate:date];
 }
 
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -194,32 +193,28 @@ int colorIndex = 0;
     return newImage;
 }
 
--(void)setShadowforView:(UIView *)view masksToBounds:(BOOL)masksToBounds{
+-(void)getPostsData:(TFHpple *)parser{
     
-    view.layer.cornerRadius = 5;
-    view.layer.masksToBounds = masksToBounds;
-}
+    self.posts = [NSMutableArray array];
+    NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
 
--(NSMutableArray *)getPostsData:(TFHpple *)parser{
-    
-    NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
-    
-    NSMutableArray *objects = [[NSMutableArray alloc] init];
-    
     //loop for two days--------------------------------------------------
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         
-        TFHppleElement *hppleElement = dailyPosts[i];
+        NSMutableArray *dailyPosts = [NSMutableArray array];
+        
+        TFHppleElement *hppleElement = allPosts[i];
         
         NSArray *posts = [[[hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  first']"] arrayByAddingObjectsFromArray:
                            [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
         
+        //parse out all the birthdays--------------------------------------
         NSArray *birthday = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
-        if (birthday.count != 0) {
+        if (birthday.count != 0 && self.birthdays == 0) {
             NSArray *content = [(TFHppleElement *)birthday.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
             
-            NSString *birthday = [self cleanString:[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""]];
+            NSString *birthday = [self cleanString:[[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""] stringByReplacingOccurrencesOfString:@"," withString:@""]];
             NSArray* elements = [birthday componentsSeparatedByString:@"."];
             self.birthdays = [NSMutableArray arrayWithArray:elements];
         }
@@ -230,10 +225,9 @@ int colorIndex = 0;
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
             
+            NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
             if (imgSrc)
-                [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]]]];
-            else
-                [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
+                imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]];
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
@@ -247,25 +241,19 @@ int colorIndex = 0;
             if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                       @"title": title,
-                                      @"summery": summery};
-                [objects addObject:dic];
+                                      @"summery": summery,
+                                      @"image": imageData};
+                [dailyPosts addObject:dic];
             }
         }
+        [self.posts addObject:dailyPosts];
     }
-    return objects;
 }
 
 -(NSString *)cleanString:(NSString *)string{
     string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return string;
-}
-
--(void)setupShadows{
-    [self setShadowforView:self.table masksToBounds:YES];
-    [self setShadowforView:self.weatherTable masksToBounds:YES];
-    [self setShadowforView:self.weatherView masksToBounds:NO];
-    [self setShadowforView:self.menuView masksToBounds:NO];
 }
 
 -(NSDictionary *)queryWeatherAPI{
@@ -293,8 +281,8 @@ int colorIndex = 0;
     self.weather = [self queryWeatherAPI];
     
     if (self.weather) {
-        self.tempLabel.text = [self.weather objectForKey:@"temp"];
-        self.weatherIcon.image = [self setWeatherImage: [self.weather objectForKey:@"text"]];
+        //self.tempLabel.text = [self.weather objectForKey:@"temp"];
+        //self.weatherIcon.image = [self setWeatherImage: [self.weather objectForKey:@"text"]];
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -307,12 +295,21 @@ int colorIndex = 0;
     }
 }
 
--(void)syncExtension{
+-(void)cacheData:(NSMutableArray <NSMutableArray *> *)posts birthday:(NSMutableArray *)birthdays menu:(NSMutableArray *)nextMeal{
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    [sharedDefaults setObject:posts forKey:@"posts"];
+    [sharedDefaults setObject:birthdays forKey:@"birthdays"];
+    [sharedDefaults setObject:nextMeal forKey:@"nextMeal"];
+    [sharedDefaults synchronize];
+}
+
+-(void)loadCachedData{
     
-    //    [sharedDefaults setObject:self.foods forKey:@"menuData"];
-    //    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    self.posts = [sharedDefaults objectForKey:@"posts"];
+    self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
+    self.birthdays = [sharedDefaults objectForKey:@"birthdays"];
     [sharedDefaults synchronize];
 }
 
@@ -375,20 +372,18 @@ int colorIndex = 0;
 }
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
-    
-    NSLog(@"begin");
+
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.posts = [self getPostsData:hpple];
+                [self getPostsData:hpple];
                 [self.postsView reloadData];
                 [self parseMenu:hpple];
-                [self syncExtension];
+                [self cacheData:self.posts birthday:self.birthdays menu:self.upcomingMeals];
                 [refresh endRefreshing];
-                NSLog(@"finished");
             });
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
@@ -405,21 +400,22 @@ int colorIndex = 0;
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    
+
     self.headerContent = [NSMutableArray array];
     [self.headerContent addObject:[NSMutableArray array]];
     [self.headerContent addObject:[NSMutableArray array]];
-    
-    [self setupShadows];
-    self.menuWidth.constant = self.view.frame.size.width / 2 + 10;
-    self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
-    self.images = [NSMutableArray array];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
+    
+    [self loadCachedData];
+    if (self.posts == nil) {
+        [self startRefresh:refreshControl];
+    }
+    [self.postsView reloadData];
     
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
@@ -437,8 +433,10 @@ int colorIndex = 0;
     
     if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
         DetailViewController *vc = [segue destinationViewController];
-        NSDictionary *dic = [self.posts objectAtIndex:self.postsView.indexPathsForSelectedItems.firstObject.row];
+        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
+        NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         
+        vc.postURL = [dic objectForKey:@"postURL"];
         vc.contentString = [dic objectForKey:@"summery"];
         vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
         vc.titleString = [dic objectForKey:@"title"];

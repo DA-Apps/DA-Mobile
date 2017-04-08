@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIImage *contentImage;
 @property (strong, nonatomic) NSString *contentString;
 @property (strong, nonatomic) NSString *titleString;
+@property (strong, nonatomic) NSString *postURL;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *contentView;

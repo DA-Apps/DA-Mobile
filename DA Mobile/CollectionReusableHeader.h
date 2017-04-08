@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
 @property (strong, nonatomic) NSMutableArray<NSMutableArray *> *array;
 @property (strong, nonatomic) id delegate;
 
