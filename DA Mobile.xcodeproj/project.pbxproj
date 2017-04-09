@@ -11,6 +11,7 @@
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
 		281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */; };
 		281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */; };
+		281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C32D31E9A82930093ABA0 /* BookmarkViewController.m */; };
 		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
 		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
 		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
@@ -34,7 +35,8 @@
 		28ACA04E1E228A6D0092075E /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ACA04D1E228A6D0092075E /* YQL.m */; };
 		28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0501E228A890092075E /* CoreLocation.framework */; };
 		28ACA0531E2290220092075E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0521E2290220092075E /* MapKit.framework */; };
-		28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */; };
+		28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */; };
+		28AFE0D91E9AC7D2004A83FB /* BulletinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFE0D81E9AC7D2004A83FB /* BulletinData.m */; };
 		28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B84EAE1E9018560041BD5D /* NotificationCenter.framework */; };
 		28B84EB31E9018560041BD5D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B84EB21E9018560041BD5D /* TodayViewController.m */; };
 		28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EB41E9018560041BD5D /* MainInterface.storyboard */; };
@@ -81,6 +83,8 @@
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
 		281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
+		281C32D21E9A82930093ABA0 /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
+		281C32D31E9A82930093ABA0 /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
 		2822A6051E95C86600F52F92 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		2822A6061E95C86600F52F92 /* Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hearts.png; sourceTree = "<group>"; };
 		282ADC181E97213600701BC2 /* BulletinPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinPost.h; sourceTree = "<group>"; };
@@ -116,8 +120,9 @@
 		28ACA04D1E228A6D0092075E /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
 		28ACA0501E228A890092075E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		28ACA0521E2290220092075E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtheleticsViewController.h; sourceTree = "<group>"; };
-		28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtheleticsViewController.m; sourceTree = "<group>"; };
+		28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bookmark-icon.png"; sourceTree = "<group>"; };
+		28AFE0D71E9AC7D2004A83FB /* BulletinData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinData.h; sourceTree = "<group>"; };
+		28AFE0D81E9AC7D2004A83FB /* BulletinData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinData.m; sourceTree = "<group>"; };
 		28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DA Mobile Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B84EAE1E9018560041BD5D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		28B84EB11E9018560041BD5D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */,
 				28E833A91E94933000614C73 /* placeholder.png */,
 				283C8A0E1E97AE1300329DF3 /* Plus.png */,
 				2822A6051E95C86600F52F92 /* Back.png */,
@@ -232,6 +238,7 @@
 				28E833A01E94782E00614C73 /* Realm Object */,
 				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				28ACA04F1E228A710092075E /* Weather API */,
+				28AFE0DA1E9AC7DF004A83FB /* Objects */,
 				284A4DC11E2900C9004F5226 /* Views */,
 				2879F6C01DCB5CA200DAEE52 /* ViewController */,
 				281C32D11E9A75B40093ABA0 /* Media */,
@@ -286,12 +293,12 @@
 			children = (
 				286816671DCAB3D20089BEA6 /* ViewController.h */,
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
+				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
+				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
 				28A4C6DC1E984A1500C00E3E /* MenuViewController.h */,
 				28A4C6DD1E984A1500C00E3E /* MenuViewController.m */,
 				2841DB3F1E567B2A007A1B2E /* DetailViewController.h */,
 				2841DB401E567B2A007A1B2E /* DetailViewController.m */,
-				28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */,
-				28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -303,6 +310,15 @@
 				28ACA04D1E228A6D0092075E /* YQL.m */,
 			);
 			name = "Weather API";
+			sourceTree = "<group>";
+		};
+		28AFE0DA1E9AC7DF004A83FB /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				28AFE0D71E9AC7D2004A83FB /* BulletinData.h */,
+				28AFE0D81E9AC7D2004A83FB /* BulletinData.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		28B84EB01E9018560041BD5D /* DA Mobile Widget */ = {
@@ -457,6 +473,7 @@
 				281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */,
 				281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */,
 				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
+				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
@@ -563,8 +580,9 @@
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
 				28A4C6DE1E984A1500C00E3E /* MenuViewController.m in Sources */,
 				282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */,
-				28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */,
+				281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */,
 				28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */,
+				28AFE0D91E9AC7D2004A83FB /* BulletinData.m in Sources */,
 				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */,
@@ -726,7 +744,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -743,7 +761,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -759,7 +777,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -776,7 +794,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin-v2.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

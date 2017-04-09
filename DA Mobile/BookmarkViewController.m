@@ -1,30 +1,21 @@
 //
-//  AtheleticsViewController.m
+//  BookmarkViewController.m
 //  DA Mobile
 //
-//  Created by Yongyang Nie on 2/1/17.
+//  Created by Yongyang Nie on 4/9/17.
 //  Copyright © 2017 Yongyang Nie. All rights reserved.
 //
 
-#import "AtheleticsViewController.h"
+#import "BookmarkViewController.h"
 
-@interface AtheleticsViewController ()
+@interface BookmarkViewController ()
 
 @end
 
-@implementation AtheleticsViewController
-
--(void)webViewDidFinishLoad:(UIWebView *)webView{
-    [self.indicator stopAnimating];
-    self.indicator.hidden = YES;
-}
+@implementation BookmarkViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://deerfield.edu/athletics/events/"]]];
-    [self.indicator startAnimating];
-    self.web.delegate = self;
     // Do any additional setup after loading the view.
 }
 

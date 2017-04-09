@@ -17,10 +17,10 @@
 #import "DGActivityIndicatorView.h"
 #import "BulletinPost.h"
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate>
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray <NSMutableArray *> *posts;
+@property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;
 @property (strong, nonatomic) NSDictionary *weather;
 @property (strong, nonatomic) NSMutableArray *upcomingMeals;
 @property (strong, nonatomic) NSMutableArray *birthdays;

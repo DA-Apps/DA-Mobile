@@ -18,12 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    // Do any additional setup after loading the view.
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    
     NSLog(@"Begin downloading data");
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -32,12 +26,14 @@
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self parseMenu:hpple];
+                [self.tableView reloadData];
             });
         }
     }] resume];
     
-    [super viewDidAppear:YES];
+    // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

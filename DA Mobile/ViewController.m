@@ -18,6 +18,14 @@ int colorIndex = 0;
 
 @implementation ViewController
 
+#pragma mark - PostCell Delegate 
+
+-(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
+    NSIndexPath *index = [self.postsView indexPathForCell:cell];
+    NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
+    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"]];
+}
+
 #pragma mark - CollectionHeaderDelegate
 
 -(void)expandBirthday{
@@ -25,7 +33,7 @@ int colorIndex = 0;
     int heightAnimation = 0;
     
     if (self.headerContent.lastObject.count == 0) {
-        [self.headerContent replaceObjectAtIndex:1 withObject:self.birthdays];
+        [self.headerContent replaceObjectAtIndex:1 withObject:[self.posts.firstObject objectForKey:@"birthdays"]];
         heightAnimation = 120;
     }else{
         heightAnimation = -120;
@@ -62,13 +70,6 @@ int colorIndex = 0;
 
 #pragma mark - Location Manager
 
--(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.weather == nil) {
-        [self getForcast];
-        NSLog(@"getting forcast");
-    }
-}
-
 -(CLLocationCoordinate2D) getLocation{
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -87,16 +88,13 @@ int colorIndex = 0;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == 0) {
+    if (indexPath.row == 0)
         cellIndex = 0;
-    }
+
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
-            if ([[[[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"img_src"] isEqualToString:@"nil"])
-                return CGSizeMake(self.view.frame.size.width, 210);
-            else
-                return CGSizeMake(self.view.frame.size.width, 280);
+            return CGSizeMake(self.view.frame.size.width, 250);
             break;
         case 1:
             cellIndex = 2;
@@ -110,7 +108,7 @@ int colorIndex = 0;
         default:
             break;
     }
-    return CGSizeMake(self.view.frame.size.width - 10, 200);
+    return CGSizeMake(self.view.frame.size.width, 200);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -128,16 +126,17 @@ int colorIndex = 0;
         cell.backgroundColor = [UIColor clearColor];
     }
     
-    NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
     cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
+    cell.delegate = self;
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.posts[section].count;
+    return [(NSMutableArray *)[self.posts[section] objectForKey:@"posts"] count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -156,30 +155,23 @@ int colorIndex = 0;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    headerView.dateLabel.text = [self dateDescription:[[self.posts objectAtIndex:indexPath.section] objectForKey:@"date"]];
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
         headerView.tempLabel.hidden = NO;
         headerView.weatherIcon.hidden = NO;
         headerView.table.hidden = NO;
-        headerView.dateLabel.text = [self dateDescription:[NSDate date]];
         headerView.tempLabel.text = @"68";
         headerView.array = [NSMutableArray array];
         headerView.array = self.headerContent;
         [headerView.table reloadData];
         headerView.delegate = self;
     }else if (kind == UICollectionElementKindSectionHeader && indexPath.section != 0){
-        headerView.dateLabel.text = [self dateDescription:[NSDate dateWithTimeInterval:-86400*indexPath.section sinceDate:[NSDate date]]];
         headerView.tempLabel.hidden = YES;
         headerView.weatherIcon.hidden = YES;
         headerView.table.hidden = YES;
     }
     
     return headerView;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"]];
-    NSLog(@"you clicked!!!");
 }
 
 #pragma mark - Private
@@ -191,20 +183,12 @@ int colorIndex = 0;
     return [formatter stringFromDate:date];
 }
 
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 -(void)getPostsData:(TFHpple *)parser{
     
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
-    //loop for two days--------------------------------------------------
+    //loop for three days--------------------------------------------------
     for (int i = 0; i < 3; i++) {
         
         NSMutableArray *dailyPosts = [NSMutableArray array];
@@ -216,14 +200,8 @@ int colorIndex = 0;
                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
         
         //parse out all the birthdays--------------------------------------
-        NSArray *birthday = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
-        if (birthday.count != 0 && self.birthdays == 0) {
-            NSArray *content = [(TFHppleElement *)birthday.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
-            
-            NSString *birthday = [self cleanString:[[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""] stringByReplacingOccurrencesOfString:@"," withString:@""]];
-            NSArray* elements = [birthday componentsSeparatedByString:@"."];
-            self.birthdays = [NSMutableArray arrayWithArray:elements];
-        }
+        NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
+        NSMutableArray *birthdays = [self parseBirthdays:birthdayData];
         
         //parse out all the posts------------------------------------------
         for (TFHppleElement *element in posts) {
@@ -249,10 +227,27 @@ int colorIndex = 0;
                                       @"title": title,
                                       @"summery": summery,
                                       @"image": imageData};
+                
                 [dailyPosts addObject:dic];
             }
         }
-        [self.posts addObject:dailyPosts];
+        NSDictionary *oneDay = @{@"posts": dailyPosts,
+                                 @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
+                                 @"birthdays": birthdays};
+        [self.posts addObject:oneDay];
+    }
+}
+
+-(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
+    
+    if (birthdayData.count != 0 && self.birthdays == 0) {
+        NSArray *content = [(TFHppleElement *)birthdayData.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
+        
+        NSString *birthday = [self cleanString:[[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""] stringByReplacingOccurrencesOfString:@"," withString:@""]];
+        NSArray* elements = [birthday componentsSeparatedByString:@"."];
+        return [NSMutableArray arrayWithArray:elements];
+    }else{
+        return nil;
     }
 }
 
@@ -301,11 +296,10 @@ int colorIndex = 0;
     }
 }
 
--(void)cacheData:(NSMutableArray <NSMutableArray *> *)posts birthday:(NSMutableArray *)birthdays menu:(NSMutableArray *)nextMeal{
+-(void)cacheData:(NSMutableArray <NSDictionary *> *)posts menu:(NSMutableArray *)nextMeal{
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
     [sharedDefaults setObject:posts forKey:@"posts"];
-    [sharedDefaults setObject:birthdays forKey:@"birthdays"];
     [sharedDefaults setObject:nextMeal forKey:@"nextMeal"];
     [sharedDefaults synchronize];
 }
@@ -315,7 +309,6 @@ int colorIndex = 0;
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
     self.posts = [sharedDefaults objectForKey:@"posts"];
     self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
-    self.birthdays = [sharedDefaults objectForKey:@"birthdays"];
     [sharedDefaults synchronize];
 }
 
@@ -381,9 +374,9 @@ int colorIndex = 0;
     
     if (self.posts.count == 0) {
         self.activityIndicator.hidden = NO;
-        self.postsView.alpha = 0;
         self.activityIndicator.tintColor = [UIColor grayColor];
         self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
+        [self.activityIndicator startAnimating];
     }
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -391,10 +384,13 @@ int colorIndex = 0;
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"finished");
                 [self getPostsData:hpple];
                 [self.postsView reloadData];
                 [self parseMenu:hpple];
-                [self cacheData:self.posts birthday:self.birthdays menu:self.upcomingMeals];
+                [self cacheData:self.posts menu:self.upcomingMeals];
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
                 [refresh endRefreshing];
             });
         }else{
@@ -410,6 +406,7 @@ int colorIndex = 0;
 }
 
 - (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
+    
     BulletinPost *post = [[BulletinPost alloc] init];
     post.title = title;
     post.content = content;
@@ -417,6 +414,7 @@ int colorIndex = 0;
     
     if (![self contains:title]){
         RLMRealm *realm = [RLMRealm defaultRealm];
+        NSLog(@"%@", [RLMRealmConfiguration defaultConfiguration].fileURL);
         [realm transactionWithBlock:^{
             [realm addObject:post];
         }];
@@ -425,9 +423,8 @@ int colorIndex = 0;
 
 -(BOOL)contains:(NSString *)title {
     for (BulletinPost *post in [BulletinPost allObjects]){
-        if ([post.title isEqualToString:title]){
+        if ([post.title isEqualToString:title])
             return YES;
-        }
     }
     return NO;
 }
@@ -470,7 +467,7 @@ int colorIndex = 0;
     if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
         DetailViewController *vc = [segue destinationViewController];
         NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
-        NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
         
         vc.postURL = [dic objectForKey:@"postURL"];
         vc.contentString = [dic objectForKey:@"summery"];
