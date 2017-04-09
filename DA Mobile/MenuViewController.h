@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray <NSMutableArray *> *meals;
 
 @end

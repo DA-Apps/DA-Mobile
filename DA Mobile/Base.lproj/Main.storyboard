@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellPost" id="Hpl-Rk-jhN" customClass="UICollectionViewCellPosts">
-                                        <rect key="frame" x="1.5" y="180" width="372" height="232"/>
+                                        <rect key="frame" x="2" y="180" width="372" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="232"/>
@@ -68,7 +68,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellPostSmall" id="sYL-Vp-JRK" customClass="UICollectionViewCellPosts">
-                                        <rect key="frame" x="1.5" y="417" width="372" height="232"/>
+                                        <rect key="frame" x="2" y="417" width="372" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="232"/>
@@ -141,7 +141,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfT-ks-sWM" id="bUe-g2-4Pu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="43"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableViewCellContentView>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -269,7 +269,7 @@
                                 <items>
                                     <barButtonItem style="plain" id="3ys-H6-Htj">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iag-RX-Wrl">
-                                            <rect key="frame" x="16" y="4.5" width="35" height="35"/>
+                                            <rect key="frame" x="16" y="5" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="NBl-3b-H02"/>
@@ -284,7 +284,7 @@
                                     <barButtonItem title="Item" width="240" id="LvH-SC-YRx"/>
                                     <barButtonItem style="plain" id="XPm-Vg-Dqe">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GZR-o5-2fP">
-                                            <rect key="frame" x="311" y="4.5" width="35" height="35"/>
+                                            <rect key="frame" x="311" y="5" width="35" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="NLJ-Oj-geB"/>
@@ -353,7 +353,7 @@
         <!--Menu-->
         <scene sceneID="p0I-CV-FdW">
             <objects>
-                <viewController id="C9F-Ad-oPN" sceneMemberID="viewController">
+                <viewController id="C9F-Ad-oPN" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YGj-ed-Kh6"/>
                         <viewControllerLayoutGuide type="bottom" id="pTv-VF-4ST"/>
@@ -374,17 +374,17 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-YT-Q6e">
                                 <rect key="frame" x="16" y="108" width="343" height="502"/>
-                                <color key="backgroundColor" red="0.001344189979" green="0.4819565415" blue="0.28805303570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" textLabel="GsU-Tx-xLD" style="IBUITableViewCellStyleDefault" id="X6y-KG-9zN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableID" textLabel="GsU-Tx-xLD" style="IBUITableViewCellStyleDefault" id="X6y-KG-9zN">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6y-KG-9zN" id="3Om-hK-EzC">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GsU-Tx-xLD">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -396,8 +396,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eWg-We-eei"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="b2D-e8-Qt0"/>
+                                    <outlet property="dataSource" destination="C9F-Ad-oPN" id="0Do-2k-dET"/>
+                                    <outlet property="delegate" destination="C9F-Ad-oPN" id="utI-2P-t0u"/>
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vuf-U4-qWh">
@@ -408,6 +408,9 @@
                                     <segment title="Friday"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="selectDate:" destination="C9F-Ad-oPN" eventType="valueChanged" id="4e5-dZ-F8D"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -424,6 +427,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="SIp-09-0iy"/>
+                    <connections>
+                        <outlet property="segementedControl" destination="vuf-U4-qWh" id="Oet-9j-1Dt"/>
+                        <outlet property="tableView" destination="bZw-YT-Q6e" id="OtL-3f-QAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKx-pc-tcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
