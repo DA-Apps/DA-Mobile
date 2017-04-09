@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		232432ECC2DCF7C5EF30F6AF /* libPods-DA Mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */; };
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
+		281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */; };
+		281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */; };
 		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
 		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
 		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
@@ -39,6 +41,7 @@
 		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
+		28CFF2D81E99E631001E012F /* poster.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CFF2D71E99E631001E012F /* poster.png */; };
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
 		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
 		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
@@ -76,6 +79,8 @@
 		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
+		281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
 		2822A6051E95C86600F52F92 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		2822A6061E95C86600F52F92 /* Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hearts.png; sourceTree = "<group>"; };
 		282ADC181E97213600701BC2 /* BulletinPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinPost.h; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
 		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28CFF2D71E99E631001E012F /* poster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poster.png; sourceTree = "<group>"; };
 		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
 		28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewCellPosts.m; sourceTree = "<group>"; };
 		28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
@@ -159,6 +165,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281C32D11E9A75B40093ABA0 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				28E833A91E94933000614C73 /* placeholder.png */,
+				283C8A0E1E97AE1300329DF3 /* Plus.png */,
+				2822A6051E95C86600F52F92 /* Back.png */,
+				2822A6061E95C86600F52F92 /* Hearts.png */,
+				28CFF2D71E99E631001E012F /* poster.png */,
+				281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */,
+				281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */,
+				28B84EC11E9030C70041BD5D /* icon.png */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
 		284A4DC11E2900C9004F5226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +234,7 @@
 				28ACA04F1E228A710092075E /* Weather API */,
 				284A4DC11E2900C9004F5226 /* Views */,
 				2879F6C01DCB5CA200DAEE52 /* ViewController */,
+				281C32D11E9A75B40093ABA0 /* Media */,
 				286816611DCAB3D20089BEA6 /* Supporting Files */,
 			);
 			path = "DA Mobile";
@@ -221,16 +243,11 @@
 		286816611DCAB3D20089BEA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				283C8A0E1E97AE1300329DF3 /* Plus.png */,
-				2822A6051E95C86600F52F92 /* Back.png */,
-				2822A6061E95C86600F52F92 /* Hearts.png */,
 				280C287F1E91649200381D68 /* GoogleService-Info.plist */,
-				28E833A91E94933000614C73 /* placeholder.png */,
 				28B84EC31E9033F00041BD5D /* Assets.xcassets */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
 				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
-				28B84EC11E9030C70041BD5D /* icon.png */,
 				286816621DCAB3D20089BEA6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -435,7 +452,10 @@
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 				2822A6071E95C86600F52F92 /* Back.png in Resources */,
 				28E833AA1E94933000614C73 /* placeholder.png in Resources */,
+				28CFF2D81E99E631001E012F /* poster.png in Resources */,
 				280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */,
+				281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */,
+				281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */,
 				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,

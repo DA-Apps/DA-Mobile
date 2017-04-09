@@ -14,6 +14,7 @@
 #import "CollectionReusableHeader.h"
 #import "CollectionViewFlowLayout.h"
 #import "YQL.h"
+#import "DGActivityIndicatorView.h"
 #import "BulletinPost.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate>
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *birthdays;
 @property (strong, nonatomic) NSMutableArray<NSMutableArray *> *headerContent;
 
+@property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 

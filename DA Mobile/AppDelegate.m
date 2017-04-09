@@ -27,9 +27,12 @@
 #import "AppDelegate.h"
 #import "TFHpple.h"
 #import "ViewController.h"
+#import "EAIntroView.h"
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #import <FirebaseInstanceID/FirebaseInstanceID.h>
+
+static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 
 @import UserNotifications;
 
@@ -72,6 +75,13 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
+    BOOL userHasOnboarded = [[NSUserDefaults standardUserDefaults] boolForKey:kUserHasOnboardedKey];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self setupNormalRootViewController];
+    if (!userHasOnboarded)
+        [self showIntroView];
+    [self.window makeKeyAndVisible];
     //--------------------------------------------------------------------------------
     return YES;
 }
@@ -87,6 +97,51 @@
 }
 
 #pragma mark - Private
+
+- (void)setupNormalRootViewController {
+    // create whatever your root view controller is going to be, in this case just a simple view controller
+    // wrapped in a navigation controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"initialView"];
+    
+    self.window.rootViewController = viewController;
+}
+
+- (void)handleOnboardingCompletion {
+    //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserHasOnboardedKey];
+    [self setupNormalRootViewController];
+}
+
+- (void)showIntroView {
+    
+    // basic
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.title = @"DA Bulletin, now on your iPhone";
+    page1.desc = @"";
+    page1.bgImage = [UIImage imageNamed:@"bg1@2x"];
+    // custom
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.title = @"Pull to refresh to see the latest posts";
+    page2.titlePositionY = 220;
+    page2.desc = @"";
+    page2.descPositionY = 200;
+    page2.bgImage = [UIImage imageNamed:@"bg3@2x"];
+    // custom view from nib
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.title = @"Bookmark your favorite posts";
+    page3.desc = @"";
+    page3.bgImage = [UIImage imageNamed:@"bg1@2x"];
+    
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"Receive notifications for upcoming meals";
+    page4.desc = @"";
+    page4.bgImage = [UIImage imageNamed:@"bg3@2x"];
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.rootViewController.view.bounds andPages:@[page1,page2,page3, page4]];
+    [intro showInView:self.window.rootViewController.view animateDuration:0.0];
+    
+}
+
 
 -(void)triggerNotification:(NSTimer *)timer{
     

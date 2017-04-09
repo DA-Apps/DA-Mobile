@@ -373,6 +373,12 @@ int colorIndex = 0;
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
 
+    if (self.posts.count == 0) {
+        self.activityIndicator.hidden = NO;
+        self.postsView.alpha = 0;
+        self.activityIndicator.tintColor = [UIColor grayColor];
+        self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
+    }
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {

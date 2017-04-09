@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4SP-k9-mt4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -190,11 +190,21 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uFL-KG-d53"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-bd-5Cz" customClass="DGActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="LuZ-9I-NBo"/>
+                                    <constraint firstAttribute="height" constant="50" id="g4w-Wt-YhQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93709164860000005" green="0.93694382909999996" blue="0.95754462480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fIU-bd-5Cz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="06D-RR-M7K"/>
                             <constraint firstItem="kiM-9i-DV7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="19s-GD-AIk"/>
                             <constraint firstItem="kiM-9i-DV7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4CF-tD-Ip6"/>
+                            <constraint firstItem="fIU-bd-5Cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ggh-Zr-IKp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kiM-9i-DV7" secondAttribute="bottom" constant="8" id="PZf-O4-K8D"/>
                             <constraint firstAttribute="trailing" secondItem="kiM-9i-DV7" secondAttribute="trailing" id="d05-bj-W9f"/>
                         </constraints>
@@ -210,6 +220,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="fIU-bd-5Cz" id="QTu-bJ-ci1"/>
                         <outlet property="navigationItem" destination="bWH-1z-QsM" id="5oW-sG-Jmy"/>
                         <outlet property="postsView" destination="kiM-9i-DV7" id="0rR-a7-nPH"/>
                     </connections>
@@ -321,6 +332,24 @@
             </objects>
             <point key="canvasLocation" x="2746.4000000000001" y="104.7976011994003"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cAv-of-SVW">
+            <objects>
+                <viewController id="PTf-If-Xpc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1lH-iw-hUR"/>
+                        <viewControllerLayoutGuide type="bottom" id="B6d-iF-GJW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="53e-Qm-BQq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gO-Yg-FOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="851"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="p0I-CV-FdW">
             <objects>
@@ -403,7 +432,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="GOF-13-qPu">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4SP-k9-mt4" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="initialView" automaticallyAdjustsScrollViewInsets="NO" id="4SP-k9-mt4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="xqd-4X-jz1">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

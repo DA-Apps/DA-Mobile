@@ -4,12 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DGActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EAIntroView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EARestrictedScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Onboard.xcscheme</key>
+		<key>MaterialControls.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +52,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>15771CDB60DFAA769E27961D321E12C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>18E44BB15409B2D9A5CE43F806CD7415</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1AE669DB0A15E3313A460FB2DEAC0AFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54EE9541DC5CCA683869F827D5758753</key>
+		<key>7065B858DBA37E52253B7A64A843658C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85308D912A25B0FDB5F72E43436F9B85</key>
+		<key>85CF5C89AB7799B7EE09C050667C784D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A72A3AC1CDE6DCD2DCE7B3A942A820EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E02E7B41D34EB3EC3D71D8E9BFE720B3</key>
+		<key>E079843C9C79118289CFD9619070B0B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
