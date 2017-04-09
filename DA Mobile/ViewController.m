@@ -443,7 +443,7 @@ int colorIndex = 0;
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
     
-    [self loadCachedData];
+    //[self loadCachedData];
     if (self.posts == nil) {
         [self startRefresh:refreshControl];
     }

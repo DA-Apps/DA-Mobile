@@ -14,9 +14,14 @@
 
 @implementation BookmarkViewController
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return CGSizeMake(self.view.frame.size.width, 160);
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
+    UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
     cell.title.text = post.title;
     cell.image.image = [UIImage imageWithData:post.image];
@@ -27,12 +32,6 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.savedPosts.count;
-}
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(self.view.frame.size.width, 160);
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -48,7 +47,9 @@
 }
 
 - (void)viewDidLoad {
-        [super viewDidLoad];
+    
+    self.savedPosts = [BulletinPost allObjects];
+    [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
