@@ -118,7 +118,7 @@ int colorIndex = 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     
     if(cell.frame.size.height == 160){
@@ -176,6 +176,12 @@ int colorIndex = 0;
     return headerView;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dic = [[self.posts objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"]];
+    NSLog(@"you clicked!!!");
+}
+
 #pragma mark - Private
 
 -(NSString *)dateDescription:(NSDate *)date{
@@ -197,7 +203,7 @@ int colorIndex = 0;
     
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
-
+    
     //loop for two days--------------------------------------------------
     for (int i = 0; i < 3; i++) {
         
@@ -372,7 +378,7 @@ int colorIndex = 0;
 }
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
-
+    
     if (self.posts.count == 0) {
         self.activityIndicator.hidden = NO;
         self.postsView.alpha = 0;
@@ -403,10 +409,33 @@ int colorIndex = 0;
     }] resume];
 }
 
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
+    BulletinPost *post = [[BulletinPost alloc] init];
+    post.title = title;
+    post.content = content;
+    post.image = image;
+    
+    if (![self contains:title]){
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm transactionWithBlock:^{
+            [realm addObject:post];
+        }];
+    }
+}
+
+-(BOOL)contains:(NSString *)title {
+    for (BulletinPost *post in [BulletinPost allObjects]){
+        if ([post.title isEqualToString:title]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-
+    
     self.headerContent = [NSMutableArray array];
     [self.headerContent addObject:[NSMutableArray array]];
     [self.headerContent addObject:[NSMutableArray array]];
@@ -430,6 +459,7 @@ int colorIndex = 0;
         [self getForcast];
     
     [super viewDidLoad];
+    
 }
 
 #pragma mark - Navigation
@@ -448,5 +478,7 @@ int colorIndex = 0;
         vc.titleString = [dic objectForKey:@"title"];
     }
 }
+
+
 
 @end

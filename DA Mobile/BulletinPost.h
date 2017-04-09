@@ -13,7 +13,6 @@
 @property NSString *title;
 @property NSString *content;
 @property NSData *image;
-@property NSURL *imageSrc;
 @property NSDate *date;
 
 @end
