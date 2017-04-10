@@ -67,26 +67,16 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "28B84EAC1E9018560041BD5D"
-            BuildableName = "DA Mobile Widget.appex"
-            BlueprintName = "DA Mobile Widget"
+            BlueprintIdentifier = "2868165D1DCAB3D10089BEA6"
+            BuildableName = "DA Mobile.app"
+            BlueprintName = "DA Mobile"
             ReferencedContainer = "container:DA Mobile.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "28B84EAC1E9018560041BD5D"
-            BuildableName = "DA Mobile Widget.appex"
-            BlueprintName = "DA Mobile Widget"
-            ReferencedContainer = "container:DA Mobile.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

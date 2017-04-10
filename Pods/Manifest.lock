@@ -1,11 +1,8 @@
 PODS:
   - DGActivityIndicatorView (2.1.1)
-<<<<<<< HEAD
   - EAIntroView (2.10.0):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
-=======
->>>>>>> master
   - Firebase/Core (3.15.0):
     - FirebaseAnalytics (= 3.7.0)
     - FirebaseCore (= 3.5.2)
@@ -37,10 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - DGActivityIndicatorView
-<<<<<<< HEAD
   - EAIntroView
-=======
->>>>>>> master
   - Firebase/Core
   - Firebase/Messaging
   - MaterialControls
@@ -48,11 +42,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
-<<<<<<< HEAD
   EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
-=======
->>>>>>> master
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
@@ -63,10 +54,6 @@ SPEC CHECKSUMS:
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
   Realm: 32f86104d37c8521f864d4274050b38ba6190733
 
-<<<<<<< HEAD
 PODFILE CHECKSUM: fa5b78898d5900cc8ab678af72876ef162b78a45
-=======
-PODFILE CHECKSUM: 9fe74aae998e9183c9c8ef89bea1233c35393250
->>>>>>> master
 
 COCOAPODS: 1.2.0

@@ -9,7 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-<<<<<<< HEAD
 		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,18 +19,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-=======
->>>>>>> master
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-<<<<<<< HEAD
 		<key>MaterialControls.xcscheme</key>
-=======
-		<key>Onboard.xcscheme</key>
->>>>>>> master
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -59,20 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-<<<<<<< HEAD
 		<key>15771CDB60DFAA769E27961D321E12C2</key>
-=======
-		<key>1AE669DB0A15E3313A460FB2DEAC0AFF</key>
->>>>>>> master
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
 		<key>18E44BB15409B2D9A5CE43F806CD7415</key>
-=======
-		<key>54EE9541DC5CCA683869F827D5758753</key>
->>>>>>> master
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,11 +98,6 @@
 			<true/>
 		</dict>
 		<key>E079843C9C79118289CFD9619070B0B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E37FFFDFF119E6D112DEBD8CCC63F628</key>
 		<dict>
 			<key>primary</key>
 			<true/>
