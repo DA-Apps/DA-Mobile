@@ -27,6 +27,7 @@ SOFTWARE.
 
 
 
+<<<<<<< HEAD
 ## EAIntroView
 
 Copyright (c) 2013-2016 Evgeny Aleksandrov
@@ -72,6 +73,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+=======
+>>>>>>> master
 ## Firebase
 
 Copyright 2017 Google

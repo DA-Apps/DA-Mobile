@@ -119,11 +119,23 @@ int colorIndex = 0;
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     
+<<<<<<< HEAD
     if(cell.frame.size.height == 160){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
     }else{
         cell.backgroundColor = [UIColor clearColor];
+=======
+    NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
+    cell.title.text = [dic objectForKey:@"title"];
+    cell.summery.text = [dic objectForKey:@"summery"];
+    
+    if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
+        cell.postWidth.constant = cell.frame.size.width;
+    else{
+        cell.image.image = [self.images objectAtIndex:indexPath.row];
+        cell.postWidth.constant = 150;
+>>>>>>> master
     }
     
     NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
@@ -174,6 +186,7 @@ int colorIndex = 0;
     return headerView;
 }
 
+<<<<<<< HEAD
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"showDetails" sender:nil];
 }
@@ -181,6 +194,16 @@ int colorIndex = 0;
 #pragma mark - Private
 
 -(NSString *)dateDescription:(NSDate *)date{
+=======
+-(void)parseMenuData:(TFHpple *)parser{
+    
+    NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
+    NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
+    
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
+    for (TFHppleElement *element in tutorialsNodes)
+        [objects addObject:[[element firstChild] content]];
+>>>>>>> master
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMMM dd"];
@@ -189,8 +212,13 @@ int colorIndex = 0;
 
 -(void)getPostsData:(TFHpple *)parser{
     
+<<<<<<< HEAD
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
+=======
+    self.images = [NSMutableArray array];
+    NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
+>>>>>>> master
     
     //loop for three days--------------------------------------------------
     for (int i = 0; i < 3; i++) {
@@ -212,6 +240,11 @@ int colorIndex = 0;
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
+            if (imgSrc) {
+                [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]]]];
+            }else{
+                [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
+            }
             
             NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
             if (imgSrc)
@@ -314,6 +347,7 @@ int colorIndex = 0;
     self.posts = [sharedDefaults objectForKey:@"posts"];
     self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
     [sharedDefaults synchronize];
+    NSLog(@"synced with extension");
 }
 
 -(UIImage*) setWeatherImage:(NSString*) weatherType {
@@ -338,6 +372,7 @@ int colorIndex = 0;
         return [UIImage imageNamed:@"unknown"];
 }
 
+<<<<<<< HEAD
 -(void) parseMenu:(TFHpple *) data{
     
     self.upcomingMeals = [NSMutableArray array];
@@ -382,12 +417,46 @@ int colorIndex = 0;
         self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
         [self.activityIndicator startAnimating];
     }
+=======
+-(void)loadBulletin{
+
+    self.indicator.tintColor = [UIColor grayColor];
+    self.indicator.size = 50.0f;
+    
+    int i = arc4random()%4;
+    switch (i) {
+        case 0:
+            self.indicator.type = DGActivityIndicatorAnimationTypeTriplePulse;
+            break;
+        case 1:
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallPulse;
+            break;
+        case 2:
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
+            break;
+        case 3:
+            self.indicator.type = DGActivityIndicatorAnimationTypeBallRotate;
+            break;
+        case 4:
+            self.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
+            break;
+            
+        default:
+            break;
+    }
+    self.indicator.frame = CGRectMake(self.postsView.center.x - 40, self.postsView.center.y - 40, 80.0f, 80.0f);
+    [self.view addSubview:self.indicator];
+    [self.indicator startAnimating];
+    self.indicator.hidden = NO;
+    
+>>>>>>> master
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+<<<<<<< HEAD
                 NSLog(@"finished");
                 [self getPostsData:hpple];
                 [self.postsView reloadData];
@@ -396,6 +465,15 @@ int colorIndex = 0;
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;
                 [refresh endRefreshing];
+=======
+                self.posts = [self getPostsData:hpple];
+                [self parseMenuData:hpple];
+                [self.indicator stopAnimating];
+                self.indicator.hidden = YES;
+                [self.postsView reloadData];
+                [self.table reloadData];
+                [self syncExtension];
+>>>>>>> master
             });
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
@@ -409,6 +487,7 @@ int colorIndex = 0;
     }] resume];
 }
 
+<<<<<<< HEAD
 - (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
     
     BulletinPost *post = [[BulletinPost alloc] init];
@@ -432,6 +511,8 @@ int colorIndex = 0;
     return NO;
 }
 
+=======
+>>>>>>> master
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -458,6 +539,10 @@ int colorIndex = 0;
     else
         [self getForcast];
     
+<<<<<<< HEAD
+=======
+    [self loadBulletin];
+>>>>>>> master
     [super viewDidLoad];
     
 }

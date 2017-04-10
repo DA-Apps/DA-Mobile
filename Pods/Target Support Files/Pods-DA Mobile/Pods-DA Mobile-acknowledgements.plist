@@ -46,6 +46,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2013-2016 Evgeny Aleksandrov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -103,6 +104,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> master
 			<string>Copyright 2017 Google</string>
 			<key>License</key>
 			<string>Copyright</string>
