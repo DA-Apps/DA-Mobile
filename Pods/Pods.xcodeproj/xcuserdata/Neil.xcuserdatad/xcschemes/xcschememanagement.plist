@@ -9,9 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,23 +19,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-=======
->>>>>>> master
->>>>>>> new-ui
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-<<<<<<< HEAD
-		<key>Onboard.xcscheme</key>
-=======
-<<<<<<< HEAD
 		<key>MaterialControls.xcscheme</key>
-=======
-		<key>Onboard.xcscheme</key>
->>>>>>> master
->>>>>>> new-ui
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -66,37 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-<<<<<<< HEAD
 		<key>15771CDB60DFAA769E27961D321E12C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>18E44BB15409B2D9A5CE43F806CD7415</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1AE669DB0A15E3313A460FB2DEAC0AFF</key>
-=======
-<<<<<<< HEAD
-		<key>15771CDB60DFAA769E27961D321E12C2</key>
-=======
-		<key>1AE669DB0A15E3313A460FB2DEAC0AFF</key>
->>>>>>> master
->>>>>>> new-ui
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-		<key>18E44BB15409B2D9A5CE43F806CD7415</key>
-=======
->>>>>>> new-ui
-		<key>54EE9541DC5CCA683869F827D5758753</key>
->>>>>>> master
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -111,26 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>85308D912A25B0FDB5F72E43436F9B85</key>
-=======
 		<key>85CF5C89AB7799B7EE09C050667C784D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A72A3AC1CDE6DCD2DCE7B3A942A820EC</key>
->>>>>>> new-ui
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>85CF5C89AB7799B7EE09C050667C784D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D40AA8B3254A350B43F3445A80CA150</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -145,43 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-<<<<<<< HEAD
-		<key>C943A90B4C59BAF53691D771AB95CFF6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-=======
->>>>>>> new-ui
 		<key>D5B9EAE7BB65FB776E1D8876DAC516BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D6AD2BB0A0A69E525DC2A32CB3BDB6E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-<<<<<<< HEAD
-		<key>DECBC80579F443B14FAA2346A5D12ACA</key>
-=======
-		<key>E079843C9C79118289CFD9619070B0B8</key>
->>>>>>> new-ui
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-<<<<<<< HEAD
-		<key>E02E7B41D34EB3EC3D71D8E9BFE720B3</key>
-=======
-		<key>E37FFFDFF119E6D112DEBD8CCC63F628</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E37FFFDFF119E6D112DEBD8CCC63F628</key>
->>>>>>> new-ui
 		<dict>
 			<key>primary</key>
 			<true/>

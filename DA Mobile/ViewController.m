@@ -88,26 +88,6 @@ int colorIndex = 0;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-<<<<<<< HEAD
-    if ([tableView isEqual:self.table]) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid" forIndexPath:indexPath];
-        cell.textLabel.text = [self.foods objectAtIndex:indexPath.row];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        return cell;
-    }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weatherCellid" forIndexPath:indexPath];
-        
-        //find the dictionary in self.weathers array at the correct index.
-        NSDictionary *dic = [self.weathers objectAtIndex:indexPath.row];
-        
-        NSString *str = [NSString stringWithFormat:@"%@ - %@", [dic objectForKey:@"low"], [dic objectForKey:@"high"]];
-        cell.textLabel.text = [dic objectForKey:@"date"];
-        cell.detailTextLabel.text = str;
-        cell.imageView.image = [ViewController imageWithImage:[self setWeatherImage:[dic objectForKey:@"text"]] scaledToSize:CGSizeMake(25, 25)];
-        cell.imageView.layer.cornerRadius = 5;
-        cell.imageView.layer.masksToBounds = YES;
-        return cell;
-=======
     if (indexPath.row == 0)
         cellIndex = 0;
 
@@ -127,7 +107,6 @@ int colorIndex = 0;
             
         default:
             break;
->>>>>>> new-ui
     }
     return CGSizeMake(self.view.frame.size.width, 200);
 }
@@ -140,28 +119,11 @@ int colorIndex = 0;
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     
-<<<<<<< HEAD
     if(cell.frame.size.height == 160){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
     }else{
         cell.backgroundColor = [UIColor clearColor];
-=======
-    NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
-    cell.title.text = [dic objectForKey:@"title"];
-    cell.summery.text = [dic objectForKey:@"summery"];
-    
-    if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
-        cell.postWidth.constant = cell.frame.size.width;
-    else{
-        cell.image.image = [self.images objectAtIndex:indexPath.row];
-        cell.postWidth.constant = 150;
-<<<<<<< HEAD
-    }
-    
-    //[self setShadowforView:cell masksToBounds:NO];
-=======
->>>>>>> master
     }
     
     NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
@@ -170,7 +132,6 @@ int colorIndex = 0;
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
     cell.delegate = self;
->>>>>>> new-ui
     return cell;
 }
 
@@ -213,9 +174,6 @@ int colorIndex = 0;
     return headerView;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"showDetails" sender:nil];
 }
@@ -223,17 +181,6 @@ int colorIndex = 0;
 #pragma mark - Private
 
 -(NSString *)dateDescription:(NSDate *)date{
-=======
->>>>>>> new-ui
--(void)parseMenuData:(TFHpple *)parser{
-    
-    NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
-    NSArray *tutorialsNodes = [parser searchWithXPathQuery:tutorialsXpathQueryString];
-    
-    NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
-    for (TFHppleElement *element in tutorialsNodes)
-        [objects addObject:[[element firstChild] content]];
->>>>>>> master
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, MMMM dd"];
@@ -242,16 +189,8 @@ int colorIndex = 0;
 
 -(void)getPostsData:(TFHpple *)parser{
     
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
-=======
->>>>>>> new-ui
-    self.images = [NSMutableArray array];
-    NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
->>>>>>> master
     
     //loop for three days--------------------------------------------------
     for (int i = 0; i < 3; i++) {
@@ -273,18 +212,10 @@ int colorIndex = 0;
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
-            if (imgSrc) {
-                [self.images addObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]]]];
-            }else{
-                [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
-            }
-<<<<<<< HEAD
-=======
             
             NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
             if (imgSrc)
                 imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]];
->>>>>>> new-ui
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
@@ -324,19 +255,10 @@ int colorIndex = 0;
     }
 }
 
-<<<<<<< HEAD
--(void)setupShadows{
-    [self setShadowforView:self.table masksToBounds:YES];
-    [self setShadowforView:self.postsView masksToBounds:YES];
-    [self setShadowforView:self.weatherTable masksToBounds:YES];
-    [self setShadowforView:self.weatherView masksToBounds:NO];
-    [self setShadowforView:self.menuView masksToBounds:NO];
-=======
 -(NSString *)cleanString:(NSString *)string{
     string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return string;
->>>>>>> new-ui
 }
 
 -(NSDictionary *)queryWeatherAPI{
@@ -392,7 +314,6 @@ int colorIndex = 0;
     self.posts = [sharedDefaults objectForKey:@"posts"];
     self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
     [sharedDefaults synchronize];
-    NSLog(@"synced with extension");
 }
 
 -(UIImage*) setWeatherImage:(NSString*) weatherType {
@@ -417,9 +338,6 @@ int colorIndex = 0;
         return [UIImage imageNamed:@"unknown"];
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 -(void) parseMenu:(TFHpple *) data{
     
     self.upcomingMeals = [NSMutableArray array];
@@ -464,56 +382,12 @@ int colorIndex = 0;
         self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
         [self.activityIndicator startAnimating];
     }
-=======
->>>>>>> new-ui
--(void)loadBulletin{
-
-    self.indicator.tintColor = [UIColor grayColor];
-    self.indicator.size = 50.0f;
-    
-<<<<<<< HEAD
-    int i = arc4random()%5;
-=======
-    int i = arc4random()%4;
->>>>>>> new-ui
-    switch (i) {
-        case 0:
-            self.indicator.type = DGActivityIndicatorAnimationTypeTriplePulse;
-            break;
-        case 1:
-            self.indicator.type = DGActivityIndicatorAnimationTypeBallPulse;
-            break;
-        case 2:
-            self.indicator.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
-            break;
-        case 3:
-            self.indicator.type = DGActivityIndicatorAnimationTypeBallRotate;
-            break;
-        case 4:
-            self.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
-            break;
-            
-        default:
-            break;
-    }
-    self.indicator.frame = CGRectMake(self.postsView.center.x - 40, self.postsView.center.y - 40, 80.0f, 80.0f);
-    [self.view addSubview:self.indicator];
-    [self.indicator startAnimating];
-    self.indicator.hidden = NO;
-    
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> new-ui
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
                 NSLog(@"finished");
                 [self getPostsData:hpple];
                 [self.postsView reloadData];
@@ -522,19 +396,6 @@ int colorIndex = 0;
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;
                 [refresh endRefreshing];
-=======
->>>>>>> new-ui
-                self.posts = [self getPostsData:hpple];
-                [self parseMenuData:hpple];
-                [self.indicator stopAnimating];
-                self.indicator.hidden = YES;
-                [self.postsView reloadData];
-                [self.table reloadData];
-                [self syncExtension];
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> new-ui
             });
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
@@ -548,9 +409,6 @@ int colorIndex = 0;
     }] resume];
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 - (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
     
     BulletinPost *post = [[BulletinPost alloc] init];
@@ -574,9 +432,6 @@ int colorIndex = 0;
     return NO;
 }
 
-=======
->>>>>>> master
->>>>>>> new-ui
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
@@ -603,14 +458,6 @@ int colorIndex = 0;
     else
         [self getForcast];
     
-<<<<<<< HEAD
-    [self loadBulletin];
-=======
-<<<<<<< HEAD
-=======
-    [self loadBulletin];
->>>>>>> master
->>>>>>> new-ui
     [super viewDidLoad];
     
 }

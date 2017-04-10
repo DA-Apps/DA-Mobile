@@ -82,15 +82,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     if (!userHasOnboarded)
         [self showIntroView];
     [self.window makeKeyAndVisible];
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
     //--------------------------------------------------------------------------------
-=======
-
->>>>>>> master
->>>>>>> new-ui
     return YES;
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
