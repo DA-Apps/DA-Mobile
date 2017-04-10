@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		18DA68CFC8A26ACBF9BEFC16 /* libPods-DA Mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E307A23BD1C5166D3F4A184C /* libPods-DA Mobile.a */; };
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
-		281070311E215CB30031648E /* CustomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070301E215CB30031648E /* CustomAnimationController.m */; };
-		281070341E215CF90031648E /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281070331E215CF90031648E /* RearViewController.m */; };
-		281070361E215D140031648E /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281070351E215D140031648E /* RearViewController.xib */; };
-		2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811A3501E20A2580074FE55 /* SWRevealViewController.m */; };
+		281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */; };
+		281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */; };
+		281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C32D31E9A82930093ABA0 /* BookmarkViewController.m */; };
+		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
+		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
+		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
+		283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 283C8A0E1E97AE1300329DF3 /* Plus.png */; };
+		283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */; };
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
-		284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */; };
-		284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
 		286816691DCAB3D20089BEA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816681DCAB3D20089BEA6 /* ViewController.m */; };
@@ -28,17 +30,33 @@
 		286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A61DCAB7230089BEA6 /* TFHppleElement.m */; };
 		286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A81DCAB7230089BEA6 /* XPathQuery.m */; };
 		286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */; };
+		287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */; };
+		28A4C6DE1E984A1500C00E3E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4C6DD1E984A1500C00E3E /* MenuViewController.m */; };
 		28ACA04E1E228A6D0092075E /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 28ACA04D1E228A6D0092075E /* YQL.m */; };
 		28ACA0511E228A890092075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0501E228A890092075E /* CoreLocation.framework */; };
 		28ACA0531E2290220092075E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28ACA0521E2290220092075E /* MapKit.framework */; };
-		28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */; };
+		28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */; };
+		28AFE0D91E9AC7D2004A83FB /* BulletinData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFE0D81E9AC7D2004A83FB /* BulletinData.m */; };
 		28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B84EAE1E9018560041BD5D /* NotificationCenter.framework */; };
 		28B84EB31E9018560041BD5D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B84EB21E9018560041BD5D /* TodayViewController.m */; };
 		28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EB41E9018560041BD5D /* MainInterface.storyboard */; };
 		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
+<<<<<<< HEAD
 		28F23F841E930A2B00F1DBB0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F23F831E930A2B00F1DBB0 /* placeholder.png */; };
+=======
+<<<<<<< HEAD
+		28CFF2D81E99E631001E012F /* poster.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CFF2D71E99E631001E012F /* poster.png */; };
+		28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */; };
+		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
+		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
+		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
+		28E833AA1E94933000614C73 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A91E94933000614C73 /* placeholder.png */; };
+=======
+		28F23F841E930A2B00F1DBB0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F23F831E930A2B00F1DBB0 /* placeholder.png */; };
+>>>>>>> master
+>>>>>>> new-ui
 		F4EAB71D1A91594D658ECA5E /* libPods-DA Mobile Widget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */; };
 /* End PBXBuildFile section */
 
@@ -71,18 +89,19 @@
 		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2810702F1E215CB30031648E /* CustomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnimationController.h; path = "DA Mobile/CustomAnimationController.h"; sourceTree = SOURCE_ROOT; };
-		281070301E215CB30031648E /* CustomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnimationController.m; path = "DA Mobile/CustomAnimationController.m"; sourceTree = SOURCE_ROOT; };
-		281070321E215CF90031648E /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RearViewController.h; path = "DA Mobile/RearViewController.h"; sourceTree = SOURCE_ROOT; };
-		281070331E215CF90031648E /* RearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RearViewController.m; path = "DA Mobile/RearViewController.m"; sourceTree = SOURCE_ROOT; };
-		281070351E215D140031648E /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RearViewController.xib; path = "DA Mobile/RearViewController.xib"; sourceTree = SOURCE_ROOT; };
-		2811A34F1E20A2580074FE55 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		2811A3501E20A2580074FE55 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
+		281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
+		281C32D21E9A82930093ABA0 /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
+		281C32D31E9A82930093ABA0 /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
+		2822A6051E95C86600F52F92 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
+		2822A6061E95C86600F52F92 /* Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hearts.png; sourceTree = "<group>"; };
+		282ADC181E97213600701BC2 /* BulletinPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinPost.h; sourceTree = "<group>"; };
+		282ADC191E97213600701BC2 /* BulletinPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinPost.m; sourceTree = "<group>"; };
+		283C8A0E1E97AE1300329DF3 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
+		283C8A101E97EB1500329DF3 /* CollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		2841DB3F1E567B2A007A1B2E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2841DB401E567B2A007A1B2E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICollectionViewCellPosts.h; path = ../UICollectionViewCellPosts.h; sourceTree = "<group>"; };
-		284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICollectionViewCellPosts.m; path = ../UICollectionViewCellPosts.m; sourceTree = "<group>"; };
-		284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UICollectionViewCellPosts.xib; path = ../UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		286816621DCAB3D20089BEA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		286816641DCAB3D20089BEA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,12 +121,16 @@
 		286816A71DCAB7230089BEA6 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		286816A81DCAB7230089BEA6 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellSmall.xib; sourceTree = "<group>"; };
+		28A4C6DC1E984A1500C00E3E /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		28A4C6DD1E984A1500C00E3E /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		28ACA04C1E228A6D0092075E /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQL.h; sourceTree = "<group>"; };
 		28ACA04D1E228A6D0092075E /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
 		28ACA0501E228A890092075E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		28ACA0521E2290220092075E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtheleticsViewController.h; sourceTree = "<group>"; };
-		28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtheleticsViewController.m; sourceTree = "<group>"; };
+		28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bookmark-icon.png"; sourceTree = "<group>"; };
+		28AFE0D71E9AC7D2004A83FB /* BulletinData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinData.h; sourceTree = "<group>"; };
+		28AFE0D81E9AC7D2004A83FB /* BulletinData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinData.m; sourceTree = "<group>"; };
 		28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DA Mobile Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B84EAE1E9018560041BD5D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		28B84EB11E9018560041BD5D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -118,7 +141,23 @@
 		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
 		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		28F23F831E930A2B00F1DBB0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		28CFF2D71E99E631001E012F /* poster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poster.png; sourceTree = "<group>"; };
+		28DA8BEA1E9B321400478B73 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
+		28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewCellPosts.m; sourceTree = "<group>"; };
+		28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
+		28E833A61E947FF500614C73 /* CollectionReusableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableHeader.h; sourceTree = "<group>"; };
+		28E833A71E947FF500614C73 /* CollectionReusableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableHeader.m; sourceTree = "<group>"; };
+		28E833A91E94933000614C73 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+=======
+		28F23F831E930A2B00F1DBB0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+>>>>>>> master
+>>>>>>> new-ui
 		98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		E307A23BD1C5166D3F4A184C /* libPods-DA Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,41 +189,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2811A3521E20A2640074FE55 /* SMRevealViewController */ = {
+		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				2811A34F1E20A2580074FE55 /* SWRevealViewController.h */,
-				2811A3501E20A2580074FE55 /* SWRevealViewController.m */,
+				28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */,
+				28E833A91E94933000614C73 /* placeholder.png */,
+				283C8A0E1E97AE1300329DF3 /* Plus.png */,
+				2822A6051E95C86600F52F92 /* Back.png */,
+				2822A6061E95C86600F52F92 /* Hearts.png */,
+				28CFF2D71E99E631001E012F /* poster.png */,
+				281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */,
+				281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */,
+				28B84EC11E9030C70041BD5D /* icon.png */,
 			);
-			name = SMRevealViewController;
-			sourceTree = "<group>";
-		};
-		2811A3551E20A2A40074FE55 /* Animation Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				2810702F1E215CB30031648E /* CustomAnimationController.h */,
-				281070301E215CB30031648E /* CustomAnimationController.m */,
-			);
-			name = "Animation Controllers";
-			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
-			sourceTree = "<group>";
-		};
-		2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */ = {
-			isa = PBXGroup;
-			children = (
-				281070321E215CF90031648E /* RearViewController.h */,
-				281070331E215CF90031648E /* RearViewController.m */,
-				281070351E215D140031648E /* RearViewController.xib */,
-			);
-			name = "RearViewController (Rear)";
-			path = "../../../../../../../Desktop/SWRevealViewController-2.4.0/RevealControllerExample/RevealControllerProject";
+			name = Media;
 			sourceTree = "<group>";
 		};
 		284A4DC11E2900C9004F5226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				284A4DBC1E2900BF004F5226 /* UICollectionViewCellPosts.h */,
-				284A4DBD1E2900BF004F5226 /* UICollectionViewCellPosts.m */,
+				28E833A61E947FF500614C73 /* CollectionReusableHeader.h */,
+				28E833A71E947FF500614C73 /* CollectionReusableHeader.m */,
+				28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */,
+				28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */,
+				283C8A101E97EB1500329DF3 /* CollectionViewFlowLayout.h */,
+				28DA8BEA1E9B321400478B73 /* CustomTableViewCell.h */,
+				28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */,
+				283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -193,7 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
-				284A4DBE1E2900BF004F5226 /* UICollectionViewCellPosts.xib */,
+				28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */,
+				287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */,
 				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
 			);
 			name = Nibs;
@@ -224,13 +256,13 @@
 			children = (
 				28B84EBF1E901C0D0041BD5D /* DA Mobile.entitlements */,
 				284A4DC21E2900D9004F5226 /* Nibs */,
+				28E833A01E94782E00614C73 /* Realm Object */,
 				286816AE1DCAB94B0089BEA6 /* TFHpple */,
 				28ACA04F1E228A710092075E /* Weather API */,
+				28AFE0DA1E9AC7DF004A83FB /* Objects */,
 				284A4DC11E2900C9004F5226 /* Views */,
-				2811A3551E20A2A40074FE55 /* Animation Controllers */,
-				2811A35A1E20A2A40074FE55 /* RearViewController (Rear) */,
-				2811A3521E20A2640074FE55 /* SMRevealViewController */,
 				2879F6C01DCB5CA200DAEE52 /* ViewController */,
+				281C32D11E9A75B40093ABA0 /* Media */,
 				286816611DCAB3D20089BEA6 /* Supporting Files */,
 			);
 			path = "DA Mobile";
@@ -245,7 +277,6 @@
 				286816721DCAB3D20089BEA6 /* Info.plist */,
 				286816641DCAB3D20089BEA6 /* AppDelegate.h */,
 				286816651DCAB3D20089BEA6 /* AppDelegate.m */,
-				28B84EC11E9030C70041BD5D /* icon.png */,
 				286816621DCAB3D20089BEA6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -284,10 +315,12 @@
 			children = (
 				286816671DCAB3D20089BEA6 /* ViewController.h */,
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
+				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
+				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
+				28A4C6DC1E984A1500C00E3E /* MenuViewController.h */,
+				28A4C6DD1E984A1500C00E3E /* MenuViewController.m */,
 				2841DB3F1E567B2A007A1B2E /* DetailViewController.h */,
 				2841DB401E567B2A007A1B2E /* DetailViewController.m */,
-				28B2E2CC1E420CD200DA0620 /* AtheleticsViewController.h */,
-				28B2E2CD1E420CD200DA0620 /* AtheleticsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -301,6 +334,15 @@
 			name = "Weather API";
 			sourceTree = "<group>";
 		};
+		28AFE0DA1E9AC7DF004A83FB /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				28AFE0D71E9AC7D2004A83FB /* BulletinData.h */,
+				28AFE0D81E9AC7D2004A83FB /* BulletinData.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		28B84EB01E9018560041BD5D /* DA Mobile Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +354,15 @@
 				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
 			);
 			path = "DA Mobile Widget";
+			sourceTree = "<group>";
+		};
+		28E833A01E94782E00614C73 /* Realm Object */ = {
+			isa = PBXGroup;
+			children = (
+				282ADC181E97213600701BC2 /* BulletinPost.h */,
+				282ADC191E97213600701BC2 /* BulletinPost.m */,
+			);
+			name = "Realm Object";
 			sourceTree = "<group>";
 		};
 		7196A0D59C0E5A9F51CD81F4 /* Pods */ = {
@@ -433,14 +484,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284A4DC01E2900BF004F5226 /* UICollectionViewCellPosts.xib in Resources */,
 				286816711DCAB3D20089BEA6 /* LaunchScreen.storyboard in Resources */,
 				28B84EC21E9030C70041BD5D /* icon.png in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
+=======
 				281070361E215D140031648E /* RearViewController.xib in Resources */,
 				28F23F841E930A2B00F1DBB0 /* placeholder.png in Resources */,
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> new-ui
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
+				2822A6071E95C86600F52F92 /* Back.png in Resources */,
+				28E833AA1E94933000614C73 /* placeholder.png in Resources */,
+				28CFF2D81E99E631001E012F /* poster.png in Resources */,
 				280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */,
+				281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */,
+				281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */,
+				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
+				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
+				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
+				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
+				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,19 +604,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2811A3511E20A2580074FE55 /* SWRevealViewController.m in Sources */,
 				286816691DCAB3D20089BEA6 /* ViewController.m in Sources */,
 				286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */,
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
-				281070341E215CF90031648E /* RearViewController.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
-				28B2E2CE1E420CD200DA0620 /* AtheleticsViewController.m in Sources */,
+				28A4C6DE1E984A1500C00E3E /* MenuViewController.m in Sources */,
+				282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */,
+				281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */,
+				28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */,
+				28AFE0D91E9AC7D2004A83FB /* BulletinData.m in Sources */,
 				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
-				284A4DBF1E2900BF004F5226 /* UICollectionViewCellPosts.m in Sources */,
-				281070311E215CB30031648E /* CustomAnimationController.m in Sources */,
+				28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */,
+				28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */,
+				283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,7 +775,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -723,7 +792,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -739,7 +808,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -756,7 +825,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

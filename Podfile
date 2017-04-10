@@ -8,10 +8,10 @@ target 'DA Mobile' do
   # Pods for DA Mobile
 pod 'DGActivityIndicatorView'
 pod 'Realm'
-pod 'Onboard'
+pod 'EAIntroView'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
-
+pod 'MaterialControls'
 end
 
 target 'DA Mobile Widget' do

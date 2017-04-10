@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "TFHpple.h"
-#import "SWRevealViewController.h"
+
+int cellIndex = 0;
+int colorIndex = 0;
 
 @interface ViewController ()
 
@@ -16,13 +18,57 @@
 
 @implementation ViewController
 
-#pragma mark - Location Manager
+#pragma mark - PostCell Delegate 
 
--(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.weathers == nil) {
-        [self getForcast];
-    }
+-(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
+    NSIndexPath *index = [self.postsView indexPathForCell:cell];
+    NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
+    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"]];
 }
+
+#pragma mark - CollectionHeaderDelegate
+
+-(void)expandBirthday{
+    
+    int heightAnimation = 0;
+    
+    if (self.headerContent.lastObject.count == 0) {
+        [self.headerContent replaceObjectAtIndex:1 withObject:[self.posts.firstObject objectForKey:@"birthdays"]];
+        heightAnimation = 120;
+    }else{
+        heightAnimation = -120;
+        [self.headerContent replaceObjectAtIndex:1 withObject:[NSMutableArray array]];
+    }
+    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (header.frame.size.height != 300) {
+        [UIView animateWithDuration:0.2 animations:^{
+            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
+        }];
+    }
+    [self.postsView reloadData];
+}
+
+-(void)expandMenu{
+    
+    int heightAnimation = 0;
+    
+    if (self.headerContent.firstObject.count == 0) {
+        [self.headerContent replaceObjectAtIndex:0 withObject:self.upcomingMeals];
+        heightAnimation = 120;
+    }else{
+        [self.headerContent replaceObjectAtIndex:0 withObject:[NSMutableArray array]];
+        heightAnimation = -120;
+    }
+    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (header.frame.size.height != 300) {
+        [UIView animateWithDuration:0.2 animations:^{
+            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
+        }];
+    }
+    [self.postsView reloadData];
+}
+
+#pragma mark - Location Manager
 
 -(CLLocationCoordinate2D) getLocation{
     
@@ -38,40 +84,11 @@
     return coordinate;
 }
 
+#pragma mark - CollectionView Delegate
 
-#pragma mark - UITableView Delegate
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([tableView isEqual:self.table])
-        return @"upcoming meal";
-    else
-        return @"forecast";
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width - 10, 22)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width - 10, 22)];
-    [label setFont:[UIFont boldSystemFontOfSize:13]];
-    
-    if ([tableView isEqual:self.weatherTable]) {
-        NSString *string = @"forecast";
-        [label setText:string];
-        [view setBackgroundColor:[UIColor whiteColor]];
-    }else{
-        NSString *string = @"upcoming meal";
-        [label setText:string];
-        [view setBackgroundColor:[UIColor colorWithRed:38.0/255.0 green:137.0/255.0 blue:40.0/255.0 alpha:1.0]];
-        label.textColor = [UIColor whiteColor];
-    }
-    
-    [view addSubview:label];
-    return view;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+<<<<<<< HEAD
     if ([tableView isEqual:self.table]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid" forIndexPath:indexPath];
         cell.textLabel.text = [self.foods objectAtIndex:indexPath.row];
@@ -90,35 +107,46 @@
         cell.imageView.layer.cornerRadius = 5;
         cell.imageView.layer.masksToBounds = YES;
         return cell;
+=======
+    if (indexPath.row == 0)
+        cellIndex = 0;
+
+    switch (cellIndex) {
+        case 0:
+            cellIndex = 1;
+            return CGSizeMake(self.view.frame.size.width, 250);
+            break;
+        case 1:
+            cellIndex = 2;
+            return CGSizeMake(self.view.frame.size.width, 160);
+            break;
+        case 2:
+            cellIndex = 0;
+            return CGSizeMake(self.view.frame.size.width, 160);
+            break;
+            
+        default:
+            break;
+>>>>>>> new-ui
     }
+    return CGSizeMake(self.view.frame.size.width, 200);
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([tableView isEqual:self.table])
-        return self.foods.count;
-    else
-        return self.weathers.count;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
-}
-
-#pragma mark - CollectionView Delegate
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(self.view.frame.size.width - 10, 200);
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(12, 0, 12, 0);
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     
+<<<<<<< HEAD
+    if(cell.frame.size.height == 160){
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
+    }else{
+        cell.backgroundColor = [UIColor clearColor];
+=======
     NSDictionary *dic = [self.posts objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
     cell.summery.text = [dic objectForKey:@"summery"];
@@ -128,40 +156,75 @@
     else{
         cell.image.image = [self.images objectAtIndex:indexPath.row];
         cell.postWidth.constant = 150;
+<<<<<<< HEAD
     }
     
     //[self setShadowforView:cell masksToBounds:NO];
+=======
+>>>>>>> master
+    }
+    
+    NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
+    cell.title.text = [dic objectForKey:@"title"];
+    cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
+    cell.image.layer.cornerRadius = 5;
+    cell.image.layer.masksToBounds = YES;
+    cell.delegate = self;
+>>>>>>> new-ui
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.posts.count;
+    return [(NSMutableArray *)[self.posts[section] objectForKey:@"posts"] count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return self.posts.count;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
+        return CGSizeMake(self.postsView.frame.size.width, 180);
+    else if (section != 0)
+        return CGSizeMake(self.postsView.frame.size.width, 100);
+    else
+        return CGSizeMake(self.postsView.frame.size.width, 300);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    headerView.dateLabel.text = [self dateDescription:[[self.posts objectAtIndex:indexPath.section] objectForKey:@"date"]];
+    if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
+        headerView.tempLabel.hidden = NO;
+        headerView.weatherIcon.hidden = NO;
+        headerView.table.hidden = NO;
+        headerView.tempLabel.text = @"68";
+        headerView.array = [NSMutableArray array];
+        headerView.array = self.headerContent;
+        [headerView.table reloadData];
+        headerView.delegate = self;
+    }else if (kind == UICollectionElementKindSectionHeader && indexPath.section != 0){
+        headerView.tempLabel.hidden = YES;
+        headerView.weatherIcon.hidden = YES;
+        headerView.table.hidden = YES;
+    }
+    
+    return headerView;
+}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"showDetails" sender:nil];
 }
 
 #pragma mark - Private
 
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
--(void)setShadowforView:(UIView *)view masksToBounds:(BOOL)masksToBounds{
-    
-    view.layer.cornerRadius = 15;
-    view.layer.shadowRadius = 2.0f;
-    view.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    view.layer.shadowOffset = CGSizeMake(-1.0f, 3.0f);
-    view.layer.shadowOpacity = 0.8f;
-    view.layer.masksToBounds = masksToBounds;
-}
-
+-(NSString *)dateDescription:(NSDate *)date{
+=======
+>>>>>>> new-ui
 -(void)parseMenuData:(TFHpple *)parser{
     
     NSString *tutorialsXpathQueryString = @"//ul[@class='dh-meal-container active-dh-meal-container']/li";
@@ -170,30 +233,42 @@
     NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:0];
     for (TFHppleElement *element in tutorialsNodes)
         [objects addObject:[[element firstChild] content]];
+>>>>>>> master
     
-    if (objects.count == 0)
-        self.table.hidden = YES;
-    else{
-        self.foods = objects;
-        self.table.hidden = NO;
-        [self.table reloadData];
-    }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE, MMMM dd"];
+    return [formatter stringFromDate:date];
 }
 
--(NSMutableArray *)getPostsData:(TFHpple *)parser{
+-(void)getPostsData:(TFHpple *)parser{
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    self.posts = [NSMutableArray array];
+    NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
+=======
+>>>>>>> new-ui
     self.images = [NSMutableArray array];
     NSArray *dailyPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
+>>>>>>> master
     
-    NSMutableArray *objects = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 2; i++) {
+    //loop for three days--------------------------------------------------
+    for (int i = 0; i < 3; i++) {
         
-        TFHppleElement *hppleElement = dailyPosts[i];
+        NSMutableArray *dailyPosts = [NSMutableArray array];
+        
+        TFHppleElement *hppleElement = allPosts[i];
         
         NSArray *posts = [[[hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  first']"] arrayByAddingObjectsFromArray:
-                          [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
+                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
-
+        
+        //parse out all the birthdays--------------------------------------
+        NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
+        NSMutableArray *birthdays = [self parseBirthdays:birthdayData];
+        
+        //parse out all the posts------------------------------------------
         for (TFHppleElement *element in posts) {
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
@@ -203,42 +278,68 @@
             }else{
                 [self.images addObject:[UIImage imageNamed:@"placeholder.png"]];
             }
+<<<<<<< HEAD
+=======
+            
+            NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
+            if (imgSrc)
+                imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]];
+>>>>>>> new-ui
             
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
-            NSString *title = [(TFHppleElement *)[titles firstObject] text];
-            title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            title = [title stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
             
             //search for summery of post
             NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
-            NSString *summery = [(TFHppleElement *)[summeries firstObject] text];
-            summery = [summery stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            summery = [summery stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
             
             //construct the dic
-            NSDictionary *dic;
-            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]])
-                dic = @{@"img_src": imgSrc? imgSrc : @"nil",
-                        @"title": title,
-                        @"summery": summery};
-            
-            if (dic)
-                [objects addObject:dic];
+            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
+                NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
+                                      @"title": title,
+                                      @"summery": summery,
+                                      @"image": imageData};
+                
+                [dailyPosts addObject:dic];
+            }
         }
+        NSDictionary *oneDay = @{@"posts": dailyPosts,
+                                 @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
+                                 @"birthdays": birthdays};
+        [self.posts addObject:oneDay];
     }
-    return objects;
 }
 
+-(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
+    
+    if (birthdayData.count != 0 && self.birthdays == 0) {
+        NSArray *content = [(TFHppleElement *)birthdayData.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
+        
+        NSString *birthday = [self cleanString:[[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""] stringByReplacingOccurrencesOfString:@"," withString:@""]];
+        NSArray* elements = [birthday componentsSeparatedByString:@"."];
+        return [NSMutableArray arrayWithArray:elements];
+    }else{
+        return nil;
+    }
+}
+
+<<<<<<< HEAD
 -(void)setupShadows{
     [self setShadowforView:self.table masksToBounds:YES];
     [self setShadowforView:self.postsView masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.weatherView masksToBounds:NO];
     [self setShadowforView:self.menuView masksToBounds:NO];
+=======
+-(NSString *)cleanString:(NSString *)string{
+    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return string;
+>>>>>>> new-ui
 }
 
--(NSMutableArray *)queryWeatherAPI{
+-(NSDictionary *)queryWeatherAPI{
     
     CLLocationCoordinate2D coordinate = [self getLocation];
     YQL *yql = [[YQL alloc] init];
@@ -254,23 +355,17 @@
         
     }else{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:results[@"query"][@"results"][@"channel"][@"item"][@"forecast"]];
-        NSDictionary *dic = results[@"query"][@"results"][@"channel"][@"item"][@"condition"];
-        [array addObject:dic];
-        return array;
+        return (NSDictionary *)array.firstObject;
     }
 }
 
 -(void)getForcast{
     
-    self.weathers = [self queryWeatherAPI];
+    self.weather = [self queryWeatherAPI];
     
-    if (self.weathers) {
-        self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
-        self.weatherIcon.image = [self setWeatherImage: [[self.weathers lastObject] objectForKey:@"text"]];
-        [self.weathers removeLastObject];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.weatherTable reloadData];
-        });
+    if (self.weather) {
+        //self.tempLabel.text = [self.weather objectForKey:@"temp"];
+        //self.weatherIcon.image = [self setWeatherImage: [self.weather objectForKey:@"text"]];
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -283,12 +378,19 @@
     }
 }
 
--(void)syncExtension{
+-(void)cacheData:(NSMutableArray <NSDictionary *> *)posts menu:(NSMutableArray *)nextMeal{
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    [sharedDefaults setObject:posts forKey:@"posts"];
+    [sharedDefaults setObject:nextMeal forKey:@"nextMeal"];
+    [sharedDefaults synchronize];
+}
+
+-(void)loadCachedData{
     
-    [sharedDefaults setObject:self.foods forKey:@"menuData"];
-    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    self.posts = [sharedDefaults objectForKey:@"posts"];
+    self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
     [sharedDefaults synchronize];
     NSLog(@"synced with extension");
 }
@@ -315,12 +417,65 @@
         return [UIImage imageNamed:@"unknown"];
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+-(void) parseMenu:(TFHpple *) data{
+    
+    self.upcomingMeals = [NSMutableArray array];
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-"];
+    NSString *key = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"EE"];
+    NSString *day = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"HH"];
+    int hour = [[formatter stringFromDate: currentTime] intValue];
+    NSString *mealType;
+    
+    if([day isEqualToString: @"Sun"]) {
+        if (hour < 12) mealType = @"BRUNCH";
+        else mealType = @"DINNER";
+    } else {
+        if (hour < 9)
+            mealType = @"BREAKFAST";
+        else if (hour < 13) mealType = @"LUNCH";
+        else mealType = @"DINNER";
+    }
+    if (hour > 18) {
+        mealType = @"BREAKFAST";
+        currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
+        [formatter setDateFormat:@"yyyy-MM-dd-"];
+        key = [formatter stringFromDate: currentTime];
+    }
+    key = [key stringByAppendingString:mealType];
+    NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
+    for (TFHppleElement *element in foods)
+        [self.upcomingMeals addObject:element.content];
+}
+
+-(void)startRefresh:(UIRefreshControl *)refresh{
+    
+    if (self.posts.count == 0) {
+        self.activityIndicator.hidden = NO;
+        self.activityIndicator.tintColor = [UIColor grayColor];
+        self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
+        [self.activityIndicator startAnimating];
+    }
+=======
+>>>>>>> new-ui
 -(void)loadBulletin{
 
     self.indicator.tintColor = [UIColor grayColor];
     self.indicator.size = 50.0f;
     
+<<<<<<< HEAD
     int i = arc4random()%5;
+=======
+    int i = arc4random()%4;
+>>>>>>> new-ui
     switch (i) {
         case 0:
             self.indicator.type = DGActivityIndicatorAnimationTypeTriplePulse;
@@ -346,12 +501,29 @@
     [self.indicator startAnimating];
     self.indicator.hidden = NO;
     
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> new-ui
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                NSLog(@"finished");
+                [self getPostsData:hpple];
+                [self.postsView reloadData];
+                [self parseMenu:hpple];
+                [self cacheData:self.posts menu:self.upcomingMeals];
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
+                [refresh endRefreshing];
+=======
+>>>>>>> new-ui
                 self.posts = [self getPostsData:hpple];
                 [self parseMenuData:hpple];
                 [self.indicator stopAnimating];
@@ -359,6 +531,10 @@
                 [self.postsView reloadData];
                 [self.table reloadData];
                 [self syncExtension];
+<<<<<<< HEAD
+=======
+>>>>>>> master
+>>>>>>> new-ui
             });
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
@@ -372,50 +548,91 @@
     }] resume];
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
+    
+    BulletinPost *post = [[BulletinPost alloc] init];
+    post.title = title;
+    post.content = content;
+    post.image = image;
+    
+    if (![self contains:title]){
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm transactionWithBlock:^{
+            [realm addObject:post];
+        }];
+    }
+}
+
+-(BOOL)contains:(NSString *)title {
+    for (BulletinPost *post in [BulletinPost allObjects]){
+        if ([post.title isEqualToString:title])
+            return YES;
+    }
+    return NO;
+}
+
+=======
+>>>>>>> master
+>>>>>>> new-ui
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     
-    SWRevealViewController *revealController = [self revealViewController];
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
+    self.headerContent = [NSMutableArray array];
+    [self.headerContent addObject:[NSMutableArray array]];
+    [self.headerContent addObject:[NSMutableArray array]];
     
-    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"menu"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:revealController action:@selector(revealToggle:)];
-    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.postsView addSubview:refreshControl];
+    self.postsView.alwaysBounceVertical = YES;
     
-    [self setupShadows];
-    self.menuWidth.constant = self.view.frame.size.width / 2 + 10;
-    self.weatherWidth.constant = self.view.frame.size.width / 2 - 25;
+    [self loadCachedData];
+    if (self.posts == nil) {
+        [self startRefresh:refreshControl];
+    }
+    [self.postsView reloadData];
     
     self.locationManager = [[CLLocationManager alloc] init];
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
         [self.locationManager requestWhenInUseAuthorization];
     else
         [self getForcast];
     
+<<<<<<< HEAD
     [self loadBulletin];
+=======
+<<<<<<< HEAD
+=======
+    [self loadBulletin];
+>>>>>>> master
+>>>>>>> new-ui
     [super viewDidLoad];
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
-        DetailViewController *vc = [segue destinationViewController];
-        NSDictionary *dic = [self.posts objectAtIndex:self.postsView.indexPathsForSelectedItems.firstObject.row];
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = [segue destinationViewController];
+        DetailViewController *vc = (DetailViewController *)[nav topViewController];
+        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
+        NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
         
+        vc.postURL = [dic objectForKey:@"postURL"];
         vc.contentString = [dic objectForKey:@"summery"];
         vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
         vc.titleString = [dic objectForKey:@"title"];
     }
 }
+
+
 
 @end
