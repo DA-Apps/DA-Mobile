@@ -750,7 +750,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -767,7 +767,7 @@
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletinv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -783,7 +783,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -800,7 +800,7 @@
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletinv2.DA-Mobile-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

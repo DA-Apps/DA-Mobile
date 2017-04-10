@@ -333,30 +333,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="hO3-fb-8ML" customClass="CustomTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hO3-fb-8ML" id="g8h-8e-HYR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-vb-UyX">
-                                                    <rect key="frame" x="8" y="8" width="359" height="163.5"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="qCA-vb-UyX" firstAttribute="leading" secondItem="g8h-8e-HYR" secondAttribute="leading" constant="8" id="Uc1-k5-RLU"/>
-                                                <constraint firstItem="qCA-vb-UyX" firstAttribute="top" secondItem="g8h-8e-HYR" secondAttribute="top" constant="8" id="adJ-UJ-qbL"/>
-                                                <constraint firstAttribute="trailing" secondItem="qCA-vb-UyX" secondAttribute="trailing" constant="8" id="cd3-0Z-3sY"/>
-                                                <constraint firstAttribute="bottom" secondItem="qCA-vb-UyX" secondAttribute="bottom" constant="8" id="utH-BA-3QE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="image" destination="qCA-vb-UyX" id="Z3u-cn-vdq"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="75" id="adn-Dx-0t1" customClass="CustomTableViewCell">
-                                        <rect key="frame" x="0.0" y="208" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adn-Dx-0t1" id="Qjz-B8-RA6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -380,6 +358,28 @@
                                             <outlet property="title" destination="OaB-3q-d9S" id="gJ4-Yl-u96"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="hO3-fb-8ML" customClass="CustomTableViewCell">
+                                        <rect key="frame" x="0.0" y="103" width="375" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hO3-fb-8ML" id="g8h-8e-HYR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-vb-UyX">
+                                                    <rect key="frame" x="8" y="8" width="359" height="163.5"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qCA-vb-UyX" firstAttribute="leading" secondItem="g8h-8e-HYR" secondAttribute="leading" constant="8" id="Uc1-k5-RLU"/>
+                                                <constraint firstItem="qCA-vb-UyX" firstAttribute="top" secondItem="g8h-8e-HYR" secondAttribute="top" constant="8" id="adJ-UJ-qbL"/>
+                                                <constraint firstAttribute="trailing" secondItem="qCA-vb-UyX" secondAttribute="trailing" constant="8" id="cd3-0Z-3sY"/>
+                                                <constraint firstAttribute="bottom" secondItem="qCA-vb-UyX" secondAttribute="bottom" constant="8" id="utH-BA-3QE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="image" destination="qCA-vb-UyX" id="Z3u-cn-vdq"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="200" id="cd1-Ny-o7B" customClass="CustomTableViewCell">
                                         <rect key="frame" x="0.0" y="283" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -390,7 +390,7 @@
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flW-hY-HcW">
                                                     <rect key="frame" x="8" y="8" width="359" height="184"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -776,7 +776,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65b-sN-2Fk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f0u-ZA-XBS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f0u-ZA-XBS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
