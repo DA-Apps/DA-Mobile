@@ -174,6 +174,10 @@ int colorIndex = 0;
     return headerView;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+}
+
 #pragma mark - Private
 
 -(NSString *)dateDescription:(NSDate *)date{
@@ -414,7 +418,6 @@ int colorIndex = 0;
     
     if (![self contains:title]){
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSLog(@"%@", [RLMRealmConfiguration defaultConfiguration].fileURL);
         [realm transactionWithBlock:^{
             [realm addObject:post];
         }];
@@ -443,7 +446,7 @@ int colorIndex = 0;
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
     
-    //[self loadCachedData];
+    [self loadCachedData];
     if (self.posts == nil) {
         [self startRefresh:refreshControl];
     }
@@ -464,8 +467,9 @@ int colorIndex = 0;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
-        DetailViewController *vc = [segue destinationViewController];
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = [segue destinationViewController];
+        DetailViewController *vc = (DetailViewController *)[nav topViewController];
         NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
         NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
         

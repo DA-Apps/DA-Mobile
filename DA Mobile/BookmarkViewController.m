@@ -21,7 +21,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
+    UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
     BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
     cell.title.text = post.title;
     cell.image.image = [UIImage imageWithData:post.image];
@@ -41,7 +41,6 @@
 -(void)viewDidAppear:(BOOL)animated{
     self.savedPosts = [BulletinPost allObjects];
     [self.collectionView reloadData];
-    NSLog(@"%@", self.savedPosts);
     [super viewDidAppear:YES];
 
 }

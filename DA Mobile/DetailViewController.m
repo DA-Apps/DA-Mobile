@@ -13,29 +13,63 @@
 @end
 
 @implementation DetailViewController
+
+#pragma mark - UITableView Delegate
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CustomTableViewCell *cell;
+    switch (indexPath.row) {
+        case 0:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"headerCell" forIndexPath:indexPath];
+            cell.title.text = self.titleString;
+            break;
+        case 1:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+            cell.image.image = self.contentImage;
+            break;
+        case 2:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
+            cell.content.text = self.contentString;
+            break;
+        default:
+            break;
+    }
+    return cell;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            return 75;
+            break;
+        case 1:
+            return 200;
+            break;
+        case 2:
+            return self.contentString.length / 50 * 25;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+}
+
+
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)setShadowforView:(UIView *)view masksToBounds:(BOOL)masksToBounds{
-    
-    view.layer.cornerRadius = 15;
-    view.layer.shadowRadius = 2.0f;
-    view.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    view.layer.shadowOffset = CGSizeMake(-1.0f, 3.0f);
-    view.layer.shadowOpacity = 0.8f;
-    view.layer.masksToBounds = masksToBounds;
-}
-
 - (void)viewDidLoad {
     
-    self.contentView.text = self.contentString;
-    self.imageView.image = self.contentImage;
-    self.titleLabel.text = self.titleString;
-    [self setShadowforView:self.contentView masksToBounds:NO];
-    if (self.imageView.image == nil) {
-        self.imageHeight.constant = 30;
-    }
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

@@ -36,7 +36,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 
 @import UserNotifications;
 
-@interface AppDelegate() <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
+@interface AppDelegate() <UNUserNotificationCenterDelegate, FIRMessagingDelegate, EAIntroDelegate>
 @end
 
 @implementation AppDelegate
@@ -107,9 +107,8 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     self.window.rootViewController = viewController;
 }
 
-- (void)handleOnboardingCompletion {
-    //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserHasOnboardedKey];
-    [self setupNormalRootViewController];
+-(void)introWillFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserHasOnboardedKey];
 }
 
 - (void)showIntroView {
@@ -138,6 +137,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     page4.bgImage = [UIImage imageNamed:@"bg3@2x"];
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.rootViewController.view.bounds andPages:@[page1,page2,page3, page4]];
+    [intro setDelegate:self];
     [intro showInView:self.window.rootViewController.view animateDuration:0.0];
     
 }

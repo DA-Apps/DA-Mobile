@@ -12,18 +12,23 @@
 
 -(IBAction)saveBookmark:(id)sender{
     [self.delegate saveToBookMark:self];
+    [UIView animateWithDuration:0.35 animations:^{
+        self.menuWidth.constant = 0;
+        self.bookmarkButton.alpha = 0.0f;
+        [self layoutIfNeeded];
+    }];
 }
 
 -(void)didSwipe:(UISwipeGestureRecognizer *)swipe{
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.35 animations:^{
             self.menuWidth.constant = 150;
             self.bookmarkButton.alpha = 1.0f;
             [self layoutIfNeeded];
         }];
     }else if (swipe.direction == UISwipeGestureRecognizerDirectionRight){
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.35 animations:^{
             self.menuWidth.constant = 0;
             self.bookmarkButton.alpha = 0.0f;
             [self layoutIfNeeded];

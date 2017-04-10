@@ -19,12 +19,21 @@
     [super viewDidLoad];
     
     NSLog(@"Begin downloading data");
+    self.tableView.alpha = 0;
+    self.indicator.hidden = NO;
+    self.indicator.tintColor = [UIColor grayColor];
+    self.indicator.type = DGActivityIndicatorAnimationTypeThreeDots;
+    [self.indicator startAnimating];
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.indicator stopAnimating];
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.tableView.alpha = 1.0f;
+                }];
                 [self parseMenu:hpple];
                 [self.tableView reloadData];
             });
