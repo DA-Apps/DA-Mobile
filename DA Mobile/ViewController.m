@@ -87,7 +87,8 @@
         cell.textLabel.text = [dic objectForKey:@"date"];
         cell.detailTextLabel.text = str;
         cell.imageView.image = [ViewController imageWithImage:[self setWeatherImage:[dic objectForKey:@"text"]] scaledToSize:CGSizeMake(25, 25)];
-        
+        cell.imageView.layer.cornerRadius = 5;
+        cell.imageView.layer.masksToBounds = YES;
         return cell;
     }
 }
@@ -129,7 +130,7 @@
         cell.postWidth.constant = 150;
     }
     
-    [self setShadowforView:cell masksToBounds:NO];
+    //[self setShadowforView:cell masksToBounds:NO];
     return cell;
 }
 
@@ -231,6 +232,7 @@
 
 -(void)setupShadows{
     [self setShadowforView:self.table masksToBounds:YES];
+    [self setShadowforView:self.postsView masksToBounds:YES];
     [self setShadowforView:self.weatherTable masksToBounds:YES];
     [self setShadowforView:self.weatherView masksToBounds:NO];
     [self setShadowforView:self.menuView masksToBounds:NO];
@@ -318,7 +320,7 @@
     self.indicator.tintColor = [UIColor grayColor];
     self.indicator.size = 50.0f;
     
-    int i = arc4random()%4;
+    int i = arc4random()%5;
     switch (i) {
         case 0:
             self.indicator.type = DGActivityIndicatorAnimationTypeTriplePulse;
