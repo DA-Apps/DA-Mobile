@@ -128,10 +128,13 @@ int colorIndex = 0;
     
     NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
-    cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
+    });
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
     cell.delegate = self;
+    cell.canSwipe = YES;
     return cell;
 }
 
@@ -160,7 +163,8 @@ int colorIndex = 0;
         headerView.tempLabel.hidden = NO;
         headerView.weatherIcon.hidden = NO;
         headerView.table.hidden = NO;
-        headerView.tempLabel.text = @"68";
+        headerView.tempLabel.text = self.weatherInfo;
+        headerView.weatherIcon.image = self.weatherIcon;
         headerView.array = [NSMutableArray array];
         headerView.array = self.headerContent;
         [headerView.table reloadData];
@@ -175,7 +179,9 @@ int colorIndex = 0;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"showDetails" sender:nil];
+    });
 }
 
 #pragma mark - Private
@@ -286,14 +292,18 @@ int colorIndex = 0;
     self.weather = [self queryWeatherAPI];
     
     if (self.weather) {
-        //self.tempLabel.text = [self.weather objectForKey:@"temp"];
-        //self.weatherIcon.image = [self setWeatherImage: [self.weather objectForKey:@"text"]];
+        self.weatherInfo = [NSString stringWithFormat:@"%i", ([[self.weather objectForKey:@"high"] intValue] + [[self.weather objectForKey:@"low"] intValue]) / 2];
+        self.weatherIcon = [self setWeatherImage:[self.weather objectForKey:@"text"]];
+        [self.postsView reloadData];
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getForcast];
         }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
         [alert addAction:action];
+        [alert addAction:cancel];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:alert animated:YES completion:nil];
         });
@@ -316,7 +326,7 @@ int colorIndex = 0;
     [sharedDefaults synchronize];
 }
 
--(UIImage*) setWeatherImage:(NSString*) weatherType {
+-(UIImage *) setWeatherImage:(NSString*) weatherType {
     
     if ([weatherType containsString:@"Cloudy"])
         return [UIImage imageNamed:@"cloudy"];
@@ -387,12 +397,12 @@ int colorIndex = 0;
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
+            [self getPostsData:hpple];
+            [self parseMenu:hpple];
+            [self cacheData:self.posts menu:self.upcomingMeals];
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"finished");
-                [self getPostsData:hpple];
                 [self.postsView reloadData];
-                [self parseMenu:hpple];
-                [self cacheData:self.posts menu:self.upcomingMeals];
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;
                 [refresh endRefreshing];
@@ -479,7 +489,5 @@ int colorIndex = 0;
         vc.titleString = [dic objectForKey:@"title"];
     }
 }
-
-
 
 @end

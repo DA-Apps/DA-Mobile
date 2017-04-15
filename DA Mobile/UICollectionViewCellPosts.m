@@ -21,9 +21,9 @@
 
 -(void)didSwipe:(UISwipeGestureRecognizer *)swipe{
     
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft && self.canSwipe) {
         [UIView animateWithDuration:0.35 animations:^{
-            self.menuWidth.constant = 150;
+            self.menuWidth.constant = 120;
             self.bookmarkButton.alpha = 1.0f;
             [self layoutIfNeeded];
         }];

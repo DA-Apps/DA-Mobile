@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     NSLog(@"Begin downloading data");
-    self.tableView.alpha = 0;
+    [self selectDate:nil];
     self.indicator.hidden = NO;
     self.indicator.tintColor = [UIColor grayColor];
     self.indicator.type = DGActivityIndicatorAnimationTypeThreeDots;
@@ -31,9 +31,6 @@
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicator stopAnimating];
-                [UIView animateWithDuration:0.2 animations:^{
-                    self.tableView.alpha = 1.0f;
-                }];
                 [self parseMenu:hpple];
                 [self.tableView reloadData];
             });
@@ -49,77 +46,155 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)selectDate:(id)sender {
-    [self.tableView reloadData];
+    if (self.segementedControl.selectedSegmentIndex == 0) {
+        self.tableView.hidden = NO;
+        self.tomorrowTable.hidden = YES;
+        [self.tableView reloadData];
+    }else{
+        self.tableView.hidden = YES;
+        self.tomorrowTable.hidden = NO;
+        [self.tomorrowTable reloadData];
+    }
 }
 
+#pragma mark - UITableView delegate
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.tomorrowTable]) {
+        switch (section) {
+            case 0:
+                if (self.tomorrowMeals.firstObject.count == 0) {
+                    return nil;
+                }
+                return @"Breakfast";
+                break;
+            case 1:
+                if (self.tomorrowMeals.firstObject.count == 0) {
+                    return @"Brunch";
+                }
+                return @"Lunch";
+                break;
+            case 2:
+                return @"Dinner";
+                break;
+                
+            default:
+                break;
+        }
+    }
+    return nil;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.meals objectAtIndex:self.segementedControl.selectedSegmentIndex].count;
+    if ([tableView isEqual:self.tableView]) {
+        return self.upcomingMeals.count;
+    }else{
+        return self.tomorrowMeals[section].count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableID" forIndexPath: indexPath];
-    cell.textLabel.text = [[self.meals objectAtIndex:self.segementedControl.selectedSegmentIndex] objectAtIndex:indexPath.row];
+    if ([tableView isEqual:self.tableView]) {
+        cell.textLabel.text = self.upcomingMeals[indexPath.row];
+    }else{
+        cell.textLabel.text = self.tomorrowMeals[indexPath.section][indexPath.row];
+    }
     return cell;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
--(void) parseMenu:(TFHpple *) data{
-    
-    self.meals = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < 3; i++)
-    {
-        NSMutableArray *meal = [NSMutableArray array];
-        
-        NSDate *currentTime = [NSDate dateWithTimeInterval:86400*i sinceDate:[NSDate date]];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd-"];
-        NSString *key = [formatter stringFromDate: currentTime];
-        
-        [formatter setDateFormat: @"EE"];
-        NSString *day = [formatter stringFromDate: currentTime];
-        
-        [formatter setDateFormat: @"HH"];
-        int hour = [[formatter stringFromDate: currentTime] intValue];
-        NSString *mealType;
-        
-        if([day isEqualToString: @"Sun"]) {
-            if (hour < 12) mealType = @"BRUNCH";
-            else mealType = @"DINNER";
-        } else {
-            if (hour < 9)
-                mealType = @"BREAKFAST";
-            else if (hour < 13) mealType = @"LUNCH";
-            else mealType = @"DINNER";
-        }
-        if (hour > 18) {
-            mealType = @"BREAKFAST";
-            currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
-            [formatter setDateFormat:@"yyyy-MM-dd-"];
-            key = [formatter stringFromDate: currentTime];
-        }
-        key = [key stringByAppendingString:mealType];
-        NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
-        for (TFHppleElement *element in foods)
-            [meal addObject:element.content];
-        
-        NSLog(@"%@", meal);
-        [self.meals addObject:meal];
-        
+    if ([tableView isEqual:self.tableView]) {
+        return 1;
+    }else{
+        return 3;
     }
 }
 
+#pragma mark - Private methods
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) parseMenu:(TFHpple *) data{
+    
+    self.upcomingMeals = [[NSMutableArray alloc] init];
+    self.tomorrowMeals = [[NSMutableArray alloc] init];
+    
+    [self getUpcomingMeals:data];
+    
+    NSDate *currentTime = [NSDate dateWithTimeInterval:86400*2 sinceDate:[NSDate date]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-"];
+    NSString *key = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"EE"];
+    NSString *day = [formatter stringFromDate: currentTime];
+    NSString *mealType;
+    
+    if([day isEqualToString: @"Sun"]) {
+        [self.tomorrowMeals addObject:[NSMutableArray array]];
+        [self.tomorrowMeals addObject:[self parseMenuHTML:[key stringByAppendingString:@"BRUNCH"] hppleData:data]];
+        [self.tomorrowMeals addObject:[self parseMenuHTML:[key stringByAppendingString:@"DINNER"] hppleData:data]];
+    } else {
+        for (int x = 0; x < 3; x++) {
+            switch (x) {
+                case 0:
+                    mealType = @"BREAKFAST";
+                    break;
+                case 1:
+                    mealType = @"LUNCH";
+                    break;
+                case 2:
+                    mealType = @"BREAKFAST";
+                    break;
+                default:
+                    break;
+            }
+            [self.tomorrowMeals addObject:[self parseMenuHTML:[key stringByAppendingString:mealType] hppleData:data]];
+        }
+    }
 }
-*/
+
+-(void) getUpcomingMeals:(TFHpple *) data{
+    
+    self.upcomingMeals = [NSMutableArray array];
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-"];
+    NSString *key = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"EE"];
+    NSString *day = [formatter stringFromDate: currentTime];
+    
+    [formatter setDateFormat: @"HH"];
+    int hour = [[formatter stringFromDate: currentTime] intValue];
+    NSString *mealType;
+    
+    if([day isEqualToString: @"Sun"]) {
+        if (hour < 12) mealType = @"BRUNCH";
+        else mealType = @"DINNER";
+    } else {
+        if (hour < 9)
+            mealType = @"BREAKFAST";
+        else if (hour < 13) mealType = @"LUNCH";
+        else mealType = @"DINNER";
+    }
+    if (hour > 18) {
+        mealType = @"BREAKFAST";
+        currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
+        [formatter setDateFormat:@"yyyy-MM-dd-"];
+        key = [formatter stringFromDate: currentTime];
+    }
+    key = [key stringByAppendingString:mealType];
+    NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
+    for (TFHppleElement *element in foods)
+        [self.upcomingMeals addObject:element.content];
+}
+
+-(NSMutableArray *)parseMenuHTML:(NSString *)key hppleData:(TFHpple *)data{
+    
+    NSMutableArray *array = [NSMutableArray array];
+    NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
+    for (TFHppleElement *element in foods)
+        [array addObject:element.content];
+    
+    return array;
+}
 
 @end

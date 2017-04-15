@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *mainWidth;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *menuWidth;
 @property (nonatomic, weak) IBOutlet UIView *mainView;
+@property BOOL canSwipe;
 @property (nonatomic, strong) id delegate;
 
 @end

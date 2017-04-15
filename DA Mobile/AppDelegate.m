@@ -115,31 +115,24 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     // basic
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"DA Bulletin, now on your iPhone";
+    page1.title = @"Version 2.0.0, a great leap forward.";
+    page1.titleFont = [UIFont systemFontOfSize:30];
+    page1.titlePositionY = 320;
     page1.desc = @"";
     page1.bgImage = [UIImage imageNamed:@"bg1@2x"];
     // custom
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Pull to refresh to see the latest posts";
-    page2.titlePositionY = 220;
-    page2.desc = @"";
-    page2.descPositionY = 200;
-    page2.bgImage = [UIImage imageNamed:@"bg3@2x"];
-    // custom view from nib
+    page2.bgImage = [UIImage imageNamed:@"intro_1"];
+
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"Bookmark your favorite posts";
-    page3.desc = @"";
-    page3.bgImage = [UIImage imageNamed:@"bg1@2x"];
+    page3.bgImage = [UIImage imageNamed:@"intro_2"];
     
     EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"Receive notifications for upcoming meals";
-    page4.desc = @"";
-    page4.bgImage = [UIImage imageNamed:@"bg3@2x"];
+    page4.bgImage = [UIImage imageNamed:@"intro_3"];
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.rootViewController.view.bounds andPages:@[page1,page2,page3, page4]];
     [intro setDelegate:self];
     [intro showInView:self.window.rootViewController.view animateDuration:0.0];
-    
 }
 
 

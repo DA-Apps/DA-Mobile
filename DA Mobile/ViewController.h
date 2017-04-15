@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *upcomingMeals;
 @property (strong, nonatomic) NSMutableArray *birthdays;
 @property (strong, nonatomic) NSMutableArray<NSMutableArray *> *headerContent;
+@property (strong, nonatomic) UIImage *weatherIcon;
+@property (strong, nonatomic) NSString *weatherInfo;
 
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;

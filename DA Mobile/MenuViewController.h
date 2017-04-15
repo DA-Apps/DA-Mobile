@@ -13,7 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray <NSMutableArray *> *meals;
+@property (weak, nonatomic) IBOutlet UITableView *tomorrowTable;
+@property (strong, nonatomic) NSMutableArray *upcomingMeals;
+@property (strong, nonatomic) NSMutableArray <NSMutableArray *> *tomorrowMeals;
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *indicator;
 
 @end

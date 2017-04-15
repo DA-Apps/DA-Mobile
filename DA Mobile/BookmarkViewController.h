@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
 #import "BulletinPost.h"
 #import "UICollectionViewCellPosts.h"
-#import <Realm/Realm.h>
+#import "DetailViewController.h"
 
 @interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

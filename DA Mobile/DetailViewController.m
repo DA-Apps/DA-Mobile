@@ -20,12 +20,17 @@
     CustomTableViewCell *cell;
     switch (indexPath.row) {
         case 0:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"headerCell" forIndexPath:indexPath];
-            cell.title.text = self.titleString;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+            if (self.contentImage)
+                cell.image.image = self.contentImage;
+            else
+                cell.image.image = [UIImage imageNamed:@"placeholder.png"];
+            cell.image.layer.cornerRadius = 5;
+            cell.image.layer.masksToBounds = YES;
             break;
         case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
-            cell.image.image = self.contentImage;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"headerCell" forIndexPath:indexPath];
+            cell.title.text = self.titleString;
             break;
         case 2:
             cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
@@ -48,13 +53,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
-            return 75;
+            return 220;
             break;
         case 1:
-            return 200;
+            return 75;
             break;
         case 2:
-            return self.contentString.length / 50 * 25;
+            return self.contentString.length / 50 * 30 + 30;
             break;
             
         default:
@@ -63,10 +68,11 @@
     }
 }
 
-
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     
