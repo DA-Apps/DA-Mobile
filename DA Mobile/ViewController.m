@@ -186,6 +186,10 @@ int colorIndex = 0;
 
 #pragma mark - Private
 
+-(IBAction)feedback:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://goo.gl/forms/E8Y643yPuPW3bmDZ2"]];
+}
+
 -(NSString *)dateDescription:(NSDate *)date{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
