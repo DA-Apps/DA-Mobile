@@ -21,8 +21,9 @@
     NSLog(@"Begin downloading data");
     [self selectDate:nil];
     self.indicator.hidden = NO;
+    self.tableView.hidden = YES;
     self.indicator.tintColor = [UIColor grayColor];
-    self.indicator.type = DGActivityIndicatorAnimationTypeThreeDots;
+    self.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
     [self.indicator startAnimating];
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -33,6 +34,7 @@
                 [self.indicator stopAnimating];
                 [self parseMenu:hpple];
                 [self.tableView reloadData];
+                self.tableView.hidden = NO;
             });
         }
     }] resume];

@@ -115,9 +115,9 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     // basic
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Version 2.0.0, a great leap forward.";
-    page1.titleFont = [UIFont systemFontOfSize:30];
-    page1.titlePositionY = 320;
+    page1.title = @"What you have been waiting for.";
+    page1.titleFont = [UIFont systemFontOfSize:35];
+    page1.titlePositionY = 350;
     page1.desc = @"";
     page1.bgImage = [UIImage imageNamed:@"bg1@2x"];
     // custom
