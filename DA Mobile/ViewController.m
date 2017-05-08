@@ -20,10 +20,18 @@ int colorIndex = 0;
 
 #pragma mark - PostCell Delegate 
 
+-(void)removeBookMark:(UICollectionViewCellPosts *)cell{
+    
+}
+
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
     NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
-    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"]];
+    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"] withLink:[dic objectForKey:@"link"]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Post Saved" message:@"You have bookmarked this post" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - CollectionHeaderDelegate
@@ -203,15 +211,13 @@ int colorIndex = 0;
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
     //loop for three days--------------------------------------------------
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 5; i++) {
         
         NSMutableArray *dailyPosts = [NSMutableArray array];
         
         TFHppleElement *hppleElement = allPosts[i];
         
-        NSArray *posts = [[[hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  first']"] arrayByAddingObjectsFromArray:
-                           [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news ']"]] arrayByAddingObjectsFromArray:
-                          [hppleElement searchWithXPathQuery:@"//li[@class='summary daily-summary posts student-news  last']"]];
+        NSArray *posts = [hppleElement searchWithXPathQuery:@"//ul[@class='posts-list daily-posts']/li"];
         
         //parse out all the birthdays--------------------------------------
         NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
@@ -222,6 +228,8 @@ int colorIndex = 0;
             //get image src
             NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
             NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
+            
+            NSString *link = [[[[element firstChildWithTagName:@"div"] firstChildWithTagName:@"a"] attributes] objectForKey:@"href"];
             
             NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
             if (imgSrc)
@@ -239,15 +247,16 @@ int colorIndex = 0;
             if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                       @"title": title,
-                                      @"summery": summery,
-                                      @"image": imageData};
+                                      @"summery": summery ? summery : @"No Summery",
+                                      @"image": imageData,
+                                      @"link": link};
                 
                 [dailyPosts addObject:dic];
             }
         }
         NSDictionary *oneDay = @{@"posts": dailyPosts,
                                  @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
-                                 @"birthdays": birthdays};
+                                 @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
         [self.posts addObject:oneDay];
     }
 }
@@ -423,12 +432,13 @@ int colorIndex = 0;
     }] resume];
 }
 
-- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image {
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image withLink:(NSString *)url{
     
     BulletinPost *post = [[BulletinPost alloc] init];
     post.title = title;
     post.content = content;
     post.image = image;
+    post.postURL = url;
     
     if (![self contains:title]){
         RLMRealm *realm = [RLMRealm defaultRealm];
@@ -472,6 +482,7 @@ int colorIndex = 0;
     else
         [self getForcast];
     
+    self.feedbackButton.layer.cornerRadius = 3.0f;
     [super viewDidLoad];
     
 }
@@ -487,7 +498,7 @@ int colorIndex = 0;
         NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
         NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
         
-        vc.postURL = [dic objectForKey:@"postURL"];
+        vc.postURL = [dic objectForKey:@"link"];
         vc.contentString = [dic objectForKey:@"summery"];
         vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
         vc.titleString = [dic objectForKey:@"title"];

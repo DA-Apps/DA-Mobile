@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
 #import "DGActivityIndicatorView.h"
 #import "CustomTableViewCell.h"
+#import "BulletinPost.h"
 
-@interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CustomTableViewCellDelegate, UIWebViewDelegate>
 
 @property (strong, nonatomic) UIImage *contentImage;
 @property (strong, nonatomic) NSString *contentString;
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *postURL;
 
-@property (weak, nonatomic) IBOutlet DGActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end

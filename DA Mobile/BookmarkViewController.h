@@ -12,7 +12,7 @@
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 
-@interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewCellPostsDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) RLMResults *savedPosts;
 

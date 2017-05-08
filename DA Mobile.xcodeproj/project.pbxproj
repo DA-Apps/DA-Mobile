@@ -18,6 +18,7 @@
 		283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 283C8A0E1E97AE1300329DF3 /* Plus.png */; };
 		283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */; };
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
+		285853E01EC003FC00A62BFE /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 285853DF1EC003FC00A62BFE /* trash.png */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
 		286816661DCAB3D20089BEA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816651DCAB3D20089BEA6 /* AppDelegate.m */; };
 		286816691DCAB3D20089BEA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816681DCAB3D20089BEA6 /* ViewController.m */; };
@@ -99,6 +100,7 @@
 		283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		2841DB3F1E567B2A007A1B2E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2841DB401E567B2A007A1B2E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		285853DF1EC003FC00A62BFE /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		2868165E1DCAB3D20089BEA6 /* DA Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		286816621DCAB3D20089BEA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		286816641DCAB3D20089BEA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				285853DF1EC003FC00A62BFE /* trash.png */,
 				289CA76B1E9D59BC0094451A /* intro_1.png */,
 				289CA76C1E9D59BC0094451A /* intro_2.png */,
 				289CA76D1E9D59BC0094451A /* intro_3.png */,
@@ -497,6 +500,7 @@
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
+				285853E01EC003FC00A62BFE /* trash.png in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

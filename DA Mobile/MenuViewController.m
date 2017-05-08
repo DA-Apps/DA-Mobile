@@ -143,7 +143,7 @@
                     mealType = @"LUNCH";
                     break;
                 case 2:
-                    mealType = @"BREAKFAST";
+                    mealType = @"DINNER";
                     break;
                 default:
                     break;

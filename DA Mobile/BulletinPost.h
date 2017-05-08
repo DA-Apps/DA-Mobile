@@ -14,6 +14,7 @@
 @property NSString *content;
 @property NSData *image;
 @property NSDate *date;
+@property NSString *postURL;
 
 @end
 

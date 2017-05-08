@@ -8,7 +8,10 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController (){
+    BOOL complete;
+    NSTimer *loadingTimer;
+}
 
 @end
 
@@ -35,6 +38,9 @@
         case 2:
             cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
             cell.content.text = self.contentString;
+        case 3:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
+            cell.delegate = self;
             break;
         default:
             break;
@@ -47,7 +53,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 4;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,23 +65,94 @@
             return 75;
             break;
         case 2:
-            return self.contentString.length / 50 * 30 + 30;
+            return self.contentString.length / 50 * 28 + 45;
             break;
-            
+        case 3:
+            return 55;
+            break;
         default:
             return 0;
             break;
     }
 }
 
+#pragma mark - Private
+
+-(void)loadFullPost{
+    
+    self.progressView.hidden = NO;
+    self.table.hidden = YES;
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.postURL]]];
+    self.progressView.progress = 0;
+    complete = false;
+    //0.01667 is roughly 1/60, so it will update at 60 FPS
+    loadingTimer = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(timerCallback) userInfo:nil repeats:YES];
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    complete = true;
+}
+
+-(void)timerCallback {
+    
+    if (complete) {
+        if (self.progressView.progress >= 1) {
+            self.progressView.hidden = true;
+            [loadingTimer invalidate];
+        }
+        else {
+            self.progressView.progress += 0.01;
+        }
+    }
+    else {
+        self.progressView.progress += 0.05;
+        if (self.progressView.progress >= 0.95) {
+            self.progressView.progress = 0.95;
+        }
+    }
+}
+
+-(IBAction)save:(id)sender{
+    [self savePosts:self.title withContent:self.contentString withImage:UIImagePNGRepresentation(self.contentImage) withLink:self.postURL];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Post Saved" message:@"You have bookmarked this post" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image withLink:(NSString *)url{
+    
+    BulletinPost *post = [[BulletinPost alloc] init];
+    post.title = title;
+    post.content = content;
+    post.image = image;
+    post.postURL = url;
+    
+    if (![self contains:title]){
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm transactionWithBlock:^{
+            [realm addObject:post];
+        }];
+    }
+}
+
+-(BOOL)contains:(NSString *)title {
+    for (BulletinPost *post in [BulletinPost allObjects]){
+        if ([post.title isEqualToString:title])
+            return YES;
+    }
+    return NO;
+}
+
 
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     
+    self.progressView.hidden = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

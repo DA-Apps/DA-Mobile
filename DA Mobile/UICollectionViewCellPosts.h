@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *mainWidth;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *menuWidth;
 @property (nonatomic, weak) IBOutlet UIView *mainView;
+@property (nonatomic, weak) IBOutlet UIView *rightView;
 @property BOOL canSwipe;
 @property (nonatomic, strong) id delegate;
 
@@ -24,5 +25,6 @@
 @protocol UICollectionViewCellPostsDelegate <NSObject>
 
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell;
+-(void)removeBookMark:(UICollectionViewCellPosts *)cell;
 
 @end

@@ -10,6 +10,10 @@
 
 @implementation CustomTableViewCell
 
+-(IBAction)loadFullPost:(id)sender{
+    [self.delegate loadFullPost];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

@@ -14,6 +14,24 @@
 
 @implementation BookmarkViewController
 
+#pragma mark - CollectionView Cell Delegate
+
+-(void)removeBookMark:(UICollectionViewCellPosts *)cell{
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    [[RLMRealm defaultRealm] deleteObject:[self.savedPosts objectAtIndex:[self.collectionView indexPathForCell:cell].row]];
+    [[RLMRealm defaultRealm] commitWriteTransaction];
+    [self.collectionView reloadData];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Deleted" message:@"You have deleted this post" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
+    
+}
+
+#pragma mark - UITableView Delegate
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     return CGSizeMake(self.view.frame.size.width, 160);
@@ -28,6 +46,7 @@
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
     cell.canSwipe = NO;
+    cell.delegate = self;
     return cell;
 }
 

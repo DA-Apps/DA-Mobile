@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
+@property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 
 @end
 
