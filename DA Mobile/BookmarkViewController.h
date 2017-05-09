@@ -11,6 +11,7 @@
 #import "BulletinPost.h"
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewCellPostsDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

@@ -42,7 +42,7 @@
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
     BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
     cell.title.text = post.title;
-    cell.image.image = [UIImage imageWithData:post.image];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:post.image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
     cell.canSwipe = NO;
@@ -96,7 +96,8 @@
         BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.section];
 
         vc.contentString = post.content;
-        vc.contentImage = [UIImage imageWithData:post.image];
+        vc.contentImage = post.image;
+        vc.postURL = post.postURL;
         vc.titleString = post.title;
     }
 }

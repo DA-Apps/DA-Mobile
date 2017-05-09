@@ -12,7 +12,7 @@
 
 @property NSString *title;
 @property NSString *content;
-@property NSData *image;
+@property NSString *image;
 @property NSDate *date;
 @property NSString *postURL;
 

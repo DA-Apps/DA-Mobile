@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
@@ -16,6 +17,9 @@
 #import "YQL.h"
 #import "DGActivityIndicatorView.h"
 #import "BulletinPost.h"
+#import "UIImageView+WebCache.h"
+#import "UIView+WebCache.h"
+
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>
 

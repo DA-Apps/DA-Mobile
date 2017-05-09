@@ -11,10 +11,11 @@
 #import "DGActivityIndicatorView.h"
 #import "CustomTableViewCell.h"
 #import "BulletinPost.h"
+#import "UIImageView+WebCache.h"
 
 @interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CustomTableViewCellDelegate, UIWebViewDelegate>
 
-@property (strong, nonatomic) UIImage *contentImage;
+@property (strong, nonatomic) NSString *contentImage;
 @property (strong, nonatomic) NSString *contentString;
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *postURL;

@@ -12,6 +12,7 @@ pod 'EAIntroView'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 pod 'MaterialControls'
+pod 'AFNetworking'
 end
 
 target 'DA Mobile Widget' do

@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - DGActivityIndicatorView (2.1.1)
   - EAIntroView (2.10.0):
     - EARestrictedScrollView (~> 1.1.0)
@@ -29,11 +44,12 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - MaterialControls (1.2.2)
   - Protobuf (3.3.0)
-  - Realm (2.6.2):
-    - Realm/Headers (= 2.6.2)
-  - Realm/Headers (2.6.2)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - DGActivityIndicatorView
   - EAIntroView
   - Firebase/Core
@@ -42,6 +58,7 @@ DEPENDENCIES:
   - Realm
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
@@ -53,8 +70,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  Realm: 29222766425b9f831228f81b63f0e38a97a4d700
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
 
-PODFILE CHECKSUM: fa5b78898d5900cc8ab678af72876ef162b78a45
+PODFILE CHECKSUM: 12fd124f477f44f8c16d5ea594bd3bd7a7d7954e
 
 COCOAPODS: 1.2.0

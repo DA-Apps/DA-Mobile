@@ -136,9 +136,7 @@ int colorIndex = 0;
     
     NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        cell.image.image = [UIImage imageWithData:[dic objectForKey:@"image"]];
-    });
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     cell.image.layer.cornerRadius = 5;
     cell.image.layer.masksToBounds = YES;
     cell.delegate = self;
@@ -210,8 +208,10 @@ int colorIndex = 0;
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
     
-    //loop for three days--------------------------------------------------
+    //loop for five days--------------------------------------------------
     for (int i = 0; i < 5; i++) {
+        
+        NSDate *methodStart = [NSDate date];
         
         NSMutableArray *dailyPosts = [NSMutableArray array];
         
@@ -231,10 +231,6 @@ int colorIndex = 0;
             
             NSString *link = [[[[element firstChildWithTagName:@"div"] firstChildWithTagName:@"a"] attributes] objectForKey:@"href"];
             
-            NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"placeholder.png"]);
-            if (imgSrc)
-                imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgSrc]];
-            
             //search for title of post
             NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
             NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
@@ -248,7 +244,7 @@ int colorIndex = 0;
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                       @"title": title,
                                       @"summery": summery ? summery : @"No Summery",
-                                      @"image": imageData,
+                                      @"image": imgSrc ? imgSrc : @"placeholder.png",
                                       @"link": link};
                 
                 [dailyPosts addObject:dic];
@@ -258,7 +254,12 @@ int colorIndex = 0;
                                  @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
                                  @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
         [self.posts addObject:oneDay];
+        
+        NSDate *methodFinish = [NSDate date];
+        NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
+        NSLog(@"executionTime = %f", executionTime);
     }
+
 }
 
 -(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
@@ -405,21 +406,41 @@ int colorIndex = 0;
         self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
         [self.activityIndicator startAnimating];
     }
-    NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
-        TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
+    
+    NSDate *methodStart = [NSDate date];
+    
+    NSLog(@"begin");
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"%@", response);
+        NSLog(@"%@", filePath);
         if (!error) {
-            [self getPostsData:hpple];
-            [self parseMenu:hpple];
-            [self cacheData:self.posts menu:self.upcomingMeals];
             dispatch_async(dispatch_get_main_queue(), ^{
+                TFHpple *hpple = [TFHpple hppleWithHTMLData:[NSData dataWithContentsOfURL:filePath]];
+                [self getPostsData:hpple];
+                [self parseMenu:hpple];
+                [self cacheData:self.posts menu:self.upcomingMeals];
                 NSLog(@"finished");
                 [self.postsView reloadData];
                 [self.activityIndicator stopAnimating];
                 self.activityIndicator.hidden = YES;
+                NSDate *methodFinish = [NSDate date];
+                NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
+                NSLog(@"executionTime = %f", executionTime);
                 [refresh endRefreshing];
             });
+            
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -429,10 +450,11 @@ int colorIndex = 0;
                 [self presentViewController:alert animated:YES completion:nil];
             });
         }
-    }] resume];
+    }];
+    [downloadTask resume];
 }
 
-- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image withLink:(NSString *)url{
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSString *)image withLink:(NSString *)url{
     
     BulletinPost *post = [[BulletinPost alloc] init];
     post.title = title;
@@ -457,6 +479,11 @@ int colorIndex = 0;
 }
 
 #pragma mark - View lifecycle
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:YES];
+}
 
 - (void)viewDidLoad {
     
@@ -500,7 +527,7 @@ int colorIndex = 0;
         
         vc.postURL = [dic objectForKey:@"link"];
         vc.contentString = [dic objectForKey:@"summery"];
-        vc.contentImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]]]];
+        vc.contentImage = [dic objectForKey:@"img_src"];
         vc.titleString = [dic objectForKey:@"title"];
     }
 }

@@ -25,7 +25,7 @@
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
             if (self.contentImage)
-                cell.image.image = self.contentImage;
+                [cell.image sd_setImageWithURL:[NSURL URLWithString:self.contentImage] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             else
                 cell.image.image = [UIImage imageNamed:@"placeholder.png"];
             cell.image.layer.cornerRadius = 5;
@@ -112,7 +112,7 @@
 }
 
 -(IBAction)save:(id)sender{
-    [self savePosts:self.title withContent:self.contentString withImage:UIImagePNGRepresentation(self.contentImage) withLink:self.postURL];
+    [self savePosts:self.title withContent:self.contentString withImage:self.contentImage withLink:self.postURL];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Post Saved" message:@"You have bookmarked this post" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
