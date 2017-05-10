@@ -123,7 +123,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSData *)image withLink:(NSString *)url{
+- (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSString *)image withLink:(NSString *)url{
     
     BulletinPost *post = [[BulletinPost alloc] init];
     post.title = title;

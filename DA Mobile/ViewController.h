@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSMutableArray<NSMutableArray *> *headerContent;
 @property (strong, nonatomic) UIImage *weatherIcon;
 @property (strong, nonatomic) NSString *weatherInfo;
+@property (strong, nonatomic) NSMutableArray *weathers;
 
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;

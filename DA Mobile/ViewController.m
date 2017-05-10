@@ -281,7 +281,7 @@ int colorIndex = 0;
     return string;
 }
 
--(NSDictionary *)queryWeatherAPI{
+-(NSMutableArray *)queryWeatherAPI{
     
     CLLocationCoordinate2D coordinate = [self getLocation];
     YQL *yql = [[YQL alloc] init];
@@ -297,18 +297,21 @@ int colorIndex = 0;
         
     }else{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:results[@"query"][@"results"][@"channel"][@"item"][@"forecast"]];
-        return (NSDictionary *)array.firstObject;
+        NSDictionary *dic = results[@"query"][@"results"][@"channel"][@"item"][@"condition"];
+        [array addObject:dic];
+        return array;
     }
 }
 
 -(void)getForcast{
     
-    self.weather = [self queryWeatherAPI];
-    
-    if (self.weather) {
-        self.weatherInfo = [NSString stringWithFormat:@"%i", ([[self.weather objectForKey:@"high"] intValue] + [[self.weather objectForKey:@"low"] intValue]) / 2];
+    self.weathers = [self queryWeatherAPI];
+    self.weather = [self.weathers lastObject];
+    if (self.weathers) {
+        self.weatherInfo = [self.weather objectForKey:@"temp"];
         self.weatherIcon = [self setWeatherImage:[self.weather objectForKey:@"text"]];
         [self.postsView reloadData];
+        [self syncExtension];
     }else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -323,6 +326,17 @@ int colorIndex = 0;
         });
     }
 }
+
+-(void)syncExtension{
+    
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
+    
+    [sharedDefaults setObject:self.upcomingMeals forKey:@"menuData"];
+    [sharedDefaults setObject:self.weathers forKey:@"weatherData"];
+    [sharedDefaults synchronize];
+    NSLog(@"synced with extension");
+}
+
 
 -(void)cacheData:(NSMutableArray <NSDictionary *> *)posts menu:(NSMutableArray *)nextMeal{
     
