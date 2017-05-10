@@ -74,10 +74,8 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     if (!userHasOnboarded)
         [self showIntroView];
     [self.window makeKeyAndVisible];
-    //--------------------------------------------------------------------------------
     
-    // Inside your [AppDelegate didFinishLaunchingWithOptions:]
-    
+
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     // Set the new schema version. This must be greater than the previously used
     // version (if you've never set a schema version before, the version is 0).
@@ -93,7 +91,6 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
             // And will update the schema on disk automatically
         }
     };
-    
     // Tell Realm to use this new configuration object for the default Realm
     [RLMRealmConfiguration setDefaultConfiguration:config];
     
@@ -139,13 +136,13 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     page1.bgImage = [UIImage imageNamed:@"bg1@2x"];
     // custom
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.bgImage = [UIImage imageNamed:@"intro_1"];
+    page2.bgImage = [UIImage imageNamed:@"intros_3"];
 
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.bgImage = [UIImage imageNamed:@"intro_2"];
+    page3.bgImage = [UIImage imageNamed:@"intros_2"];
     
     EAIntroPage *page4 = [EAIntroPage page];
-    page4.bgImage = [UIImage imageNamed:@"intro_3"];
+    page4.bgImage = [UIImage imageNamed:@"intros_1"];
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.rootViewController.view.bounds andPages:@[page1,page2,page3, page4]];
     [intro setDelegate:self];
