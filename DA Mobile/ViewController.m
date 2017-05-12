@@ -211,8 +211,6 @@ int colorIndex = 0;
     //loop for five days--------------------------------------------------
     for (int i = 0; i < 5; i++) {
         
-        NSDate *methodStart = [NSDate date];
-        
         NSMutableArray *dailyPosts = [NSMutableArray array];
         
         TFHppleElement *hppleElement = allPosts[i];
@@ -254,10 +252,6 @@ int colorIndex = 0;
                                  @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
                                  @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
         [self.posts addObject:oneDay];
-        
-        NSDate *methodFinish = [NSDate date];
-        NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
-        NSLog(@"executionTime = %f", executionTime);
     }
 
 }
@@ -434,11 +428,16 @@ int colorIndex = 0;
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        documentsDirectoryURL = [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        if([[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryURL.path]){
+            NSError *error;
+            [[NSFileManager defaultManager] removeItemAtPath:documentsDirectoryURL.path error:&error]; //Delete old file
+            NSLog(@"%@", error);
+        }
+        return documentsDirectoryURL;
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSLog(@"%@", response);
-        NSLog(@"%@", filePath);
+
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 TFHpple *hpple = [TFHpple hppleWithHTMLData:[NSData dataWithContentsOfURL:filePath]];

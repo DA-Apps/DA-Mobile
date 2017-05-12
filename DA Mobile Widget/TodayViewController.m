@@ -117,7 +117,7 @@
     self.weathers = [defaults objectForKey:@"weatherData"];
     [self.menuTable reloadData];
     [self.weatherTable reloadData];
-    self.tempLabel.text = [NSString stringWithFormat:@"%i", ([[[self.weathers lastObject] objectForKey:@"low"] intValue] + [[[self.weathers lastObject] objectForKey:@"high"] intValue]) / 2];
+    self.tempLabel.text = [[self.weathers lastObject] objectForKey:@"temp"];
     self.tempIcon.image = [self getWeatherIcon:[[self.weathers lastObject] objectForKey:@"text"]];
 }
 
