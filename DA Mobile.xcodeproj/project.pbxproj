@@ -67,6 +67,8 @@
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
 		28BBAB6C1E9BA8270068864B /* Back_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6B1E9BA8270068864B /* Back_000000_100.png */; };
 		28BBAB6E1E9BA8590068864B /* Bookmark_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */; };
+		28CF19F61ECD2A33006BFDC0 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */; };
+		28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CF19F71ECD44AF006BFDC0 /* Empty Box.png */; };
 		28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */; };
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
 		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
@@ -200,6 +202,9 @@
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28BBAB6B1E9BA8270068864B /* Back_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_000000_100.png; sourceTree = "<group>"; };
 		28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookmark_000000_100.png; sourceTree = "<group>"; };
+		28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
+		28CF19F71ECD44AF006BFDC0 /* Empty Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty Box.png"; sourceTree = "<group>"; };
 		28DA8BEA1E9B321400478B73 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				28CF19F71ECD44AF006BFDC0 /* Empty Box.png */,
 				2838FED51EC1E73200A09B92 /* intros_1.png */,
 				2838FED61EC1E73200A09B92 /* intros_2.png */,
 				2838FED71EC1E73200A09B92 /* intros_3.png */,
@@ -368,12 +374,14 @@
 			children = (
 				286816671DCAB3D20089BEA6 /* ViewController.h */,
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
-				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
-				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
 				28A4C6DC1E984A1500C00E3E /* MenuViewController.h */,
 				28A4C6DD1E984A1500C00E3E /* MenuViewController.m */,
 				2841DB3F1E567B2A007A1B2E /* DetailViewController.h */,
 				2841DB401E567B2A007A1B2E /* DetailViewController.m */,
+				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
+				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
+				28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */,
+				28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -591,6 +599,7 @@
 				2838FED81EC1E73200A09B92 /* intros_1.png in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
+				28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
 				285853E01EC003FC00A62BFE /* trash.png in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
@@ -719,6 +728,7 @@
 				28994B081EC16AB0007ACF10 /* NSImage+WebCache.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 				28994B131EC16AB0007ACF10 /* UIImage+MultiFormat.m in Sources */,
+				28CF19F61ECD2A33006BFDC0 /* PreferenceViewController.m in Sources */,
 				28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */,
 				28994B0B1EC16AB0007ACF10 /* SDWebImageCompat.m in Sources */,
 				28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */,
@@ -878,7 +888,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -895,7 +905,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";

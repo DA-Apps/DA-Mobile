@@ -104,7 +104,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     NSString *dotw = [dateFormatter stringFromDate: [NSDate date]];
-    if (![dotw isEqualToString:@"Wednesday"] && ![dotw isEqualToString:@"Saturday"] && ![dotw isEqualToString:@"Sunday"]) {
+    if (![dotw isEqualToString:@"Saturday"] && ![dotw isEqualToString:@"Sunday"]) {
         [self triggerNotification:nil];
         [NSTimer scheduledTimerWithTimeInterval:3600 target:self selector:@selector(triggerNotification:) userInfo:nil repeats:YES];
     }
@@ -154,9 +154,13 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"HH"];
-    NSDate *myDate = [NSDate date];
-    NSString *hour = [df stringFromDate:myDate];
-    if ([hour isEqualToString:@"11"]) {
+    NSDate *now = [NSDate date];
+    NSString *hour = [df stringFromDate:now];
+    NSDate *notifiedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"notified_date"];
+    NSTimeInterval interval = [now timeIntervalSinceDate:notifiedDate];
+    if (!notifiedDate)
+        interval = 22*60*61;
+    if ([hour isEqualToString:@"11"] && interval > 22*60*60) {
         
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         
@@ -166,20 +170,16 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
         content.sound = [UNNotificationSound defaultSound];
         
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
-        
-        NSString *identifier = @"UYLocalNotification";
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UYLocalNotification" content:content trigger:trigger];
         
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-            if (error != nil) {
-                NSLog(@"Something went wrong: %@",error);
-            }
+            [[NSUserDefaults standardUserDefaults] setObject:now forKey:@"notified_date"];
         }];
         
-        if (timer) {
+        if (timer)
             [timer invalidate];
-        }
-    }
+    }else
+        NSLog(@"not the right time or already notified");
 }
 
 -(NSString *)getMenuData{
