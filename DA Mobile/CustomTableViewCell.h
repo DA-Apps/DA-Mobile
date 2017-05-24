@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UITextView *content;
+@property (weak, nonatomic) IBOutlet UISwitch *customSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (retain, nonatomic) IBOutlet id delegate;
 
@@ -19,6 +20,9 @@
 
 @protocol CustomTableViewCellDelegate <NSObject>
 
+@optional
+
 -(void)loadFullPost;
+-(void)switchNotification:(BOOL)on;
 
 @end

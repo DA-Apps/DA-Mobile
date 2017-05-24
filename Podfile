@@ -6,6 +6,11 @@ target 'DA Mobile' do
   # use_frameworks!
 
   # Pods for DA Mobile
+pod 'GoogleAPIClientForREST/Calendar'
+pod 'Google/SignIn'
+pod 'FSCalendar'
+pod 'MaterialControls'
+pod 'MSCollectionViewCalendarLayout'
 pod 'DGActivityIndicatorView'
 pod 'Realm'
 pod 'EAIntroView'

@@ -18,12 +18,6 @@ int colorIndex = 0;
 
 @implementation ViewController
 
-#pragma mark - PostCell Delegate 
-
--(void)removeBookMark:(UICollectionViewCellPosts *)cell{
-    
-}
-
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
     NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
@@ -102,7 +96,7 @@ int colorIndex = 0;
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
-            return CGSizeMake(self.view.frame.size.width, 250);
+            return CGSizeMake(self.view.frame.size.width, 260);
             break;
         case 1:
             cellIndex = 2;
@@ -154,9 +148,9 @@ int colorIndex = 0;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
-        return CGSizeMake(self.postsView.frame.size.width, 180);
+        return CGSizeMake(self.postsView.frame.size.width, 190);
     else if (section != 0)
-        return CGSizeMake(self.postsView.frame.size.width, 100);
+        return CGSizeMake(self.postsView.frame.size.width, 110);
     else
         return CGSizeMake(self.postsView.frame.size.width, 300);
 }
@@ -301,12 +295,13 @@ int colorIndex = 0;
     
     self.weathers = [self queryWeatherAPI];
     self.weather = [self.weathers lastObject];
+    int i = arc4random()%4;
     if (self.weathers) {
         self.weatherInfo = [self.weather objectForKey:@"temp"];
         self.weatherIcon = [self setWeatherImage:[self.weather objectForKey:@"text"]];
         [self.postsView reloadData];
         [self syncExtension];
-    }else{
+    }else if (i == 2){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't get the weather data" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getForcast];
@@ -416,9 +411,7 @@ int colorIndex = 0;
     }
     
     NSDate *methodStart = [NSDate date];
-    
-    NSLog(@"begin");
-    
+
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     

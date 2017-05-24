@@ -10,6 +10,10 @@
 
 @implementation CustomTableViewCell
 
+-(IBAction)switchClicked:(id)sender{
+    [self.delegate switchNotification:self.customSwitch.isOn];
+}
+
 -(IBAction)loadFullPost:(id)sender{
     [self.delegate loadFullPost];
 }

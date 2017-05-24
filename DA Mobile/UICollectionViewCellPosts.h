@@ -24,6 +24,8 @@
 
 @protocol UICollectionViewCellPostsDelegate <NSObject>
 
+@optional
+
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell;
 -(void)removeBookMark:(UICollectionViewCellPosts *)cell;
 

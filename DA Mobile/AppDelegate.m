@@ -1,27 +1,5 @@
 /*
  
- Copyright (c) 2013 Joan Lluch <joan.lluch@sweetwilliamsl.com>
- 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is furnished
- to do so, subject to the following conditions:
- 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
- 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
- 
- Early code inspired on a similar class by Philip Kluz (Philip.Kluz@zuui.org)
- 
  */
 
 #import "AppDelegate.h"
@@ -71,8 +49,10 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self setupNormalRootViewController];
-    if (!userHasOnboarded)
+    if (!userHasOnboarded){
         [self showIntroView];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notificationON"];
+    }
     [self.window makeKeyAndVisible];
     
 
@@ -101,12 +81,14 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
-    NSString *dotw = [dateFormatter stringFromDate: [NSDate date]];
-    if (![dotw isEqualToString:@"Wednesday"] && ![dotw isEqualToString:@"Saturday"] && ![dotw isEqualToString:@"Sunday"]) {
-        [self triggerNotification:nil];
-        [NSTimer scheduledTimerWithTimeInterval:3600 target:self selector:@selector(triggerNotification:) userInfo:nil repeats:YES];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"notificationON"] == YES) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEEE"];
+        NSString *dotw = [dateFormatter stringFromDate: [NSDate date]];
+        if (![dotw isEqualToString:@"Saturday"]) {
+            [self triggerNotification:nil];
+            [NSTimer scheduledTimerWithTimeInterval:3600 target:self selector:@selector(triggerNotification:) userInfo:nil repeats:YES];
+        }
     }
 }
 
@@ -126,6 +108,8 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 
 - (void)showIntroView {
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notificationON"];
     
     // basic
     EAIntroPage *page1 = [EAIntroPage page];
@@ -154,9 +138,13 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"HH"];
-    NSDate *myDate = [NSDate date];
-    NSString *hour = [df stringFromDate:myDate];
-    if ([hour isEqualToString:@"11"]) {
+    NSDate *now = [NSDate date];
+    NSString *hour = [df stringFromDate:now];
+    NSDate *notifiedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"notified_date"];
+    NSTimeInterval interval = [now timeIntervalSinceDate:notifiedDate];
+    if (!notifiedDate)
+        interval = 22*60*61;
+    if ([hour isEqualToString:@"11"] && interval > 22*60*60) {
         
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         
@@ -166,20 +154,16 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
         content.sound = [UNNotificationSound defaultSound];
         
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
-        
-        NSString *identifier = @"UYLocalNotification";
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UYLocalNotification" content:content trigger:trigger];
         
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-            if (error != nil) {
-                NSLog(@"Something went wrong: %@",error);
-            }
+            [[NSUserDefaults standardUserDefaults] setObject:now forKey:@"notified_date"];
         }];
         
-        if (timer) {
+        if (timer)
             [timer invalidate];
-        }
-    }
+    }else
+        NSLog(@"not the right time or already notified");
 }
 
 -(NSString *)getMenuData{

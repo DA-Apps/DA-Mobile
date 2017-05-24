@@ -67,11 +67,21 @@
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
 		28BBAB6C1E9BA8270068864B /* Back_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6B1E9BA8270068864B /* Back_000000_100.png */; };
 		28BBAB6E1E9BA8590068864B /* Bookmark_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */; };
+		28BE9A091ED5300200DEA31C /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9A081ED5300200DEA31C /* TipsViewController.m */; };
+		28CF19F61ECD2A33006BFDC0 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */; };
+		28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CF19F71ECD44AF006BFDC0 /* Empty Box.png */; };
 		28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */; };
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
 		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
 		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
 		28E833AA1E94933000614C73 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A91E94933000614C73 /* placeholder.png */; };
+		28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A911ED1D9A9009C1A8B /* canvas.png */; };
+		28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A921ED1D9A9009C1A8B /* credit.png */; };
+		28FA2A9A1ED1D9A9009C1A8B /* dainfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A931ED1D9A9009C1A8B /* dainfo.png */; };
+		28FA2A9B1ED1D9A9009C1A8B /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A941ED1D9A9009C1A8B /* email.png */; };
+		28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A951ED1D9A9009C1A8B /* location.png */; };
+		28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A961ED1D9A9009C1A8B /* notification.png */; };
+		28FA2A9E1ED1D9A9009C1A8B /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A971ED1D9A9009C1A8B /* tips.png */; };
 		F4EAB71D1A91594D658ECA5E /* libPods-DA Mobile Widget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +210,11 @@
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28BBAB6B1E9BA8270068864B /* Back_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_000000_100.png; sourceTree = "<group>"; };
 		28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookmark_000000_100.png; sourceTree = "<group>"; };
+		28BE9A071ED5300200DEA31C /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
+		28BE9A081ED5300200DEA31C /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
+		28CF19F71ECD44AF006BFDC0 /* Empty Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty Box.png"; sourceTree = "<group>"; };
 		28DA8BEA1E9B321400478B73 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
@@ -208,6 +223,13 @@
 		28E833A61E947FF500614C73 /* CollectionReusableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableHeader.h; sourceTree = "<group>"; };
 		28E833A71E947FF500614C73 /* CollectionReusableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableHeader.m; sourceTree = "<group>"; };
 		28E833A91E94933000614C73 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		28FA2A911ED1D9A9009C1A8B /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
+		28FA2A921ED1D9A9009C1A8B /* credit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credit.png; sourceTree = "<group>"; };
+		28FA2A931ED1D9A9009C1A8B /* dainfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dainfo.png; sourceTree = "<group>"; };
+		28FA2A941ED1D9A9009C1A8B /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		28FA2A951ED1D9A9009C1A8B /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		28FA2A961ED1D9A9009C1A8B /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		28FA2A971ED1D9A9009C1A8B /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips.png; sourceTree = "<group>"; };
 		98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +263,14 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				28FA2A911ED1D9A9009C1A8B /* canvas.png */,
+				28FA2A921ED1D9A9009C1A8B /* credit.png */,
+				28FA2A931ED1D9A9009C1A8B /* dainfo.png */,
+				28FA2A941ED1D9A9009C1A8B /* email.png */,
+				28FA2A951ED1D9A9009C1A8B /* location.png */,
+				28FA2A961ED1D9A9009C1A8B /* notification.png */,
+				28FA2A971ED1D9A9009C1A8B /* tips.png */,
+				28CF19F71ECD44AF006BFDC0 /* Empty Box.png */,
 				2838FED51EC1E73200A09B92 /* intros_1.png */,
 				2838FED61EC1E73200A09B92 /* intros_2.png */,
 				2838FED71EC1E73200A09B92 /* intros_3.png */,
@@ -368,12 +398,16 @@
 			children = (
 				286816671DCAB3D20089BEA6 /* ViewController.h */,
 				286816681DCAB3D20089BEA6 /* ViewController.m */,
-				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
-				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
 				28A4C6DC1E984A1500C00E3E /* MenuViewController.h */,
 				28A4C6DD1E984A1500C00E3E /* MenuViewController.m */,
 				2841DB3F1E567B2A007A1B2E /* DetailViewController.h */,
 				2841DB401E567B2A007A1B2E /* DetailViewController.m */,
+				281C32D21E9A82930093ABA0 /* BookmarkViewController.h */,
+				281C32D31E9A82930093ABA0 /* BookmarkViewController.m */,
+				28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */,
+				28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */,
+				28BE9A071ED5300200DEA31C /* TipsViewController.h */,
+				28BE9A081ED5300200DEA31C /* TipsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -580,19 +614,27 @@
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 				2822A6071E95C86600F52F92 /* Back.png in Resources */,
+				28FA2A9A1ED1D9A9009C1A8B /* dainfo.png in Resources */,
 				28E833AA1E94933000614C73 /* placeholder.png in Resources */,
+				28FA2A9B1ED1D9A9009C1A8B /* email.png in Resources */,
+				28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */,
 				28BBAB6C1E9BA8270068864B /* Back_000000_100.png in Resources */,
+				28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */,
 				2838FEDA1EC1E73200A09B92 /* intros_3.png in Resources */,
 				2838FED91EC1E73200A09B92 /* intros_2.png in Resources */,
 				280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */,
 				281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */,
 				281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */,
+				28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */,
 				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
 				2838FED81EC1E73200A09B92 /* intros_1.png in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
+				28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */,
+				28FA2A9E1ED1D9A9009C1A8B /* tips.png in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
 				285853E01EC003FC00A62BFE /* trash.png in Resources */,
+				28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +739,7 @@
 				28994B141EC16AB0007ACF10 /* UIImage+WebP.m in Sources */,
 				28994B161EC16AB0007ACF10 /* UIImageView+WebCache.m in Sources */,
 				28994B0E1EC16AB0007ACF10 /* SDWebImageDownloaderOperation.m in Sources */,
+				28BE9A091ED5300200DEA31C /* TipsViewController.m in Sources */,
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
 				28994B151EC16AB0007ACF10 /* UIImageView+HighlightedWebCache.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
@@ -719,6 +762,7 @@
 				28994B081EC16AB0007ACF10 /* NSImage+WebCache.m in Sources */,
 				286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */,
 				28994B131EC16AB0007ACF10 /* UIImage+MultiFormat.m in Sources */,
+				28CF19F61ECD2A33006BFDC0 /* PreferenceViewController.m in Sources */,
 				28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */,
 				28994B0B1EC16AB0007ACF10 /* SDWebImageCompat.m in Sources */,
 				28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */,
@@ -878,7 +922,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -895,7 +939,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";

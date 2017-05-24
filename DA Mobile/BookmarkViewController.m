@@ -34,7 +34,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(self.view.frame.size.width, 160);
+    return CGSizeMake(self.view.frame.size.width, 130);
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,6 +68,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     self.savedPosts = [BulletinPost allObjects];
+    if (self.savedPosts.count == 0) {
+        self.collectionView.hidden = YES;
+    }else{
+        self.collectionView.hidden = NO;
+    }
     [self.collectionView reloadData];
     [super viewDidAppear:YES];
 
@@ -75,7 +80,6 @@
 
 - (void)viewDidLoad {
     
-    self.savedPosts = [BulletinPost allObjects];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -93,7 +97,7 @@
         UINavigationController *nav = [segue destinationViewController];
         DetailViewController *vc = (DetailViewController *)[nav topViewController];
         NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems.firstObject;
-        BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.section];
+        BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
 
         vc.contentString = post.content;
         vc.contentImage = post.image;
