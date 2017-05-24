@@ -97,7 +97,7 @@
         UINavigationController *nav = [segue destinationViewController];
         DetailViewController *vc = (DetailViewController *)[nav topViewController];
         NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems.firstObject;
-        BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.section];
+        BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
 
         vc.contentString = post.content;
         vc.contentImage = post.image;

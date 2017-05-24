@@ -20,6 +20,8 @@
 
 @protocol CustomTableViewCellDelegate <NSObject>
 
+@optional
+
 -(void)loadFullPost;
 -(void)switchNotification:(BOOL)on;
 

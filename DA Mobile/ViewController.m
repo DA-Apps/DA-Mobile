@@ -18,12 +18,6 @@ int colorIndex = 0;
 
 @implementation ViewController
 
-#pragma mark - PostCell Delegate 
-
--(void)removeBookMark:(UICollectionViewCellPosts *)cell{
-    
-}
-
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
     NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];

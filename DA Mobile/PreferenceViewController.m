@@ -14,6 +14,10 @@
 
 @implementation PreferenceViewController
 
+-(void)switchNotification:(BOOL)on{
+    [[NSUserDefaults standardUserDefaults] setBool:on forKey:@"notificationON"];
+}
+
 #pragma mark - UITableView Delegate
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -35,7 +39,15 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"customCell" forIndexPath:indexPath];
+    cell.image.image = [UIImage imageNamed:[[self.imageNames objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    cell.customSwitch.hidden = YES;
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        cell.customSwitch.hidden = NO;
+        [cell.customSwitch setSelected:[[NSUserDefaults standardUserDefaults] boolForKey:@"notificationON"]];
+        cell.delegate = self;
+    }
     cell.title.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
@@ -66,10 +78,27 @@
             }
             break;
         case 1:
-            
+            switch (indexPath.row) {
+                case 1:
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                    break;
+                    
+                default:
+                    break;
+            }
             break;
         case 2:
-            
+            switch (indexPath.row) {
+                case 0:
+                    [self performSegueWithIdentifier:@"showTips" sender:nil];
+                    break;
+                case 1:
+                    [self performSegueWithIdentifier:@"showCredit" sender:nil];
+                    break;
+                    
+                default:
+                    break;
+            }
             break;
             
         default:
@@ -89,6 +118,12 @@
     NSMutableArray *section2 = [NSMutableArray arrayWithObjects:@"Menu Notification", @"Location Access", nil];
     NSMutableArray *section3 = [NSMutableArray arrayWithObjects:@"Tips", @"Credit", nil];
     self.data = [NSMutableArray arrayWithObjects:section1, section2, section3, nil];
+    
+    NSMutableArray *a1 = [NSMutableArray arrayWithObjects:@"dainfo", @"email", @"canvas", nil];
+    NSMutableArray *a2 = [NSMutableArray arrayWithObjects:@"notification", @"location", nil];
+    NSMutableArray *a3 = [NSMutableArray arrayWithObjects:@"tips", @"credit", nil];
+    self.imageNames = [NSMutableArray arrayWithObjects:a1, a2, a3, nil];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
