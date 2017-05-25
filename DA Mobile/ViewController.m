@@ -237,7 +237,7 @@ int colorIndex = 0;
                                       @"title": title,
                                       @"summery": summery ? summery : @"No Summery",
                                       @"image": imgSrc ? imgSrc : @"placeholder.png",
-                                      @"link": link};
+                                      @"link": link ? link : @"www.deerfield.edu"};
                 
                 [dailyPosts addObject:dic];
             }
