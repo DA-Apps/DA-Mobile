@@ -31,10 +31,7 @@
 
     EAIntroPage *page3 = [EAIntroPage page];
     page3.bgImage = [UIImage imageNamed:@"intros_2"];
-    
-    //EAIntroPage *page2 = [EAIntroPage page];
-    //page2.bgImage = [UIImage imageNamed:@"intros_3"];
-    
+
     EAIntroPage *page4 = [EAIntroPage page];
     page4.bgImage = [UIImage imageNamed:@"intros_1"];
     

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Bulletin-->
         <scene sceneID="tne-QT-ifu">
@@ -360,14 +366,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-cL-cR7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="AtN-Ny-bNy" id="uk5-Bp-Rvm"/>
                                 </connections>
                             </webView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fec-lO-JYV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="hO3-fb-8ML" customClass="CustomTableViewCell">
@@ -504,28 +510,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Daily News" id="0df-bO-0Ru">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="nrC-3v-gf8"/>
-                        <barButtonItem key="leftBarButtonItem" id="u3B-Hz-byy">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kkw-dR-YK9">
-                                <rect key="frame" x="16" y="9" width="29" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Back_000000_100.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="AtN-Ny-bNy" eventType="touchUpInside" id="1b0-8q-r5o"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="back" style="plain" id="Mii-N6-ds7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dismiss:" destination="AtN-Ny-bNy" id="Rqe-XX-AZQ"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="uue-Eq-yWn">
-                            <button key="customView" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8fI-Vt-jWc">
-                                <rect key="frame" x="324" y="7" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Bookmark-icon.png"/>
-                                <connections>
-                                    <action selector="save:" destination="AtN-Ny-bNy" eventType="touchUpInside" id="n3n-bF-iu2"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uue-Eq-yWn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="save:" destination="AtN-Ny-bNy" id="roB-Bv-s7v"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -560,7 +555,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-uU-2DZ">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-uU-2DZ">
                                 <rect key="frame" x="16" y="108" width="343" height="502"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -588,7 +583,7 @@
                                     <outlet property="delegate" destination="C9F-Ad-oPN" id="inX-0N-aiN"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-YT-Q6e">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-YT-Q6e">
                                 <rect key="frame" x="16" y="108" width="343" height="502"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -619,7 +614,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vuf-U4-qWh">
                                 <rect key="frame" x="16" y="72" width="343" height="29"/>
                                 <segments>
-                                    <segment title="Upcoming"/>
+                                    <segment title="Today"/>
                                     <segment title="Tomorrow"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -627,7 +622,20 @@
                                     <action selector="selectDate:" destination="C9F-Ad-oPN" eventType="valueChanged" id="4e5-dZ-F8D"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XrA-L9-osX" customClass="DGActivityIndicatorView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-food" translatesAutoresizingMaskIntoConstraints="NO" id="nlU-AZ-kVi">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7Df-JV-6dl"/>
+                                    <constraint firstAttribute="width" constant="50" id="t4J-J9-DMb"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no upcoming meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRu-dj-xJG">
+                                <rect key="frame" x="67" y="370.5" width="241" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XrA-L9-osX" customClass="DGActivityIndicatorView">
                                 <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -638,6 +646,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nlU-AZ-kVi" firstAttribute="centerX" secondItem="HJb-vQ-H12" secondAttribute="centerX" id="0UL-Tw-o0h"/>
                             <constraint firstItem="vuf-U4-qWh" firstAttribute="top" secondItem="YGj-ed-Kh6" secondAttribute="bottom" constant="8" id="3EI-Uf-bQf"/>
                             <constraint firstItem="vuf-U4-qWh" firstAttribute="leading" secondItem="HJb-vQ-H12" secondAttribute="leadingMargin" id="5aD-zP-M2E"/>
                             <constraint firstItem="2YH-9a-cyx" firstAttribute="centerX" secondItem="HJb-vQ-H12" secondAttribute="centerX" id="67N-BA-DFg"/>
@@ -646,10 +655,13 @@
                             <constraint firstItem="pTv-VF-4ST" firstAttribute="top" secondItem="bZw-YT-Q6e" secondAttribute="bottom" constant="8" id="Cb5-bN-xsq"/>
                             <constraint firstItem="fuY-uU-2DZ" firstAttribute="trailing" secondItem="HJb-vQ-H12" secondAttribute="trailingMargin" id="EWc-LX-UXa"/>
                             <constraint firstItem="fuY-uU-2DZ" firstAttribute="leading" secondItem="HJb-vQ-H12" secondAttribute="leadingMargin" id="GXc-IK-2uw"/>
+                            <constraint firstItem="nlU-AZ-kVi" firstAttribute="centerY" secondItem="HJb-vQ-H12" secondAttribute="centerY" id="Gkj-fI-iHe"/>
+                            <constraint firstItem="XRu-dj-xJG" firstAttribute="top" secondItem="nlU-AZ-kVi" secondAttribute="bottom" constant="12" id="IFE-jh-HI7"/>
                             <constraint firstItem="2YH-9a-cyx" firstAttribute="centerY" secondItem="HJb-vQ-H12" secondAttribute="centerY" id="KGb-h5-R2d"/>
                             <constraint firstItem="bZw-YT-Q6e" firstAttribute="top" secondItem="vuf-U4-qWh" secondAttribute="bottom" constant="8" id="Mko-22-NjA"/>
                             <constraint firstItem="bZw-YT-Q6e" firstAttribute="trailing" secondItem="HJb-vQ-H12" secondAttribute="trailingMargin" id="RWM-ip-VaD"/>
                             <constraint firstItem="bZw-YT-Q6e" firstAttribute="leading" secondItem="HJb-vQ-H12" secondAttribute="leadingMargin" id="Vie-4m-nIl"/>
+                            <constraint firstItem="XRu-dj-xJG" firstAttribute="centerX" secondItem="HJb-vQ-H12" secondAttribute="centerX" id="hmg-Xg-sXr"/>
                             <constraint firstItem="vuf-U4-qWh" firstAttribute="trailing" secondItem="HJb-vQ-H12" secondAttribute="trailingMargin" id="mqQ-KA-xU0"/>
                             <constraint firstItem="XrA-L9-osX" firstAttribute="centerX" secondItem="HJb-vQ-H12" secondAttribute="centerX" id="sEu-11-lj7"/>
                             <constraint firstItem="XrA-L9-osX" firstAttribute="centerY" secondItem="HJb-vQ-H12" secondAttribute="centerY" id="sVz-Gj-EmZ"/>
@@ -658,6 +670,8 @@
                     <navigationItem key="navigationItem" title="Menu" id="SIp-09-0iy"/>
                     <connections>
                         <outlet property="indicator" destination="XrA-L9-osX" id="DJQ-dG-geP"/>
+                        <outlet property="noMealIcon" destination="nlU-AZ-kVi" id="ojB-zi-61T"/>
+                        <outlet property="noMealLabel" destination="XRu-dj-xJG" id="8v3-ea-xPs"/>
                         <outlet property="segementedControl" destination="vuf-U4-qWh" id="Oet-9j-1Dt"/>
                         <outlet property="tableView" destination="bZw-YT-Q6e" id="OtL-3f-QAr"/>
                         <outlet property="tomorrowTable" destination="fuY-uU-2DZ" id="cBk-eY-zJx"/>
@@ -676,6 +690,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.1058823529" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.1058823529" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="op0-0D-xOH"/>
@@ -694,7 +710,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yNh-an-UBc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Menu" image="Cutlery" selectedImage="Cutlery" id="4oj-ZK-NbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hkR-dI-T7G">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkR-dI-T7G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -747,7 +763,7 @@
                                     <constraint firstAttribute="height" constant="35" id="G6D-7R-OVA"/>
                                     <constraint firstAttribute="width" constant="200" id="iGf-YW-6c3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -874,7 +890,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NF5-dh-piv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Bookmarks" image="Bookmark.png" selectedImage="Bookmark" id="1fW-wo-XQm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n5f-On-xfj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5f-On-xfj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1091,7 +1107,7 @@
                 <navigationController storyboardIdentifier="idPreference" automaticallyAdjustsScrollViewInsets="NO" id="QF2-Pl-sl2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Preference" image="preference" selectedImage="preference" id="fex-LC-QEx"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QAR-pT-zeR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QAR-pT-zeR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1114,7 +1130,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65b-sN-2Fk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f0u-ZA-XBS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f0u-ZA-XBS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1152,15 +1168,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Back_000000_100.png" width="100" height="100"/>
         <image name="Bookmark" width="25" height="25"/>
         <image name="Bookmark-icon.png" width="100" height="100"/>
         <image name="Bookmark.png" width="100" height="100"/>
         <image name="Cutlery" width="25" height="25"/>
         <image name="Empty Box.png" width="96" height="96"/>
         <image name="News" width="20" height="20"/>
-        <image name="cloudy" width="100" height="100"/>
+        <image name="back" width="15" height="27"/>
+        <image name="cloudy" width="96" height="96"/>
         <image name="icon" width="1024" height="1024"/>
+        <image name="icons8-food" width="96" height="96"/>
         <image name="preference" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>

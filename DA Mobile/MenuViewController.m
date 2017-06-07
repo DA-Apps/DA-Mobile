@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Begin downloading data");
-    [self selectDate:nil];
+    self.noMealLabel.hidden = YES;
+    self.noMealIcon.hidden = YES;
     self.indicator.hidden = NO;
     self.tableView.hidden = YES;
     self.indicator.tintColor = [UIColor grayColor];
@@ -33,29 +33,47 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicator stopAnimating];
                 [self parseMenu:hpple];
-                [self.tableView reloadData];
-                self.tableView.hidden = NO;
             });
         }
     }] resume];
-    
-    // Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)selectDate:(id)sender {
+    
     if (self.segementedControl.selectedSegmentIndex == 0) {
-        self.tableView.hidden = NO;
-        self.tomorrowTable.hidden = YES;
-        [self.tableView reloadData];
-    }else{
-        self.tableView.hidden = YES;
-        self.tomorrowTable.hidden = NO;
-        [self.tomorrowTable reloadData];
+        if (self.todayMeals.count == 0) {
+            self.noMealLabel.hidden = NO;
+            self.noMealIcon.hidden = NO;
+            self.tableView.hidden = YES;
+            self.tomorrowTable.hidden = YES;
+        }else{
+            self.noMealLabel.hidden = YES;
+            self.noMealIcon.hidden = YES;
+            self.tableView.hidden = NO;
+            self.tomorrowTable.hidden = YES;
+            [self.tableView reloadData];
+        }
+    }else if (self.segementedControl.selectedSegmentIndex == 1){
+        if (self.tomorrowMeals.count == 0) {
+            self.noMealLabel.hidden = NO;
+            self.noMealIcon.hidden = NO;
+            self.tableView.hidden = YES;
+            self.tomorrowTable.hidden = YES;
+        }else{
+            self.noMealLabel.hidden = YES;
+            self.noMealIcon.hidden = YES;
+            self.tableView.hidden = YES;
+            self.tomorrowTable.hidden = NO;
+            [self.tomorrowTable reloadData];
+        }
     }
 }
 
@@ -65,15 +83,14 @@
     if ([tableView isEqual:self.tomorrowTable]) {
         switch (section) {
             case 0:
-                if (self.tomorrowMeals.firstObject.count == 0) {
+                if (self.tomorrowMeals.firstObject.count == 0)
                     return nil;
-                }
                 return @"Breakfast";
                 break;
             case 1:
-                if (self.tomorrowMeals.firstObject.count == 0) {
+                if (self.tomorrowMeals.firstObject.count == 0)
                     return @"Brunch";
-                }
+                    
                 return @"Lunch";
                 break;
             case 2:
@@ -88,7 +105,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([tableView isEqual:self.tableView]) {
-        return self.upcomingMeals.count;
+        return self.todayMeals.count;
     }else{
         return self.tomorrowMeals[section].count;
     }
@@ -97,7 +114,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableID" forIndexPath: indexPath];
     if ([tableView isEqual:self.tableView]) {
-        cell.textLabel.text = self.upcomingMeals[indexPath.row];
+        cell.textLabel.text = self.todayMeals[indexPath.row];
     }else{
         cell.textLabel.text = self.tomorrowMeals[indexPath.section][indexPath.row];
     }
@@ -113,12 +130,14 @@
 
 #pragma mark - Private methods
 
+
+
 -(void) parseMenu:(TFHpple *) data{
     
-    self.upcomingMeals = [[NSMutableArray alloc] init];
+    self.todayMeals = [[NSMutableArray alloc] init];
     self.tomorrowMeals = [[NSMutableArray alloc] init];
     
-    [self getUpcomingMeals:data];
+    [self gettodayMeals:data];
     
     NSDate *currentTime = [NSDate dateWithTimeInterval:86400*2 sinceDate:[NSDate date]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -151,11 +170,12 @@
             [self.tomorrowMeals addObject:[self parseMenuHTML:[key stringByAppendingString:mealType] hppleData:data]];
         }
     }
+    [self selectDate:nil];
 }
 
--(void) getUpcomingMeals:(TFHpple *) data{
+-(void) gettodayMeals:(TFHpple *) data{
     
-    self.upcomingMeals = [NSMutableArray array];
+    self.todayMeals = [NSMutableArray array];
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd-"];
@@ -186,7 +206,7 @@
     key = [key stringByAppendingString:mealType];
     NSArray *foods =[data searchWithXPathQuery:[NSString stringWithFormat:@"//ul[@id='%@']/li", key]];
     for (TFHppleElement *element in foods)
-        [self.upcomingMeals addObject:element.content];
+        [self.todayMeals addObject:element.content];
 }
 
 -(NSMutableArray *)parseMenuHTML:(NSString *)key hppleData:(TFHpple *)data{

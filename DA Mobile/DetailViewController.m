@@ -38,6 +38,7 @@
         case 2:
             cell = [tableView dequeueReusableCellWithIdentifier:@"textCell" forIndexPath:indexPath];
             cell.content.text = self.contentString;
+            break;
         case 3:
             cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
             cell.delegate = self;
@@ -85,7 +86,7 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.postURL]]];
     self.progressView.progress = 0;
     complete = false;
-    //0.01667 is roughly 1/60, so it will update at 60 FPS
+
     loadingTimer = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(timerCallback) userInfo:nil repeats:YES];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

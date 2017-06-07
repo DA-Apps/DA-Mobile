@@ -31,23 +31,21 @@ int colorIndex = 0;
 #pragma mark - CollectionHeaderDelegate
 
 -(void)expandBirthday{
-    
-    int heightAnimation = 0;
-    
     if (self.headerContent.lastObject.count == 0) {
         [self.headerContent replaceObjectAtIndex:1 withObject:[self.posts.firstObject objectForKey:@"birthdays"]];
-        heightAnimation = 120;
     }else{
-        heightAnimation = -120;
         [self.headerContent replaceObjectAtIndex:1 withObject:[NSMutableArray array]];
     }
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if (header.frame.size.height != 300) {
-        [UIView animateWithDuration:0.2 animations:^{
-            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
-        }];
-    }
-    [self.postsView reloadData];
+    [header.table reloadData];
+    
+    UICollectionViewFlowLayoutInvalidationContext *context = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
+    context.invalidateFlowLayoutDelegateMetrics = YES;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.postsView.collectionViewLayout invalidateLayoutWithContext:context];
+        [self.postsView layoutIfNeeded];
+    }];
 }
 
 -(void)expandMenu{
@@ -92,7 +90,7 @@ int colorIndex = 0;
     
     if (indexPath.row == 0)
         cellIndex = 0;
-
+    
     switch (cellIndex) {
         case 0:
             cellIndex = 1;
@@ -147,12 +145,15 @@ int colorIndex = 0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
         return CGSizeMake(self.postsView.frame.size.width, 190);
     else if (section != 0)
         return CGSizeMake(self.postsView.frame.size.width, 110);
     else
         return CGSizeMake(self.postsView.frame.size.width, 300);
+    
+    [UIView animateWithDuration:0 animations:nil]
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -247,7 +248,7 @@ int colorIndex = 0;
                                  @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
         [self.posts addObject:oneDay];
     }
-
+    
 }
 
 -(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
@@ -276,7 +277,11 @@ int colorIndex = 0;
     
     NSString *woeidQuery = [NSString stringWithFormat:@"SELECT woeid FROM geo.places WHERE text=\"(%f,%f)\"", coordinate.latitude, coordinate.longitude];
     NSDictionary *woeidResults = [yql query:woeidQuery];
-    NSString *woeid = [[[[woeidResults objectForKey:@"query"] objectForKey:@"results"] objectForKey:@"place"] objectForKey:@"woeid"];
+    NSString *woeid;
+    NSDictionary *queryResult = [[woeidResults objectForKey:@"query"] objectForKey:@"results"];
+    if (queryResult)
+        woeid = [[queryResult objectForKey:@"place"] objectForKey:@"woeid"];
+    
     NSString *queryString = [NSString stringWithFormat:@"select * from weather.forecast where woeid in (%@)", woeid];
     
     NSDictionary *results = [yql query:queryString];
@@ -411,7 +416,7 @@ int colorIndex = 0;
     }
     
     NSDate *methodStart = [NSDate date];
-
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -430,7 +435,7 @@ int colorIndex = 0;
         return documentsDirectoryURL;
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-
+        
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 TFHpple *hpple = [TFHpple hppleWithHTMLData:[NSData dataWithContentsOfURL:filePath]];

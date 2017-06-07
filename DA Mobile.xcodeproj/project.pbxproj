@@ -65,9 +65,17 @@
 		28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28B84EC21E9030C70041BD5D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B84EC11E9030C70041BD5D /* icon.png */; };
 		28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2868166D1DCAB3D20089BEA6 /* Assets.xcassets */; };
-		28BBAB6C1E9BA8270068864B /* Back_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6B1E9BA8270068864B /* Back_000000_100.png */; };
 		28BBAB6E1E9BA8590068864B /* Bookmark_000000_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */; };
 		28BE9A091ED5300200DEA31C /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9A081ED5300200DEA31C /* TipsViewController.m */; };
+		28C3A5CA1EE36BB800E199D6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C3A5C81EE36BB800E199D6 /* Interface.storyboard */; };
+		28C3A5CC1EE36BB800E199D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C3A5CB1EE36BB800E199D6 /* Assets.xcassets */; };
+		28C3A5D31EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28C3A5D21EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28C3A5DB1EE36BB800E199D6 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C3A5DA1EE36BB800E199D6 /* InterfaceController.m */; };
+		28C3A5DE1EE36BB800E199D6 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C3A5DD1EE36BB800E199D6 /* ExtensionDelegate.m */; };
+		28C3A5E11EE36BB800E199D6 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C3A5E01EE36BB800E199D6 /* NotificationController.m */; };
+		28C3A5E31EE36BB800E199D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C3A5E21EE36BB800E199D6 /* Assets.xcassets */; };
+		28C3A5E71EE36BB800E199D6 /* DA Mobile Apple Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28C3A5C61EE36BB800E199D6 /* DA Mobile Apple Watch.app */; };
+		28C3A5F11EE36CF900E199D6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C3A5F01EE36CF900E199D6 /* Media.xcassets */; };
 		28CF19F61ECD2A33006BFDC0 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */; };
 		28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CF19F71ECD44AF006BFDC0 /* Empty Box.png */; };
 		28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */; };
@@ -93,6 +101,20 @@
 			remoteGlobalIDString = 28B84EAC1E9018560041BD5D;
 			remoteInfo = "DA Mobile Widget";
 		};
+		28C3A5D41EE36BB800E199D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28C3A5D11EE36BB800E199D6;
+			remoteInfo = "DA Mobile Apple Watch Extension";
+		};
+		28C3A5E51EE36BB800E199D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 286816561DCAB3D10089BEA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28C3A5C51EE36BB800E199D6;
+			remoteInfo = "DA Mobile Apple Watch";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +127,28 @@
 				28B84EBA1E9018560041BD5D /* DA Mobile Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C3A5ED1EE36BB800E199D6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				28C3A5D31EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C3A5EF1EE36BB800E199D6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				28C3A5E71EE36BB800E199D6 /* DA Mobile Apple Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -208,10 +252,24 @@
 		28B84EC01E901C2C0041BD5D /* DA Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA Mobile Widget.entitlements"; sourceTree = "<group>"; };
 		28B84EC11E9030C70041BD5D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28B84EC31E9033F00041BD5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28BBAB6B1E9BA8270068864B /* Back_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_000000_100.png; sourceTree = "<group>"; };
 		28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookmark_000000_100.png; sourceTree = "<group>"; };
 		28BE9A071ED5300200DEA31C /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		28BE9A081ED5300200DEA31C /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		28C3A5C61EE36BB800E199D6 /* DA Mobile Apple Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DA Mobile Apple Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C3A5C91EE36BB800E199D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		28C3A5CB1EE36BB800E199D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28C3A5CD1EE36BB800E199D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C3A5D21EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DA Mobile Apple Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C3A5D81EE36BB800E199D6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		28C3A5D91EE36BB800E199D6 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		28C3A5DA1EE36BB800E199D6 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		28C3A5DC1EE36BB800E199D6 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		28C3A5DD1EE36BB800E199D6 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		28C3A5DF1EE36BB800E199D6 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		28C3A5E01EE36BB800E199D6 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		28C3A5E21EE36BB800E199D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28C3A5E41EE36BB800E199D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C3A5F01EE36CF900E199D6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
 		28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		28CF19F71ECD44AF006BFDC0 /* Empty Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty Box.png"; sourceTree = "<group>"; };
@@ -257,6 +315,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28C3A5CF1EE36BB800E199D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -276,7 +341,6 @@
 				2838FED71EC1E73200A09B92 /* intros_3.png */,
 				285853DF1EC003FC00A62BFE /* trash.png */,
 				28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */,
-				28BBAB6B1E9BA8270068864B /* Back_000000_100.png */,
 				28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */,
 				28E833A91E94933000614C73 /* placeholder.png */,
 				283C8A0E1E97AE1300329DF3 /* Plus.png */,
@@ -320,6 +384,8 @@
 			children = (
 				286816601DCAB3D20089BEA6 /* DA Mobile */,
 				28B84EB01E9018560041BD5D /* DA Mobile Widget */,
+				28C3A5C71EE36BB800E199D6 /* DA Mobile Apple Watch */,
+				28C3A5D61EE36BB800E199D6 /* DA Mobile Apple Watch Extension */,
 				2868165F1DCAB3D20089BEA6 /* Products */,
 				2868169E1DCAB4600089BEA6 /* Frameworks */,
 				7196A0D59C0E5A9F51CD81F4 /* Pods */,
@@ -331,6 +397,8 @@
 			children = (
 				2868165E1DCAB3D20089BEA6 /* DA Mobile.app */,
 				28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */,
+				28C3A5C61EE36BB800E199D6 /* DA Mobile Apple Watch.app */,
+				28C3A5D21EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -480,6 +548,41 @@
 			path = "DA Mobile Widget";
 			sourceTree = "<group>";
 		};
+		28C3A5C71EE36BB800E199D6 /* DA Mobile Apple Watch */ = {
+			isa = PBXGroup;
+			children = (
+				28C3A5C81EE36BB800E199D6 /* Interface.storyboard */,
+				28C3A5F01EE36CF900E199D6 /* Media.xcassets */,
+				28C3A5CB1EE36BB800E199D6 /* Assets.xcassets */,
+				28C3A5CD1EE36BB800E199D6 /* Info.plist */,
+			);
+			path = "DA Mobile Apple Watch";
+			sourceTree = "<group>";
+		};
+		28C3A5D61EE36BB800E199D6 /* DA Mobile Apple Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				28C3A5D91EE36BB800E199D6 /* InterfaceController.h */,
+				28C3A5DA1EE36BB800E199D6 /* InterfaceController.m */,
+				28C3A5DC1EE36BB800E199D6 /* ExtensionDelegate.h */,
+				28C3A5DD1EE36BB800E199D6 /* ExtensionDelegate.m */,
+				28C3A5DF1EE36BB800E199D6 /* NotificationController.h */,
+				28C3A5E01EE36BB800E199D6 /* NotificationController.m */,
+				28C3A5E21EE36BB800E199D6 /* Assets.xcassets */,
+				28C3A5E41EE36BB800E199D6 /* Info.plist */,
+				28C3A5D71EE36BB800E199D6 /* Supporting Files */,
+			);
+			path = "DA Mobile Apple Watch Extension";
+			sourceTree = "<group>";
+		};
+		28C3A5D71EE36BB800E199D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28C3A5D81EE36BB800E199D6 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		28E833A01E94782E00614C73 /* Realm Object */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,11 +617,13 @@
 				28B84EBE1E9018560041BD5D /* Embed App Extensions */,
 				B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */,
 				8DAEDD8AC3D331B725C5A5D4 /* [CP] Copy Pods Resources */,
+				28C3A5EF1EE36BB800E199D6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				28B84EB91E9018560041BD5D /* PBXTargetDependency */,
+				28C3A5E61EE36BB800E199D6 /* PBXTargetDependency */,
 			);
 			name = "DA Mobile";
 			productName = "DA Mobile";
@@ -544,13 +649,47 @@
 			productReference = 28B84EAD1E9018560041BD5D /* DA Mobile Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		28C3A5C51EE36BB800E199D6 /* DA Mobile Apple Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C3A5EE1EE36BB800E199D6 /* Build configuration list for PBXNativeTarget "DA Mobile Apple Watch" */;
+			buildPhases = (
+				28C3A5C41EE36BB800E199D6 /* Resources */,
+				28C3A5ED1EE36BB800E199D6 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28C3A5D51EE36BB800E199D6 /* PBXTargetDependency */,
+			);
+			name = "DA Mobile Apple Watch";
+			productName = "DA Mobile Apple Watch";
+			productReference = 28C3A5C61EE36BB800E199D6 /* DA Mobile Apple Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		28C3A5D11EE36BB800E199D6 /* DA Mobile Apple Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C3A5EC1EE36BB800E199D6 /* Build configuration list for PBXNativeTarget "DA Mobile Apple Watch Extension" */;
+			buildPhases = (
+				28C3A5CE1EE36BB800E199D6 /* Sources */,
+				28C3A5CF1EE36BB800E199D6 /* Frameworks */,
+				28C3A5D01EE36BB800E199D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DA Mobile Apple Watch Extension";
+			productName = "DA Mobile Apple Watch Extension";
+			productReference = 28C3A5D21EE36BB800E199D6 /* DA Mobile Apple Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		286816561DCAB3D10089BEA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Yongyang Nie";
 				TargetAttributes = {
 					2868165D1DCAB3D10089BEA6 = {
@@ -582,6 +721,16 @@
 							};
 						};
 					};
+					28C3A5C51EE36BB800E199D6 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8NZ8K5GNH8;
+						ProvisioningStyle = Automatic;
+					};
+					28C3A5D11EE36BB800E199D6 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8NZ8K5GNH8;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 286816591DCAB3D10089BEA6 /* Build configuration list for PBXProject "DA Mobile" */;
@@ -599,6 +748,8 @@
 			targets = (
 				2868165D1DCAB3D10089BEA6 /* DA Mobile */,
 				28B84EAC1E9018560041BD5D /* DA Mobile Widget */,
+				28C3A5C51EE36BB800E199D6 /* DA Mobile Apple Watch */,
+				28C3A5D11EE36BB800E199D6 /* DA Mobile Apple Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -618,7 +769,6 @@
 				28E833AA1E94933000614C73 /* placeholder.png in Resources */,
 				28FA2A9B1ED1D9A9009C1A8B /* email.png in Resources */,
 				28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */,
-				28BBAB6C1E9BA8270068864B /* Back_000000_100.png in Resources */,
 				28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */,
 				2838FEDA1EC1E73200A09B92 /* intros_3.png in Resources */,
 				2838FED91EC1E73200A09B92 /* intros_2.png in Resources */,
@@ -645,6 +795,24 @@
 			files = (
 				28B84EC51E9035430041BD5D /* Assets.xcassets in Resources */,
 				28B84EB61E9018560041BD5D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C3A5C41EE36BB800E199D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C3A5CC1EE36BB800E199D6 /* Assets.xcassets in Resources */,
+				28C3A5F11EE36CF900E199D6 /* Media.xcassets in Resources */,
+				28C3A5CA1EE36BB800E199D6 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C3A5D01EE36BB800E199D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C3A5E31EE36BB800E199D6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +948,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28C3A5CE1EE36BB800E199D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C3A5DE1EE36BB800E199D6 /* ExtensionDelegate.m in Sources */,
+				28C3A5DB1EE36BB800E199D6 /* InterfaceController.m in Sources */,
+				28C3A5E11EE36BB800E199D6 /* NotificationController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -787,6 +965,16 @@
 			isa = PBXTargetDependency;
 			target = 28B84EAC1E9018560041BD5D /* DA Mobile Widget */;
 			targetProxy = 28B84EB81E9018560041BD5D /* PBXContainerItemProxy */;
+		};
+		28C3A5D51EE36BB800E199D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28C3A5D11EE36BB800E199D6 /* DA Mobile Apple Watch Extension */;
+			targetProxy = 28C3A5D41EE36BB800E199D6 /* PBXContainerItemProxy */;
+		};
+		28C3A5E61EE36BB800E199D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28C3A5C51EE36BB800E199D6 /* DA Mobile Apple Watch */;
+			targetProxy = 28C3A5E51EE36BB800E199D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -815,6 +1003,14 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
+		28C3A5C81EE36BB800E199D6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28C3A5C91EE36BB800E199D6 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -827,7 +1023,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -835,7 +1033,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -877,7 +1079,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -885,7 +1089,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -980,6 +1188,74 @@
 			};
 			name = Release;
 		};
+		28C3A5E81EE36BB800E199D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				IBSC_MODULE = DA_Mobile_Apple_Watch_Extension;
+				INFOPLIST_FILE = "DA Mobile Apple Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		28C3A5E91EE36BB800E199D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				IBSC_MODULE = DA_Mobile_Apple_Watch_Extension;
+				INFOPLIST_FILE = "DA Mobile Apple Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		28C3A5EA1EE36BB800E199D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				INFOPLIST_FILE = "DA Mobile Apple Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		28C3A5EB1EE36BB800E199D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				INFOPLIST_FILE = "DA Mobile Apple Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1006,6 +1282,24 @@
 			buildConfigurations = (
 				28B84EBB1E9018560041BD5D /* Debug */,
 				28B84EBC1E9018560041BD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C3A5EC1EE36BB800E199D6 /* Build configuration list for PBXNativeTarget "DA Mobile Apple Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C3A5EA1EE36BB800E199D6 /* Debug */,
+				28C3A5EB1EE36BB800E199D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C3A5EE1EE36BB800E199D6 /* Build configuration list for PBXNativeTarget "DA Mobile Apple Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C3A5E81EE36BB800E199D6 /* Debug */,
+				28C3A5E91EE36BB800E199D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

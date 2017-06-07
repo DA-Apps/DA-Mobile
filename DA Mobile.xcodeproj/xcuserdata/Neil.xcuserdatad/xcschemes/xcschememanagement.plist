@@ -3,7 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>DA Mobile Apple Watch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
+		<key>DA Mobile Apple Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2868165D1DCAB3D10089BEA6</key>
@@ -22,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>28B84EAC1E9018560041BD5D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28C3A5C51EE36BB800E199D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Home" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <dateLabel alignment="left" id="SjA-9z-qm3">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <dateFormatterStyle key="dateStyle" medium="YES"/>
+                            <date key="previewedDate" timeIntervalSinceReferenceDate="526662540">
+                                <!--2017-09-09 15:09:00 +0000-->
+                            </date>
+                        </dateLabel>
+                        <group width="1" height="53" alignment="left" id="Uab-uC-qcn">
+                            <items>
+                                <imageView width="60" height="60" alignment="left" image="cloudy" id="JKX-ic-CRc"/>
+                                <label alignment="left" text="98º" id="2HZ-6U-9xV">
+                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" height="35" alignment="left" title="Posts" id="Et1-Im-gLv">
+                            <color key="titleColor" red="0.1058823529" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Szk-tO-TRE" kind="push" id="wnQ-Am-pom"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="35" alignment="left" title="Menu" id="Yn6-7v-QDn">
+                            <color key="titleColor" red="0.1058823529" green="0.69411764710000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="ibf-Gl-s11" kind="push" id="kEd-Ce-j9F"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="342.5"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="Vtc-q1-kev">
+            <objects>
+                <controller title="Menu" id="ibf-Gl-s11"/>
+            </objects>
+            <point key="canvasLocation" x="456" y="72"/>
+        </scene>
+        <!--Posts-->
+        <scene sceneID="h9F-Fl-dwZ">
+            <objects>
+                <controller title="Posts" id="Szk-tO-TRE"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="347"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
