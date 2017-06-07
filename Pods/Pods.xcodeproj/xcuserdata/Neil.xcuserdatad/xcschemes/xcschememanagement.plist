@@ -8,185 +8,79 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>DGActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>EARestrictedScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>GoogleAPIClientForREST.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>MSCollectionViewCalendarLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>MaterialControls.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Pods-DA Mobile Widget.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>14</integer>
 		</dict>
 		<key>Pods-DA Mobile.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>15</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>025AC0066DC478B9EA49EDCAFDAE4867</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>15771CDB60DFAA769E27961D321E12C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4ECDAC7EF392BCE03C3A34DE25B8BEFD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7E6D09DA8B1E7DD2FB43AAF4EED94144</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>85CF5C89AB7799B7EE09C050667C784D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E033EDB5EC0819481B0546434FA577B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B932C198B2811DE34F4FE4DD2668AC2C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D6AD2BB0A0A69E525DC2A32CB3BDB6E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D789E7B9E50832708117E7A62398F826</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7B26F0A432C2A5E3E2EC8F91A096CA8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7DAE78E91E901F9DEDF0576BFD2F0F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAB0850F89F962FB66534AA091F7A74C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E079843C9C79118289CFD9619070B0B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EAE45C123C22F83F258F201FDFBA835E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FBA9754FB7A82758566D360BD30C2517</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
