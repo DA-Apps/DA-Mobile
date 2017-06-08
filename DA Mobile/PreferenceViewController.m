@@ -26,7 +26,7 @@
             return @"Short Cut";
             break;
         case 1:
-            return @"Customize";
+            return @"Personalize";
             break;
         case 2:
             return @"Others";

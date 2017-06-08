@@ -17,6 +17,17 @@
     }else{
         [self.delegate expandBirthday];
     }
+    if (self.tableConstraint.constant == 190) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableConstraint.constant = 198;
+            [self layoutIfNeeded];
+        }];
+    }else{
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tableConstraint.constant = 88;
+            [self layoutIfNeeded];
+        }];
+    }
 }
 
 #pragma mark - UITableView Delegate

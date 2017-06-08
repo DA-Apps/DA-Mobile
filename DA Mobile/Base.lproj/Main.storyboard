@@ -18,7 +18,7 @@
         <!--Bulletin-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PostsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,13 +32,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="d5m-xz-08H">
                                     <size key="itemSize" width="372" height="232"/>
-                                    <size key="headerReferenceSize" width="50" height="180"/>
+                                    <size key="headerReferenceSize" width="50" height="190"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellPostSmall" id="hLj-KS-cJg" customClass="UICollectionViewCellPosts">
-                                        <rect key="frame" x="1.5" y="180" width="372" height="232"/>
+                                        <rect key="frame" x="1.5" y="190" width="372" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="232"/>
@@ -125,7 +125,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellPost" id="DIE-8y-G84" customClass="UICollectionViewCellPosts">
-                                        <rect key="frame" x="1.5" y="412" width="372" height="232"/>
+                                        <rect key="frame" x="1.5" y="422" width="372" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="232"/>
@@ -212,7 +212,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="WXk-rf-6kS" customClass="CollectionReusableHeader">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, April 5" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUZ-vm-KwP">
@@ -226,7 +226,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxC-TO-MDU">
-                                            <rect key="frame" x="8" y="178" width="359" height="2"/>
+                                            <rect key="frame" x="8" y="188" width="359" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="ZJw-Ud-tLQ"/>
@@ -240,8 +240,11 @@
                                             </constraints>
                                         </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-RP-bUd">
-                                            <rect key="frame" x="8" y="94" width="359" height="78"/>
+                                            <rect key="frame" x="8" y="94" width="359" height="88"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="88" id="Jtr-0y-EmO"/>
+                                            </constraints>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="gfT-ks-sWM">
                                                     <rect key="frame" x="0.0" y="28" width="359" height="44"/>
@@ -287,6 +290,7 @@
                                     <connections>
                                         <outlet property="dateLabel" destination="RUZ-vm-KwP" id="5UF-Qs-AJ2"/>
                                         <outlet property="table" destination="w7j-RP-bUd" id="cbR-H1-2cc"/>
+                                        <outlet property="tableConstraint" destination="Jtr-0y-EmO" id="RHl-2x-H7i"/>
                                         <outlet property="tempLabel" destination="lSU-G2-7EV" id="fR0-j4-vRp"/>
                                         <outlet property="weatherIcon" destination="jCm-EZ-yBB" id="kav-md-aa3"/>
                                     </connections>
@@ -351,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018.4000000000001" y="104.7976011994003"/>
+            <point key="canvasLocation" x="1777" y="105"/>
         </scene>
         <!--Daily News-->
         <scene sceneID="FEt-UV-KON">
@@ -366,14 +370,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-cL-cR7">
-                                <rect key="frame" x="0.0" y="4" width="375" height="663"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="AtN-Ny-bNy" id="uk5-Bp-Rvm"/>
                                 </connections>
                             </webView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fec-lO-JYV">
-                                <rect key="frame" x="0.0" y="68" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="hO3-fb-8ML" customClass="CustomTableViewCell">

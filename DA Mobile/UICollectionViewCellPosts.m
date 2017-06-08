@@ -8,7 +8,9 @@
 
 #import "UICollectionViewCellPosts.h"
 
-@implementation UICollectionViewCellPosts
+@implementation UICollectionViewCellPosts{
+    CGPoint panStart;
+}
 
 -(IBAction)saveBookmark:(id)sender{
     
@@ -57,6 +59,17 @@
     }
 }
 
+-(void)panGestureHandler:(UIPanGestureRecognizer *)pan{
+    
+    if (pan.state == UIGestureRecognizerStateBegan) {
+        panStart = [pan locationInView:self];
+    }else if (pan.state == UIGestureRecognizerStateChanged){
+        self.menuWidth.constant = panStart.y - [pan locationInView:self].y;
+    }else if (pan.state == UIGestureRecognizerStateEnded){
+        //finish animation with bounce
+    }
+}
+
 - (void)awakeFromNib {
     
     [super awakeFromNib];
@@ -69,6 +82,11 @@
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self addGestureRecognizer:swipeLeft];
     [self addGestureRecognizer:swipeRight];
+    
+    //UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
+    //[self addGestureRecognizer:pan];
+    
+    //failure dependence
     
     // Initialization code
 }

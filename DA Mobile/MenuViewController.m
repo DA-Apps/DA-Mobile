@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.
+    
     self.noMealLabel.hidden = YES;
     self.noMealIcon.hidden = YES;
     self.indicator.hidden = NO;
@@ -129,8 +131,6 @@
 }
 
 #pragma mark - Private methods
-
-
 
 -(void) parseMenu:(TFHpple *) data{
     

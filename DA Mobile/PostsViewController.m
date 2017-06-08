@@ -6,17 +6,17 @@
 //  Copyright © 2016 Yongyang Nie. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PostsViewController.h"
 #import "TFHpple.h"
 
 int cellIndex = 0;
 int colorIndex = 0;
 
-@interface ViewController ()
+@interface PostsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PostsViewController
 
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
@@ -31,6 +31,7 @@ int colorIndex = 0;
 #pragma mark - CollectionHeaderDelegate
 
 -(void)expandBirthday{
+    
     if (self.headerContent.lastObject.count == 0) {
         [self.headerContent replaceObjectAtIndex:1 withObject:[self.posts.firstObject objectForKey:@"birthdays"]];
     }else{
@@ -39,13 +40,14 @@ int colorIndex = 0;
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [header.table reloadData];
     
-    UICollectionViewFlowLayoutInvalidationContext *context = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
+    /*UICollectionViewFlowLayoutInvalidationContext *context = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
     context.invalidateFlowLayoutDelegateMetrics = YES;
     
     [UIView animateWithDuration:0.2 animations:^{
         [self.postsView.collectionViewLayout invalidateLayoutWithContext:context];
         [self.postsView layoutIfNeeded];
-    }];
+    }];*/
+    [self.postsView performBatchUpdates:nil completion:nil];
 }
 
 -(void)expandMenu{
@@ -60,12 +62,10 @@ int colorIndex = 0;
         heightAnimation = -120;
     }
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if (header.frame.size.height != 300) {
-        [UIView animateWithDuration:0.2 animations:^{
-            header.frame = CGRectMake(header.frame.origin.x, header.frame.origin.y, header.frame.size.width, header.frame.size.height + heightAnimation);
-        }];
-    }
     [self.postsView reloadData];
+    if (header.frame.size.height != 300) {
+        [self.postsView performBatchUpdates:nil completion:nil];
+    }
 }
 
 #pragma mark - Location Manager
@@ -122,9 +122,8 @@ int colorIndex = 0;
     if(cell.frame.size.height == 160){
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
-    }else{
+    }else
         cell.backgroundColor = [UIColor clearColor];
-    }
     
     NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
     cell.title.text = [dic objectForKey:@"title"];
@@ -145,15 +144,12 @@ int colorIndex = 0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
         return CGSizeMake(self.postsView.frame.size.width, 190);
     else if (section != 0)
         return CGSizeMake(self.postsView.frame.size.width, 110);
     else
         return CGSizeMake(self.postsView.frame.size.width, 300);
-    
-    [UIView animateWithDuration:0 animations:nil]
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -238,7 +234,7 @@ int colorIndex = 0;
                                       @"title": title,
                                       @"summery": summery ? summery : @"No Summery",
                                       @"image": imgSrc ? imgSrc : @"placeholder.png",
-                                      @"link": link ? link : @"www.deerfield.edu"};
+                                      @"link": link};
                 
                 [dailyPosts addObject:dic];
             }
@@ -277,11 +273,7 @@ int colorIndex = 0;
     
     NSString *woeidQuery = [NSString stringWithFormat:@"SELECT woeid FROM geo.places WHERE text=\"(%f,%f)\"", coordinate.latitude, coordinate.longitude];
     NSDictionary *woeidResults = [yql query:woeidQuery];
-    NSString *woeid;
-    NSDictionary *queryResult = [[woeidResults objectForKey:@"query"] objectForKey:@"results"];
-    if (queryResult)
-        woeid = [[queryResult objectForKey:@"place"] objectForKey:@"woeid"];
-    
+    NSString *woeid = [[[[woeidResults objectForKey:@"query"] objectForKey:@"results"] objectForKey:@"place"] objectForKey:@"woeid"];
     NSString *queryString = [NSString stringWithFormat:@"select * from weather.forecast where woeid in (%@)", woeid];
     
     NSDictionary *results = [yql query:queryString];
@@ -544,3 +536,4 @@ int colorIndex = 0;
 }
 
 @end
+
