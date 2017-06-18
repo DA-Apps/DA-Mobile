@@ -6,17 +6,20 @@
 //  Copyright © 2016 Yongyang Nie. All rights reserved.
 //
 
-#import "PostsViewController.h"
+#import "BulletinViewController.h"
 #import "TFHpple.h"
 
 int cellIndex = 0;
 int colorIndex = 0;
 
-@interface PostsViewController ()
+@interface BulletinViewController () <UIGestureRecognizerDelegate>
+
+@property (nonatomic, strong) UIPanGestureRecognizer *pan;
+@property BOOL panBegin;
 
 @end
 
-@implementation PostsViewController
+@implementation BulletinViewController
 
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
@@ -40,13 +43,6 @@ int colorIndex = 0;
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [header.table reloadData];
     
-    /*UICollectionViewFlowLayoutInvalidationContext *context = [[UICollectionViewFlowLayoutInvalidationContext alloc] init];
-    context.invalidateFlowLayoutDelegateMetrics = YES;
-    
-    [UIView animateWithDuration:0.2 animations:^{
-        [self.postsView.collectionViewLayout invalidateLayoutWithContext:context];
-        [self.postsView layoutIfNeeded];
-    }];*/
     [self.postsView performBatchUpdates:nil completion:nil];
 }
 
@@ -481,6 +477,49 @@ int colorIndex = 0;
     return NO;
 }
 
+-(void)panAction:(UIPanGestureRecognizer *)pan{
+    
+    CGPoint location = [pan locationInView:self.postsView];
+    NSIndexPath *indexPath = [self.postsView indexPathForItemAtPoint:location];
+    UICollectionViewCellPosts *cell = (UICollectionViewCellPosts *)[self.postsView cellForItemAtIndexPath:indexPath];
+    
+    if (pan.state == UIGestureRecognizerStateBegan) {
+        [cell beginPanAccessoryView:location];
+        cell.canSwipe = YES;
+    }else if (pan.state == UIGestureRecognizerStateChanged){
+        if (cell.menuOpened == YES) {
+            [cell panAccessoryViewRight:location];
+        }else{
+            [cell panAccessoryViewLeft:location];
+        }
+    }else if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled){
+        [cell endPanAccessoryView:location];
+    }
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    if (gestureRecognizer == self.pan && otherGestureRecognizer == self.postsView.panGestureRecognizer) {
+        return NO;
+    }
+    return NO;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    
+    //look at gesture recognizer
+    NSLog(@"%@", gestureRecognizer);
+    if ([gestureRecognizer isEqual:self.pan]) {
+        CGPoint translation = [self.pan translationInView:self.postsView];
+        NSLog(@"%f", fabs(translation.x));
+        if (fabs(translation.x) >= 2 && fabs(translation.y) < 2)
+            return YES;
+        else
+            return NO;
+    }
+    return NO;
+}
+
 #pragma mark - View lifecycle
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -489,6 +528,10 @@ int colorIndex = 0;
 }
 
 - (void)viewDidLoad {
+    
+    //just a reminder, also call viewDidLoad before all the setup.
+    
+    [super viewDidLoad];
     
     self.headerContent = [NSMutableArray array];
     [self.headerContent addObject:[NSMutableArray array]];
@@ -512,8 +555,12 @@ int colorIndex = 0;
     else
         [self getForcast];
     
+    //[self startRefresh:nil];
     self.feedbackButton.layer.cornerRadius = 3.0f;
-    [super viewDidLoad];
+    
+    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+    self.pan.delegate = self;
+    [self.postsView addGestureRecognizer:self.pan];
     
 }
 

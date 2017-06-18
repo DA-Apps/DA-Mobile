@@ -18,7 +18,13 @@
 @property (nonatomic, weak) IBOutlet UIView *mainView;
 @property (nonatomic, weak) IBOutlet UIView *rightView;
 @property BOOL canSwipe;
+@property BOOL menuOpened;
 @property (nonatomic, strong) id delegate;
+
+-(void)panAccessoryViewRight:(CGPoint)translation;
+-(void)panAccessoryViewLeft:(CGPoint)translation;
+-(void)beginPanAccessoryView:(CGPoint)translation;
+-(void)endPanAccessoryView:(CGPoint)translation;
 
 @end
 
