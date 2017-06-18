@@ -21,7 +21,7 @@
 #import "UIView+WebCache.h"
 
 
-@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;
