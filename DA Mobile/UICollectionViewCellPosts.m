@@ -32,6 +32,7 @@
 
 -(void)beginPanAccessoryView:(CGPoint)translation{
     self.startPoint = translation;
+    [self swipeCompletionHandler];
 }
 -(void)endPanAccessoryView:(CGPoint)translation{
     
@@ -41,7 +42,6 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.menuOpened = YES;
-            [self swipeCompletionHandler];
         }];
     }else{
         [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:5.0 initialSpringVelocity:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -49,7 +49,7 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.menuOpened = NO;
-            [self swipeCompletionHandler];
+            
         }];
     }
 }
