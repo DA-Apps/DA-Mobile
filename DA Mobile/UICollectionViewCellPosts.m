@@ -49,7 +49,6 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.menuOpened = NO;
-            
         }];
     }
 }
@@ -91,7 +90,6 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    self.bookmarkButton.alpha = 0.0f;
     self.mainWidth.constant = [UIScreen mainScreen].bounds.size.width;
 }
 

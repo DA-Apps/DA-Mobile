@@ -13,7 +13,8 @@
 #import "DetailViewController.h"
 #import "UIImageView+WebCache.h"
 
-@interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewCellPostsDelegate>
+@interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewCellPostsDelegate, UIGestureRecognizerDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) RLMResults *savedPosts;
 

@@ -477,6 +477,8 @@ int colorIndex = 0;
     return NO;
 }
 
+#pragma mark - Gesture Recognizer
+
 -(void)panAction:(UIPanGestureRecognizer *)pan{
     
     CGPoint location = [pan locationInView:self.postsView];

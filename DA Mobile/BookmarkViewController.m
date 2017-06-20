@@ -10,6 +10,8 @@
 
 @interface BookmarkViewController ()
 
+@property (nonatomic, strong) UIPanGestureRecognizer *pan;
+
 @end
 
 @implementation BookmarkViewController
@@ -78,9 +80,59 @@
 
 }
 
+#pragma mark - Gesture recognizer
+
+-(void)panAction:(UIPanGestureRecognizer *)pan{
+    
+    CGPoint location = [pan locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:location];
+    UICollectionViewCellPosts *cell = (UICollectionViewCellPosts *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (pan.state == UIGestureRecognizerStateBegan) {
+        [cell beginPanAccessoryView:location];
+        cell.canSwipe = NO;
+    }else if (pan.state == UIGestureRecognizerStateChanged){
+        if (cell.menuOpened == YES) {
+            [cell panAccessoryViewRight:location];
+        }else{
+            [cell panAccessoryViewLeft:location];
+        }
+    }else if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled){
+        [cell endPanAccessoryView:location];
+    }
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    if (gestureRecognizer == self.pan && otherGestureRecognizer == self.collectionView.panGestureRecognizer) {
+        return NO;
+    }
+    return NO;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    
+    //look at gesture recognizer
+    NSLog(@"%@", gestureRecognizer);
+    if ([gestureRecognizer isEqual:self.pan]) {
+        CGPoint translation = [self.pan translationInView:self.collectionView];
+        NSLog(@"%f", fabs(translation.x));
+        if (fabs(translation.x) >= 1.5 && fabs(translation.y) < 2)
+            return YES;
+        else
+            return NO;
+    }
+    return NO;
+}
+
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
+    self.pan.delegate = self;
+    [self.collectionView addGestureRecognizer:self.pan];
     // Do any additional setup after loading the view.
 }
 
