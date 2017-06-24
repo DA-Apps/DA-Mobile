@@ -512,9 +512,8 @@ int colorIndex = 0;
     //look at gesture recognizer
     NSLog(@"%@", gestureRecognizer);
     if ([gestureRecognizer isEqual:self.pan]) {
-        CGPoint translation = [self.pan translationInView:self.postsView];
-        NSLog(@"%f", fabs(translation.x));
-        if (fabs(translation.x) >= 2 && fabs(translation.y) < 2)
+        CGPoint vel = [self.pan velocityInView:self.postsView];
+        if (fabs(vel.x) != 0 && fabs(vel.y) < fabs(vel.x))
             return YES;
         else
             return NO;

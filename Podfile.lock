@@ -37,7 +37,7 @@ PODS:
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - FSCalendar (2.7.8)
+  - FSCalendar (2.7.9)
   - Google/Core (3.1.0):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.1.0):
@@ -75,9 +75,9 @@ PODS:
   - MaterialControls (1.2.2)
   - MSCollectionViewCalendarLayout (0.1.5)
   - Protobuf (3.3.0)
-  - Realm (2.8.1):
-    - Realm/Headers (= 2.8.1)
-  - Realm/Headers (2.8.1)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -102,7 +102,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FirebaseMessaging: 753d05a925e9eb8eadd09a0ffc9b808578b72fac
-  FSCalendar: 09369a2bf554ba71cd8e8cfb627e2df22a2c2af4
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleAPIClientForREST: bf724227a6ad1459aab09b73800aad9184a0f64c
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
@@ -112,7 +112,7 @@ SPEC CHECKSUMS:
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   MSCollectionViewCalendarLayout: 9c52894930d6b712951f18873618fc32c00cd4fa
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  Realm: 2627602ad6818451f0cb8c2a6e072f7f10a5f360
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
 
 PODFILE CHECKSUM: d3885835e095918a8edf49b892119a2340c3395e
 
