@@ -75,9 +75,9 @@ PODS:
   - MaterialControls (1.2.2)
   - MSCollectionViewCalendarLayout (0.1.5)
   - Protobuf (3.3.0)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
+  - Realm (2.9.1):
+    - Realm/Headers (= 2.9.1)
+  - Realm/Headers (2.9.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -112,8 +112,8 @@ SPEC CHECKSUMS:
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   MSCollectionViewCalendarLayout: 9c52894930d6b712951f18873618fc32c00cd4fa
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
 
 PODFILE CHECKSUM: d3885835e095918a8edf49b892119a2340c3395e
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
