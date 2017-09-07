@@ -11,6 +11,14 @@
 
 @implementation CollectionReusableHeader
 
+-(IBAction)openSchedule:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.edu/wp-content/uploads/2014/08/FINAL-opening-days-schedule-17-Sept.-5-1.pdf"]];
+}
+
+-(IBAction)openRotation:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://deerfield.edu/to-do/2017/09/first-table-rotation-posted-with-waiters/10249366/"]];
+}
+
 -(void)buttonClicked:(UIButton *)button{
     if (button.tag == 0) {
         [self.delegate expandMenu];
