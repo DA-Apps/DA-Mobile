@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -240,7 +240,7 @@
                                             </constraints>
                                         </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-RP-bUd">
-                                            <rect key="frame" x="0.0" y="90" width="375" height="113"/>
+                                            <rect key="frame" x="0.0" y="90" width="375" height="146"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="gfT-ks-sWM">
@@ -268,39 +268,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpL-Yq-8aL">
-                                            <rect key="frame" x="16" y="215" width="160" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                            <state key="normal" title="Opening Day Schedule">
-                                                <color key="titleColor" red="0.27054724099999999" green="0.54556369780000002" blue="0.20019961889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="openSchedule:" destination="WXk-rf-6kS" eventType="touchUpInside" id="AAH-Xf-qL7"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-46-PQ1">
-                                            <rect key="frame" x="258" y="215" width="101" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                            <state key="normal" title="Table Rotation">
-                                                <color key="titleColor" red="0.27054724099999999" green="0.54556369780000002" blue="0.20019961889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="openRotation:" destination="WXk-rf-6kS" eventType="touchUpInside" id="YVJ-3s-b2L"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="LxC-TO-MDU" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leading" constant="8" id="1WY-9J-LFS"/>
                                         <constraint firstItem="lSU-G2-7EV" firstAttribute="leading" secondItem="jCm-EZ-yBB" secondAttribute="trailing" constant="8" id="3j4-Ph-lxF"/>
-                                        <constraint firstItem="LxC-TO-MDU" firstAttribute="top" secondItem="PpL-Yq-8aL" secondAttribute="bottom" constant="3" id="5WA-80-pf7"/>
                                         <constraint firstItem="jCm-EZ-yBB" firstAttribute="centerY" secondItem="RUZ-vm-KwP" secondAttribute="centerY" id="96q-K7-nUb"/>
                                         <constraint firstAttribute="trailing" secondItem="LxC-TO-MDU" secondAttribute="trailing" constant="8" id="DVn-za-x3R"/>
-                                        <constraint firstItem="PpL-Yq-8aL" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leading" constant="16" id="J5J-Vf-91f"/>
-                                        <constraint firstItem="LxC-TO-MDU" firstAttribute="top" secondItem="bRe-46-PQ1" secondAttribute="bottom" constant="3" id="M3A-PO-c2F"/>
                                         <constraint firstItem="RUZ-vm-KwP" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leadingMargin" id="OcB-Gm-5NX"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="bRe-46-PQ1" secondAttribute="trailing" constant="16" id="WWI-LU-Kkg"/>
                                         <constraint firstItem="w7j-RP-bUd" firstAttribute="top" secondItem="RUZ-vm-KwP" secondAttribute="bottom" constant="10" id="fLO-2I-1gA"/>
-                                        <constraint firstItem="PpL-Yq-8aL" firstAttribute="top" secondItem="w7j-RP-bUd" secondAttribute="bottom" constant="12" id="fjs-xl-vnc"/>
+                                        <constraint firstItem="LxC-TO-MDU" firstAttribute="top" secondItem="w7j-RP-bUd" secondAttribute="bottom" constant="12" id="h01-PZ-bM3"/>
                                         <constraint firstItem="lSU-G2-7EV" firstAttribute="trailing" secondItem="WXk-rf-6kS" secondAttribute="trailingMargin" id="jGS-tv-j7I"/>
                                         <constraint firstItem="lSU-G2-7EV" firstAttribute="centerY" secondItem="RUZ-vm-KwP" secondAttribute="centerY" id="o05-yc-087"/>
                                         <constraint firstAttribute="bottom" secondItem="LxC-TO-MDU" secondAttribute="bottom" id="oz6-qv-x6q"/>
@@ -390,14 +366,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-cL-cR7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="4" width="375" height="663"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="AtN-Ny-bNy" id="uk5-Bp-Rvm"/>
                                 </connections>
                             </webView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fec-lO-JYV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="hO3-fb-8ML" customClass="CustomTableViewCell">
@@ -735,7 +711,7 @@
                     <tabBarItem key="tabBarItem" title="Menu" image="Cutlery" selectedImage="Cutlery" id="4oj-ZK-NbN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkR-dI-T7G">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -915,7 +891,7 @@
                     <tabBarItem key="tabBarItem" title="Bookmarks" image="Bookmark.png" selectedImage="Bookmark" id="1fW-wo-XQm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5f-On-xfj">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1132,7 +1108,7 @@
                     <tabBarItem key="tabBarItem" title="Preference" image="preference" selectedImage="preference" id="fex-LC-QEx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QAR-pT-zeR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1155,7 +1131,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65b-sN-2Fk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f0u-ZA-XBS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">

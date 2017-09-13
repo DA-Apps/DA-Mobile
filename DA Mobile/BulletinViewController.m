@@ -145,7 +145,7 @@ int colorIndex = 0;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
-        return CGSizeMake(self.postsView.frame.size.width, 220);
+        return CGSizeMake(self.postsView.frame.size.width, 190);
     else if (section != 0)
         return CGSizeMake(self.postsView.frame.size.width, 110);
     else

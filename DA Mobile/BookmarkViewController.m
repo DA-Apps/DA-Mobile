@@ -112,8 +112,6 @@
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     
-    //look at gesture recognizer
-#warning actually get the velocity
     if ([gestureRecognizer isEqual:self.pan]) {
         CGPoint translation = [self.pan velocityInView:self.collectionView];
         NSLog(@"%f", fabs(translation.x));
