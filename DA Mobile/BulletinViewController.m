@@ -58,10 +58,14 @@ int colorIndex = 0;
         heightAnimation = -120;
     }
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [self.postsView reloadData];
-    if (header.frame.size.height != 300) {
-        [self.postsView performBatchUpdates:nil completion:nil];
-    }
+    [header.table reloadData];
+    
+    [self.postsView performBatchUpdates:nil completion:nil];
+//    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    [self.postsView reloadData];
+//    if (header.frame.size.height != 300) {
+//        [self.postsView performBatchUpdates:nil completion:nil];
+//    }
 }
 
 #pragma mark - Location Manager
@@ -141,7 +145,7 @@ int colorIndex = 0;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
-        return CGSizeMake(self.postsView.frame.size.width, 190);
+        return CGSizeMake(self.postsView.frame.size.width, 220);
     else if (section != 0)
         return CGSizeMake(self.postsView.frame.size.width, 110);
     else
@@ -225,7 +229,7 @@ int colorIndex = 0;
             NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
             
             //construct the dic
-            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]]){
+            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                       @"title": title,
                                       @"summery": summery ? summery : @"No Summery",
