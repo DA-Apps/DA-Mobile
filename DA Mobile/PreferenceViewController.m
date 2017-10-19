@@ -95,7 +95,8 @@
                 case 1:
                     [self performSegueWithIdentifier:@"showCredit" sender:nil];
                     break;
-                    
+                case 2:
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://goo.gl/forms/E8Y643yPuPW3bmDZ2"]];
                 default:
                     break;
             }
@@ -106,7 +107,7 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 52;
 }
 
 
@@ -114,14 +115,22 @@
     
     self.icon.layer.cornerRadius = 10.0f;
     self.icon.clipsToBounds = YES;
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = true;
+        self.navigationController.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    } else {
+        // Fallback on earlier versions
+    }
+
     NSMutableArray *section1 = [NSMutableArray arrayWithObjects:@"DA Info", @"Deerfield Email", @"Canvas", nil];
     NSMutableArray *section2 = [NSMutableArray arrayWithObjects:@"Menu Notification", @"Location Access", nil];
-    NSMutableArray *section3 = [NSMutableArray arrayWithObjects:@"Tips", @"Credit", nil];
+    NSMutableArray *section3 = [NSMutableArray arrayWithObjects:@"Tips", @"Credit", @"Feedback", nil];
     self.data = [NSMutableArray arrayWithObjects:section1, section2, section3, nil];
     
     NSMutableArray *a1 = [NSMutableArray arrayWithObjects:@"dainfo", @"email", @"canvas", nil];
     NSMutableArray *a2 = [NSMutableArray arrayWithObjects:@"notification", @"location", nil];
-    NSMutableArray *a3 = [NSMutableArray arrayWithObjects:@"tips", @"credit", nil];
+    NSMutableArray *a3 = [NSMutableArray arrayWithObjects:@"tips", @"credit", @"feedback.png", nil];
     self.imageNames = [NSMutableArray arrayWithObjects:a1, a2, a3, nil];
     
     [super viewDidLoad];

@@ -22,6 +22,7 @@ int colorIndex = 0;
 @implementation BulletinViewController
 
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
+    
     NSIndexPath *index = [self.postsView indexPathForCell:cell];
     NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
     [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"image"] withLink:[dic objectForKey:@"link"]];
@@ -61,11 +62,7 @@ int colorIndex = 0;
     [header.table reloadData];
     
     [self.postsView performBatchUpdates:nil completion:nil];
-//    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    [self.postsView reloadData];
-//    if (header.frame.size.height != 300) {
-//        [self.postsView performBatchUpdates:nil completion:nil];
-//    }
+
 }
 
 #pragma mark - Location Manager
@@ -182,10 +179,6 @@ int colorIndex = 0;
 }
 
 #pragma mark - Private
-
--(IBAction)feedback:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://goo.gl/forms/E8Y643yPuPW3bmDZ2"]];
-}
 
 -(NSString *)dateDescription:(NSDate *)date{
     

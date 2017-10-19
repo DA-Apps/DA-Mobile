@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomTableViewCell.h"
 
-@interface PreferenceViewController : UIViewController <CustomTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface PreferenceViewController : UITableViewController <CustomTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (strong, nonatomic) NSMutableArray *data;

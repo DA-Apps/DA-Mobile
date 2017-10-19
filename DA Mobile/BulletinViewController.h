@@ -19,6 +19,7 @@
 #import "BulletinPost.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+WebCache.h"
+#import "DA_Mobile-Swift.h"
 
 
 @interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>

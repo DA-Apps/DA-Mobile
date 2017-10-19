@@ -33,7 +33,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
             NSLog(@"%@", error);
         }
     }];
-
+    
     [UNUserNotificationCenter currentNotificationCenter].delegate = self;
     UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
     [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -55,7 +55,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     }
     [self.window makeKeyAndVisible];
     
-
+    
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     // Set the new schema version. This must be greater than the previously used
     // version (if you've never set a schema version before, the version is 0).
@@ -113,7 +113,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
     // basic
     EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"What you have been waiting for.";
+    page1.title = @"Convenience at your figure tips";
     page1.titleFont = [UIFont systemFontOfSize:35];
     page1.titlePositionY = 350;
     page1.desc = @"";
@@ -121,7 +121,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     // custom
     EAIntroPage *page2 = [EAIntroPage page];
     page2.bgImage = [UIImage imageNamed:@"intros_3"];
-
+    
     EAIntroPage *page3 = [EAIntroPage page];
     page3.bgImage = [UIImage imageNamed:@"intros_2"];
     
@@ -167,7 +167,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 
 -(NSString *)getMenuData{
-
+    
     NSURL *tutorialsUrl = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSData *tutorialsHtmlData = [NSData dataWithContentsOfURL:tutorialsUrl];
     TFHpple *parser = [TFHpple hppleWithHTMLData:tutorialsHtmlData];
@@ -189,7 +189,7 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

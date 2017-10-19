@@ -44,6 +44,9 @@ public:
     // Schema version used for uninitialized Realms
     static const uint64_t NotVersioned;
 
+    // Column name used for subtables which store an array
+    static constexpr const char* const ArrayColumnName = "!ARRAY_VALUE";
+
     // get the last set schema version
     static uint64_t get_schema_version(Group const& group);
 
@@ -84,6 +87,8 @@ public:
                                      Schema& target_schema, uint64_t target_schema_version,
                                      SchemaMode mode, std::vector<SchemaChange> const& changes,
                                      std::function<void()> migration_function={});
+
+    static void apply_additive_changes(Group&, std::vector<SchemaChange> const&, bool update_indexes);
 
     // get a table for an object type
     static realm::TableRef table_for_object_type(Group& group, StringData object_type);

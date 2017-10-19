@@ -25,6 +25,11 @@
 @class GTLRCalendar_Event;
 @class GTLRCalendar_FreeBusyRequest;
 
+// Generated comments include content from the discovery document; avoid them
+// causing warnings since clang's checks are some what arbitrary.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
@@ -1382,8 +1387,11 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Maximum number of events returned on one result page. By default the value
- *  is 250 events. The page size can never be larger than 2500 events. Optional.
+ *  Maximum number of events returned on one result page. The number of events
+ *  in the resulting page may be less than this value, or none at all, even if
+ *  there are more events matching the query. Incomplete pages can be detected
+ *  by a non-empty nextPageToken field in the response. By default the value is
+ *  250 events. The page size can never be larger than 2500 events. Optional.
  *
  *  @note If not set, the documented server-side default will be 250.
  */
@@ -1476,7 +1484,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Upper bound (exclusive) for an event's start time to filter by. Optional.
  *  The default is not to filter by start time. Must be an RFC3339 timestamp
  *  with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
- *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
+ *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If
+ *  timeMin is set, timeMax must be greater than timeMin.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
@@ -1484,7 +1493,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Lower bound (inclusive) for an event's end time to filter by. Optional. The
  *  default is not to filter by end time. Must be an RFC3339 timestamp with
  *  mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
- *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
+ *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If
+ *  timeMax is set, timeMin must be smaller than timeMax.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
@@ -1798,8 +1808,11 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @property(nonatomic, assign) NSInteger maxAttendees;
 
 /**
- *  Maximum number of events returned on one result page. By default the value
- *  is 250 events. The page size can never be larger than 2500 events. Optional.
+ *  Maximum number of events returned on one result page. The number of events
+ *  in the resulting page may be less than this value, or none at all, even if
+ *  there are more events matching the query. Incomplete pages can be detected
+ *  by a non-empty nextPageToken field in the response. By default the value is
+ *  250 events. The page size can never be larger than 2500 events. Optional.
  *
  *  @note If not set, the documented server-side default will be 250.
  */
@@ -1892,7 +1905,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Upper bound (exclusive) for an event's start time to filter by. Optional.
  *  The default is not to filter by start time. Must be an RFC3339 timestamp
  *  with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
- *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
+ *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If
+ *  timeMin is set, timeMax must be greater than timeMin.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
@@ -1900,7 +1914,8 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *  Lower bound (inclusive) for an event's end time to filter by. Optional. The
  *  default is not to filter by end time. Must be an RFC3339 timestamp with
  *  mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00,
- *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.
+ *  2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If
+ *  timeMax is set, timeMin must be smaller than timeMax.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
@@ -2089,3 +2104,5 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma clang diagnostic pop

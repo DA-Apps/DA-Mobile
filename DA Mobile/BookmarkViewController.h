@@ -12,10 +12,10 @@
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "ContentTableViewCell.h"
 
-@interface BookmarkViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewCellPostsDelegate, UIGestureRecognizerDelegate>
+@interface BookmarkViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) RLMResults *savedPosts;
 
 @end
