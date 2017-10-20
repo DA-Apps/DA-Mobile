@@ -16,35 +16,53 @@
 
 #pragma mark - CollectionView Cell Delegate
 
-/*-(void)removeBookMark:(UICollectionViewCellPosts *)cell{
-    
-    [[RLMRealm defaultRealm] beginWriteTransaction];
-    [[RLMRealm defaultRealm] deleteObject:[self.savedPosts objectAtIndex:[self.collectionView indexPathForCell:cell].row]];
-    [[RLMRealm defaultRealm] commitWriteTransaction];
-    [self.collectionView reloadData];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Deleted" message:@"You have deleted this post" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
-}*/
--(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
-    
+#pragma mark - UITableView Delegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    if (self.savedPosts.count != 0) {
+        return YES;
+    }
+    return NO;
 }
 
-#pragma mark - UITableView Delegate
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[RLMRealm defaultRealm] beginWriteTransaction];
+        [[RLMRealm defaultRealm] deleteObject:[self.savedPosts objectAtIndex:indexPath.row]];
+        [[RLMRealm defaultRealm] commitWriteTransaction];
+        [self.tableView reloadData];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Deleted" message:@"You have deleted this post" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
-    BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
-    cell.title.text = post.title;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:post.image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-    cell.image.layer.cornerRadius = 5;
-    cell.image.layer.masksToBounds = YES;
-    return cell;
+    if (self.savedPosts.count == 0) {
+        EmptyNotifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyNotifier" forIndexPath:indexPath];
+        cell.icon.image = [UIImage imageNamed:@"Empty Box.png"];
+        cell.mainTitle.text = @"No Saved Content";
+        cell.secondTitle.text = @"You can bookmark posts in the bulletin tab";
+        return cell;
+    }else{
+        ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
+        BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
+        cell.title.text = post.title;
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:post.image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        cell.image.layer.cornerRadius = 5;
+        cell.image.layer.masksToBounds = YES;
+        return cell;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.savedPosts.count == 0) {
+        return self.tableView.bounds.size.height - 180;
+    }
     return 145;
 }
 
@@ -55,7 +73,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.savedPosts.count;
+    
+    if (self.savedPosts.count == 0)
+        return 1;
+    else
+        return self.savedPosts.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -69,11 +91,6 @@
     [super viewDidAppear:YES];
     
     self.savedPosts = [BulletinPost allObjects];
-    if (self.savedPosts.count == 0) {
-        
-    }else{
-        
-    }
     [self.tableView reloadData];
 }
 
@@ -82,6 +99,13 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    } else {
+        // Fallback on earlier versions
+    }
+
     // Do any additional setup after loading the view.
 }
 

@@ -266,19 +266,22 @@ int colorIndex = 0;
     
     NSString *woeidQuery = [NSString stringWithFormat:@"SELECT woeid FROM geo.places WHERE text=\"(%f,%f)\"", coordinate.latitude, coordinate.longitude];
     NSDictionary *woeidResults = [yql query:woeidQuery];
-    NSString *woeid = [[[[woeidResults objectForKey:@"query"] objectForKey:@"results"] objectForKey:@"place"] objectForKey:@"woeid"];
-    NSString *queryString = [NSString stringWithFormat:@"select * from weather.forecast where woeid in (%@)", woeid];
-    
-    NSDictionary *results = [yql query:queryString];
-    if ([[[results objectForKey:@"query"] objectForKey:@"count"] intValue] == 0) {
-        return nil;
+    if (![[[woeidResults objectForKey:@"query"] objectForKey:@"count"]  isEqual:@0]) {
+        NSString *woeid = [[[[woeidResults objectForKey:@"query"] objectForKey:@"results"] objectForKey:@"place"] objectForKey:@"woeid"];
+        NSString *queryString = [NSString stringWithFormat:@"select * from weather.forecast where woeid in (%@)", woeid];
         
-    }else{
-        NSMutableArray *array = [[NSMutableArray alloc] initWithArray:results[@"query"][@"results"][@"channel"][@"item"][@"forecast"]];
-        NSDictionary *dic = results[@"query"][@"results"][@"channel"][@"item"][@"condition"];
-        [array addObject:dic];
-        return array;
+        NSDictionary *results = [yql query:queryString];
+        if ([[[results objectForKey:@"query"] objectForKey:@"count"] intValue] == 0) {
+            return nil;
+            
+        }else{
+            NSMutableArray *array = [[NSMutableArray alloc] initWithArray:results[@"query"][@"results"][@"channel"][@"item"][@"forecast"]];
+            NSDictionary *dic = results[@"query"][@"results"][@"channel"][@"item"][@"condition"];
+            [array addObject:dic];
+            return array;
+        }
     }
+    return nil;
 }
 
 -(void)getForcast{

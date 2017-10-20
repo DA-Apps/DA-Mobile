@@ -13,6 +13,7 @@
 #import "DetailViewController.h"
 #import "UIImageView+WebCache.h"
 #import "ContentTableViewCell.h"
+#import "EmptyNotifierTableViewCell.h"
 
 @interface BookmarkViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 

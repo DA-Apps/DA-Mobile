@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>DA Bulletin</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,6 +29,16 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Weather needs to access your location</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFCompactDisplay-Regular.otf</string>
+		<string>SFCompactText-Medium.otf</string>
+		<string>SFCompactText-Heavy.otf</string>
+		<string>SF-Pro-Text-Regular.otf</string>
+		<string>SF-Pro-Text-Light.otf</string>
+		<string>SF-Pro-Display-Light.otf</string>
+		<string>SF-Pro-Text-Medium.otf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -50,16 +62,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SFCompactDisplay-Regular.otf</string>
-		<string>SFCompactText-Medium.otf</string>
-		<string>SFCompactText-Heavy.otf</string>
-		<string>SF-Pro-Text-Regular.otf</string>
-		<string>SF-Pro-Text-Light.otf</string>
-		<string>SF-Pro-Display-Light.otf</string>
-		<string>SF-Pro-Text-Medium.otf</string>
 	</array>
 </dict>
 </plist>

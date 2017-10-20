@@ -15,74 +15,65 @@
 
 @implementation MenuViewController
 
+static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    } else {
+        // Fallback on earlier versions
+    }
     
-    self.
+    UINib *sectionHeaderNib = [UINib nibWithNibName:@"MenuTableViewHeader" bundle:nil];
+    [self.tableView registerNib:sectionHeaderNib forHeaderFooterViewReuseIdentifier:SectionHeaderViewIdentifier];
     
-    self.noMealLabel.hidden = YES;
-    self.noMealIcon.hidden = YES;
-    self.indicator.hidden = NO;
-    self.tableView.hidden = YES;
-    self.indicator.tintColor = [UIColor grayColor];
-    self.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
-    [self.indicator startAnimating];
     NSURL *url = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData  * _Nonnull data, NSURLResponse * _Nonnull response, NSError *_Nonnull error) {
         TFHpple *hpple = [TFHpple hppleWithHTMLData:data];
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.indicator stopAnimating];
                 [self parseMenu:hpple];
+                [self.tableView reloadData];
             });
         }
     }] resume];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    self.todaySelected = YES;
     [super viewDidAppear:YES];
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)selectDate:(id)sender {
-    
-    if (self.segementedControl.selectedSegmentIndex == 0) {
-        if (self.todayMeals.count == 0) {
-            self.noMealLabel.hidden = NO;
-            self.noMealIcon.hidden = NO;
-            self.tableView.hidden = YES;
-            self.tomorrowTable.hidden = YES;
-        }else{
-            self.noMealLabel.hidden = YES;
-            self.noMealIcon.hidden = YES;
-            self.tableView.hidden = NO;
-            self.tomorrowTable.hidden = YES;
-            [self.tableView reloadData];
-        }
-    }else if (self.segementedControl.selectedSegmentIndex == 1){
-        if (self.tomorrowMeals.count == 0) {
-            self.noMealLabel.hidden = NO;
-            self.noMealIcon.hidden = NO;
-            self.tableView.hidden = YES;
-            self.tomorrowTable.hidden = YES;
-        }else{
-            self.noMealLabel.hidden = YES;
-            self.noMealIcon.hidden = YES;
-            self.tableView.hidden = YES;
-            self.tomorrowTable.hidden = NO;
-            [self.tomorrowTable reloadData];
-        }
-    }
+
+-(void)selectedTomorrow{
+    self.todaySelected = NO;
+    [self.tableView reloadData];
+}
+
+-(void)selectedToday{
+    self.todaySelected = YES;
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableView delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 48;
+}
+
+
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if ([tableView isEqual:self.tomorrowTable]) {
+    
+    if (!self.todaySelected) {
         switch (section) {
             case 0:
                 if (self.tomorrowMeals.firstObject.count == 0)
@@ -106,24 +97,38 @@
     return nil;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([tableView isEqual:self.tableView]) {
-        return self.todayMeals.count;
+    
+    if (self.todaySelected) {
+        return self.todayMeals.count + 1;
     }else{
-        return self.tomorrowMeals[section].count;
+        return self.tomorrowMeals[section].count + 1;
     }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableID" forIndexPath: indexPath];
-    if ([tableView isEqual:self.tableView]) {
-        cell.textLabel.text = self.todayMeals[indexPath.row];
+    
+    if (indexPath.row == 0 && indexPath.section == 0) {
+        SegmentTableViewCell *cell = (SegmentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"segmentCell" forIndexPath:indexPath];
+        cell.delegate = self;
+        return cell;
     }else{
-        cell.textLabel.text = self.tomorrowMeals[indexPath.section][indexPath.row];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableID" forIndexPath: indexPath];
+        if (self.todaySelected)
+            cell.textLabel.text = self.todayMeals[indexPath.row - 1];
+        else{
+            if (indexPath.row - 1 < 0)
+                cell.textLabel.text = self.tomorrowMeals[indexPath.section][0];
+            else
+                cell.textLabel.text = self.tomorrowMeals[indexPath.section][indexPath.row - 1];
+        }
+        return cell;
     }
-    return cell;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if ([tableView isEqual:self.tableView]) {
+    
+    if (self.todaySelected) {
+        return 1;
+    }else if (self.todayMeals.count == 0 && self.tomorrowMeals.count == 0){
         return 1;
     }else{
         return 3;
@@ -137,7 +142,7 @@
     self.todayMeals = [[NSMutableArray alloc] init];
     self.tomorrowMeals = [[NSMutableArray alloc] init];
     
-    [self gettodayMeals:data];
+    [self getTodayMeals:data];
     
     NSDate *currentTime = [NSDate dateWithTimeInterval:86400*2 sinceDate:[NSDate date]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -170,10 +175,9 @@
             [self.tomorrowMeals addObject:[self parseMenuHTML:[key stringByAppendingString:mealType] hppleData:data]];
         }
     }
-    [self selectDate:nil];
 }
 
--(void) gettodayMeals:(TFHpple *) data{
+-(void)getTodayMeals:(TFHpple *) data{
     
     self.todayMeals = [NSMutableArray array];
     NSDate *currentTime = [NSDate date];

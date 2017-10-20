@@ -117,8 +117,7 @@
     self.icon.clipsToBounds = YES;
     
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = true;
-        self.navigationController.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     } else {
         // Fallback on earlier versions
     }

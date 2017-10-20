@@ -93,32 +93,32 @@ public class BulletinData: NSObject {
     
     public func retrieveHTMLData() {
         
-        let configeration = URLSessionConfiguration.default
-        let manager = AFURLSessionManager.init(sessionConfiguration: configeration)
-        
-        let url = URL.init(string: "https://deerfield.edu/bulletin")
-        let request = URLRequest.init(url: url!)
-        
-        let downloadTask = manager.downloadTask(with: request, progress: nil, destination: { (targetPath, response) -> URL in
-            
-            var documentsDirectoryURL = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
-            documentsDirectoryURL = documentsDirectoryURL.appendingPathComponent(response.suggestedFilename!)
-            if (FileManager.default.fileExists(atPath: documentsDirectoryURL.path)){
-                try! FileManager.default.removeItem(atPath: documentsDirectoryURL.path)
-            }
-            return documentsDirectoryURL
-            
-        }) { (response, filepath, error) in
-            
-            if (error == nil){
-                DispatchQueue.main.async {
-                    let hpple = TFHpple.init(htmlData: try! Data.init(contentsOf: filepath!))
-                    self.parseHTMLData(hpple: hpple!)
-                }
-            }else{
-                print(error!)
-            }
-        }
-        downloadTask.resume()
+//        let configeration = URLSessionConfiguration.default
+//        let manager = AFURLSessionManager.init(sessionConfiguration: configeration)
+//
+//        let url = URL.init(string: "https://deerfield.edu/bulletin")
+//        let request = URLRequest.init(url: url!)
+//
+//        let downloadTask = manager.downloadTask(with: request, progress: nil, destination: { (targetPath, response) -> URL in
+//
+//            var documentsDirectoryURL = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+//            documentsDirectoryURL = documentsDirectoryURL.appendingPathComponent(response.suggestedFilename!)
+//            if (FileManager.default.fileExists(atPath: documentsDirectoryURL.path)){
+//                try! FileManager.default.removeItem(atPath: documentsDirectoryURL.path)
+//            }
+//            return documentsDirectoryURL
+//
+//        }) { (response, filepath, error) in
+//
+//            if (error == nil){
+//                DispatchQueue.main.async {
+//                    let hpple = TFHpple.init(htmlData: try! Data.init(contentsOf: filepath!))
+//                    self.parseHTMLData(hpple: hpple!)
+//                }
+//            }else{
+//                print(error!)
+//            }
+//        }
+//        downloadTask.resume()
     }
 }

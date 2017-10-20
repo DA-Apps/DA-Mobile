@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */; };
+		0000CEC61F996F5300146E37 /* SegmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */; };
 		007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E81F98FF64008670DE /* DailyBulletinData.swift */; };
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
@@ -176,7 +178,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00494E471F990157001CACD4 /* DA-Mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DA-Mobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		0000CEBF1F99365500146E37 /* EmptyNotifierTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyNotifierTableViewCell.h; sourceTree = "<group>"; };
+		0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyNotifierTableViewCell.m; sourceTree = "<group>"; };
+		0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentTableViewCell.h; sourceTree = "<group>"; };
+		0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentTableViewCell.m; sourceTree = "<group>"; };
+		00494E471F990157001CACD4 /* DA_Mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DA_Mobile-Bridging-Header.h"; sourceTree = "<group>"; };
 		007755E81F98FF64008670DE /* DailyBulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBulletinData.swift; sourceTree = "<group>"; };
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
 		007755EA1F98FF68008670DE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -493,6 +499,8 @@
 		284A4DC11E2900C9004F5226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */,
+				0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */,
 				28E833A61E947FF500614C73 /* CollectionReusableHeader.h */,
 				28E833A71E947FF500614C73 /* CollectionReusableHeader.m */,
 				28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */,
@@ -503,6 +511,8 @@
 				009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */,
 				009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */,
 				283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */,
+				0000CEBF1F99365500146E37 /* EmptyNotifierTableViewCell.h */,
+				0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -561,7 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				009AAF6A1F9929BA004BB1A9 /* Fonts */,
-				00494E471F990157001CACD4 /* DA-Mobile-Bridging-Header.h */,
+				00494E471F990157001CACD4 /* DA_Mobile-Bridging-Header.h */,
 				280C287F1E91649200381D68 /* GoogleService-Info.plist */,
 				28B84EC31E9033F00041BD5D /* Assets.xcassets */,
 				286816721DCAB3D20089BEA6 /* Info.plist */,
@@ -1072,6 +1082,7 @@
 				28994B0A1EC16AB0007ACF10 /* SDImageCacheConfig.m in Sources */,
 				286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */,
 				28994B0D1EC16AB0007ACF10 /* SDWebImageDownloader.m in Sources */,
+				0000CEC61F996F5300146E37 /* SegmentTableViewCell.m in Sources */,
 				28994B121EC16AB0007ACF10 /* UIImage+GIF.m in Sources */,
 				2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */,
 				28994B091EC16AB0007ACF10 /* SDImageCache.m in Sources */,
@@ -1086,6 +1097,7 @@
 				28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */,
 				283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */,
 				007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */,
+				0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */,
 				28994B111EC16AB0007ACF10 /* UIButton+WebCache.m in Sources */,
 				28994B061EC16AB0007ACF10 /* MKAnnotationView+WebCache.m in Sources */,
 			);
@@ -1265,7 +1277,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA-Mobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1285,7 +1298,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA-Mobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

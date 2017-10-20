@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DGActivityIndicatorView.h"
+#import "SegmentTableViewCell.h"
 
-@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MenuViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SegmentTableViewCellDelegate>
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITableView *tomorrowTable;
-@property (weak, nonatomic) IBOutlet DGActivityIndicatorView *indicator;
-@property (weak, nonatomic) IBOutlet UIImageView *noMealIcon;
-@property (weak, nonatomic) IBOutlet UILabel *noMealLabel;
+@property BOOL todaySelected;
 @property (strong, nonatomic) NSMutableArray *todayMeals;
 @property (strong, nonatomic) NSMutableArray <NSMutableArray *> *tomorrowMeals;
 
