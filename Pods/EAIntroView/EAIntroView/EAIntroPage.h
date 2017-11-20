@@ -1,7 +1,7 @@
 //
 //  EAIntroPage.h
 //
-//  Copyright (c) 2013-2015 Evgeny Aleksandrov. License: MIT.
+//  Copyright (c) 2013-2017 Evgeny Aleksandrov. License: MIT.
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -45,7 +45,7 @@ typedef void (^VoidBlock)(void);
 @property (nonatomic, assign) CGFloat descSideMargin;
 @property (nonatomic, assign) NSTextAlignment descAlignment;
 
-@property (nonatomic, strong) NSArray *subviews;
+@property (nonatomic, strong) NSArray<__kindof UIView *> *subviews;
 
 @property (nonatomic, assign) CGFloat alpha;
 

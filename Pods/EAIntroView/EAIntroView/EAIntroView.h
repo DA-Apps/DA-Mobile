@@ -1,7 +1,7 @@
 //
 //  EAIntroView.h
 //
-//  Copyright (c) 2013-2015 Evgeny Aleksandrov. License: MIT.
+//  Copyright (c) 2013-2017 Evgeny Aleksandrov. License: MIT.
 
 #import <UIKit/UIKit.h>
 #import <EARestrictedScrollView/EARestrictedScrollView.h>
@@ -64,7 +64,8 @@ typedef NS_ENUM(NSUInteger, EAViewAlignment) {
 // Page Control (Y position - from bottom of the screen)
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) CGFloat pageControlY;
-@property (nonatomic, assign) NSUInteger currentPageIndex;
+
+@property (nonatomic, assign, readonly) NSUInteger currentPageIndex;
 @property (nonatomic, assign, readonly) NSUInteger visiblePageIndex;
 
 // Skip button (Y position - from bottom of the screen)
@@ -78,9 +79,9 @@ typedef NS_ENUM(NSUInteger, EAViewAlignment) {
 
 @property (nonatomic, strong) EARestrictedScrollView *scrollView;
 @property (nonatomic, assign) BOOL scrollingEnabled;
-@property (nonatomic, strong) NSArray *pages;
+@property (nonatomic, strong) NSArray<EAIntroPage *> *pages;
 
-- (id)initWithFrame:(CGRect)frame andPages:(NSArray *)pagesArray;
+- (id)initWithFrame:(CGRect)frame andPages:(NSArray<EAIntroPage *> *)pagesArray;
 
 - (void)showFullscreen;
 - (void)showFullscreenWithAnimateDuration:(CGFloat)duration;
@@ -90,10 +91,6 @@ typedef NS_ENUM(NSUInteger, EAViewAlignment) {
 - (void)showInView:(UIView *)view animateDuration:(CGFloat)duration withInitialPageIndex:(NSUInteger)initialPageIndex;
 
 - (void)hideWithFadeOutDuration:(CGFloat)duration;
-
-- (void)setCurrentPageIndex:(NSUInteger)currentPageIndex;
-- (void)setCurrentPageIndex:(NSUInteger)currentPageIndex animated:(BOOL)animated;
-
 
 - (void)scrollToPageForIndex:(NSUInteger)newPageIndex animated:(BOOL)animated;
 
