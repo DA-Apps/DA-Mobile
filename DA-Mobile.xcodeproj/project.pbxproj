@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */; };
 		0000CEC61F996F5300146E37 /* SegmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */; };
+		001929F01FECB23400727862 /* intro-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 001929EC1FECB23300727862 /* intro-1.png */; };
+		001929F11FECB23400727862 /* intro-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 001929ED1FECB23300727862 /* intro-4.png */; };
+		001929F21FECB23400727862 /* intro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 001929EE1FECB23300727862 /* intro-2.png */; };
+		001929F31FECB23400727862 /* intro-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 001929EF1FECB23300727862 /* intro-3.png */; };
 		007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E81F98FF64008670DE /* DailyBulletinData.swift */; };
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
@@ -67,15 +71,10 @@
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00EC48911F9932E10062C65E /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = 009AAFA11F993228004BB1A9 /* feedback.png */; };
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
-		281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */; };
-		281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */; };
 		281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C32D31E9A82930093ABA0 /* BookmarkViewController.m */; };
 		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
 		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
 		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
-		2838FED81EC1E73200A09B92 /* intros_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2838FED51EC1E73200A09B92 /* intros_1.png */; };
-		2838FED91EC1E73200A09B92 /* intros_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2838FED61EC1E73200A09B92 /* intros_2.png */; };
-		2838FEDA1EC1E73200A09B92 /* intros_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2838FED71EC1E73200A09B92 /* intros_3.png */; };
 		283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 283C8A0E1E97AE1300329DF3 /* Plus.png */; };
 		283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */; };
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
@@ -182,6 +181,10 @@
 		0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyNotifierTableViewCell.m; sourceTree = "<group>"; };
 		0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentTableViewCell.h; sourceTree = "<group>"; };
 		0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentTableViewCell.m; sourceTree = "<group>"; };
+		001929EC1FECB23300727862 /* intro-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro-1.png"; path = "Bulletin_media/intros /intro-1.png"; sourceTree = SOURCE_ROOT; };
+		001929ED1FECB23300727862 /* intro-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro-4.png"; path = "Bulletin_media/intros /intro-4.png"; sourceTree = SOURCE_ROOT; };
+		001929EE1FECB23300727862 /* intro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro-2.png"; path = "Bulletin_media/intros /intro-2.png"; sourceTree = SOURCE_ROOT; };
+		001929EF1FECB23300727862 /* intro-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "intro-3.png"; path = "Bulletin_media/intros /intro-3.png"; sourceTree = SOURCE_ROOT; };
 		00494E471F990157001CACD4 /* DA_Mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DA_Mobile-Bridging-Header.h"; sourceTree = "<group>"; };
 		007755E81F98FF64008670DE /* DailyBulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBulletinData.swift; sourceTree = "<group>"; };
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
@@ -246,17 +249,12 @@
 		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1@2x.png"; sourceTree = "<group>"; };
-		281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg3@2x.png"; sourceTree = "<group>"; };
 		281C32D21E9A82930093ABA0 /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
 		281C32D31E9A82930093ABA0 /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
 		2822A6051E95C86600F52F92 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		2822A6061E95C86600F52F92 /* Hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hearts.png; sourceTree = "<group>"; };
 		282ADC181E97213600701BC2 /* BulletinPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinPost.h; sourceTree = "<group>"; };
 		282ADC191E97213600701BC2 /* BulletinPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinPost.m; sourceTree = "<group>"; };
-		2838FED51EC1E73200A09B92 /* intros_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intros_1.png; sourceTree = "<group>"; };
-		2838FED61EC1E73200A09B92 /* intros_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intros_2.png; sourceTree = "<group>"; };
-		2838FED71EC1E73200A09B92 /* intros_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intros_3.png; sourceTree = "<group>"; };
 		283C8A0E1E97AE1300329DF3 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
 		283C8A101E97EB1500329DF3 /* CollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -470,6 +468,10 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				001929EC1FECB23300727862 /* intro-1.png */,
+				001929EE1FECB23300727862 /* intro-2.png */,
+				001929EF1FECB23300727862 /* intro-3.png */,
+				001929ED1FECB23300727862 /* intro-4.png */,
 				009AAFA11F993228004BB1A9 /* feedback.png */,
 				28FA2A911ED1D9A9009C1A8B /* canvas.png */,
 				28FA2A921ED1D9A9009C1A8B /* credit.png */,
@@ -479,9 +481,6 @@
 				28FA2A961ED1D9A9009C1A8B /* notification.png */,
 				28FA2A971ED1D9A9009C1A8B /* tips.png */,
 				28CF19F71ECD44AF006BFDC0 /* Empty Box.png */,
-				2838FED51EC1E73200A09B92 /* intros_1.png */,
-				2838FED61EC1E73200A09B92 /* intros_2.png */,
-				2838FED71EC1E73200A09B92 /* intros_3.png */,
 				285853DF1EC003FC00A62BFE /* trash.png */,
 				28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */,
 				28AFE0D51E9AC649004A83FB /* Bookmark-icon.png */,
@@ -489,8 +488,6 @@
 				283C8A0E1E97AE1300329DF3 /* Plus.png */,
 				2822A6051E95C86600F52F92 /* Back.png */,
 				2822A6061E95C86600F52F92 /* Hearts.png */,
-				281C32CD1E9A75AA0093ABA0 /* bg1@2x.png */,
-				281C32CE1E9A75AA0093ABA0 /* bg3@2x.png */,
 				28B84EC11E9030C70041BD5D /* icon.png */,
 			);
 			name = Media;
@@ -813,7 +810,7 @@
 		286816561DCAB3D10089BEA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Yongyang Nie";
 				TargetAttributes = {
 					2868165D1DCAB3D10089BEA6 = {
@@ -874,6 +871,7 @@
 				009AAF6B1F9929D5004BB1A9 /* SF-Pro-Display-Black.otf in Resources */,
 				009AAF6C1F9929D5004BB1A9 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				009AAF6D1F9929D5004BB1A9 /* SF-Pro-Display-Bold.otf in Resources */,
+				001929F11FECB23400727862 /* intro-4.png in Resources */,
 				009AAF6E1F9929D5004BB1A9 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				009AAF6F1F9929D5004BB1A9 /* SF-Pro-Display-Heavy.otf in Resources */,
 				009AAF701F9929D5004BB1A9 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
@@ -891,6 +889,7 @@
 				009AAF7C1F9929D5004BB1A9 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				009AAF7D1F9929D5004BB1A9 /* SF-Pro-Text-Bold.otf in Resources */,
 				009AAF7E1F9929D5004BB1A9 /* SF-Pro-Text-BoldItalic.otf in Resources */,
+				001929F21FECB23400727862 /* intro-2.png in Resources */,
 				009AAF7F1F9929D5004BB1A9 /* SF-Pro-Text-Heavy.otf in Resources */,
 				009AAF801F9929D5004BB1A9 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
 				009AAF811F9929D5004BB1A9 /* SF-Pro-Text-Light.otf in Resources */,
@@ -927,20 +926,16 @@
 				28B84EC21E9030C70041BD5D /* icon.png in Resources */,
 				2868166E1DCAB3D20089BEA6 /* Assets.xcassets in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
+				001929F01FECB23400727862 /* intro-1.png in Resources */,
 				2822A6071E95C86600F52F92 /* Back.png in Resources */,
 				28FA2A9A1ED1D9A9009C1A8B /* dainfo.png in Resources */,
 				28E833AA1E94933000614C73 /* placeholder.png in Resources */,
 				28FA2A9B1ED1D9A9009C1A8B /* email.png in Resources */,
 				28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */,
 				28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */,
-				2838FEDA1EC1E73200A09B92 /* intros_3.png in Resources */,
-				2838FED91EC1E73200A09B92 /* intros_2.png in Resources */,
 				280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */,
-				281C32CF1E9A75AA0093ABA0 /* bg1@2x.png in Resources */,
-				281C32D01E9A75AA0093ABA0 /* bg3@2x.png in Resources */,
 				28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */,
 				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
-				2838FED81EC1E73200A09B92 /* intros_1.png in Resources */,
 				00EC48911F9932E10062C65E /* feedback.png in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
@@ -949,6 +944,7 @@
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
 				285853E01EC003FC00A62BFE /* trash.png in Resources */,
 				28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */,
+				001929F31FECB23400727862 /* intro-3.png in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -980,7 +976,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7DFD2FDFCC988466CF80E489 /* [CP] Copy Pods Resources */ = {
@@ -1032,7 +1028,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */ = {
@@ -1258,6 +1254,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1277,7 +1274,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1298,8 +1295,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yongyangnie/Documents/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

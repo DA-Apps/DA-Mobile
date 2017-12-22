@@ -51,7 +51,7 @@
     if ([tableView isEqual:self.menuTable]) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid" forIndexPath:indexPath];
         cell.textLabel.text = [self.foods objectAtIndex:indexPath.row];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"weatherCellid" forIndexPath:indexPath];

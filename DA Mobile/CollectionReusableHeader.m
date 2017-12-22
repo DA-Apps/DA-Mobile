@@ -59,7 +59,7 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -82,7 +82,7 @@
     
     NSString *string;
     if (section == 0)
-        string = @"upcoming meal";
+        string = @"next meal";
     else
         string = @"birthdays";
     

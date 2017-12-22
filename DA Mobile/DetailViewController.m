@@ -63,7 +63,7 @@
             return 220;
             break;
         case 1:
-            return 75;
+            return 90;
             break;
         case 2:
             return self.contentString.length / 50 * 28 + 45;

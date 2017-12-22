@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +17,20 @@
         <array key="SF-Pro-Display-Bold.otf">
             <string>SFProDisplay-Bold</string>
         </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
         <array key="SF-Pro-Display-Semibold.otf">
             <string>SFProDisplay-Semibold</string>
         </array>
         <array key="SF-Pro-Text-Medium.otf">
             <string>SFProText-Medium</string>
         </array>
-        <array key="SFCompactText-Regular.otf">
-            <string>SFCompactText-Regular</string>
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+        <array key="SF-Pro-Text-Semibold.otf">
+            <string>SFProText-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -62,7 +68,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title that has two lines title  that has two lines title that has two lines" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtU-ZK-fnb">
                                                             <rect key="frame" x="8" y="8" width="203" height="216"/>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="22"/>
+                                                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="23"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="570-18-RIj">
@@ -177,7 +183,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="bz6-Y3-Tic"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="22"/>
+                                                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="23"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpY-r0-jRv">
@@ -229,7 +235,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday, April 5" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUZ-vm-KwP">
-                                            <rect key="frame" x="0.0" y="8" width="190" height="72"/>
+                                            <rect key="frame" x="8" y="20" width="190" height="72"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="QK1-0i-fKS"/>
                                                 <constraint firstAttribute="width" constant="190" id="T40-fx-xgi"/>
@@ -246,21 +252,21 @@
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="jCm-EZ-yBB">
-                                            <rect key="frame" x="257" y="16.5" width="55" height="55"/>
+                                            <rect key="frame" x="249" y="28.5" width="55" height="55"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="55" id="VXq-n2-fiC"/>
                                                 <constraint firstAttribute="height" constant="55" id="jLX-fs-Omo"/>
                                             </constraints>
                                         </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-RP-bUd">
-                                            <rect key="frame" x="0.0" y="90" width="375" height="146"/>
+                                            <rect key="frame" x="8" y="102" width="359" height="134"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="gfT-ks-sWM">
-                                                    <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                    <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfT-ks-sWM" id="bUe-g2-4Pu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableViewCellContentView>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -272,12 +278,12 @@
                                             </connections>
                                         </tableView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSU-G2-7EV">
-                                            <rect key="frame" x="320" y="24" width="55" height="40"/>
+                                            <rect key="frame" x="312" y="36" width="55" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="wYC-r0-h9g"/>
                                                 <constraint firstAttribute="height" constant="40" id="xiU-n0-3cl"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="42"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -295,7 +301,7 @@
                                         <constraint firstAttribute="bottom" secondItem="LxC-TO-MDU" secondAttribute="bottom" id="oz6-qv-x6q"/>
                                         <constraint firstItem="w7j-RP-bUd" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leadingMargin" id="qvj-aT-TJD"/>
                                         <constraint firstItem="w7j-RP-bUd" firstAttribute="trailing" secondItem="WXk-rf-6kS" secondAttribute="trailingMargin" id="uBH-gr-upO"/>
-                                        <constraint firstItem="RUZ-vm-KwP" firstAttribute="top" secondItem="WXk-rf-6kS" secondAttribute="topMargin" constant="8" id="w8p-E4-Vwd"/>
+                                        <constraint firstItem="RUZ-vm-KwP" firstAttribute="top" secondItem="WXk-rf-6kS" secondAttribute="topMargin" constant="12" id="w8p-E4-Vwd"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="dateLabel" destination="RUZ-vm-KwP" id="5UF-Qs-AJ2"/>
@@ -328,7 +334,7 @@
                             <constraint firstAttribute="trailing" secondItem="kiM-9i-DV7" secondAttribute="trailing" id="d05-bj-W9f"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bulletin" image="news" selectedImage="news" id="ndK-fm-3vN"/>
+                    <tabBarItem key="tabBarItem" title="Bulletin" image="News" selectedImage="News" id="ndK-fm-3vN"/>
                     <navigationItem key="navigationItem" prompt=" " id="bWH-1z-QsM">
                         <barButtonItem key="rightBarButtonItem" id="KJi-Je-itN">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fhc-eG-W1S">
@@ -409,8 +415,8 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a big long title, a very long one indeed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaB-3q-d9S">
-                                                    <rect key="frame" x="8" y="8" width="359" height="58.5"/>
-                                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="53"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -440,7 +446,7 @@
                                                     <rect key="frame" x="8" y="8" width="359" height="184"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" name="SFCompactText-Regular" family="SF Compact Text" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -540,7 +546,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xPX-91-dbl">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -588,7 +594,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-Bz-zYv">
-                                            <rect key="frame" x="20" y="7.5" width="335" height="29"/>
+                                            <rect key="frame" x="28" y="7.5" width="319" height="29"/>
                                             <segments>
                                                 <segment title="Upcoming"/>
                                                 <segment title="Tomorrow"/>
@@ -638,7 +644,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="op0-0D-xOH"/>
                         <segue destination="yNh-an-UBc" kind="relationship" relationship="viewControllers" id="ruF-Zf-MNU"/>
                         <segue destination="NF5-dh-piv" kind="relationship" relationship="viewControllers" id="L4B-zh-yl6"/>
-                        <segue destination="QF2-Pl-sl2" kind="relationship" relationship="viewControllers" id="NK8-l9-vnZ"/>
+                        <segue destination="JVv-mE-6gh" kind="relationship" relationship="viewControllers" id="cdc-wc-5e7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1c5-7c-urM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -904,36 +910,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inD-Kp-HSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="2356"/>
-        </scene>
-        <!--Preference-->
-        <scene sceneID="OJJ-w6-dqy">
-            <objects>
-                <navigationController storyboardIdentifier="idPreference" automaticallyAdjustsScrollViewInsets="NO" id="QF2-Pl-sl2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Preference" image="settings-1" selectedImage="settings-1" id="fex-LC-QEx"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="QAR-pT-zeR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DjN-GI-MDI" kind="relationship" relationship="rootViewController" id="PDH-iq-x8C"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AvL-H8-wzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1198" y="2358"/>
+            <point key="canvasLocation" x="2710" y="2338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pl5-Ww-zRu">
@@ -981,7 +958,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X99-XF-wrE">
-                                            <rect key="frame" x="310" y="10" width="51" height="31"/>
+                                            <rect key="frame" x="302" y="10" width="51" height="31"/>
                                             <connections>
                                                 <action selector="switchClicked:" destination="ngj-ay-6Zw" eventType="touchUpInside" id="ZO5-rI-cEl"/>
                                             </connections>
@@ -1026,7 +1003,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlQ-J1-NDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959" y="2357"/>
+            <point key="canvasLocation" x="1958" y="2339"/>
         </scene>
         <!--Tips-->
         <scene sceneID="ibZ-UV-H9H">
@@ -1107,7 +1084,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a big long title, a very long one indeed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXq-Cc-clS">
-                                                    <rect key="frame" x="8" y="8" width="359" height="58.5"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="53"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1214,17 +1191,44 @@
             </objects>
             <point key="canvasLocation" x="2710" y="1606"/>
         </scene>
+        <!--Preference-->
+        <scene sceneID="Blu-tx-JFc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVv-mE-6gh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Preference" image="settings-1" selectedImage="settings-1" id="bxb-t8-lm4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="jUp-aK-oXo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DjN-GI-MDI" kind="relationship" relationship="rootViewController" id="Ye6-QJ-PFM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEe-0R-rGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1198" y="2339"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bookmark-icon.png" width="100" height="100"/>
         <image name="Empty Box.png" width="96" height="96"/>
+        <image name="News" width="30" height="30"/>
         <image name="back" width="15" height="27"/>
         <image name="bookmark_filled" width="30" height="30"/>
         <image name="cloudy" width="96" height="96"/>
         <image name="food" width="27" height="27"/>
         <image name="icon" width="1024" height="1024"/>
         <image name="icons8-food" width="96" height="96"/>
-        <image name="news" width="30" height="30"/>
         <image name="settings-1" width="30" height="30"/>
     </resources>
 </document>

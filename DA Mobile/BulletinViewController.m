@@ -33,7 +33,7 @@ int colorIndex = 0;
 }
 
 #pragma mark - CollectionHeaderDelegate
-
+/*
 -(void)expandBirthday{
     
     if (self.headerContent.lastObject.count == 0) {
@@ -46,6 +46,7 @@ int colorIndex = 0;
     
     [self.postsView performBatchUpdates:nil completion:nil];
 }
+ */
 
 -(void)expandMenu{
     
@@ -142,11 +143,11 @@ int colorIndex = 0;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
-        return CGSizeMake(self.postsView.frame.size.width, 190);
+        return CGSizeMake(self.postsView.frame.size.width, 160);
     else if (section != 0)
-        return CGSizeMake(self.postsView.frame.size.width, 110);
+        return CGSizeMake(self.postsView.frame.size.width, 115);
     else
-        return CGSizeMake(self.postsView.frame.size.width, 300);
+        return CGSizeMake(self.postsView.frame.size.width, 240);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -222,7 +223,7 @@ int colorIndex = 0;
             NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
             
             //construct the dic
-            if (title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
+            if (![imgSrc isEqual:@"(null)"] && title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
                 NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                       @"title": title,
                                       @"summery": summery ? summery : @"No Summery",
@@ -288,7 +289,7 @@ int colorIndex = 0;
     
     self.weathers = [self queryWeatherAPI];
     self.weather = [self.weathers lastObject];
-    int i = arc4random()%4;
+    int i = arc4random()%3;
     if (self.weathers) {
         self.weatherInfo = [self.weather objectForKey:@"temp"];
         self.weatherIcon = [self setWeatherImage:[self.weather objectForKey:@"text"]];

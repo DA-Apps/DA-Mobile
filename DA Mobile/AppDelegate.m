@@ -115,18 +115,18 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"Convenience at your figure tips";
     page1.titleFont = [UIFont systemFontOfSize:35];
-    page1.titlePositionY = 350;
+    page1.titlePositionY = 300;
     page1.desc = @"";
-    page1.bgImage = [UIImage imageNamed:@"bg1@2x"];
+    page1.bgImage = [UIImage imageNamed:@"intro-1"];
     // custom
     EAIntroPage *page2 = [EAIntroPage page];
-    page2.bgImage = [UIImage imageNamed:@"intros_3"];
+    page2.bgImage = [UIImage imageNamed:@"intro-2"];
     
     EAIntroPage *page3 = [EAIntroPage page];
-    page3.bgImage = [UIImage imageNamed:@"intros_2"];
+    page3.bgImage = [UIImage imageNamed:@"intro-3"];
     
     EAIntroPage *page4 = [EAIntroPage page];
-    page4.bgImage = [UIImage imageNamed:@"intros_1"];
+    page4.bgImage = [UIImage imageNamed:@"intro-4"];
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.window.rootViewController.view.bounds andPages:@[page1,page2,page3, page4]];
     [intro setDelegate:self];
