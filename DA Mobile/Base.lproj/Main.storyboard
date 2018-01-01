@@ -228,6 +228,45 @@
                                             <outlet property="title" destination="mCz-1N-gAu" id="7Kz-Lj-A6U"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellNoPost" id="5I4-t0-pzc" customClass="UICollectionViewCellPosts">
+                                        <rect key="frame" x="1.5" y="714" width="372" height="184"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="372" height="184"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIi-tg-GiP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="184"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content 😢" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9e-Gv-d1q">
+                                                            <rect key="frame" x="8" y="8" width="356" height="168"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="M9e-Gv-d1q" secondAttribute="bottom" constant="8" id="5pe-1h-13k"/>
+                                                        <constraint firstAttribute="trailing" secondItem="M9e-Gv-d1q" secondAttribute="trailing" constant="8" id="8Ng-vP-AEt"/>
+                                                        <constraint firstItem="M9e-Gv-d1q" firstAttribute="leading" secondItem="gIi-tg-GiP" secondAttribute="leading" constant="8" id="QLf-76-AGM"/>
+                                                        <constraint firstItem="M9e-Gv-d1q" firstAttribute="top" secondItem="gIi-tg-GiP" secondAttribute="top" constant="8" id="nzX-sK-Diu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="gIi-tg-GiP" firstAttribute="leading" secondItem="5I4-t0-pzc" secondAttribute="leading" id="KNZ-67-2U7"/>
+                                            <constraint firstItem="gIi-tg-GiP" firstAttribute="top" secondItem="5I4-t0-pzc" secondAttribute="top" id="olo-Sp-gob"/>
+                                            <constraint firstAttribute="trailing" secondItem="gIi-tg-GiP" secondAttribute="trailing" id="qU1-O3-whx"/>
+                                            <constraint firstAttribute="bottom" secondItem="gIi-tg-GiP" secondAttribute="bottom" id="vAJ-55-RAN"/>
+                                        </constraints>
+                                        <size key="customSize" width="372" height="184"/>
+                                        <connections>
+                                            <outlet property="mainView" destination="gIi-tg-GiP" id="Uh3-nk-h4d"/>
+                                            <outlet property="title" destination="M9e-Gv-d1q" id="qdX-b7-4sO"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="WXk-rf-6kS" customClass="CollectionReusableHeader">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
@@ -352,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="105"/>
+            <point key="canvasLocation" x="1240.8" y="104.7976011994003"/>
         </scene>
         <!--Daily News-->
         <scene sceneID="FEt-UV-KON">

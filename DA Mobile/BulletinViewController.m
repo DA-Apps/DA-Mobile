@@ -89,24 +89,28 @@ int colorIndex = 0;
     if (indexPath.row == 0)
         cellIndex = 0;
     
-    switch (cellIndex) {
-        case 0:
-            cellIndex = 1;
-            return CGSizeMake(self.view.frame.size.width, 260);
-            break;
-        case 1:
-            cellIndex = 2;
-            return CGSizeMake(self.view.frame.size.width, 160);
-            break;
-        case 2:
-            cellIndex = 0;
-            return CGSizeMake(self.view.frame.size.width, 160);
-            break;
-            
-        default:
-            break;
+    if ([[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] count] == 0) //check if no post in one day
+        return CGSizeMake(self.view.frame.size.width, 100);
+    else{
+        switch (cellIndex) {
+            case 0:
+                cellIndex = 1;
+                return CGSizeMake(self.view.frame.size.width, 260);
+                break;
+            case 1:
+                cellIndex = 2;
+                return CGSizeMake(self.view.frame.size.width, 160);
+                break;
+            case 2:
+                cellIndex = 0;
+                return CGSizeMake(self.view.frame.size.width, 160);
+                break;
+                
+            default:
+                return CGSizeMake(self.view.frame.size.width, 100);
+                break;
+        }
     }
-    return CGSizeMake(self.view.frame.size.width, 200);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -116,25 +120,39 @@ int colorIndex = 0;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
+    NSDictionary *section = [self.posts objectAtIndex:indexPath.section]; // one day
     
-    if(cell.frame.size.height == 160){
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
-    }else
-        cell.backgroundColor = [UIColor clearColor];
     
-    NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
-    cell.title.text = [dic objectForKey:@"title"];
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-    cell.image.layer.cornerRadius = 5;
-    cell.image.layer.masksToBounds = YES;
-    cell.delegate = self;
-    cell.canSwipe = YES;
-    return cell;
+    if ([[section objectForKey:@"posts"] count] == 0) { //check if no post in one day
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellNoPost" forIndexPath:indexPath];
+        return cell;
+    }else{
+        
+        NSDictionary *dic = [[section objectForKey:@"posts"] objectAtIndex:indexPath.row]; //posts in one day
+        if(cell.frame.size.height == 160){
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
+            cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
+        }else
+            cell.backgroundColor = [UIColor clearColor];
+        
+        cell.title.text = [dic objectForKey:@"title"];
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        cell.image.layer.cornerRadius = 5;
+        cell.image.layer.masksToBounds = YES;
+        cell.delegate = self;
+        cell.canSwipe = YES;
+        return cell;
+    }
+    
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [(NSMutableArray *)[self.posts[section] objectForKey:@"posts"] count];
+    
+    NSUInteger count = [(NSMutableArray *)[self.posts[section] objectForKey:@"posts"] count];
+    if (count == 0)
+        return 1;
+    else
+        return count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -198,45 +216,51 @@ int colorIndex = 0;
         
         NSMutableArray *dailyPosts = [NSMutableArray array];
         
-        TFHppleElement *hppleElement = allPosts[i];
-        
-        NSArray *posts = [hppleElement searchWithXPathQuery:@"//ul[@class='posts-list daily-posts']/li"];
-        
-        //parse out all the birthdays--------------------------------------
-        NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
-        NSMutableArray *birthdays = [self parseBirthdays:birthdayData];
-        
-        //parse out all the posts------------------------------------------
-        for (TFHppleElement *element in posts) {
-            //get image src
-            NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
-            NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
+        if (allPosts.count >= 5) {
+            TFHppleElement *hppleElement = allPosts[i];
             
-            NSString *link = [[[[element firstChildWithTagName:@"div"] firstChildWithTagName:@"a"] attributes] objectForKey:@"href"];
+            NSArray *posts = [hppleElement searchWithXPathQuery:@"//ul[@class='posts-list daily-posts']/li"];
             
-            //search for title of post
-            NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
-            NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
+            //parse out all the birthdays--------------------------------------
+            NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
+            NSMutableArray *birthdays = [self parseBirthdays:birthdayData];
             
-            //search for summery of post
-            NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
-            NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
-            
-            //construct the dic
-            if (![imgSrc isEqual:@"(null)"] && title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
-                NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
-                                      @"title": title,
-                                      @"summery": summery ? summery : @"No Summery",
-                                      @"image": imgSrc ? imgSrc : @"placeholder.png",
-                                      @"link": link};
+            //parse out all the posts------------------------------------------
+            for (TFHppleElement *element in posts) {
+                //get image src
+                NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
+                NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
                 
-                [dailyPosts addObject:dic];
+                NSString *link = [[[[element firstChildWithTagName:@"div"] firstChildWithTagName:@"a"] attributes] objectForKey:@"href"];
+                
+                //search for title of post
+                NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
+                NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
+                
+                //search for summery of post
+                NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
+                NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
+                
+                //construct the dic
+                if (![imgSrc isEqual:@"(null)"] && title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
+                    NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
+                                          @"title": title,
+                                          @"summery": summery ? summery : @"No Summery",
+                                          @"image": imgSrc ? imgSrc : @"placeholder.png",
+                                          @"link": link};
+                    
+                    [dailyPosts addObject:dic];
+                }
             }
+            NSDictionary *oneDay = @{@"posts": dailyPosts,
+                                     @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
+                                     @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
+            [self.posts addObject:oneDay];
+        }else{
+            NSDictionary *oneDay = @{@"posts": [NSArray array],
+                                     @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]]};
+            [self.posts addObject:oneDay];
         }
-        NSDictionary *oneDay = @{@"posts": dailyPosts,
-                                 @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
-                                 @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
-        [self.posts addObject:oneDay];
     }
     
 }

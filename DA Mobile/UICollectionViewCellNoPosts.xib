@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellPost" id="w4J-SA-hTF" customClass="UICollectionViewCellPosts">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="372" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArZ-MW-DfW">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content 😢" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtj-t9-hc7">
+                                <rect key="frame" x="8" y="8" width="356" height="84"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mtj-t9-hc7" firstAttribute="top" secondItem="ArZ-MW-DfW" secondAttribute="top" constant="8" id="MN3-aK-sA7"/>
+                            <constraint firstAttribute="trailing" secondItem="Mtj-t9-hc7" secondAttribute="trailing" constant="8" id="MY8-3p-GWv"/>
+                            <constraint firstItem="Mtj-t9-hc7" firstAttribute="leading" secondItem="ArZ-MW-DfW" secondAttribute="leading" constant="8" id="Pi1-lt-Mio"/>
+                            <constraint firstAttribute="bottom" secondItem="Mtj-t9-hc7" secondAttribute="bottom" constant="8" id="c8w-RB-cdI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ArZ-MW-DfW" secondAttribute="bottom" id="cji-WA-MCH"/>
+                <constraint firstItem="ArZ-MW-DfW" firstAttribute="top" secondItem="w4J-SA-hTF" secondAttribute="top" id="czm-de-6kd"/>
+                <constraint firstItem="ArZ-MW-DfW" firstAttribute="leading" secondItem="w4J-SA-hTF" secondAttribute="leading" id="sxP-OP-9Wv"/>
+                <constraint firstAttribute="trailing" secondItem="ArZ-MW-DfW" secondAttribute="trailing" id="xxK-Nd-qVC"/>
+            </constraints>
+            <connections>
+                <outlet property="mainView" destination="ArZ-MW-DfW" id="Mjw-Cz-dnV"/>
+                <outlet property="title" destination="Mtj-t9-hc7" id="apc-Lh-o7u"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
