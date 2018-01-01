@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 
 @interface EmptyNotifierTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *mainTitle;
 @property (weak, nonatomic) IBOutlet UILabel *secondTitle;
-
+@property (weak, nonatomic) IBOutlet DGActivityIndicatorView *indicator;
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DGActivityIndicatorView.h"
 #import "SegmentTableViewCell.h"
+#import "EmptyNotifierTableViewCell.h"
+#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 
 @interface MenuViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SegmentTableViewCellDelegate>
 

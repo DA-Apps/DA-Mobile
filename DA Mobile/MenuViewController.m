@@ -11,6 +11,8 @@
 
 @interface MenuViewController ()
 
+@property BOOL isLoading;
+
 @end
 
 @implementation MenuViewController
@@ -26,7 +28,7 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
     } else {
         // Fallback on earlier versions
     }
-    
+    self.isLoading = YES;
     UINib *sectionHeaderNib = [UINib nibWithNibName:@"MenuTableViewHeader" bundle:nil];
     [self.tableView registerNib:sectionHeaderNib forHeaderFooterViewReuseIdentifier:SectionHeaderViewIdentifier];
     
@@ -37,6 +39,7 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self parseMenu:hpple];
+                self.isLoading = NO;
                 [self.tableView reloadData];
             });
         }
@@ -67,6 +70,9 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
 #pragma mark - UITableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.todayMeals.count == 0) {
+        return self.view.frame.size.height - 250;
+    }
     return 48;
 }
 
@@ -107,6 +113,44 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (self.isLoading) {
+        EmptyNotifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyNotifier" forIndexPath:indexPath];
+        cell.icon.hidden = YES;
+        cell.mainTitle.text = @"Loading...";
+        cell.secondTitle.hidden = YES;
+        int type = arc4random_uniform(4);
+        switch (type) {
+            case 0:
+                cell.indicator.type = DGActivityIndicatorAnimationTypeBallPulseSync;
+                break;
+            case 1:
+                cell.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
+                break;
+            case 2:
+                cell.indicator.type = DGActivityIndicatorAnimationTypeRotatingSandglass;
+                break;
+            case 3:
+                cell.indicator.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
+                break;
+            default:
+                break;
+        }
+        cell.indicator.tintColor = [UIColor darkGrayColor];
+        [cell.indicator startAnimating];
+        return cell;
+    }
+    if (self.todayMeals.count == 0 && self.isLoading == NO) {
+        EmptyNotifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyNotifier" forIndexPath:indexPath];
+        cell.indicator.hidden = YES;
+        [cell.indicator stopAnimating];
+        cell.mainTitle.hidden = NO;
+        cell.secondTitle.hidden = NO;
+        cell.icon.hidden = NO;
+        cell.icon.image = [UIImage imageNamed:@"icons8-food"];
+        cell.mainTitle.text = @"No menu available";
+        cell.secondTitle.text = @"Please check again later";
+        return cell;
+    }
     if (indexPath.row == 0 && indexPath.section == 0) {
         SegmentTableViewCell *cell = (SegmentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"segmentCell" forIndexPath:indexPath];
         cell.delegate = self;
