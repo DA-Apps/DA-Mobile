@@ -54,10 +54,10 @@ int colorIndex = 0;
     
     if (self.headerContent.firstObject.count == 0) {
         [self.headerContent replaceObjectAtIndex:0 withObject:self.upcomingMeals];
-        heightAnimation = 120;
+        heightAnimation = 150;
     }else{
         [self.headerContent replaceObjectAtIndex:0 withObject:[NSMutableArray array]];
-        heightAnimation = -120;
+        heightAnimation = -150;
     }
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [header.table reloadData];
@@ -95,7 +95,7 @@ int colorIndex = 0;
         switch (cellIndex) {
             case 0:
                 cellIndex = 1;
-                return CGSizeMake(self.view.frame.size.width, 260);
+                return CGSizeMake(self.view.frame.size.width, 270);
                 break;
             case 1:
                 cellIndex = 2;
@@ -122,7 +122,6 @@ int colorIndex = 0;
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     NSDictionary *section = [self.posts objectAtIndex:indexPath.section]; // one day
     
-    
     if ([[section objectForKey:@"posts"] count] == 0) { //check if no post in one day
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellNoPost" forIndexPath:indexPath];
         return cell;
@@ -136,14 +135,17 @@ int colorIndex = 0;
             cell.backgroundColor = [UIColor clearColor];
         
         cell.title.text = [dic objectForKey:@"title"];
-        [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
+            cell.image.image  = [UIImage imageNamed:[dic objectForKey:@"placeholder"]];
+        else
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
         cell.image.layer.cornerRadius = 5;
         cell.image.layer.masksToBounds = YES;
         cell.delegate = self;
         cell.canSwipe = YES;
+        
         return cell;
     }
-    
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -160,16 +162,18 @@ int colorIndex = 0;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
         return CGSizeMake(self.postsView.frame.size.width, 160);
     else if (section != 0)
         return CGSizeMake(self.postsView.frame.size.width, 115);
     else
-        return CGSizeMake(self.postsView.frame.size.width, 240);
+        return CGSizeMake(self.postsView.frame.size.width, 260);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
+    
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     headerView.dateLabel.text = [self dateDescription:[[self.posts objectAtIndex:indexPath.section] objectForKey:@"date"]];
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
@@ -210,13 +214,13 @@ int colorIndex = 0;
     
     self.posts = [NSMutableArray array];
     NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
-    
+    int max = (allPosts.count < 5) ? (int)allPosts.count : 5;
     //loop for five days--------------------------------------------------
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < max; i++) {
         
         NSMutableArray *dailyPosts = [NSMutableArray array];
         
-        if (allPosts.count >= 5) {
+        if (allPosts.count > 0) {
             TFHppleElement *hppleElement = allPosts[i];
             
             NSArray *posts = [hppleElement searchWithXPathQuery:@"//ul[@class='posts-list daily-posts']/li"];
@@ -246,7 +250,7 @@ int colorIndex = 0;
                     NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
                                           @"title": title,
                                           @"summery": summery ? summery : @"No Summery",
-                                          @"image": imgSrc ? imgSrc : @"placeholder.png",
+                                          @"placeholder": [self getPostImage:imgSrc],
                                           @"link": link};
                     
                     [dailyPosts addObject:dic];
@@ -256,6 +260,7 @@ int colorIndex = 0;
                                      @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
                                      @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
             [self.posts addObject:oneDay];
+            
         }else{
             NSDictionary *oneDay = @{@"posts": [NSArray array],
                                      @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]]};
@@ -263,6 +268,16 @@ int colorIndex = 0;
         }
     }
     
+}
+
+-(NSString *)getPostImage:(NSString *)imageLink{
+    
+    if (imageLink)
+        return imageLink;
+    else{
+        int i = arc4random_uniform(6);
+        return [NSString stringWithFormat:@"ph_%i.jpg", i];
+    }
 }
 
 -(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
@@ -324,8 +339,7 @@ int colorIndex = 0;
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Reload" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self getForcast];
         }];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
         [alert addAction:cancel];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -399,17 +413,21 @@ int colorIndex = 0;
     NSString *mealType;
     
     if([day isEqualToString: @"Sun"]) {
-        if (hour < 12) mealType = @"BRUNCH";
-        else mealType = @"DINNER";
+        if (hour < 12)
+            mealType = @"BRUNCH";
+        else
+            mealType = @"DINNER";
     } else {
         if (hour < 9)
             mealType = @"BREAKFAST";
-        else if (hour < 13) mealType = @"LUNCH";
-        else mealType = @"DINNER";
+        else if (hour < 13)
+            mealType = @"LUNCH";
+        else
+            mealType = @"DINNER";
     }
-    if (hour > 18) {
+    if (hour >= 18) {
         mealType = @"BREAKFAST";
-        currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
+        currentTime = [NSDate dateWithTimeInterval:72000 sinceDate:currentTime];
         [formatter setDateFormat:@"yyyy-MM-dd-"];
         key = [formatter stringFromDate: currentTime];
     }

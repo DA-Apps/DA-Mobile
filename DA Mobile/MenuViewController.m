@@ -237,15 +237,19 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
     NSString *mealType;
     
     if([day isEqualToString: @"Sun"]) {
-        if (hour < 12) mealType = @"BRUNCH";
-        else mealType = @"DINNER";
+        if (hour < 12)
+            mealType = @"BRUNCH";
+        else
+            mealType = @"DINNER";
     } else {
         if (hour < 9)
             mealType = @"BREAKFAST";
-        else if (hour < 13) mealType = @"LUNCH";
-        else mealType = @"DINNER";
+        else if (hour < 13)
+            mealType = @"LUNCH";
+        else
+            mealType = @"DINNER";
     }
-    if (hour > 18) {
+    if (hour >= 18) {
         mealType = @"BREAKFAST";
         currentTime = [NSDate dateWithTimeInterval:86400 sinceDate:currentTime];
         [formatter setDateFormat:@"yyyy-MM-dd-"];
