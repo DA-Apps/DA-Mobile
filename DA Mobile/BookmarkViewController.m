@@ -47,17 +47,29 @@
         cell.icon.image = [UIImage imageNamed:@"Empty Box.png"];
         cell.mainTitle.text = @"No Saved Content";
         cell.secondTitle.text = @"You can bookmark posts in the bulletin tab";
+        cell.userInteractionEnabled = NO;
         return cell;
     }else{
         ContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
         BulletinPost *post = [self.savedPosts objectAtIndex:indexPath.row];
         cell.title.text = post.title;
-        [cell.image sd_setImageWithURL:[NSURL URLWithString:post.image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:[self getPostImage:post.image]] placeholderImage:[UIImage imageNamed:@"ph_1.jpg"]];
         cell.image.layer.cornerRadius = 5;
         cell.image.layer.masksToBounds = YES;
         return cell;
     }
 }
+
+-(NSString *)getPostImage:(NSString *)imageLink{
+    
+    if (imageLink)
+        return imageLink;
+    else{
+        int i = arc4random_uniform(6);
+        return [NSString stringWithFormat:@"ph_%i.jpg", i];
+    }
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.savedPosts.count == 0) {

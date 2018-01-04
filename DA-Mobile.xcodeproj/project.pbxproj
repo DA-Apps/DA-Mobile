@@ -9,17 +9,19 @@
 /* Begin PBXBuildFile section */
 		0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */; };
 		0000CEC61F996F5300146E37 /* SegmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */; };
+		001AE4BD1FFDC50700C7A721 /* ph_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4BA1FFDC4F000C7A721 /* ph_0.jpg */; };
+		001AE4BE1FFDC50900C7A721 /* ph_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4BC1FFDC4F100C7A721 /* ph_1.jpg */; };
+		001AE4BF1FFDC50B00C7A721 /* ph_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4B91FFDC4EF00C7A721 /* ph_2.jpg */; };
+		001AE4C01FFDC50D00C7A721 /* ph_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4B61FFDC4ED00C7A721 /* ph_3.jpg */; };
+		001AE4C11FFDC50F00C7A721 /* ph_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4B71FFDC4ED00C7A721 /* ph_4.jpg */; };
+		001AE4C21FFDC51100C7A721 /* ph_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4BB1FFDC4F000C7A721 /* ph_5.jpg */; };
+		001AE4C31FFDC51300C7A721 /* ph_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 001AE4B81FFDC4EE00C7A721 /* ph_6.jpg */; };
 		004EFB571FFADB93008D6D04 /* UICollectionViewCellNoPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 004EFB561FFADB93008D6D04 /* UICollectionViewCellNoPosts.xib */; };
-		005A73F51FFD9A69009C2324 /* ph_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73EF1FFD9A68009C2324 /* ph_1.jpg */; };
-		005A73F61FFD9A69009C2324 /* ph_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73F01FFD9A68009C2324 /* ph_2.jpg */; };
-		005A73F71FFD9A69009C2324 /* ph_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73F11FFD9A68009C2324 /* ph_5.jpg */; };
-		005A73F81FFD9A69009C2324 /* ph_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73F21FFD9A69009C2324 /* ph_3.jpg */; };
-		005A73F91FFD9A69009C2324 /* ph_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73F31FFD9A69009C2324 /* ph_4.jpg */; };
-		005A73FA1FFD9A69009C2324 /* ph_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 005A73F41FFD9A69009C2324 /* ph_6.jpg */; };
 		007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E81F98FF64008670DE /* DailyBulletinData.swift */; };
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
 		007755EF1F98FF69008670DE /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EB1F98FF69008670DE /* Announcement.swift */; };
+		009037CD1FFDB35500781463 /* placeholders in Resources */ = {isa = PBXBuildFile; fileRef = 009037CC1FFDB35400781463 /* placeholders */; };
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
 		00DEF7271FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
@@ -188,7 +190,6 @@
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
 		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
 		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
-		28E833AA1E94933000614C73 /* ph_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A91E94933000614C73 /* ph_0.jpg */; };
 		28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A911ED1D9A9009C1A8B /* canvas.png */; };
 		28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A921ED1D9A9009C1A8B /* credit.png */; };
 		28FA2A9A1ED1D9A9009C1A8B /* dainfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A931ED1D9A9009C1A8B /* dainfo.png */; };
@@ -239,18 +240,20 @@
 		0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyNotifierTableViewCell.m; sourceTree = "<group>"; };
 		0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentTableViewCell.h; sourceTree = "<group>"; };
 		0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentTableViewCell.m; sourceTree = "<group>"; };
+		001AE4B61FFDC4ED00C7A721 /* ph_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_3.jpg; sourceTree = "<group>"; };
+		001AE4B71FFDC4ED00C7A721 /* ph_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_4.jpg; sourceTree = "<group>"; };
+		001AE4B81FFDC4EE00C7A721 /* ph_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_6.jpg; sourceTree = "<group>"; };
+		001AE4B91FFDC4EF00C7A721 /* ph_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_2.jpg; sourceTree = "<group>"; };
+		001AE4BA1FFDC4F000C7A721 /* ph_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_0.jpg; sourceTree = "<group>"; };
+		001AE4BB1FFDC4F000C7A721 /* ph_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_5.jpg; sourceTree = "<group>"; };
+		001AE4BC1FFDC4F100C7A721 /* ph_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_1.jpg; sourceTree = "<group>"; };
 		00494E471F990157001CACD4 /* DA_Mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DA_Mobile-Bridging-Header.h"; sourceTree = "<group>"; };
 		004EFB561FFADB93008D6D04 /* UICollectionViewCellNoPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellNoPosts.xib; sourceTree = "<group>"; };
-		005A73EF1FFD9A68009C2324 /* ph_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_1.jpg; sourceTree = "<group>"; };
-		005A73F01FFD9A68009C2324 /* ph_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_2.jpg; sourceTree = "<group>"; };
-		005A73F11FFD9A68009C2324 /* ph_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_5.jpg; sourceTree = "<group>"; };
-		005A73F21FFD9A69009C2324 /* ph_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_3.jpg; sourceTree = "<group>"; };
-		005A73F31FFD9A69009C2324 /* ph_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_4.jpg; sourceTree = "<group>"; };
-		005A73F41FFD9A69009C2324 /* ph_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_6.jpg; sourceTree = "<group>"; };
 		007755E81F98FF64008670DE /* DailyBulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBulletinData.swift; sourceTree = "<group>"; };
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
 		007755EA1F98FF68008670DE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		007755EB1F98FF69008670DE /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		009037CC1FFDB35400781463 /* placeholders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = placeholders; sourceTree = "<group>"; };
 		009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
 		009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
 		009AAFA11F993228004BB1A9 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
@@ -428,7 +431,6 @@
 		28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
 		28E833A61E947FF500614C73 /* CollectionReusableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableHeader.h; sourceTree = "<group>"; };
 		28E833A71E947FF500614C73 /* CollectionReusableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableHeader.m; sourceTree = "<group>"; };
-		28E833A91E94933000614C73 /* ph_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ph_0.jpg; sourceTree = "<group>"; };
 		28FA2A911ED1D9A9009C1A8B /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
 		28FA2A921ED1D9A9009C1A8B /* credit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credit.png; sourceTree = "<group>"; };
 		28FA2A931ED1D9A9009C1A8B /* dainfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dainfo.png; sourceTree = "<group>"; };
@@ -472,21 +474,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		005A73FB1FFD9A7E009C2324 /* place_holder */ = {
-			isa = PBXGroup;
-			children = (
-				28E833A91E94933000614C73 /* ph_0.jpg */,
-				005A73EF1FFD9A68009C2324 /* ph_1.jpg */,
-				005A73F01FFD9A68009C2324 /* ph_2.jpg */,
-				005A73F21FFD9A69009C2324 /* ph_3.jpg */,
-				005A73F31FFD9A69009C2324 /* ph_4.jpg */,
-				005A73F11FFD9A68009C2324 /* ph_5.jpg */,
-				005A73F41FFD9A69009C2324 /* ph_6.jpg */,
-			);
-			name = place_holder;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		005A73FC1FFD9A8D009C2324 /* intros */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,7 +546,14 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				005A73FB1FFD9A7E009C2324 /* place_holder */,
+				001AE4BA1FFDC4F000C7A721 /* ph_0.jpg */,
+				001AE4BC1FFDC4F100C7A721 /* ph_1.jpg */,
+				001AE4B91FFDC4EF00C7A721 /* ph_2.jpg */,
+				001AE4B61FFDC4ED00C7A721 /* ph_3.jpg */,
+				001AE4B71FFDC4ED00C7A721 /* ph_4.jpg */,
+				001AE4BB1FFDC4F000C7A721 /* ph_5.jpg */,
+				001AE4B81FFDC4EE00C7A721 /* ph_6.jpg */,
+				009037CC1FFDB35400781463 /* placeholders */,
 				005A73FC1FFD9A8D009C2324 /* intros */,
 				009AAFA11F993228004BB1A9 /* feedback.png */,
 				28FA2A911ED1D9A9009C1A8B /* canvas.png */,
@@ -958,6 +952,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DEF7741FF5D01600126F96 /* SF-Pro-Text-BoldItalic.otf in Resources */,
+				009037CD1FFDB35500781463 /* placeholders in Resources */,
 				00DEF7661FF5D01600126F96 /* SF-Pro-Display-LightItalic.otf in Resources */,
 				00DEF77E1FF5D01600126F96 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				00DEF72C1FF5D01600126F96 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
@@ -980,16 +975,14 @@
 				00DEF7441FF5D01600126F96 /* SFCompactText-BoldItalic.otf in Resources */,
 				00DEF7481FF5D01600126F96 /* SF-Pro-Text-Light.otf in Resources */,
 				2822A6071E95C86600F52F92 /* Back.png in Resources */,
+				001AE4BF1FFDC50B00C7A721 /* ph_2.jpg in Resources */,
 				00DEF76E1FF5D01600126F96 /* SF-Pro-Display-Black.otf in Resources */,
 				00DEF7421FF5D01600126F96 /* SFCompactText-Regular.otf in Resources */,
 				00DEF78A1FF5D01600126F96 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */,
 				28FA2A9A1ED1D9A9009C1A8B /* dainfo.png in Resources */,
-				28E833AA1E94933000614C73 /* ph_0.jpg in Resources */,
 				00DEF7321FF5D01600126F96 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				28FA2A9B1ED1D9A9009C1A8B /* email.png in Resources */,
-				005A73F81FFD9A69009C2324 /* ph_3.jpg in Resources */,
-				005A73FA1FFD9A69009C2324 /* ph_6.jpg in Resources */,
 				28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */,
 				28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */,
 				00DEF75A1FF5D01600126F96 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
@@ -997,7 +990,9 @@
 				00DEF7931FF5D15100126F96 /* intro-2.png in Resources */,
 				00DEF7841FF5D01600126F96 /* SF-Pro-Text-Medium.otf in Resources */,
 				00DEF7541FF5D01600126F96 /* SF-Pro-Text-Bold.otf in Resources */,
+				001AE4C01FFDC50D00C7A721 /* ph_3.jpg in Resources */,
 				280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */,
+				001AE4C21FFDC51100C7A721 /* ph_5.jpg in Resources */,
 				00DEF7401FF5D01600126F96 /* SFCompactDisplay-Light.otf in Resources */,
 				28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */,
 				00DEF7701FF5D01600126F96 /* SFCompactDisplay-Ultralight.otf in Resources */,
@@ -1005,6 +1000,7 @@
 				00DEF7761FF5D01600126F96 /* SF-Pro-Text-RegularItalic.otf in Resources */,
 				00DEF75C1FF5D01600126F96 /* SFCompactText-Semibold.otf in Resources */,
 				00DEF7861FF5D01600126F96 /* SFCompactDisplay-Thin.otf in Resources */,
+				001AE4BD1FFDC50700C7A721 /* ph_0.jpg in Resources */,
 				00DEF75E1FF5D01600126F96 /* SFCompactText-RegularItalic.otf in Resources */,
 				00DEF7341FF5D01600126F96 /* SF-Pro-Display-Light.otf in Resources */,
 				283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */,
@@ -1022,25 +1018,24 @@
 				00DEF7621FF5D01600126F96 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				00DEF7681FF5D01600126F96 /* SFCompactDisplay-Bold.otf in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
-				005A73F71FFD9A69009C2324 /* ph_5.jpg in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
 				00DEF7461FF5D01600126F96 /* SFCompactDisplay-Semibold.otf in Resources */,
 				00DEF7901FF5D15100126F96 /* intro-4.png in Resources */,
 				28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */,
-				005A73F51FFD9A69009C2324 /* ph_1.jpg in Resources */,
-				005A73F91FFD9A69009C2324 /* ph_4.jpg in Resources */,
 				00DEF7601FF5D01600126F96 /* SFCompactText-Light.otf in Resources */,
 				28FA2A9E1ED1D9A9009C1A8B /* tips.png in Resources */,
 				00DEF7301FF5D01600126F96 /* SFCompactText-SemiboldItalic.otf in Resources */,
 				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
-				005A73F61FFD9A69009C2324 /* ph_2.jpg in Resources */,
 				285853E01EC003FC00A62BFE /* trash.png in Resources */,
 				28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */,
 				00DEF76C1FF5D01600126F96 /* SF-Pro-Display-BlackItalic.otf in Resources */,
 				004EFB571FFADB93008D6D04 /* UICollectionViewCellNoPosts.xib in Resources */,
+				001AE4BE1FFDC50900C7A721 /* ph_1.jpg in Resources */,
 				2822A6081E95C86600F52F92 /* Hearts.png in Resources */,
 				00DEF7361FF5D01600126F96 /* SF-Pro-Display-Regular.otf in Resources */,
 				00DEF7581FF5D01600126F96 /* SFCompactText-MediumItalic.otf in Resources */,
+				001AE4C11FFDC50F00C7A721 /* ph_4.jpg in Resources */,
+				001AE4C31FFDC51300C7A721 /* ph_6.jpg in Resources */,
 				00DEF72E1FF5D01600126F96 /* SF-Pro-Text-Heavy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1123,7 +1118,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7DFD2FDFCC988466CF80E489 /* [CP] Copy Pods Resources */ = {
@@ -1175,7 +1170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */ = {
