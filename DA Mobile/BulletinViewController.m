@@ -33,20 +33,6 @@ int colorIndex = 0;
 }
 
 #pragma mark - CollectionHeaderDelegate
-/*
--(void)expandBirthday{
-    
-    if (self.headerContent.lastObject.count == 0) {
-        [self.headerContent replaceObjectAtIndex:1 withObject:[self.posts.firstObject objectForKey:@"birthdays"]];
-    }else{
-        [self.headerContent replaceObjectAtIndex:1 withObject:[NSMutableArray array]];
-    }
-    CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [header.table reloadData];
-    
-    [self.postsView performBatchUpdates:nil completion:nil];
-}
- */
 
 -(void)expandMenu{
     

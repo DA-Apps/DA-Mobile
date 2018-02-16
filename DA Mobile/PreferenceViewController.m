@@ -65,13 +65,13 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://dainfo.deerfield.edu"] options:@{} completionHandler:nil];
                     break;
                 case 1:
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://mail.deerfield.edu/owa"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://mail.deerfield.edu/owa"] options:@{} completionHandler:nil];
                     break;
                 case 2:
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://deerfield.instructure.com/"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://deerfield.instructure.com/"] options:@{} completionHandler:nil];
                     break;
                 default:
                     break;
@@ -80,7 +80,7 @@
         case 1:
             switch (indexPath.row) {
                 case 1:
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
                     break;
                     
                 default:
@@ -96,7 +96,7 @@
                     [self performSegueWithIdentifier:@"showCredit" sender:nil];
                     break;
                 case 2:
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://goo.gl/forms/E8Y643yPuPW3bmDZ2"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://goo.gl/forms/E8Y643yPuPW3bmDZ2"] options:@{} completionHandler:nil];
                 default:
                     break;
             }

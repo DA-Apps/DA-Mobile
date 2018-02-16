@@ -313,9 +313,7 @@
 		00DEF78E1FF5D15100126F96 /* intro-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-3.png"; sourceTree = "<group>"; };
 		00DEF78F1FF5D15100126F96 /* intro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-2.png"; sourceTree = "<group>"; };
 		014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		08395B49F13BBFDBE64A8E80 /* Pods-DA Mobile Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.release.xcconfig"; sourceTree = "<group>"; };
 		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		281C32D21E9A82930093ABA0 /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
 		281C32D31E9A82930093ABA0 /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
@@ -441,8 +439,6 @@
 		3872FC201A7732FFF953371F /* Pods-DA-Mobile Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile Widget/Pods-DA-Mobile Widget.release.xcconfig"; sourceTree = "<group>"; };
 		6A866716FCA59EC9B546EBCE /* libPods-DA-Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA-Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		776DA57CD1678E92C5E73D2C /* Pods-DA-Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile Widget/Pods-DA-Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
-		98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile/Pods-DA Mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA Mobile Widget/Pods-DA Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDC7C34855042572A378DDF /* Pods-DA-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2B9D3EE201E45619E40BD7 /* libPods-DA-Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA-Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EE5D9240169E3E34F31402 /* Pods-DA-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile.release.xcconfig"; sourceTree = "<group>"; };
@@ -830,10 +826,6 @@
 		7196A0D59C0E5A9F51CD81F4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				98A3D34911E6E8A82C7F4016 /* Pods-DA Mobile.debug.xcconfig */,
-				159733627244C7DDDD224C71 /* Pods-DA Mobile.release.xcconfig */,
-				9F65A303EC17A19D98A410E4 /* Pods-DA Mobile Widget.debug.xcconfig */,
-				08395B49F13BBFDBE64A8E80 /* Pods-DA Mobile Widget.release.xcconfig */,
 				BCDC7C34855042572A378DDF /* Pods-DA-Mobile.debug.xcconfig */,
 				D5EE5D9240169E3E34F31402 /* Pods-DA-Mobile.release.xcconfig */,
 				776DA57CD1678E92C5E73D2C /* Pods-DA-Mobile Widget.debug.xcconfig */,
@@ -1118,7 +1110,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7DFD2FDFCC988466CF80E489 /* [CP] Copy Pods Resources */ = {
@@ -1148,7 +1140,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1170,7 +1163,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */ = {
@@ -1412,13 +1405,13 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1433,13 +1426,13 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

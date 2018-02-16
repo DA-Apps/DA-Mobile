@@ -15,6 +15,7 @@
 @property NSString *image;
 @property NSDate *date;
 @property NSString *postURL;
+@property NSString *postTage;
 
 @end
 

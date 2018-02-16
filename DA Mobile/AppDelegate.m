@@ -55,7 +55,8 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     }
     [self.window makeKeyAndVisible];
     
-    
+    //Realm migration
+    // Inside your [AppDelegate didFinishLaunchingWithOptions:]
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     // Set the new schema version. This must be greater than the previously used
     // version (if you've never set a schema version before, the version is 0).
@@ -73,10 +74,10 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     };
     // Tell Realm to use this new configuration object for the default Realm
     [RLMRealmConfiguration setDefaultConfiguration:config];
-    
     // Now that we've told Realm how to handle the schema change, opening the file
     // will automatically perform the migration
     [RLMRealm defaultRealm];
+    
     return YES;
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
