@@ -130,6 +130,7 @@
 		00DEF7921FF5D15100126F96 /* intro-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF78E1FF5D15100126F96 /* intro-3.png */; };
 		00DEF7931FF5D15100126F96 /* intro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF78F1FF5D15100126F96 /* intro-2.png */; };
 		00EC48911F9932E10062C65E /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = 009AAFA11F993228004BB1A9 /* feedback.png */; };
+		00EC96A02051EA8000A78CF2 /* BulletinDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC969F2051EA8000A78CF2 /* BulletinDataHelper.swift */; };
 		280C28801E91649200381D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 280C287F1E91649200381D68 /* GoogleService-Info.plist */; };
 		281C32D41E9A82930093ABA0 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281C32D31E9A82930093ABA0 /* BookmarkViewController.m */; };
 		2822A6071E95C86600F52F92 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6051E95C86600F52F92 /* Back.png */; };
@@ -197,8 +198,8 @@
 		28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A951ED1D9A9009C1A8B /* location.png */; };
 		28FA2A9D1ED1D9A9009C1A8B /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A961ED1D9A9009C1A8B /* notification.png */; };
 		28FA2A9E1ED1D9A9009C1A8B /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A971ED1D9A9009C1A8B /* tips.png */; };
-		667BBD3DB1BB91CF42E77ACC /* libPods-DA-Mobile Widget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A866716FCA59EC9B546EBCE /* libPods-DA-Mobile Widget.a */; };
-		70D119ECC534B7B600C7118C /* libPods-DA-Mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2B9D3EE201E45619E40BD7 /* libPods-DA-Mobile.a */; };
+		E1B36F00009E7ADDE06167DE /* Pods_DA_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6288B971B614E35FB4F6F0C0 /* Pods_DA_Mobile.framework */; };
+		F9B7CE1C3505B10C50800480 /* Pods_DA_Mobile_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7F689945D963D0A86697C6 /* Pods_DA_Mobile_Widget.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +313,8 @@
 		00DEF78D1FF5D15000126F96 /* intro-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-1.png"; sourceTree = "<group>"; };
 		00DEF78E1FF5D15100126F96 /* intro-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-3.png"; sourceTree = "<group>"; };
 		00DEF78F1FF5D15100126F96 /* intro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-2.png"; sourceTree = "<group>"; };
+		00EC969E2051E25300A78CF2 /* DA-Mobile Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DA-Mobile Widget.entitlements"; sourceTree = "<group>"; };
+		00EC969F2051EA8000A78CF2 /* BulletinDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinDataHelper.swift; sourceTree = "<group>"; };
 		014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280C287F1E91649200381D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -437,10 +440,10 @@
 		28FA2A961ED1D9A9009C1A8B /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
 		28FA2A971ED1D9A9009C1A8B /* tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tips.png; sourceTree = "<group>"; };
 		3872FC201A7732FFF953371F /* Pods-DA-Mobile Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile Widget/Pods-DA-Mobile Widget.release.xcconfig"; sourceTree = "<group>"; };
-		6A866716FCA59EC9B546EBCE /* libPods-DA-Mobile Widget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA-Mobile Widget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D7F689945D963D0A86697C6 /* Pods_DA_Mobile_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DA_Mobile_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6288B971B614E35FB4F6F0C0 /* Pods_DA_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DA_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		776DA57CD1678E92C5E73D2C /* Pods-DA-Mobile Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile Widget/Pods-DA-Mobile Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDC7C34855042572A378DDF /* Pods-DA-Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile.debug.xcconfig"; sourceTree = "<group>"; };
-		CC2B9D3EE201E45619E40BD7 /* libPods-DA-Mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DA-Mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EE5D9240169E3E34F31402 /* Pods-DA-Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DA-Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -454,7 +457,7 @@
 				28ACA0531E2290220092075E /* MapKit.framework in Frameworks */,
 				286816A21DCAB4770089BEA6 /* libxml2.tbd in Frameworks */,
 				286816A01DCAB4610089BEA6 /* libxml2.2.tbd in Frameworks */,
-				70D119ECC534B7B600C7118C /* libPods-DA-Mobile.a in Frameworks */,
+				E1B36F00009E7ADDE06167DE /* Pods_DA_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28B84EAF1E9018560041BD5D /* NotificationCenter.framework in Frameworks */,
-				667BBD3DB1BB91CF42E77ACC /* libPods-DA-Mobile Widget.a in Frameworks */,
+				F9B7CE1C3505B10C50800480 /* Pods_DA_Mobile_Widget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +610,7 @@
 		286816551DCAB3D10089BEA6 = {
 			isa = PBXGroup;
 			children = (
+				00EC969E2051E25300A78CF2 /* DA-Mobile Widget.entitlements */,
 				286816601DCAB3D20089BEA6 /* DA Mobile */,
 				28B84EB01E9018560041BD5D /* DA Mobile Widget */,
 				28C3A5C71EE36BB800E199D6 /* DA Mobile Apple Watch */,
@@ -669,8 +673,8 @@
 				28B84EAE1E9018560041BD5D /* NotificationCenter.framework */,
 				014C6F3BAA694AE7EDE06FFE /* libPods-DA Mobile.a */,
 				0F9E7D4049289D70560B04FA /* libPods-DA Mobile Widget.a */,
-				CC2B9D3EE201E45619E40BD7 /* libPods-DA-Mobile.a */,
-				6A866716FCA59EC9B546EBCE /* libPods-DA-Mobile Widget.a */,
+				6288B971B614E35FB4F6F0C0 /* Pods_DA_Mobile.framework */,
+				3D7F689945D963D0A86697C6 /* Pods_DA_Mobile_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -816,6 +820,7 @@
 				282ADC181E97213600701BC2 /* BulletinPost.h */,
 				282ADC191E97213600701BC2 /* BulletinPost.m */,
 				007755E91F98FF66008670DE /* BulletinData.swift */,
+				00EC969F2051EA8000A78CF2 /* BulletinDataHelper.swift */,
 				007755E81F98FF64008670DE /* DailyBulletinData.swift */,
 				007755EA1F98FF68008670DE /* Post.swift */,
 				007755EB1F98FF69008670DE /* Announcement.swift */,
@@ -890,7 +895,7 @@
 				TargetAttributes = {
 					2868165D1DCAB3D10089BEA6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8NZ8K5GNH8;
+						DevelopmentTeam = YC4C987ET6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -909,7 +914,7 @@
 					};
 					28B84EAC1E9018560041BD5D = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 8NZ8K5GNH8;
+						DevelopmentTeam = YC4C987ET6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1135,12 +1140,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile-resources.sh",
-				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1172,9 +1175,42 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
+				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MSCollectionViewCalendarLayout/MSCollectionViewCalendarLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialControls/MaterialControls.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/WhatsNew/WhatsNew.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSCollectionViewCalendarLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialControls.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNew.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1208,6 +1244,7 @@
 				28994B181EC16AB0007ACF10 /* UIView+WebCacheOperation.m in Sources */,
 				28994B171EC16AB0007ACF10 /* UIView+WebCache.m in Sources */,
 				28994B0F1EC16AB0007ACF10 /* SDWebImageManager.m in Sources */,
+				00EC96A02051EA8000A78CF2 /* BulletinDataHelper.swift in Sources */,
 				007755ED1F98FF69008670DE /* BulletinData.swift in Sources */,
 				28ACA04E1E228A6D0092075E /* YQL.m in Sources */,
 				28994B0A1EC16AB0007ACF10 /* SDImageCacheConfig.m in Sources */,
@@ -1401,7 +1438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				DEVELOPMENT_TEAM = YC4C987ET6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
@@ -1409,7 +1446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DA Mobile/DA_Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1422,7 +1459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DA Mobile/DA Mobile.entitlements";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				DEVELOPMENT_TEAM = YC4C987ET6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "\"${SDK_DIR}\"/usr/include/libxml2";
 				INFOPLIST_FILE = "DA Mobile/Info.plist";
@@ -1430,7 +1467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.dabulletin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/YongyangNie/Developer/Apple/Softwares/iOS/DA-Mobile/DA Mobile/DA_Mobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DA Mobile/DA_Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1442,13 +1479,13 @@
 			baseConfigurationReference = 776DA57CD1678E92C5E73D2C /* Pods-DA-Mobile Widget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				CODE_SIGN_ENTITLEMENTS = "DA-Mobile Widget.entitlements";
+				DEVELOPMENT_TEAM = YC4C987ET6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Bulletin-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1459,13 +1496,13 @@
 			baseConfigurationReference = 3872FC201A7732FFF953371F /* Pods-DA-Mobile Widget.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DA Mobile Widget/DA Mobile Widget.entitlements";
-				DEVELOPMENT_TEAM = 8NZ8K5GNH8;
+				CODE_SIGN_ENTITLEMENTS = "DA-Mobile Widget.entitlements";
+				DEVELOPMENT_TEAM = YC4C987ET6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "DA Mobile Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Mobile-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.dabulletin.DA-Bulletin-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

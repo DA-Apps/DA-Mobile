@@ -1,0 +1,6 @@
+framework module Pods_DA_Mobile {
+  umbrella header "Pods-DA-Mobile-umbrella.h"
+
+  export *
+  module * { export * }
+}

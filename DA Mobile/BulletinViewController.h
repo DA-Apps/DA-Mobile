@@ -22,7 +22,7 @@
 #import "DA_Mobile-Swift.h"
 
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, CollectionReusableHeaderDelegate, UICollectionViewCellPostsDelegate>
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;

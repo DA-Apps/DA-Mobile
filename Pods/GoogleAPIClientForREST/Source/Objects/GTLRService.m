@@ -229,8 +229,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
               statusString = _statusString;
 #if DEBUG
 - (NSString *)description {
-  return [NSString stringWithFormat:@"%@ %p: %@\n%zd %@\nheaders:%@\nJSON:%@\nerror:%@",
-          [self class], self, self.contentID, self.statusCode, self.statusString,
+  return [NSString stringWithFormat:@"%@ %p: %@\n%ld %@\nheaders:%@\nJSON:%@\nerror:%@",
+          [self class], self, self.contentID, (long)self.statusCode, self.statusString,
           self.headers, self.JSON, self.parseError];
 }
 #endif
@@ -2739,9 +2739,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     GTMSessionFetcherSendProgressBlock fetcherSentDataBlock = ^(int64_t bytesSent,
                                                                 int64_t totalBytesSent,
                                                                 int64_t totalBytesExpectedToSend) {
-      [_service invokeProgressCallbackForTicket:self
-                                 deliveredBytes:(unsigned long long)totalBytesSent
-                                     totalBytes:(unsigned long long)totalBytesExpectedToSend];
+      [self->_service invokeProgressCallbackForTicket:self
+                                       deliveredBytes:(unsigned long long)totalBytesSent
+                                           totalBytes:(unsigned long long)totalBytesExpectedToSend];
     };
 
     fetcher.sendProgressBlock = fetcherSentDataBlock;

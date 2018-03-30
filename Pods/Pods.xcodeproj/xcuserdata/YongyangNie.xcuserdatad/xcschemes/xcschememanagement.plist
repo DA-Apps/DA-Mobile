@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BEMCheckBox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DGActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -75,6 +85,11 @@
 			<false/>
 		</dict>
 		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>WhatsNew.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

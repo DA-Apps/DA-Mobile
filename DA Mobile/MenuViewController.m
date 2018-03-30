@@ -121,16 +121,16 @@ static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
         int type = arc4random_uniform(4);
         switch (type) {
             case 0:
-                cell.indicator.type = DGActivityIndicatorAnimationTypeBallPulseSync;
+                cell.indicator.type = 20;
                 break;
             case 1:
-                cell.indicator.type = DGActivityIndicatorAnimationTypeCookieTerminator;
+                cell.indicator.type = 31;
                 break;
             case 2:
-                cell.indicator.type = DGActivityIndicatorAnimationTypeRotatingSandglass;
+                cell.indicator.type = 29;
                 break;
             case 3:
-                cell.indicator.type = DGActivityIndicatorAnimationTypeBallSpinFadeLoader;
+                cell.indicator.type = 18;
                 break;
             default:
                 break;

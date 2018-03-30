@@ -52,6 +52,7 @@ int colorIndex = 0;
 
 }
 
+
 #pragma mark - Location Manager
 
 -(CLLocationCoordinate2D) getLocation{

@@ -14,12 +14,14 @@ public class Post: NSObject {
     var title: String
     var postDescription: String
     var postLink: String
+    var postType: String
     
-    public init(image: String, title: String, postDescription: String, postLink: String) {
+    public init(image: String, title: String, postDescription: String, postLink: String, postType: String) {
         self.imageLink = image
         self.postLink = postLink
         self.title = title
         self.postDescription = postDescription
+        self.postType = postType
     }
 
 }

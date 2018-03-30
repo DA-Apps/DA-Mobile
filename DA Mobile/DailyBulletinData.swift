@@ -13,13 +13,11 @@ class DailyBulletinData: NSObject {
     var menu: [String]?
     var posts : [Post]?
     var announcements : [Announcement]?
-    var birthdays: [String]?
     
-    public init(posts: [Post]?, announcements: [Announcement]?, menu: [String]?, birthdays:[String]?) {
+    public init(posts: [Post]?, announcements: [Announcement]?, menu: [String]?) {
         self.posts = posts
         self.announcements = announcements
         self.menu = menu
-        self.birthdays = birthdays
     }
 
 }

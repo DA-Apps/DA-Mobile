@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E862A4FFCBFCABBF9AE12BDD6F618991'
+               BlueprintIdentifier = '2EE240028461D8B724D6E8DD08AACB13'
                BlueprintName = 'Pods-DA-Mobile Widget'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-DA-Mobile Widget.a'>
+               BuildableName = 'Pods-DA-Mobile Widget.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

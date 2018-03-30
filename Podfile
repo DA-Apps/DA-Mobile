@@ -3,9 +3,12 @@
 
 target 'DA-Mobile' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for DA Mobile
+pod 'WhatsNew'
+pod 'Alamofire'
+pod 'BEMCheckBox'
 pod 'GoogleAPIClientForREST/Calendar'
 pod 'Google/SignIn'
 pod 'FSCalendar'
@@ -22,7 +25,7 @@ end
 
 target 'DA-Mobile Widget' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for DA Mobile Widget
 
