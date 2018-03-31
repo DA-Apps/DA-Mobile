@@ -151,10 +151,13 @@ int colorIndex = 0;
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
+        // first header, collaspsed, second largest
         return CGSizeMake(self.postsView.frame.size.width, 160);
     else if (section != 0)
+        // small header
         return CGSizeMake(self.postsView.frame.size.width, 115);
     else
+        // large header, expanded 
         return CGSizeMake(self.postsView.frame.size.width, 260);
 }
 
