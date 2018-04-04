@@ -27,6 +27,10 @@ let whatsNew = WhatsNewViewController(items: [
 whatsNew.presentIfNeeded(on: self)
 ```
 
+Some of the apps using `WhatsNew` in production are:
+- [Blocknow](https://itunes.apple.com/app/blocknow/id1350568499)
+- [Bittracker](http://appstore.com/BittrackerCryptoCoinTracker)
+
 If you're using `WhatsNew` in your app, please let me know and I will make sure to add it to the list of apps that use this library! 
 
 ## Customizations
@@ -87,6 +91,8 @@ You can also use [Carthage](https://github.com/Carthage/Carthage) if you prefer.
 ```ruby
 github "BalestraPatrick/WhatsNew"
 ```
+
+Android version available [here](https://github.com/TonnyL/WhatsNew).
 ## Requirements
 iOS 9.0 and Swift 4.0 are required.
 
