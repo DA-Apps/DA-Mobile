@@ -52,14 +52,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RLMSyncGetUserInfoEndpoint : RLMSyncServerEndpoint RLM_SYNC_UNINITIALIZABLE
 @end
 
+@interface RLMNetworkRequestOptions : NSObject
+
+@property (nonatomic, copy, nullable) NSString *authorizationHeaderName;
+@property (nonatomic, copy, nullable) NSDictionary<NSString *, NSString *> *customHeaders;
+
+@end
+
 /**
  A simple Realm Object Server network client that wraps `NSURLSession`.
  */
 @interface RLMNetworkClient : NSObject
 
+<<<<<<< HEAD
 // Set the timeout in seconds for requests which do not take an explicit timeout.
 + (void)setDefaultTimeout:(NSTimeInterval)timeout;
 
+=======
+>>>>>>> 76f086285e64ad97f004679b5e8b39dabe1ad0c6
 + (void)sendRequestToEndpoint:(RLMSyncServerEndpoint *)endpoint
                        server:(NSURL *)serverURL
                          JSON:(NSDictionary *)jsonDictionary
