@@ -1,6 +1,5 @@
-// The MIT License (MIT)
-//
-// Copyright (c) 2015 FPT Software
+// AFCompatibilityMacros.h
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,17 +19,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#ifndef AFCompatibilityMacros_h
+#define AFCompatibilityMacros_h
 
-NS_ASSUME_NONNULL_BEGIN
-@class MDTextField;
-@interface MDSuggestPopupView
-    : UIButton <UITableViewDataSource, UITableViewDelegate>
+#ifdef API_UNAVAILABLE
+    #define AF_API_UNAVAILABLE(x) API_UNAVAILABLE(x)
+#else
+    #define AF_API_UNAVAILABLE(x)
+#endif // API_UNAVAILABLE
 
-@property(nullable, nonatomic) NSArray <NSString*>*suggestionsDictionary;
+#if __has_warning("-Wunguarded-availability-new")
+    #define AF_CAN_USE_AT_AVAILABLE 1
+#else
+    #define AF_CAN_USE_AT_AVAILABLE 0
+#endif
 
-- (instancetype)initWithTextField:(MDTextField *)textField;
-- (void)textView:(MDTextField *)textField didChangeText:(NSString *)text;
-
-@end
-NS_ASSUME_NONNULL_END
+#endif /* AFCompatibilityMacros_h */

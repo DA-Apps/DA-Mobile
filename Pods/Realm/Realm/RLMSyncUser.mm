@@ -302,7 +302,6 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
     [RLMSyncChangePasswordEndpoint sendRequestToServer:self.authenticationServer
                                        JSON:@{kRLMSyncTokenKey: self._refreshToken,
                                               kRLMSyncUserIDKey: userID,
-<<<<<<< HEAD
                                               kRLMSyncDataKey: @{kRLMSyncNewPasswordKey: newPassword}}
                                     options:[[RLMSyncManager sharedManager] networkRequestOptions]
                                  completion:completion];
@@ -347,15 +346,6 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
                                                                    @"token": token}}
                                               options:[[RLMSyncManager sharedManager] networkRequestOptions]
                                            completion:completion];
-=======
-                                              kRLMSyncDataKey: @{ kRLMSyncNewPasswordKey: newPassword }
-                                              }
-                                    timeout:60
-                                    options:[[RLMSyncManager sharedManager] networkRequestOptions]
-                                 completion:^(NSError *error, __unused NSDictionary *json) {
-        completion(error);
-    }];
->>>>>>> 76f086285e64ad97f004679b5e8b39dabe1ad0c6
 }
 
 #pragma mark - Administrator API

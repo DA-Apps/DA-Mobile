@@ -110,16 +110,6 @@ static std::atomic<NSTimeInterval> g_defaultTimeout{60.0};
     NSMutableDictionary<NSString *, NSString *> *headers = [[NSMutableDictionary alloc] init];
     headers[@"Content-Type"] = @"application/json;charset=utf-8";
     headers[@"Accept"] = @"application/json";
-<<<<<<< HEAD
-=======
-
-    if (NSDictionary<NSString *, NSString *> *customHeaders = options.customHeaders) {
-        [headers addEntriesFromDictionary:customHeaders];
-    }
-
-    return headers;
-}
->>>>>>> 76f086285e64ad97f004679b5e8b39dabe1ad0c6
 
     if (NSDictionary<NSString *, NSString *> *customHeaders = options.customHeaders) {
         [headers addEntriesFromDictionary:customHeaders];
