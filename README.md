@@ -1,6 +1,7 @@
-<center>
-<img src="./Media/round_icon.png" alt="drawing" style="width: 100px;"/>
-</center>
+
+<p align="center">
+  <img src="./Media/round_icon.png" alt="drawing" width="100" />
+</p>
 
 # DA-Mobile
 
@@ -17,8 +18,8 @@ Now, the App is open source on Github. If you are interested in contributing to 
 
 
 |        |           | 
-| ------------- |:-------------:| -----:|
-| <img src="./Media/new_ss/screen_shot_2.png" alt="drawing" style="width: 200px;"/>      | <img src="./Media/new_ss/screen_shot_1.png" alt="drawing" style="width: 200px;"/>
+| ------------- |:-------------:|
+| <img src="./Media/new_ss/screen_shot_2.png" alt="drawing" width="300"/>      | <img src="./Media/new_ss/screen_shot_1.png" alt="drawing" width="300"/>
 
 # Features
 
@@ -35,9 +36,9 @@ The app will load bulletin post from the past five days. You can also check the 
 - Add the widget which shows upcoming meals and the weather.
 
 |        |           | 
-| ------------- |:-------------:| -----:|
-| <img src="./Media/new_ss/screen_shot_3.png" alt="drawing" style="width: 200px;"/>      | <img src="./Media/new_ss/screen_shot_4.png" alt="drawing" style="width: 200px;"/>    
-| <img src="./Media/new_ss/screen_shot_5.png" alt="drawing" style="width: 200px;"/> | <img src="./Media/new_ss/screen_shot_6.png" alt="drawing" style="width: 200px;"/> 
+| ------------- |:-------------:|
+| <img src="./Media/new_ss/screen_shot_3.png" alt="drawing" width="300"/>      | <img src="./Media/new_ss/screen_shot_4.png" alt="drawing" width="300"/>    
+| <img src="./Media/new_ss/screen_shot_5.png" alt="drawing" width="300"/> | <img src="./Media/new_ss/screen_shot_6.png" alt="drawing" width="300"/> 
 
 I hope you will enjoy using DA mobile. Please don't hesitate to contact us if you have any question, comments or concerns. If you like the app, please give us a five-star rating on the [App Store](https://goo.gl/XzZzts). 
 
