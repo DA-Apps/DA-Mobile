@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *bookmarkButton;
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UIImageView *image;
+@property (nonatomic, weak) IBOutlet UIVisualEffectView *blurEffectView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *mainWidth;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *menuWidth;
 @property (nonatomic, weak) IBOutlet UIView *mainView;

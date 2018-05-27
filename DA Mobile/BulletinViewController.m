@@ -9,9 +9,6 @@
 #import "BulletinViewController.h"
 #import "TFHpple.h"
 
-int cellIndex = 0;
-int colorIndex = 0;
-
 @interface BulletinViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIPanGestureRecognizer *pan;
@@ -49,9 +46,7 @@ int colorIndex = 0;
     [header.table reloadData];
     
     [self.postsView performBatchUpdates:nil completion:nil];
-
 }
-
 
 #pragma mark - Location Manager
 
@@ -73,35 +68,23 @@ int colorIndex = 0;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == 0)
-        cellIndex = 0;
-    
     if ([[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] count] == 0) //check if no post in one day
-        return CGSizeMake(self.view.frame.size.width, 100);
+        return CGSizeMake(self.view.frame.size.width - 16, 100);
     else{
-        switch (cellIndex) {
-            case 0:
-                cellIndex = 1;
-                return CGSizeMake(self.view.frame.size.width, 270);
-                break;
-            case 1:
-                cellIndex = 2;
-                return CGSizeMake(self.view.frame.size.width, 160);
-                break;
-            case 2:
-                cellIndex = 0;
-                return CGSizeMake(self.view.frame.size.width, 160);
-                break;
-                
-            default:
-                return CGSizeMake(self.view.frame.size.width, 100);
-                break;
-        }
+        return CGSizeMake(self.view.frame.size.width - 16, 270);
     }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(12, 0, 12, 0);
+    
+    NSInteger viewWidth = self.view.frame.size.width;
+    NSInteger totalCellWidth = self.view.frame.size.width - 16 * 1;
+    NSInteger totalSpacingWidth = 0;
+    
+    NSInteger leftInset = (viewWidth - (totalCellWidth + totalSpacingWidth)) / 2;
+    NSInteger rightInset = leftInset;
+    
+    return UIEdgeInsetsMake(12, leftInset, 18, rightInset);
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,30 +92,39 @@ int colorIndex = 0;
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
     NSDictionary *section = [self.posts objectAtIndex:indexPath.section]; // one day
     
-    if ([[section objectForKey:@"posts"] count] == 0) { //check if no post in one day
+    if ([[section objectForKey:@"posts"] count] == 0) //check if no post in one day
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellNoPost" forIndexPath:indexPath];
-        return cell;
-    }else{
-        
+    else{
         NSDictionary *dic = [[section objectForKey:@"posts"] objectAtIndex:indexPath.row]; //posts in one day
-        if(cell.frame.size.height == 160){
-            cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPostSmall" forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor colorWithRed:246.0/255.0f green:246.0/255.0f blue:247.0/255.0f alpha:1.0];
-        }else
-            cell.backgroundColor = [UIColor clearColor];
-        
+        cell.backgroundColor = [UIColor clearColor];
         cell.title.text = [dic objectForKey:@"title"];
         if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
             cell.image.image  = [UIImage imageNamed:[dic objectForKey:@"placeholder"]];
         else
             [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
-        cell.image.layer.cornerRadius = 5;
+        
+        cell.image.layer.cornerRadius = 15.0;
         cell.image.layer.masksToBounds = YES;
+        
+        // Create the path (with only the top-left corner rounded)
+        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.blurEffectView.bounds byRoundingCorners:UIRectCornerBottomLeft| UIRectCornerBottomRight cornerRadii:CGSizeMake(15, 15)];
+        // Create the shape layer and set its path
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = cell.blurEffectView.bounds;
+        maskLayer.path = maskPath.CGPath;
+        // Set the newly created shape layer as the mask for the image view's layer
+        cell.blurEffectView.layer.mask = maskLayer;
+        
         cell.delegate = self;
         cell.canSwipe = YES;
-        
-        return cell;
     }
+    
+    cell.layer.masksToBounds = NO;
+    cell.layer.shadowOffset = CGSizeMake(10, 15);
+    cell.layer.shadowRadius = 5;
+    cell.layer.shadowOpacity = 0.25;
+    
+    return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -348,6 +340,14 @@ int colorIndex = 0;
     NSLog(@"synced with extension");
 }
 
+-(void)setShadowforView:(UIView *)view{
+
+    // drop shadow
+    [view.layer setShadowColor:[UIColor blackColor].CGColor];
+    [view.layer setShadowOpacity:0.6];
+    [view.layer setShadowRadius:3.0];
+    [view.layer setShadowOffset:CGSizeMake(5.0, 2.0)];
+}
 
 -(void)cacheData:(NSMutableArray <NSDictionary *> *)posts menu:(NSMutableArray *)nextMeal{
     
@@ -567,9 +567,17 @@ int colorIndex = 0;
     
     [super viewDidLoad];
     
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+    } else {
+        // Fallback on earlier versions
+    }
+    
     self.headerContent = [NSMutableArray array];
     [self.headerContent addObject:[NSMutableArray array]];
     [self.headerContent addObject:[NSMutableArray array]];
+    
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh:)
