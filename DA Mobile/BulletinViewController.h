@@ -10,6 +10,9 @@
 #import <Realm/Realm.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AFNetworking/AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "UICollectionView+Separators.h"
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
@@ -23,6 +26,8 @@
 
 
 @interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate>
+
+// properties
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;
@@ -38,6 +43,13 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *expandCollapseButton;
+
+// methods
+
+- (IBAction)expandCollapse:(id)sender;
+- (IBAction)filter:(id)sender;
+
 
 @end
 

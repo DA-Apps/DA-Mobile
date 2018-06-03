@@ -21,6 +21,7 @@
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
 		007755EF1F98FF69008670DE /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EB1F98FF69008670DE /* Announcement.swift */; };
+		0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */ = {isa = PBXBuildFile; fileRef = 0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */; };
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
 		00DEF7271FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
@@ -253,6 +254,8 @@
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
 		007755EA1F98FF68008670DE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		007755EB1F98FF69008670DE /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Separators.h"; sourceTree = "<group>"; };
+		0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Separators.m"; sourceTree = "<group>"; };
 		009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
 		009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
 		009AAFA11F993228004BB1A9 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 		284A4DC11E2900C9004F5226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */,
+				0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */,
 				0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */,
 				0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */,
 				28E833A61E947FF500614C73 /* CollectionReusableHeader.h */,
@@ -1255,6 +1260,7 @@
 				007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */,
 				0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */,
 				28994B111EC16AB0007ACF10 /* UIButton+WebCache.m in Sources */,
+				0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */,
 				28994B061EC16AB0007ACF10 /* MKAnnotationView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
