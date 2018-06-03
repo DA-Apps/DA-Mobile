@@ -19,18 +19,26 @@
 
 @implementation BulletinViewController
 
--(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
+
+# pragma mark - Bulletin Data Delegate
+
+- (void)bulletinDataLoadingErrorWithError:(NSError *)error{
     
-    NSIndexPath *index = [self.postsView indexPathForCell:cell];
-    NSDictionary *dic = [[[self.posts objectAtIndex:index.section] objectForKey:@"posts"] objectAtIndex:index.row];
-    [self savePosts:[dic objectForKey:@"title"] withContent:[dic objectForKey:@"summery"] withImage:[dic objectForKey:@"img_src"] withLink:[dic objectForKey:@"link"]];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Post Saved" message:@"You have bookmarked this post" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps, Sorry..." message:@"We couldn't retrieve data. Please quit the app and try again later" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
     [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:alert animated:YES completion:nil];
+    });
 }
 
-#pragma mark - CollectionHeaderDelegate
+- (void)finishLoadingData {
+    [self.postsView reloadData];
+}
+
+
+# pragma mark - CollectionHeaderDelegate
 
 -(void)expandMenu{
     
@@ -69,7 +77,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] count] == 0) //check if no post in one day
+    if (self.bulletinData.bulletinData[indexPath.section].posts.count == 0) //check if no post in one day
         return CGSizeMake(self.view.frame.size.width - 16, 100);
     if (self._isExpanded) {
         return CGSizeMake(self.view.frame.size.width - 16, 270);
@@ -93,18 +101,19 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCellPosts *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellPost" forIndexPath:indexPath];
-    NSDictionary *section = [self.posts objectAtIndex:indexPath.section]; // one day
+    DailyBulletinData *day = self.bulletinData.bulletinData[indexPath.section];
     
-    if ([[section objectForKey:@"posts"] count] == 0) //check if no post in one day
+    //check if no post in one day
+    if (day.posts.count == 0)
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellNoPost" forIndexPath:indexPath];
     else{
-        NSDictionary *dic = [[section objectForKey:@"posts"] objectAtIndex:indexPath.row]; //posts in one day
+        
         cell.backgroundColor = [UIColor clearColor];
-        cell.title.text = [dic objectForKey:@"title"];
-        if ([[dic objectForKey:@"img_src"] isEqualToString:@"nil"])
-            cell.image.image  = [UIImage imageNamed:[dic objectForKey:@"placeholder"]];
+        cell.title.text = day.posts[indexPath.row].title;
+        if (day.posts[indexPath.row].imageLink.length > 8)
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:day.posts[indexPath.row].imageLink] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
         else
-            [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
+            cell.image.image = [UIImage imageNamed:day.posts[indexPath.row].imageLink];
         
         // animation
         UIBezierPath *bgMaskPath;
@@ -170,7 +179,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    NSUInteger count = [(NSMutableArray *)[self.posts[section] objectForKey:@"posts"] count];
+    NSUInteger count = self.bulletinData.bulletinData[section].posts.count;
     if (count == 0)
         return 1;
     else
@@ -178,26 +187,26 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return self.posts.count;
+    return self.bulletinData.bulletinData.count;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     
     if (self.headerContent.firstObject.count == 0 && self.headerContent.lastObject.count == 0 && section == 0)
         // first header, collaspsed, second largest
-        return CGSizeMake(self.postsView.frame.size.width, 160);
+        return CGSizeMake(self.postsView.frame.size.width, 150);
     else if (section != 0)
         // small header
         return CGSizeMake(self.postsView.frame.size.width, 115);
     else
-        // large header, expanded 
-        return CGSizeMake(self.postsView.frame.size.width, 260);
+        // large header, expanded
+        return CGSizeMake(self.postsView.frame.size.width, 250);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-    headerView.dateLabel.text = [self dateDescription:[[self.posts objectAtIndex:indexPath.section] objectForKey:@"date"]];
+    headerView.dateLabel.text = self.bulletinData.bulletinData[indexPath.section].dateString;
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
         headerView.tempLabel.hidden = NO;
         headerView.weatherIcon.hidden = NO;
@@ -225,100 +234,15 @@
 
 #pragma mark - Private
 
--(NSString *)dateDescription:(NSDate *)date{
+-(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEEE, MMMM dd"];
-    return [formatter stringFromDate:date];
-}
-
--(void)getPostsData:(TFHpple *)parser{
-    
-    self.posts = [NSMutableArray array];
-    NSArray *allPosts = [parser searchWithXPathQuery:@"//div[@class='posts']"];
-    int max = (allPosts.count < 5) ? (int)allPosts.count : 5;
-    //loop for five days--------------------------------------------------
-    for (int i = 0; i < max; i++) {
-        
-        NSMutableArray *dailyPosts = [NSMutableArray array];
-        
-        if (allPosts.count > 0) {
-            TFHppleElement *hppleElement = allPosts[i];
-            
-            NSArray *posts = [hppleElement searchWithXPathQuery:@"//ul[@class='posts-list daily-posts']/li"];
-            
-            //parse out all the birthdays--------------------------------------
-            NSArray *birthdayData = [hppleElement searchWithXPathQuery:@"//div[@class='content-summary-badge daily birthday']"];
-            NSMutableArray *birthdays = [self parseBirthdays:birthdayData];
-            
-            //parse out all the posts------------------------------------------
-            for (TFHppleElement *element in posts) {
-                //get image src
-                NSArray *imgs = [element searchWithXPathQuery:@"//a[@data-lightbox='gallerySet']"];
-                NSString *imgSrc = [[(TFHppleElement *)[imgs firstObject] attributes] objectForKey:@"href"];
-                
-                NSString *link = [[[[element firstChildWithTagName:@"div"] firstChildWithTagName:@"a"] attributes] objectForKey:@"href"];
-                
-                //search for title of post
-                NSArray *titles = [element searchWithXPathQuery:@"//h2[@class='summary-title']"];
-                NSString *title = [self cleanString:[(TFHppleElement *)[titles firstObject] text]];
-                
-                //search for summery of post
-                NSArray *summeries = [element searchWithXPathQuery:@"//p[@class='summary-excerpt']"];
-                NSString *summery = [self cleanString:[(TFHppleElement *)[summeries firstObject] text]];
-                
-                //construct the dic
-                if (![imgSrc isEqual:@"(null)"] && title && summery && [title isKindOfClass:[NSString class]] && [summery isKindOfClass:[NSString class]] && link){
-                    NSDictionary *dic = @{@"img_src": imgSrc? imgSrc : @"nil",
-                                          @"title": title,
-                                          @"summery": summery ? summery : @"No Summery",
-                                          @"placeholder": [self getPostImage:imgSrc],
-                                          @"link": link};
-                    
-                    [dailyPosts addObject:dic];
-                }
-            }
-            NSDictionary *oneDay = @{@"posts": dailyPosts,
-                                     @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]],
-                                     @"birthdays": birthdays? birthdays: [NSMutableArray arrayWithObjects:@"No birthdays", nil]};
-            [self.posts addObject:oneDay];
-            
-        }else{
-            NSDictionary *oneDay = @{@"posts": [NSArray array],
-                                     @"date": [NSDate dateWithTimeInterval:-86400*i sinceDate:[NSDate date]]};
-            [self.posts addObject:oneDay];
-        }
-    }
-    
-}
-
--(NSString *)getPostImage:(NSString *)imageLink{
-    
-    if (imageLink)
-        return imageLink;
-    else{
-        int i = arc4random_uniform(6);
-        return [NSString stringWithFormat:@"ph_%i.jpg", i];
-    }
-}
-
--(NSMutableArray *)parseBirthdays:(NSArray *)birthdayData{
-    
-    if (birthdayData.count != 0 && self.birthdays == 0) {
-        NSArray *content = [(TFHppleElement *)birthdayData.firstObject searchWithXPathQuery:@"//div[@class='summary-excerpt']"];
-        
-        NSString *birthday = [self cleanString:[[[(TFHppleElement *)content.firstObject content] stringByReplacingOccurrencesOfString:@"Happy birthday to" withString:@""] stringByReplacingOccurrencesOfString:@"," withString:@""]];
-        NSArray* elements = [birthday componentsSeparatedByString:@"."];
-        return [NSMutableArray arrayWithArray:elements];
-    }else{
-        return nil;
-    }
-}
-
--(NSString *)cleanString:(NSString *)string{
-    string = [string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    string = [string stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    return string;
+    NSIndexPath *index = [self.postsView indexPathForCell:cell];
+    Post *post = self.bulletinData.bulletinData[index.section].posts[index.row];
+    [self savePosts:post.title withContent:post.content withImage:post.imageLink withLink:post.link];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Post Saved" message:@"You have bookmarked this post" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(NSMutableArray *)queryWeatherAPI{
@@ -381,7 +305,7 @@
 }
 
 -(void)setShadowforView:(UIView *)view{
-
+    
     // drop shadow
     [view.layer setShadowColor:[UIColor blackColor].CGColor];
     [view.layer setShadowOpacity:0.6];
@@ -400,7 +324,7 @@
 -(void)loadCachedData{
     
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
-    self.posts = [sharedDefaults objectForKey:@"posts"];
+    // self.posts = [sharedDefaults objectForKey:@"posts"];
     self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
     [sharedDefaults synchronize];
 }
@@ -469,61 +393,16 @@
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
     
-    if (self.posts.count == 0) {
+    if (self.bulletinData.bulletinData.count == 0) {
         self.activityIndicator.hidden = NO;
         self.activityIndicator.tintColor = [UIColor grayColor];
         self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
         [self.activityIndicator startAnimating];
     }
     
-    NSDate *methodStart = [NSDate date];
+# warning implementation needed
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:@"https://deerfield.edu/bulletin"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
-    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        
-        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        documentsDirectoryURL = [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
-        if([[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryURL.path]){
-            NSError *error;
-            [[NSFileManager defaultManager] removeItemAtPath:documentsDirectoryURL.path error:&error]; //Delete old file
-            NSLog(@"%@", error);
-        }
-        return documentsDirectoryURL;
-        
-    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        
-        if (!error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                TFHpple *hpple = [TFHpple hppleWithHTMLData:[NSData dataWithContentsOfURL:filePath]];
-                [self getPostsData:hpple];
-                [self parseMenu:hpple];
-                [self cacheData:self.posts menu:self.upcomingMeals];
-                NSLog(@"finished");
-                [self.postsView reloadData];
-                [self.activityIndicator stopAnimating];
-                self.activityIndicator.hidden = YES;
-                NSDate *methodFinish = [NSDate date];
-                NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
-                NSLog(@"executionTime = %f", executionTime);
-                [refresh endRefreshing];
-            });
-            
-        }else{
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Opps" message:@"We couldn't retrieve data. Please quit the app and reopen" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            }];
-            [alert addAction:action];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self presentViewController:alert animated:YES completion:nil];
-            });
-        }
-    }];
-    [downloadTask resume];
 }
 
 - (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSString *)image withLink:(NSString *)url{
@@ -557,7 +436,7 @@
         [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"]];
     else
         [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"]];
-
+    
     [self.postsView reloadData];
 }
 
@@ -574,12 +453,12 @@
         UINavigationController *nav = [segue destinationViewController];
         DetailViewController *vc = (DetailViewController *)[nav topViewController];
         NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
-        NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
+        Post *post = self.bulletinData.bulletinData[indexPath.section].posts[indexPath.row];
         
-        vc.postURL = [dic objectForKey:@"link"];
-        vc.contentString = [dic objectForKey:@"summery"];
-        vc.contentImage = [dic objectForKey:@"img_src"];
-        vc.titleString = [dic objectForKey:@"title"];
+        vc.postURL = post.link;
+        vc.contentString = post.content;
+        vc.contentImage = post.imageLink;
+        vc.titleString = post.title;
     }
 }
 
@@ -643,6 +522,10 @@
     
     self._isExpanded = YES;
     
+    self.bulletinData = [[BulletinData alloc] initWithPostDayCount:5];
+    [self.bulletinData retrieveHTMLData];
+    self.bulletinData.delegate = self;
+    
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     }
@@ -651,7 +534,6 @@
     [self.headerContent addObject:[NSMutableArray array]];
     [self.headerContent addObject:[NSMutableArray array]];
     
-    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh:)
              forControlEvents:UIControlEventValueChanged];
@@ -659,10 +541,6 @@
     self.postsView.alwaysBounceVertical = YES;
     
     [self loadCachedData];
-    if (self.posts == nil) {
-        [self startRefresh:refreshControl];
-    }
-    [self.postsView reloadData];
     
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)

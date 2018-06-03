@@ -24,13 +24,13 @@
 #import "UIView+WebCache.h"
 #import "DA_Mobile-Swift.h"
 
+@class BulletinData;
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate>
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate>
 
 // properties
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;
 @property (strong, nonatomic) NSDictionary *weather;
 @property (strong, nonatomic) NSMutableArray *upcomingMeals;
 @property (strong, nonatomic) NSMutableArray *birthdays;
@@ -38,6 +38,7 @@
 @property (strong, nonatomic) UIImage *weatherIcon;
 @property (strong, nonatomic) NSString *weatherInfo;
 @property (strong, nonatomic) NSMutableArray *weathers;
+@property (strong, nonatomic) BulletinData *bulletinData;
 
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;

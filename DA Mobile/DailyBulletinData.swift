@@ -8,16 +8,18 @@
 
 import UIKit
 
-class DailyBulletinData: NSObject {
+public class DailyBulletinData: NSObject {
     
-    var menu: [String]?
-    var posts : [Post]?
-    var announcements : [Announcement]?
+    @objc public var menu: [String]?
+    @objc public var posts : [Post]?
+    @objc public var announcements : [Announcement]?
+    @objc public var dateString : String
     
-    public init(posts: [Post]?, announcements: [Announcement]?, menu: [String]?) {
+    public init(posts: [Post]?, announcements: [Announcement]?, menu: [String]?, date: String) {
         self.posts = posts
         self.announcements = announcements
         self.menu = menu
+        self.dateString = date
     }
 
 }
