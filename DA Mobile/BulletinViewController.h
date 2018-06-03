@@ -27,6 +27,8 @@
 
 @interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate>
 
+// properties
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray <NSDictionary *> *posts;
 @property (strong, nonatomic) NSDictionary *weather;
@@ -41,6 +43,13 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *expandCollapseButton;
+
+// methods
+
+- (IBAction)expandCollapse:(id)sender;
+- (IBAction)filter:(id)sender;
+
 
 @end
 

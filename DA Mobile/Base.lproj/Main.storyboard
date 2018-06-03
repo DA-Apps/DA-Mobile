@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -112,12 +112,12 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="mCz-1N-gAu" secondAttribute="bottom" constant="8" id="0vE-Sv-HL0"/>
                                                         <constraint firstAttribute="trailing" secondItem="JCb-0n-2GW" secondAttribute="trailing" id="3b8-9S-RjH"/>
-                                                        <constraint firstItem="JCb-0n-2GW" firstAttribute="bottom" secondItem="vuA-V3-D04" secondAttribute="bottom" id="4Ji-43-wrt"/>
                                                         <constraint firstAttribute="trailing" secondItem="vuA-V3-D04" secondAttribute="trailing" id="5cH-tW-tr1"/>
+                                                        <constraint firstItem="mCz-1N-gAu" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" constant="8" id="BsN-Ot-6Oz"/>
                                                         <constraint firstAttribute="bottom" secondItem="vuA-V3-D04" secondAttribute="bottom" id="Mu9-fq-1Qc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JCb-0n-2GW" secondAttribute="bottom" id="WYk-uP-tUw"/>
                                                         <constraint firstItem="JCb-0n-2GW" firstAttribute="top" secondItem="4C5-as-Rd8" secondAttribute="top" id="ZHC-g3-vPj"/>
                                                         <constraint firstAttribute="width" constant="356" id="edV-v3-bbD"/>
-                                                        <constraint firstItem="mCz-1N-gAu" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" constant="8" id="gqS-t3-aDv"/>
                                                         <constraint firstItem="vuA-V3-D04" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" id="npk-fz-yCS"/>
                                                         <constraint firstAttribute="trailing" secondItem="mCz-1N-gAu" secondAttribute="trailing" constant="8" id="tRx-lC-SYO"/>
                                                         <constraint firstItem="JCb-0n-2GW" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" id="za6-3y-qpW"/>
@@ -139,9 +139,13 @@
                                             <outlet property="blurEffectView" destination="vuA-V3-D04" id="ftV-LD-9KC"/>
                                             <outlet property="bookmarkButton" destination="ZoS-oX-TvW" id="9Es-eI-iyP"/>
                                             <outlet property="image" destination="JCb-0n-2GW" id="TXV-o4-eZc"/>
+                                            <outlet property="imageRightBound" destination="3b8-9S-RjH" id="Lbi-uq-tlM"/>
                                             <outlet property="mainView" destination="4C5-as-Rd8" id="6O0-Lg-9re"/>
                                             <outlet property="menuWidth" destination="9C7-ay-mbI" id="CzX-k1-PbZ"/>
                                             <outlet property="title" destination="mCz-1N-gAu" id="7Kz-Lj-A6U"/>
+                                            <outlet property="titleBgLeftBound" destination="npk-fz-yCS" id="uyv-Gg-I5k"/>
+                                            <outlet property="titleHeight" destination="agF-N9-GVY" id="8Z9-BY-1jK"/>
+                                            <outlet property="titleLeftBound" destination="BsN-Ot-6Oz" id="bWd-VI-xFX"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="idCellNoPost" id="5I4-t0-pzc" customClass="UICollectionViewCellPosts">
@@ -287,6 +291,10 @@
                                     <constraint firstAttribute="height" constant="50" id="g4w-Wt-YhQ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEB-9H-hgG">
+                                <rect key="frame" x="330" y="573" width="33" height="33"/>
+                                <state key="normal" image="comments"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -296,15 +304,28 @@
                             <constraint firstItem="fIU-bd-5Cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ggh-Zr-IKp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kiM-9i-DV7" secondAttribute="bottom" id="PZf-O4-K8D"/>
                             <constraint firstAttribute="trailing" secondItem="kiM-9i-DV7" secondAttribute="trailing" id="d05-bj-W9f"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rEB-9H-hgG" secondAttribute="bottom" constant="12" id="irS-uJ-YTY"/>
+                            <constraint firstAttribute="trailing" secondItem="rEB-9H-hgG" secondAttribute="trailing" constant="12" id="yHC-u7-2gv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DA Bulletin" id="bWH-1z-QsM">
-                        <barButtonItem key="rightBarButtonItem" title="Expand" id="vOH-9m-h4h">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="filter" id="wQj-J6-hSj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="filter:" destination="BYZ-38-t0r" id="ffL-eF-yJj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Expand" image="collapse" id="vOH-9m-h4h">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="expandCollapse:" destination="BYZ-38-t0r" id="CEY-MK-xbr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="fIU-bd-5Cz" id="QTu-bJ-ci1"/>
+                        <outlet property="expandCollapseButton" destination="vOH-9m-h4h" id="Cgh-uM-f29"/>
+                        <outlet property="feedbackButton" destination="rEB-9H-hgG" id="bBc-vq-ofF"/>
                         <outlet property="navigationItem" destination="bWH-1z-QsM" id="5oW-sG-Jmy"/>
                         <outlet property="postsView" destination="kiM-9i-DV7" id="0rR-a7-nPH"/>
                         <segue destination="65b-sN-2Fk" kind="show" identifier="showDetails" id="cUb-Y2-FMw"/>
@@ -1245,6 +1266,9 @@
         <image name="back" width="15" height="27"/>
         <image name="bookmark_filled" width="30" height="30"/>
         <image name="cloudy" width="96" height="96"/>
+        <image name="collapse" width="30" height="30"/>
+        <image name="comments" width="33" height="33"/>
+        <image name="filter" width="28" height="28"/>
         <image name="food" width="27" height="27"/>
         <image name="icon" width="1024" height="1024"/>
         <image name="settings-1" width="30" height="30"/>

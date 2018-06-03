@@ -90,7 +90,7 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    self.mainWidth.constant = [UIScreen mainScreen].bounds.size.width;
+    self.menuWidth.constant = 0;
 }
 
 @end

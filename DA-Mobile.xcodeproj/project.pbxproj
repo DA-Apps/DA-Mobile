@@ -21,10 +21,7 @@
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
 		007755EF1F98FF69008670DE /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EB1F98FF69008670DE /* Announcement.swift */; };
-		0084BB4420BB459200F480D3 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 0084BB4320BB459000F480D3 /* gradient.png */; };
 		0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */ = {isa = PBXBuildFile; fileRef = 0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */; };
-		0084BB4A20BB525F00F480D3 /* expand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0084BB4820BB525E00F480D3 /* expand.png */; };
-		0084BB4B20BB525F00F480D3 /* collapse.png in Resources */ = {isa = PBXBuildFile; fileRef = 0084BB4920BB525E00F480D3 /* collapse.png */; };
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
 		00DEF7271FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
@@ -257,11 +254,8 @@
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
 		007755EA1F98FF68008670DE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		007755EB1F98FF69008670DE /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
-		0084BB4320BB459000F480D3 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Separators.h"; sourceTree = "<group>"; };
 		0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Separators.m"; sourceTree = "<group>"; };
-		0084BB4820BB525E00F480D3 /* expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expand.png; sourceTree = "<group>"; };
-		0084BB4920BB525E00F480D3 /* collapse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collapse.png; sourceTree = "<group>"; };
 		009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
 		009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
 		009AAFA11F993228004BB1A9 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
@@ -566,9 +560,6 @@
 		281C32D11E9A75B40093ABA0 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				0084BB4920BB525E00F480D3 /* collapse.png */,
-				0084BB4820BB525E00F480D3 /* expand.png */,
-				0084BB4320BB459000F480D3 /* gradient.png */,
 				0067E84A206F17E10089C5F6 /* placeholders */,
 				005A73FC1FFD9A8D009C2324 /* intros */,
 				009AAFA11F993228004BB1A9 /* feedback.png */,
@@ -987,7 +978,6 @@
 				00DEF73E1FF5D01600126F96 /* SF-Pro-Display-Heavy.otf in Resources */,
 				2868166C1DCAB3D20089BEA6 /* Main.storyboard in Resources */,
 				00DEF7441FF5D01600126F96 /* SFCompactText-BoldItalic.otf in Resources */,
-				0084BB4420BB459200F480D3 /* gradient.png in Resources */,
 				00DEF7481FF5D01600126F96 /* SF-Pro-Text-Light.otf in Resources */,
 				2822A6071E95C86600F52F92 /* Back.png in Resources */,
 				001AE4BF1FFDC50B00C7A721 /* ph_2.jpg in Resources */,
@@ -1025,14 +1015,12 @@
 				00DEF7781FF5D01600126F96 /* SF-Pro-Text-Semibold.otf in Resources */,
 				00DEF73A1FF5D01600126F96 /* SF-Pro-Display-Bold.otf in Resources */,
 				00DEF7911FF5D15100126F96 /* intro-1.png in Resources */,
-				0084BB4A20BB525F00F480D3 /* expand.png in Resources */,
 				00DEF74E1FF5D01600126F96 /* SFCompactDisplay-Black.otf in Resources */,
 				00DEF7501FF5D01600126F96 /* SF-Pro-Text-Regular.otf in Resources */,
 				00DEF72A1FF5D01600126F96 /* SF-Pro-Display-Thin.otf in Resources */,
 				00DEF7521FF5D01600126F96 /* SFCompactDisplay-Regular.otf in Resources */,
 				00EC48911F9932E10062C65E /* feedback.png in Resources */,
 				00DEF7621FF5D01600126F96 /* SF-Pro-Display-Ultralight.otf in Resources */,
-				0084BB4B20BB525F00F480D3 /* collapse.png in Resources */,
 				00DEF7681FF5D01600126F96 /* SFCompactDisplay-Bold.otf in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
 				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,

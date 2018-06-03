@@ -14,8 +14,13 @@
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UIImageView *image;
 @property (nonatomic, weak) IBOutlet UIVisualEffectView *blurEffectView;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *mainWidth;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *imageRightBound;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *menuWidth;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleLeftBound;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titleBgLeftBound;
+
+
 @property (nonatomic, weak) IBOutlet UIView *mainView;
 @property (nonatomic, weak) IBOutlet UIView *rightView;
 @property BOOL canSwipe;

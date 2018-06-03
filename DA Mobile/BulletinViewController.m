@@ -12,7 +12,8 @@
 @interface BulletinViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIPanGestureRecognizer *pan;
-@property BOOL panBegin;
+@property BOOL _panBegin;
+@property BOOL _isExpanded;
 
 @end
 
@@ -70,8 +71,10 @@
     
     if ([[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] count] == 0) //check if no post in one day
         return CGSizeMake(self.view.frame.size.width - 16, 100);
-    else{
+    if (self._isExpanded) {
         return CGSizeMake(self.view.frame.size.width - 16, 270);
+    }else{
+        return CGSizeMake(self.view.frame.size.width - 16, 100);
     }
 }
 
@@ -103,16 +106,54 @@
         else
             [cell.image sd_setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"img_src"]] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
         
-        cell.image.layer.cornerRadius = 15.0;
-        cell.image.layer.masksToBounds = YES;
+        // animation
+        UIBezierPath *bgMaskPath;
         
-        // Create the path (with only the top-left corner rounded)
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.blurEffectView.bounds byRoundingCorners:UIRectCornerBottomLeft| UIRectCornerBottomRight cornerRadii:CGSizeMake(15, 15)];
-        // Create the shape layer and set its path
+        if (!self._isExpanded){
+            
+            [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:5.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                cell.imageRightBound.constant = cell.frame.size.width - 100;
+                cell.titleHeight.constant = 100;
+                cell.titleLeftBound.constant = 108;
+                cell.titleBgLeftBound.constant = 100;
+                [cell layoutIfNeeded];
+            } completion:nil];
+            
+            bgMaskPath = [UIBezierPath bezierPathWithRoundedRect:cell.blurEffectView.bounds byRoundingCorners: UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:CGSizeMake(15, 15)];
+            
+            cell.image.layer.cornerRadius = 0;
+            UIBezierPath *imageMaskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 100, 100) byRoundingCorners: UIRectCornerTopLeft | UIRectCornerBottomLeft cornerRadii:CGSizeMake(15, 15)];
+            // setting corner for cell blur background
+            CAShapeLayer *imageMaskLayer = [CAShapeLayer layer];
+            imageMaskLayer.frame = cell.image.bounds;
+            imageMaskLayer.path = imageMaskPath.CGPath;
+            cell.image.layer.mask = imageMaskLayer;
+            
+        }else{
+            
+            [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:5.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                cell.imageRightBound.constant = 0;
+                cell.titleHeight.constant = 79;
+                cell.titleLeftBound.constant = 8;
+                cell.titleBgLeftBound.constant = 0;
+                [cell layoutIfNeeded];
+            } completion:nil];
+            
+            bgMaskPath = [UIBezierPath bezierPathWithRoundedRect:cell.blurEffectView.bounds byRoundingCorners:UIRectCornerBottomLeft| UIRectCornerBottomRight cornerRadii:CGSizeMake(15, 15)];
+            UIBezierPath *imageMaskPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, cell.frame.size.width, 270)];
+            
+            CAShapeLayer *imageMaskLayer = [CAShapeLayer layer];
+            imageMaskLayer.frame = cell.image.bounds;
+            imageMaskLayer.path = imageMaskPath.CGPath;
+            cell.image.layer.mask = imageMaskLayer;
+            cell.image.layer.cornerRadius = 15.0;
+            cell.image.layer.masksToBounds = YES;
+        }
+        
+        // setting corner for cell blur background
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
         maskLayer.frame = cell.blurEffectView.bounds;
-        maskLayer.path = maskPath.CGPath;
-        // Set the newly created shape layer as the mask for the image view's layer
+        maskLayer.path = bgMaskPath.CGPath;
         cell.blurEffectView.layer.mask = maskLayer;
         
         cell.delegate = self;
@@ -153,8 +194,7 @@
         return CGSizeMake(self.postsView.frame.size.width, 260);
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     headerView.dateLabel.text = [self dateDescription:[[self.posts objectAtIndex:indexPath.section] objectForKey:@"date"]];
@@ -510,6 +550,40 @@
     return NO;
 }
 
+- (IBAction)expandCollapse:(id)sender {
+    
+    self._isExpanded = !self._isExpanded;
+    if (self._isExpanded)
+        [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"]];
+    else
+        [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"]];
+
+    [self.postsView reloadData];
+}
+
+- (IBAction)filter:(id)sender {
+    
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = [segue destinationViewController];
+        DetailViewController *vc = (DetailViewController *)[nav topViewController];
+        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
+        NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
+        
+        vc.postURL = [dic objectForKey:@"link"];
+        vc.contentString = [dic objectForKey:@"summery"];
+        vc.contentImage = [dic objectForKey:@"img_src"];
+        vc.titleString = [dic objectForKey:@"title"];
+    }
+}
+
+
 #pragma mark - Gesture Recognizer
 
 -(void)panAction:(UIPanGestureRecognizer *)pan{
@@ -567,11 +641,10 @@
     
     [super viewDidLoad];
     
+    self._isExpanded = YES;
     
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
     }
     
     self.headerContent = [NSMutableArray array];
@@ -606,23 +679,5 @@
     
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *nav = [segue destinationViewController];
-        DetailViewController *vc = (DetailViewController *)[nav topViewController];
-        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
-        NSDictionary *dic = [[[self.posts objectAtIndex:indexPath.section] objectForKey:@"posts"] objectAtIndex:indexPath.row];
-        
-        vc.postURL = [dic objectForKey:@"link"];
-        vc.contentString = [dic objectForKey:@"summery"];
-        vc.contentImage = [dic objectForKey:@"img_src"];
-        vc.titleString = [dic objectForKey:@"title"];
-    }
-}
 
 @end
-
