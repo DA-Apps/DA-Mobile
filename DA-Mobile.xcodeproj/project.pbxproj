@@ -21,6 +21,7 @@
 		007755ED1F98FF69008670DE /* BulletinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755E91F98FF66008670DE /* BulletinData.swift */; };
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
 		007755EF1F98FF69008670DE /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EB1F98FF69008670DE /* Announcement.swift */; };
+		00801EE220D3641500A73958 /* MKDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 00801EE020D3641300A73958 /* MKDropdownMenu.m */; };
 		0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */ = {isa = PBXBuildFile; fileRef = 0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */; };
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
@@ -254,6 +255,8 @@
 		007755E91F98FF66008670DE /* BulletinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinData.swift; sourceTree = "<group>"; };
 		007755EA1F98FF68008670DE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		007755EB1F98FF69008670DE /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		00801EE020D3641300A73958 /* MKDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDropdownMenu.m; sourceTree = "<group>"; };
+		00801EE120D3641400A73958 /* MKDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDropdownMenu.h; sourceTree = "<group>"; };
 		0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Separators.h"; sourceTree = "<group>"; };
 		0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Separators.m"; sourceTree = "<group>"; };
 		009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
@@ -499,6 +502,15 @@
 			path = placeholders;
 			sourceTree = "<group>";
 		};
+		00801EE320D3641E00A73958 /* Dropdown Menu */ = {
+			isa = PBXGroup;
+			children = (
+				00801EE120D3641400A73958 /* MKDropdownMenu.h */,
+				00801EE020D3641300A73958 /* MKDropdownMenu.m */,
+			);
+			name = "Dropdown Menu";
+			sourceTree = "<group>";
+		};
 		00DEF6F21FF5D01600126F96 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +597,7 @@
 		284A4DC11E2900C9004F5226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00801EE320D3641E00A73958 /* Dropdown Menu */,
 				0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */,
 				0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */,
 				0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */,
@@ -883,7 +896,6 @@
 				28B84EA91E9018560041BD5D /* Sources */,
 				28B84EAA1E9018560041BD5D /* Frameworks */,
 				28B84EAB1E9018560041BD5D /* Resources */,
-				C10D0DCB6177C450BE7977D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1125,7 +1137,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8DAEDD8AC3D331B725C5A5D4 /* [CP] Copy Pods Resources */ = {
@@ -1161,7 +1173,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5AF966047C8FFDB0CE98965 /* [CP] Embed Pods Frameworks */ = {
@@ -1212,21 +1224,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C10D0DCB6177C450BE7977D0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DA-Mobile Widget/Pods-DA-Mobile Widget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1245,6 +1242,7 @@
 				286816631DCAB3D20089BEA6 /* main.m in Sources */,
 				007755EF1F98FF69008670DE /* Announcement.swift in Sources */,
 				28994B151EC16AB0007ACF10 /* UIImageView+HighlightedWebCache.m in Sources */,
+				00801EE220D3641500A73958 /* MKDropdownMenu.m in Sources */,
 				286816A91DCAB7230089BEA6 /* TFHpple.m in Sources */,
 				28994B0C1EC16AB0007ACF10 /* SDWebImageDecoder.m in Sources */,
 				28A4C6DE1E984A1500C00E3E /* MenuViewController.m in Sources */,

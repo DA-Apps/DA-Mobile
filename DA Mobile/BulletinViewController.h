@@ -12,6 +12,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "MKDropdownMenu.h"
 #import "UICollectionView+Separators.h"
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
@@ -26,7 +27,7 @@
 
 @class BulletinData;
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate>
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
 
 // properties
 
@@ -45,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *expandCollapseButton;
+@property (weak, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 // methods
 
