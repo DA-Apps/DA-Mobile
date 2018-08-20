@@ -1096,7 +1096,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  Status of the event. Optional. Possible values are:
  *  - "confirmed" - The event is confirmed. This is the default status.
  *  - "tentative" - The event is tentatively confirmed.
- *  - "cancelled" - The event is cancelled.
+ *  - "cancelled" - The event is cancelled (deleted). The list method returns
+ *  cancelled events only on incremental sync (when syncToken or updatedMin are
+ *  specified) or if the showDeleted flag is set to true. The get method always
+ *  returns them.
+ *  A cancelled status represents two different states depending on the event
+ *  type:
+ *  - Cancelled exceptions of an uncancelled recurring event indicate that this
+ *  instance should no longer be presented to the user. Clients should store
+ *  these events for the lifetime of the parent recurring event.
+ *  Cancelled exceptions are only guaranteed to have values for the id,
+ *  recurringEventId and originalStartTime fields populated. The other fields
+ *  might be empty.
+ *  - All other cancelled events represent deleted events. Clients should remove
+ *  their locally synced copies. Such cancelled events will eventually
+ *  disappear, so do not rely on them being available indefinitely.
+ *  Deleted events are only guaranteed to have the id field populated. On the
+ *  organizer's calendar, cancelled events continue to expose event details
+ *  (summary, location, etc.) so that they can be restored (undeleted).
+ *  Similarly, the events to which the user was invited and that they manually
+ *  removed continue to provide details. However, incremental sync requests with
+ *  showDeleted set to false will not return these details.
+ *  If an event changes its organizer (for example via the move operation) and
+ *  the original organizer is not on the attendee list, it will leave behind a
+ *  cancelled event where only the id field is guaranteed to be populated.
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -1146,8 +1169,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The creator's Profile ID, if available. It corresponds to theid field in the
- *  People collection of the Google+ API
+ *  The creator's Profile ID, if available. It corresponds to the id field in
+ *  the People collection of the Google+ API
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1253,7 +1276,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The organizer's Profile ID, if available. It corresponds to theid field in
+ *  The organizer's Profile ID, if available. It corresponds to the id field in
  *  the People collection of the Google+ API
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -1370,6 +1393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  URL link to the attachment.
  *  For adding Google Drive file attachments use the same format as in
  *  alternateLink property of the Files resource in the Drive API.
+ *  Required when adding an attachment.
  */
 @property(nonatomic, copy, nullable) NSString *fileUrl;
 
@@ -1406,11 +1430,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The attendee's email address, if available. This field must be present when
  *  adding an attendee. It must be a valid email address as per RFC5322.
+ *  Required when adding an attendee.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The attendee's Profile ID, if available. It corresponds to theid field in
+ *  The attendee's Profile ID, if available. It corresponds to the id field in
  *  the People collection of the Google+ API
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -1506,12 +1531,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  customers. Requests to set SMS reminders for other account types are
  *  ignored.
  *  - "popup" - Reminders are sent via a UI popup.
+ *  Required when adding a reminder.
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  Number of minutes before the start of the event when the reminder should
  *  trigger. Valid values are between 0 and 40320 (4 weeks in minutes).
+ *  Required when adding a reminder.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1640,7 +1667,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximal number of calendars for which FreeBusy information is to be
- *  provided. Optional.
+ *  provided. Optional. Maximum value is 50.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1648,8 +1675,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximal number of calendar identifiers to be provided for a single group.
- *  Optional. An error will be returned for a group with more members than this
- *  value.
+ *  Optional. An error is returned for a group with more members than this
+ *  value. Maximum value is 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1663,10 +1690,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCalendar_FreeBusyRequestItem *> *items;
 
-/** The end of the interval for the query. */
+/** The end of the interval for the query formatted as per RFC3339. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMax;
 
-/** The start of the interval for the query. */
+/** The start of the interval for the query formatted as per RFC3339. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeMin;
 
 /** Time zone used in the response. Optional. The default is UTC. */
@@ -1748,6 +1775,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "sms" - Reminders are sent via SMS. This value is read-only and is ignored
  *  on inserts and updates. SMS reminders are only available for G Suite
  *  customers.
+ *  Required when adding a notification.
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -1757,8 +1785,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  calendar.
  *  - "eventChange" - Notification sent when an event is changed.
  *  - "eventCancellation" - Notification sent when an event is cancelled.
- *  - "eventResponse" - Notification sent when an event is changed.
+ *  - "eventResponse" - Notification sent when an attendee responds to the event
+ *  invitation.
  *  - "agenda" - An agenda with the events of the day (sent out in the morning).
+ *  Required when adding a notification.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
