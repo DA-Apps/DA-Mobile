@@ -413,19 +413,6 @@
 		28BBAB6D1E9BA8590068864B /* Bookmark_000000_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookmark_000000_100.png; sourceTree = "<group>"; };
 		28BE9A071ED5300200DEA31C /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		28BE9A081ED5300200DEA31C /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
-		28C3A5C91EE36BB800E199D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		28C3A5CB1EE36BB800E199D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28C3A5CD1EE36BB800E199D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28C3A5D81EE36BB800E199D6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		28C3A5D91EE36BB800E199D6 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		28C3A5DA1EE36BB800E199D6 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
-		28C3A5DC1EE36BB800E199D6 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
-		28C3A5DD1EE36BB800E199D6 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		28C3A5DF1EE36BB800E199D6 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		28C3A5E01EE36BB800E199D6 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		28C3A5E21EE36BB800E199D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		28C3A5E41EE36BB800E199D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28C3A5F01EE36CF900E199D6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		28CF19F41ECD2A33006BFDC0 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
 		28CF19F51ECD2A33006BFDC0 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		28CF19F71ECD44AF006BFDC0 /* Empty Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty Box.png"; sourceTree = "<group>"; };
@@ -636,8 +623,6 @@
 				00EC969E2051E25300A78CF2 /* DA-Mobile Widget.entitlements */,
 				286816601DCAB3D20089BEA6 /* DA Mobile */,
 				28B84EB01E9018560041BD5D /* DA Mobile Widget */,
-				28C3A5C71EE36BB800E199D6 /* DA Mobile Apple Watch */,
-				28C3A5D61EE36BB800E199D6 /* DA Mobile Apple Watch Extension */,
 				2868165F1DCAB3D20089BEA6 /* Products */,
 				2868169E1DCAB4600089BEA6 /* Frameworks */,
 				7196A0D59C0E5A9F51CD81F4 /* Pods */,
@@ -800,41 +785,6 @@
 				2868166D1DCAB3D20089BEA6 /* Assets.xcassets */,
 			);
 			path = "DA Mobile Widget";
-			sourceTree = "<group>";
-		};
-		28C3A5C71EE36BB800E199D6 /* DA Mobile Apple Watch */ = {
-			isa = PBXGroup;
-			children = (
-				28C3A5C81EE36BB800E199D6 /* Interface.storyboard */,
-				28C3A5F01EE36CF900E199D6 /* Media.xcassets */,
-				28C3A5CB1EE36BB800E199D6 /* Assets.xcassets */,
-				28C3A5CD1EE36BB800E199D6 /* Info.plist */,
-			);
-			path = "DA Mobile Apple Watch";
-			sourceTree = "<group>";
-		};
-		28C3A5D61EE36BB800E199D6 /* DA Mobile Apple Watch Extension */ = {
-			isa = PBXGroup;
-			children = (
-				28C3A5D91EE36BB800E199D6 /* InterfaceController.h */,
-				28C3A5DA1EE36BB800E199D6 /* InterfaceController.m */,
-				28C3A5DC1EE36BB800E199D6 /* ExtensionDelegate.h */,
-				28C3A5DD1EE36BB800E199D6 /* ExtensionDelegate.m */,
-				28C3A5DF1EE36BB800E199D6 /* NotificationController.h */,
-				28C3A5E01EE36BB800E199D6 /* NotificationController.m */,
-				28C3A5E21EE36BB800E199D6 /* Assets.xcassets */,
-				28C3A5E41EE36BB800E199D6 /* Info.plist */,
-				28C3A5D71EE36BB800E199D6 /* Supporting Files */,
-			);
-			path = "DA Mobile Apple Watch Extension";
-			sourceTree = "<group>";
-		};
-		28C3A5D71EE36BB800E199D6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				28C3A5D81EE36BB800E199D6 /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		28E833A01E94782E00614C73 /* Objects */ = {
@@ -1321,14 +1271,6 @@
 				28B84EB51E9018560041BD5D /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		28C3A5C81EE36BB800E199D6 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28C3A5C91EE36BB800E199D6 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
