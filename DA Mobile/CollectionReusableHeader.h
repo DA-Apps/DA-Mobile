@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *todayDateLabel;
 @property (strong, nonatomic) NSMutableArray<NSMutableArray *> *array;
 @property (strong, nonatomic) id delegate;
 

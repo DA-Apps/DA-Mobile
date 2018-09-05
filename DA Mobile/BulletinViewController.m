@@ -80,7 +80,7 @@
     if (self.bulletinData.bulletinData[indexPath.section].posts.count == 0) //check if no post in one day
         return CGSizeMake(self.view.frame.size.width - 16, 100);
     if (self._isExpanded) {
-        return CGSizeMake(self.view.frame.size.width - 16, 270);
+        return CGSizeMake(self.view.frame.size.width - 16, 320);
     }else{
         return CGSizeMake(self.view.frame.size.width - 16, 100);
     }
@@ -142,7 +142,7 @@
             
             [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:5.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 cell.imageRightBound.constant = 0;
-                cell.titleHeight.constant = 79;
+                cell.titleHeight.constant = 95;
                 cell.titleLeftBound.constant = 8;
                 cell.titleBgLeftBound.constant = 0;
                 [cell layoutIfNeeded];
@@ -207,7 +207,9 @@
     
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     headerView.dateLabel.text = self.bulletinData.bulletinData[indexPath.section].dateString;
+    [headerView.dateLabel sizeToFit];
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
+        headerView.todayDateLabel.hidden = NO;
         headerView.tempLabel.hidden = NO;
         headerView.weatherIcon.hidden = NO;
         headerView.table.hidden = NO;
@@ -221,6 +223,7 @@
         headerView.tempLabel.hidden = YES;
         headerView.weatherIcon.hidden = YES;
         headerView.table.hidden = YES;
+        headerView.todayDateLabel.hidden = YES;
     }
     
     return headerView;
@@ -441,7 +444,7 @@
 }
 
 - (IBAction)filter:(id)sender {
-    
+# warning implementation needed
 }
 
 #pragma mark - Navigation
@@ -552,8 +555,7 @@
     [self.headerContent addObject:[NSMutableArray array]];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(startRefresh:)
-             forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(startRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
     
@@ -573,6 +575,5 @@
     [self.postsView addGestureRecognizer:self.pan];
     
 }
-
 
 @end

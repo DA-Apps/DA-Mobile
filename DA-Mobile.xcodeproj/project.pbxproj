@@ -153,7 +153,6 @@
 		286816AA1DCAB7230089BEA6 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A61DCAB7230089BEA6 /* TFHppleElement.m */; };
 		286816AB1DCAB7230089BEA6 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816A81DCAB7230089BEA6 /* XPathQuery.m */; };
 		286816AD1DCAB8EC0089BEA6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */; };
-		287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */; };
 		28994B061EC16AB0007ACF10 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 28994ADF1EC16AB0007ACF10 /* MKAnnotationView+WebCache.m */; };
 		28994B071EC16AB0007ACF10 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 28994AE11EC16AB0007ACF10 /* NSData+ImageContentType.m */; };
 		28994B081EC16AB0007ACF10 /* NSImage+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 28994AE31EC16AB0007ACF10 /* NSImage+WebCache.m */; };
@@ -190,7 +189,6 @@
 		28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CF19F71ECD44AF006BFDC0 /* Empty Box.png */; };
 		28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */; };
 		28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */; };
-		28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */; };
 		28E833A81E947FF500614C73 /* CollectionReusableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E833A71E947FF500614C73 /* CollectionReusableHeader.m */; };
 		28FA2A981ED1D9A9009C1A8B /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A911ED1D9A9009C1A8B /* canvas.png */; };
 		28FA2A991ED1D9A9009C1A8B /* credit.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FA2A921ED1D9A9009C1A8B /* credit.png */; };
@@ -353,7 +351,6 @@
 		286816A71DCAB7230089BEA6 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		286816A81DCAB7230089BEA6 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		286816AC1DCAB8EC0089BEA6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellSmall.xib; sourceTree = "<group>"; };
 		28994ADE1EC16AB0007ACF10 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKAnnotationView+WebCache.h"; path = "SDWebImage/MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		28994ADF1EC16AB0007ACF10 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKAnnotationView+WebCache.m"; path = "SDWebImage/MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		28994AE01EC16AB0007ACF10 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -420,7 +417,6 @@
 		28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		28E833A11E947E5C00614C73 /* UICollectionViewCellPosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellPosts.h; sourceTree = "<group>"; };
 		28E833A21E947E5C00614C73 /* UICollectionViewCellPosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewCellPosts.m; sourceTree = "<group>"; };
-		28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICollectionViewCellPosts.xib; sourceTree = "<group>"; };
 		28E833A61E947FF500614C73 /* CollectionReusableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableHeader.h; sourceTree = "<group>"; };
 		28E833A71E947FF500614C73 /* CollectionReusableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableHeader.m; sourceTree = "<group>"; };
 		28FA2A911ED1D9A9009C1A8B /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
@@ -610,8 +606,6 @@
 			children = (
 				2868166F1DCAB3D20089BEA6 /* LaunchScreen.storyboard */,
 				004EFB561FFADB93008D6D04 /* UICollectionViewCellNoPosts.xib */,
-				28E833A41E947E7F00614C73 /* UICollectionViewCellPosts.xib */,
-				287986051E9888A400DE4DC4 /* UICollectionViewCellSmall.xib */,
 				2868166A1DCAB3D20089BEA6 /* Main.storyboard */,
 			);
 			name = Nibs;
@@ -987,14 +981,12 @@
 				00DEF7621FF5D01600126F96 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				00DEF7681FF5D01600126F96 /* SFCompactDisplay-Bold.otf in Resources */,
 				28AFE0D61E9AC649004A83FB /* Bookmark-icon.png in Resources */,
-				28E833A51E947E7F00614C73 /* UICollectionViewCellPosts.xib in Resources */,
 				00DEF7461FF5D01600126F96 /* SFCompactDisplay-Semibold.otf in Resources */,
 				00DEF7901FF5D15100126F96 /* intro-4.png in Resources */,
 				28CF19F81ECD44AF006BFDC0 /* Empty Box.png in Resources */,
 				00DEF7601FF5D01600126F96 /* SFCompactText-Light.otf in Resources */,
 				28FA2A9E1ED1D9A9009C1A8B /* tips.png in Resources */,
 				00DEF7301FF5D01600126F96 /* SFCompactText-SemiboldItalic.otf in Resources */,
-				287986061E9888A400DE4DC4 /* UICollectionViewCellSmall.xib in Resources */,
 				285853E01EC003FC00A62BFE /* trash.png in Resources */,
 				28FA2A9C1ED1D9A9009C1A8B /* location.png in Resources */,
 				00DEF76C1FF5D01600126F96 /* SF-Pro-Display-BlackItalic.otf in Resources */,
