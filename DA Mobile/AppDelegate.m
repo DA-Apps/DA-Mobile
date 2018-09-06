@@ -1,5 +1,7 @@
 /*
- 
+ AppleDelegate.m
+ Created by Neil Nie (c) 2016-2018
+ Contact: contact@neilnie.com
  */
 
 #import "AppDelegate.h"

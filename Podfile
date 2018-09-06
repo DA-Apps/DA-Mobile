@@ -8,10 +8,8 @@ target 'DA-Mobile' do
   # Pods for DA Mobile
 pod 'WhatsNew'
 pod 'Alamofire'
-pod 'BEMCheckBox'
 pod 'GoogleAPIClientForREST/Calendar'
 pod 'Google/SignIn'
-pod 'FSCalendar'
 pod 'MaterialControls'
 pod 'MSCollectionViewCalendarLayout'
 pod 'DGActivityIndicatorView'

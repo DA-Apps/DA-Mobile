@@ -22,7 +22,6 @@
 		007755EE1F98FF69008670DE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EA1F98FF68008670DE /* Post.swift */; };
 		007755EF1F98FF69008670DE /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007755EB1F98FF69008670DE /* Announcement.swift */; };
 		00801EE220D3641500A73958 /* MKDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 00801EE020D3641300A73958 /* MKDropdownMenu.m */; };
-		0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */ = {isa = PBXBuildFile; fileRef = 0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */; };
 		009AAFA01F992A72004BB1A9 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */; };
 		00DEF7261FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
 		00DEF7271FF5D01600126F96 /* SFCompactDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00DEF6F31FF5D01600126F96 /* SFCompactDisplay-Heavy.otf */; };
@@ -138,7 +137,6 @@
 		2822A6081E95C86600F52F92 /* Hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2822A6061E95C86600F52F92 /* Hearts.png */; };
 		282ADC1A1E97213600701BC2 /* BulletinPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 282ADC191E97213600701BC2 /* BulletinPost.m */; };
 		283C8A0F1E97AE1300329DF3 /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 283C8A0E1E97AE1300329DF3 /* Plus.png */; };
-		283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */; };
 		2841DB411E567B2A007A1B2E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2841DB401E567B2A007A1B2E /* DetailViewController.m */; };
 		285853E01EC003FC00A62BFE /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 285853DF1EC003FC00A62BFE /* trash.png */; };
 		286816631DCAB3D20089BEA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 286816621DCAB3D20089BEA6 /* main.m */; };
@@ -255,8 +253,6 @@
 		007755EB1F98FF69008670DE /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		00801EE020D3641300A73958 /* MKDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDropdownMenu.m; sourceTree = "<group>"; };
 		00801EE120D3641400A73958 /* MKDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDropdownMenu.h; sourceTree = "<group>"; };
-		0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Separators.h"; sourceTree = "<group>"; };
-		0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Separators.m"; sourceTree = "<group>"; };
 		009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentTableViewCell.h; sourceTree = "<group>"; };
 		009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentTableViewCell.m; sourceTree = "<group>"; };
 		009AAFA11F993228004BB1A9 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
@@ -328,7 +324,6 @@
 		282ADC191E97213600701BC2 /* BulletinPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinPost.m; sourceTree = "<group>"; };
 		283C8A0E1E97AE1300329DF3 /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
 		283C8A101E97EB1500329DF3 /* CollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		2841DB3F1E567B2A007A1B2E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2841DB401E567B2A007A1B2E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		285853DF1EC003FC00A62BFE /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
@@ -581,8 +576,6 @@
 			isa = PBXGroup;
 			children = (
 				00801EE320D3641E00A73958 /* Dropdown Menu */,
-				0084BB4520BB4F2B00F480D3 /* UICollectionView+Separators.h */,
-				0084BB4620BB4F2B00F480D3 /* UICollectionView+Separators.m */,
 				0000CEC41F996F5300146E37 /* SegmentTableViewCell.h */,
 				0000CEC51F996F5300146E37 /* SegmentTableViewCell.m */,
 				28E833A61E947FF500614C73 /* CollectionReusableHeader.h */,
@@ -594,7 +587,6 @@
 				28DA8BEB1E9B321400478B73 /* CustomTableViewCell.m */,
 				009AAF9E1F992A72004BB1A9 /* ContentTableViewCell.h */,
 				009AAF9F1F992A72004BB1A9 /* ContentTableViewCell.m */,
-				283C8A111E97EB1500329DF3 /* CollectionViewFlowLayout.m */,
 				0000CEBF1F99365500146E37 /* EmptyNotifierTableViewCell.h */,
 				0000CEC01F99365500146E37 /* EmptyNotifierTableViewCell.m */,
 			);
@@ -1127,11 +1119,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DA-Mobile/Pods-DA-Mobile-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
 				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -1146,11 +1136,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
@@ -1213,11 +1201,9 @@
 				28E833A31E947E5C00614C73 /* UICollectionViewCellPosts.m in Sources */,
 				28994B0B1EC16AB0007ACF10 /* SDWebImageCompat.m in Sources */,
 				28DA8BEC1E9B321400478B73 /* CustomTableViewCell.m in Sources */,
-				283C8A121E97EB1500329DF3 /* CollectionViewFlowLayout.m in Sources */,
 				007755EC1F98FF69008670DE /* DailyBulletinData.swift in Sources */,
 				0000CEC11F99365500146E37 /* EmptyNotifierTableViewCell.m in Sources */,
 				28994B111EC16AB0007ACF10 /* UIButton+WebCache.m in Sources */,
-				0084BB4720BB4F2B00F480D3 /* UICollectionView+Separators.m in Sources */,
 				28994B061EC16AB0007ACF10 /* MKAnnotationView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

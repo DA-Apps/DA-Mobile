@@ -11,13 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AFNetworking/AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
-
 #import "MKDropdownMenu.h"
-#import "UICollectionView+Separators.h"
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
-#import "CollectionViewFlowLayout.h"
 #import "YQL.h"
 #import "DGActivityIndicatorView.h"
 #import "BulletinPost.h"

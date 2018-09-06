@@ -15,7 +15,6 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.7.3)
-  - BEMCheckBox (1.4.1)
   - DGActivityIndicatorView (2.1.1)
   - EAIntroView (2.12.0):
     - EARestrictedScrollView (~> 1.1.0)
@@ -39,7 +38,6 @@ PODS:
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - FSCalendar (2.7.9)
   - Google/Core (3.1.0):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.1.0):
@@ -77,20 +75,18 @@ PODS:
   - MaterialControls (1.2.2)
   - MSCollectionViewCalendarLayout (0.1.5)
   - Protobuf (3.6.1)
-  - Realm (3.7.6):
-    - Realm/Headers (= 3.7.6)
-  - Realm/Headers (3.7.6)
+  - Realm (3.8.0):
+    - Realm/Headers (= 3.8.0)
+  - Realm/Headers (3.8.0)
   - WhatsNew (0.4.3)
 
 DEPENDENCIES:
   - AFNetworking
   - Alamofire
-  - BEMCheckBox
   - DGActivityIndicatorView
   - EAIntroView
   - Firebase/Core
   - Firebase/Messaging
-  - FSCalendar
   - Google/SignIn
   - GoogleAPIClientForREST/Calendar
   - MaterialControls
@@ -102,7 +98,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Alamofire
-    - BEMCheckBox
     - DGActivityIndicatorView
     - EAIntroView
     - EARestrictedScrollView
@@ -111,7 +106,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseInstanceID
     - FirebaseMessaging
-    - FSCalendar
     - Google
     - GoogleAPIClientForREST
     - GoogleSignIn
@@ -127,7 +121,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
@@ -136,7 +129,6 @@ SPEC CHECKSUMS:
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FirebaseMessaging: 753d05a925e9eb8eadd09a0ffc9b808578b72fac
-  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleAPIClientForREST: 5b95b38a0fa912e8ac7bdcf9e124578ef1a61bf2
   GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
@@ -146,9 +138,9 @@ SPEC CHECKSUMS:
   MaterialControls: 1c6b29e78d3a13d8dd6a67ed31b6d26eb5de8f72
   MSCollectionViewCalendarLayout: 9c52894930d6b712951f18873618fc32c00cd4fa
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
+  Realm: 3fdae59de78838064e9f77638d7cdb7b8cff9dc8
   WhatsNew: ddf224a0ac4f5fc32deb15188c820ccc625f4929
 
-PODFILE CHECKSUM: 59b7ee577acdae0ffd737e3f0f241784ae3aa2d7
+PODFILE CHECKSUM: 1bfa004d597530edf7a4de2deac8d205e06a1ba0
 
 COCOAPODS: 1.5.3
