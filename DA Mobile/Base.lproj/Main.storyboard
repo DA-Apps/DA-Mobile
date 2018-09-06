@@ -97,6 +97,7 @@
                                                                         <rect key="frame" x="8" y="8" width="150" height="17"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="150" id="Kov-dM-KlP"/>
+                                                                            <constraint firstAttribute="height" constant="17" id="S9i-7n-ez4"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,11 +114,8 @@
                                                             </constraints>
                                                             <blurEffect style="extraLight"/>
                                                         </visualEffectView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title that has two lines title  that has two lines title that has two lines" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCz-1N-gAu">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My accent interacts with an unsolicited center under the advantage." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCz-1N-gAu">
                                                             <rect key="frame" x="8" y="175" width="340" height="62"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="62" id="bz6-Y3-Tic"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="25"/>
                                                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -133,6 +131,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="JCb-0n-2GW" secondAttribute="bottom" id="WYk-uP-tUw"/>
                                                         <constraint firstItem="JCb-0n-2GW" firstAttribute="top" secondItem="4C5-as-Rd8" secondAttribute="top" id="ZHC-g3-vPj"/>
                                                         <constraint firstAttribute="width" constant="356" id="edV-v3-bbD"/>
+                                                        <constraint firstItem="mCz-1N-gAu" firstAttribute="top" secondItem="UFL-1u-Myx" secondAttribute="bottom" id="gKV-hu-dls"/>
                                                         <constraint firstItem="vuA-V3-D04" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" id="npk-fz-yCS"/>
                                                         <constraint firstAttribute="trailing" secondItem="mCz-1N-gAu" secondAttribute="trailing" constant="8" id="tRx-lC-SYO"/>
                                                         <constraint firstItem="JCb-0n-2GW" firstAttribute="leading" secondItem="4C5-as-Rd8" secondAttribute="leading" id="za6-3y-qpW"/>
@@ -213,7 +212,7 @@
                                                 <constraint firstAttribute="height" constant="72" id="QK1-0i-fKS"/>
                                                 <constraint firstAttribute="width" constant="210" id="T40-fx-xgi"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="30"/>
+                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="31"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -232,7 +231,7 @@
                                             </constraints>
                                         </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-RP-bUd">
-                                            <rect key="frame" x="8" y="98" width="359" height="138"/>
+                                            <rect key="frame" x="8" y="86" width="359" height="150"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="gfT-ks-sWM">
@@ -261,9 +260,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUG 25th, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-xs-eds">
-                                            <rect key="frame" x="8" y="18" width="150" height="17"/>
+                                            <rect key="frame" x="8" y="16" width="200" height="17"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="Yrz-49-uSP"/>
+                                                <constraint firstAttribute="width" constant="200" id="Yrz-49-uSP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -277,8 +276,8 @@
                                         <constraint firstItem="jbd-xs-eds" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leading" constant="8" id="BzL-qK-3Ud"/>
                                         <constraint firstAttribute="trailing" secondItem="LxC-TO-MDU" secondAttribute="trailing" constant="8" id="DVn-za-x3R"/>
                                         <constraint firstItem="RUZ-vm-KwP" firstAttribute="leading" secondItem="WXk-rf-6kS" secondAttribute="leadingMargin" id="OcB-Gm-5NX"/>
-                                        <constraint firstItem="jbd-xs-eds" firstAttribute="top" secondItem="WXk-rf-6kS" secondAttribute="top" constant="18" id="a3T-nN-QP3"/>
-                                        <constraint firstItem="w7j-RP-bUd" firstAttribute="top" secondItem="RUZ-vm-KwP" secondAttribute="bottom" constant="8" id="fLO-2I-1gA"/>
+                                        <constraint firstItem="jbd-xs-eds" firstAttribute="top" secondItem="WXk-rf-6kS" secondAttribute="top" constant="16" id="a3T-nN-QP3"/>
+                                        <constraint firstItem="w7j-RP-bUd" firstAttribute="top" secondItem="RUZ-vm-KwP" secondAttribute="bottom" constant="-4" id="fLO-2I-1gA"/>
                                         <constraint firstItem="LxC-TO-MDU" firstAttribute="top" secondItem="w7j-RP-bUd" secondAttribute="bottom" constant="12" id="h01-PZ-bM3"/>
                                         <constraint firstItem="lSU-G2-7EV" firstAttribute="trailing" secondItem="WXk-rf-6kS" secondAttribute="trailingMargin" id="jGS-tv-j7I"/>
                                         <constraint firstItem="lSU-G2-7EV" firstAttribute="centerY" secondItem="RUZ-vm-KwP" secondAttribute="centerY" id="o05-yc-087"/>
@@ -308,10 +307,6 @@
                                     <constraint firstAttribute="height" constant="50" id="g4w-Wt-YhQ"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEB-9H-hgG">
-                                <rect key="frame" x="330" y="573" width="33" height="33"/>
-                                <state key="normal" image="comments"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -321,8 +316,6 @@
                             <constraint firstItem="fIU-bd-5Cz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ggh-Zr-IKp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kiM-9i-DV7" secondAttribute="bottom" id="PZf-O4-K8D"/>
                             <constraint firstAttribute="trailing" secondItem="kiM-9i-DV7" secondAttribute="trailing" id="d05-bj-W9f"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rEB-9H-hgG" secondAttribute="bottom" constant="12" id="irS-uJ-YTY"/>
-                            <constraint firstAttribute="trailing" secondItem="rEB-9H-hgG" secondAttribute="trailing" constant="12" id="yHC-u7-2gv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="DA Bulletin" id="bWH-1z-QsM">
@@ -342,7 +335,6 @@
                     <connections>
                         <outlet property="activityIndicator" destination="fIU-bd-5Cz" id="QTu-bJ-ci1"/>
                         <outlet property="expandCollapseButton" destination="vOH-9m-h4h" id="Cgh-uM-f29"/>
-                        <outlet property="feedbackButton" destination="rEB-9H-hgG" id="bBc-vq-ofF"/>
                         <outlet property="navigationItem" destination="bWH-1z-QsM" id="5oW-sG-Jmy"/>
                         <outlet property="postsView" destination="kiM-9i-DV7" id="0rR-a7-nPH"/>
                         <segue destination="65b-sN-2Fk" kind="show" identifier="showDetails" id="cUb-Y2-FMw"/>
@@ -350,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="104.7976011994003"/>
+            <point key="canvasLocation" x="2179.5" y="104.5"/>
         </scene>
         <!--Daily News-->
         <scene sceneID="FEt-UV-KON">
@@ -1284,7 +1276,6 @@
         <image name="bookmark_filled" width="30" height="30"/>
         <image name="cloudy" width="96" height="96"/>
         <image name="collapse" width="30" height="30"/>
-        <image name="comments" width="33" height="33"/>
         <image name="food" width="27" height="27"/>
         <image name="icon" width="1024" height="1024"/>
         <image name="settings-1" width="30" height="30"/>

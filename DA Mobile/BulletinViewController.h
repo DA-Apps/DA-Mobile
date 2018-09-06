@@ -27,10 +27,9 @@
 
 @class BulletinData;
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate, MKDropdownMenuDataSource, MKDropdownMenuDelegate>
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate> // MKDropdownMenuDataSource, MKDropdownMenuDelegate
 
 // properties
-
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSDictionary *weather;
 @property (strong, nonatomic) NSMutableArray *upcomingMeals;
@@ -46,10 +45,9 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *expandCollapseButton;
-@property (weak, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
+//@property (weak, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 // methods
-
 - (IBAction)expandCollapse:(id)sender;
 - (IBAction)filter:(id)sender;
 

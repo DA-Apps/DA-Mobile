@@ -34,9 +34,15 @@
 }
 
 - (void)finishLoadingData {
+    [self parseMenu:self.bulletinData.htmlData];
     [self.postsView reloadData];
 }
 
+- (void)finishLoadingDataWithRefresh:(UIRefreshControl *)refresh{
+    [refresh endRefreshing];
+    [self parseMenu:self.bulletinData.htmlData];
+    [self.postsView reloadData];
+}
 
 # pragma mark - CollectionHeaderDelegate
 
@@ -51,6 +57,7 @@
         [self.headerContent replaceObjectAtIndex:0 withObject:[NSMutableArray array]];
         heightAnimation = -150;
     }
+    // get header from collectionView
     CollectionReusableHeader *header = (CollectionReusableHeader *)[self.postsView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [header.table reloadData];
     
@@ -108,8 +115,10 @@
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idCellNoPost" forIndexPath:indexPath];
     else{
         
+        // display the post for this day
         cell.backgroundColor = [UIColor clearColor];
         cell.title.text = day.posts[indexPath.row].title;
+        // has a url (web) image
         if (day.posts[indexPath.row].imageLink.length > 8)
             [cell.image sd_setImageWithURL:[NSURL URLWithString:day.posts[indexPath.row].imageLink] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
         else
@@ -140,9 +149,16 @@
             
         }else{
             
+            int titleHeight = 0;
+            if (cell.title.text.length <= 35){
+                titleHeight = 70;
+            }else{
+                titleHeight = 95;
+            }
+            
             [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:5.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 cell.imageRightBound.constant = 0;
-                cell.titleHeight.constant = 95;
+                cell.titleHeight.constant = titleHeight;
                 cell.titleLeftBound.constant = 8;
                 cell.titleBgLeftBound.constant = 0;
                 [cell layoutIfNeeded];
@@ -172,7 +188,7 @@
     cell.layer.masksToBounds = NO;
     cell.layer.shadowOffset = CGSizeMake(10, 15);
     cell.layer.shadowRadius = 5;
-    cell.layer.shadowOpacity = 0.25;
+    cell.layer.shadowOpacity = 0.15;
     
     return cell;
 }
@@ -197,7 +213,7 @@
         return CGSizeMake(self.postsView.frame.size.width, 150);
     else if (section != 0)
         // small header
-        return CGSizeMake(self.postsView.frame.size.width, 115);
+        return CGSizeMake(self.postsView.frame.size.width, 110);
     else
         // large header, expanded
         return CGSizeMake(self.postsView.frame.size.width, 250);
@@ -207,7 +223,8 @@
     
     CollectionReusableHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     headerView.dateLabel.text = self.bulletinData.bulletinData[indexPath.section].dateString;
-    [headerView.dateLabel sizeToFit];
+    headerView.todayDateLabel.text = [self getDateText:headerView.dateLabel.text];
+    
     if (kind == UICollectionElementKindSectionHeader && indexPath.section == 0) {
         headerView.todayDateLabel.hidden = NO;
         headerView.tempLabel.hidden = NO;
@@ -225,7 +242,6 @@
         headerView.table.hidden = YES;
         headerView.todayDateLabel.hidden = YES;
     }
-    
     return headerView;
 }
 
@@ -236,6 +252,17 @@
 }
 
 #pragma mark - Private
+
+-(NSString *)getDateText:(NSString *)dateDescription{
+    
+    NSDate *date = [NSDate date];
+    if (![dateDescription isEqualToString:@"Today"]) {
+        date = [date dateByAddingTimeInterval: -86400.0];
+    }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE, MMMM dd"];
+    return [formatter stringFromDate:date];
+}
 
 -(void)saveToBookMark:(UICollectionViewCellPosts *)cell{
     
@@ -324,14 +351,6 @@
     [sharedDefaults synchronize];
 }
 
--(void)loadCachedData{
-    
-    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dabulletin"];
-    // self.posts = [sharedDefaults objectForKey:@"posts"];
-    self.upcomingMeals = [sharedDefaults objectForKey:@"nextMeal"];
-    [sharedDefaults synchronize];
-}
-
 -(UIImage *) setWeatherImage:(NSString*) weatherType {
     
     if ([weatherType containsString:@"Cloudy"])
@@ -396,16 +415,9 @@
 
 -(void)startRefresh:(UIRefreshControl *)refresh{
     
-    if (self.bulletinData.bulletinData.count == 0) {
-        self.activityIndicator.hidden = NO;
-        self.activityIndicator.tintColor = [UIColor grayColor];
-        self.activityIndicator.type = DGActivityIndicatorAnimationTypeThreeDots;
-        [self.activityIndicator startAnimating];
-    }
-    
-# warning implementation needed
-    
-    
+    self.bulletinData = [[BulletinData alloc] initWithPostDayCount:5];
+    [self.bulletinData retrieveHTMLDataWithRefresh:refresh];
+    self.bulletinData.delegate = self;
 }
 
 - (void)savePosts:(NSString *)title withContent: (NSString *)content withImage:(NSString *)image withLink:(NSString *)url{
@@ -525,19 +537,6 @@
     
     // setup drop down menu
     
-    self.dropdownMenu.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.78 blue:0.8 alpha:1.0] CGColor];
-    self.dropdownMenu.layer.borderWidth = 0.5;
-    
-    UIColor *selectedBackgroundColor = [UIColor colorWithRed:0.91 green:0.92 blue:0.94 alpha:1.0];
-    self.dropdownMenu.selectedComponentBackgroundColor = selectedBackgroundColor;
-    self.dropdownMenu.dropdownBackgroundColor = selectedBackgroundColor;
-    
-    self.dropdownMenu.dropdownShowsTopRowSeparator = NO;
-    self.dropdownMenu.dropdownShowsBottomRowSeparator = NO;
-    self.dropdownMenu.dropdownShowsBorder = YES;
-    
-    self.dropdownMenu.backgroundDimmingOpacity = 0.05;
-    
     // -----
     
     self._isExpanded = YES;
@@ -559,16 +558,11 @@
     [self.postsView addSubview:refreshControl];
     self.postsView.alwaysBounceVertical = YES;
     
-    [self loadCachedData];
-    
     self.locationManager = [[CLLocationManager alloc] init];
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied | [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
         [self.locationManager requestWhenInUseAuthorization];
     else
         [self getForcast];
-    
-    //[self startRefresh:nil];
-    self.feedbackButton.layer.cornerRadius = 3.0f;
     
     self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
     self.pan.delegate = self;

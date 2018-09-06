@@ -11,22 +11,23 @@ import UIKit
     
     // func recievedNewData(posts: [Post]?, announcements: [Announcement]?)
     func finishLoadingData()
+    func finishLoadingData(refresh: UIRefreshControl)
     // oops, we have issues
     func bulletinDataLoadingError(error: Error)
 }
 
 public class BulletinData: NSObject{
-
+    
     @objc public var dayCount : Int
     @objc public var birthdays: [String]?
-    @objc public var bulletinData: [DailyBulletinData]?
+    @objc public var bulletinData: [DailyBulletinData]? // the bulletin data comprises of many dailyBulletinDatas
     @objc public var delegate: BulletinDataDelegate?
+    @objc public var htmlData: TFHpple?
     
     @objc public init(postDayCount: Int) {
         
         self.dayCount = postDayCount
         bulletinData = [DailyBulletinData]()
-        
         super.init()
     }
     
@@ -122,8 +123,31 @@ public class BulletinData: NSObject{
             if (error == nil){
                 DispatchQueue.main.async {
                     let hpple = TFHpple.init(htmlData: data)
+                    self.htmlData = hpple!
                     self.parseHTMLData(hpple: hpple!)
                     self.delegate?.finishLoadingData()
+                }
+            }else{
+                self.delegate?.bulletinDataLoadingError(error: error!)
+            }
+        }
+        dataTask.resume()
+    }
+    
+    @objc public func retrieveHTMLData(refresh: UIRefreshControl) {
+        
+        let session = URLSession.shared;
+        let url = URL.init(string: "https://deerfield.edu/bulletin")
+        let urlRequest = URLRequest.init(url: url!)
+        
+        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+            
+            if (error == nil){
+                DispatchQueue.main.async {
+                    let hpple = TFHpple.init(htmlData: data)
+                    self.htmlData = hpple!
+                    self.parseHTMLData(hpple: hpple!)
+                    self.delegate?.finishLoadingData(refresh: refresh)
                 }
             }else{
                 self.delegate?.bulletinDataLoadingError(error: error!)
