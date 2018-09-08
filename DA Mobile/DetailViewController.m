@@ -24,7 +24,7 @@
     switch (indexPath.row) {
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
-            [cell.image sd_setImageWithURL:[NSURL URLWithString:self.contentImage] placeholderImage:[UIImage imageNamed:@"ph_1.jpg"]];
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:self.contentImage] placeholderImage:[UIImage imageNamed:@"ph_2.jpg"]];
             cell.image.layer.cornerRadius = 5;
             cell.image.layer.masksToBounds = YES;
             break;

@@ -21,10 +21,11 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+WebCache.h"
 #import "DA_Mobile-Swift.h"
+#import <MaterialControls/MaterialControls.h>
 
 @class BulletinData;
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate> // MKDropdownMenuDataSource, MKDropdownMenuDelegate
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate, MDButtonDelegate> // MKDropdownMenuDataSource, MKDropdownMenuDelegate
 
 // properties
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -37,11 +38,15 @@
 @property (strong, nonatomic) NSMutableArray *weathers;
 @property (strong, nonatomic) BulletinData *bulletinData;
 
+@property (weak, nonatomic) IBOutlet MDButton *moreButton;
+@property (weak, nonatomic) IBOutlet MDButton *feedbackButton;
+@property (weak, nonatomic) IBOutlet MDButton *expandCollapseButton;
+@property (weak, nonatomic) IBOutlet MDButton *filterButton;
+
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
-@property (weak, nonatomic) IBOutlet UIButton *feedbackButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *expandCollapseButton;
+
 //@property (weak, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 // methods

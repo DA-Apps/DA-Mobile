@@ -11,6 +11,7 @@
 
 @interface BulletinViewController () <UIGestureRecognizerDelegate>
 
+@property(nonatomic) CGPoint startPoint;
 @property (nonatomic, strong) UIPanGestureRecognizer *pan;
 @property BOOL _panBegin;
 @property BOOL _isExpanded;
@@ -118,6 +119,17 @@
         // display the post for this day
         cell.backgroundColor = [UIColor clearColor];
         cell.title.text = day.posts[indexPath.row].title;
+        
+        NSLog(@"%li", (long)day.posts[indexPath.row].type);
+        if (day.posts[indexPath.row].type == PostTypeStudentNews)
+            cell.typeLabel.text = @"STUDENT NEWS";
+        else if (day.posts[indexPath.row].type == PostTypeAthletics)
+            cell.typeLabel.text = @"ATHLETICS";
+        else if (day.posts[indexPath.row].type == PostTypeLostFound)
+            cell.typeLabel.text = @"LOST & FOUND";
+        else
+            cell.typeLabel.text = @"NEWS";
+        
         // has a url (web) image
         if (day.posts[indexPath.row].imageLink.length > 8)
             [cell.image sd_setImageWithURL:[NSURL URLWithString:day.posts[indexPath.row].imageLink] placeholderImage:[UIImage imageNamed:@"ph_0.jpg"]];
@@ -444,20 +456,89 @@
     return NO;
 }
 
-- (IBAction)expandCollapse:(id)sender {
-    
-    self._isExpanded = !self._isExpanded;
-    if (self._isExpanded)
-        [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"]];
-    else
-        [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"]];
-    
-    [self.postsView reloadData];
-}
-
 - (IBAction)filter:(id)sender {
 # warning implementation needed
 }
+
+#pragma mark - UI Button
+
+
+-(void)setUpButtons{
+    
+    self.moreButton.mdButtonDelegate = self;
+    self.moreButton.rotated = NO;
+    
+    //invisible all related buttons
+    self.feedbackButton.alpha = 0.f;
+    self.expandCollapseButton.alpha = 0.f;
+    self.filterButton.alpha = 0.f;
+    
+    _startPoint = CGPointMake(self.moreButton.center.x, self.moreButton.center.y + 100);
+    self.feedbackButton.center = _startPoint;
+    self.expandCollapseButton.center = _startPoint;
+    self.filterButton.center = _startPoint;
+    [self.moreButton setImageSize:28.0f];
+}
+
+- (IBAction)moreButtonClicked:(id)sender {
+    
+    if (sender == self.moreButton)
+        self.moreButton.rotated = NO; //reset floating finging button
+    if (sender == self.expandCollapseButton) {
+        
+        self._isExpanded = !self._isExpanded;
+        [self.postsView reloadData];
+        
+        if (self._isExpanded){
+            [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"] forState:UIControlStateNormal];
+        }else{
+            [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"] forState:UIControlStateNormal];
+        }
+    }
+    if (sender == self.filterButton) {
+#warning missing implementation
+    }
+    if (sender == self.feedbackButton) {
+#warning missing implementation
+    }
+}
+
+-(void)rotationStarted:(id)sender {
+    
+    if (self.moreButton == sender){
+        int padding = 80;
+        CGFloat duration = 0.2f;
+        if (!self.moreButton.isRotated) {
+            [UIView animateWithDuration:duration delay:0.0 options: (UIViewAnimationOptionAllowUserInteraction|UIViewAnimationCurveEaseOut) animations:^{
+                self.feedbackButton.alpha = 1;
+                self.feedbackButton.transform = CGAffineTransformMakeScale(1.0,.4);
+                self.feedbackButton.transform = CGAffineTransformConcat(CGAffineTransformMakeTranslation(0, -padding*3.5f), CGAffineTransformMakeScale(1.0, 1.0));
+                
+                self.filterButton.alpha = 1;
+                self.filterButton.transform = CGAffineTransformMakeScale(1.0,.5);
+                self.filterButton.transform = CGAffineTransformConcat(CGAffineTransformMakeTranslation(0, -padding*2.8f), CGAffineTransformMakeScale(1.0, 1.0));
+                
+                self.expandCollapseButton.alpha = 1;
+                self.expandCollapseButton.transform = CGAffineTransformMakeScale(1.0,.6);
+                self.expandCollapseButton.transform = CGAffineTransformConcat(CGAffineTransformMakeTranslation(0, -padding*2.1), CGAffineTransformMakeScale(1.0, 1.0));
+                
+            } completion:^(BOOL finished) { }];
+        } else {
+            [UIView animateWithDuration:duration/2 delay:0.0 options: kNilOptions animations:^{
+                self.feedbackButton.alpha = 0;
+                self.feedbackButton.transform = CGAffineTransformMakeTranslation(0, 0);
+                
+                self.filterButton.alpha = 0;
+                self.filterButton.transform = CGAffineTransformMakeTranslation(0, 0);
+                
+                self.expandCollapseButton.alpha = 0;
+                self.expandCollapseButton.transform = CGAffineTransformMakeTranslation(0, 0);
+                
+            } completion:^(BOOL finished) { }];
+        }
+    }
+}
+
 
 #pragma mark - Navigation
 
@@ -524,6 +605,13 @@
 
 #pragma mark - View lifecycle
 
+-(void)viewDidLayoutSubviews{
+    _startPoint = CGPointMake(self.moreButton.center.x, self.moreButton.center.y + 100);
+    self.feedbackButton.center = _startPoint;
+    self.expandCollapseButton.center = _startPoint;
+    self.filterButton.center = _startPoint;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:YES];
@@ -535,9 +623,7 @@
     
     [super viewDidLoad];
     
-    // setup drop down menu
-    
-    // -----
+    [self setUpButtons];
     
     self._isExpanded = YES;
     
