@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *postURL;
 
+@property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UITableView *table;

@@ -20,13 +20,12 @@
 #pragma mark - UITableView Delegate
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     CustomTableViewCell *cell;
     switch (indexPath.row) {
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
             [cell.image sd_setImageWithURL:[NSURL URLWithString:self.contentImage] placeholderImage:[UIImage imageNamed:@"ph_2.jpg"]];
-            cell.image.layer.cornerRadius = 5;
-            cell.image.layer.masksToBounds = YES;
             break;
         case 1:
             cell = [tableView dequeueReusableCellWithIdentifier:@"headerCell" forIndexPath:indexPath];
@@ -57,13 +56,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:
-            return 240;
+            return 0; // hide the image cell
             break;
         case 1:
             return 90;
             break;
         case 2:
-            return self.contentString.length / 50 * 28 + 45;
+            return self.contentString.length / 50 * 28 + 60;
             break;
         case 3:
             return 55;
@@ -151,6 +150,7 @@
 - (void)viewDidLoad {
     
     self.progressView.hidden = YES;
+    [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:self.contentImage] placeholderImage:[UIImage imageNamed:@"ph_2.jpg"]];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

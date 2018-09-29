@@ -25,7 +25,7 @@
 
 @class BulletinData;
 
-@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate, MDButtonDelegate> // MKDropdownMenuDataSource, MKDropdownMenuDelegate
+@interface BulletinViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewCellPostsDelegate, BulletinDataDelegate, MDButtonDelegate>
 
 // properties
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -46,8 +46,6 @@
 @property (weak, nonatomic) IBOutlet DGActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UICollectionView *postsView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
-
-//@property (weak, nonatomic) IBOutlet MKDropdownMenu *dropdownMenu;
 
 // methods
 - (IBAction)expandCollapse:(id)sender;

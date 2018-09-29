@@ -45,7 +45,7 @@
     [self.postsView reloadData];
 }
 
-# pragma mark - CollectionHeaderDelegate
+# pragma mark - CollectionHeader Delegate
 
 -(void)expandMenu{
     
@@ -63,22 +63,6 @@
     [header.table reloadData];
     
     [self.postsView performBatchUpdates:nil completion:nil];
-}
-
-#pragma mark - Location Manager
-
--(CLLocationCoordinate2D) getLocation{
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager requestWhenInUseAuthorization];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    [self.locationManager startUpdatingLocation];
-    CLLocation *location = [self.locationManager location];
-    CLLocationCoordinate2D coordinate = [location coordinate];
-    
-    return coordinate;
 }
 
 #pragma mark - CollectionView Delegate
@@ -263,7 +247,23 @@
     });
 }
 
-#pragma mark - Private
+#pragma mark - Location Manager
+
+-(CLLocationCoordinate2D) getLocation{
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    [self.locationManager startUpdatingLocation];
+    CLLocation *location = [self.locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    return coordinate;
+}
+
+#pragma mark - Private Methods
 
 -(NSString *)getDateText:(NSString *)dateDescription{
     
@@ -539,27 +539,7 @@
     }
 }
 
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *nav = [segue destinationViewController];
-        DetailViewController *vc = (DetailViewController *)[nav topViewController];
-        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
-        Post *post = self.bulletinData.bulletinData[indexPath.section].posts[indexPath.row];
-        
-        vc.postURL = post.link;
-        vc.contentString = post.content;
-        vc.contentImage = post.imageLink;
-        vc.titleString = post.title;
-    }
-}
-
-
-#pragma mark - Gesture Recognizer
+#pragma mark - Gestures
 
 -(void)panAction:(UIPanGestureRecognizer *)pan{
     
@@ -654,6 +634,23 @@
     self.pan.delegate = self;
     [self.postsView addGestureRecognizer:self.pan];
     
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue destinationViewController] isKindOfClass:[DetailViewController class]]) {
+        DetailViewController *vc = [segue destinationViewController];
+        NSIndexPath *indexPath = self.postsView.indexPathsForSelectedItems.firstObject;
+        Post *post = self.bulletinData.bulletinData[indexPath.section].posts[indexPath.row];
+        
+        vc.postURL = post.link;
+        vc.contentString = post.content;
+        vc.contentImage = post.imageLink;
+        vc.titleString = post.title;
+    }
 }
 
 @end
