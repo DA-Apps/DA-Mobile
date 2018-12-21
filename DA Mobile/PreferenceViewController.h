@@ -11,7 +11,6 @@
 
 @interface PreferenceViewController : UITableViewController <CustomTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (strong, nonatomic) NSMutableArray *data;
 @property (strong, nonatomic) NSMutableArray <NSMutableArray *> *imageNames;
 

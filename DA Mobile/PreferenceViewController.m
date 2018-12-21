@@ -112,14 +112,9 @@
 
 
 - (void)viewDidLoad {
-    
-    self.icon.layer.cornerRadius = 10.0f;
-    self.icon.clipsToBounds = YES;
-    
+
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
     }
 
     NSMutableArray *section1 = [NSMutableArray arrayWithObjects:@"DA Info", @"Deerfield Email", @"Canvas", nil];
@@ -140,15 +135,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

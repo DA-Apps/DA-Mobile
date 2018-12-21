@@ -191,10 +191,6 @@ static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
     
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-}
-
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     completionHandler(UIBackgroundFetchResultNewData);

@@ -114,10 +114,7 @@
     
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
-    } else {
-        // Fallback on earlier versions
     }
-
     // Do any additional setup after loading the view.
 }
 

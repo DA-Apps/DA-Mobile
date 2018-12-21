@@ -11,7 +11,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AFNetworking/AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
-#import "MKDropdownMenu.h"
 #import "UICollectionViewCellPosts.h"
 #import "DetailViewController.h"
 #import "CollectionReusableHeader.h"
