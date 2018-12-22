@@ -59,7 +59,7 @@
             return 0; // hide the image cell
             break;
         case 1:
-            return 90;
+            return 100;
             break;
         case 2:
             return self.contentString.length / 50 * 28 + 60;
@@ -83,29 +83,9 @@
     self.progressView.progress = 0;
     complete = false;
 
-    loadingTimer = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(timerCallback) userInfo:nil repeats:YES];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     complete = true;
-}
-
--(void)timerCallback {
-    
-    if (complete) {
-        if (self.progressView.progress >= 1) {
-            self.progressView.hidden = true;
-            [loadingTimer invalidate];
-        }
-        else {
-            self.progressView.progress += 0.01;
-        }
-    }
-    else {
-        self.progressView.progress += 0.05;
-        if (self.progressView.progress >= 0.95) {
-            self.progressView.progress = 0.95;
-        }
-    }
 }
 
 -(IBAction)save:(id)sender{

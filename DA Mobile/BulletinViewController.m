@@ -12,7 +12,6 @@
 @interface BulletinViewController () <UIGestureRecognizerDelegate>
 
 @property(nonatomic) CGPoint startPoint;
-@property (nonatomic, strong) UIPanGestureRecognizer *pan;
 @property BOOL _panBegin;
 @property BOOL _isExpanded;
 
@@ -104,7 +103,6 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.title.text = day.posts[indexPath.row].title;
         
-        NSLog(@"%li", (long)day.posts[indexPath.row].type);
         if (day.posts[indexPath.row].type == PostTypeStudentNews)
             cell.typeLabel.text = @"STUDENT NEWS";
         else if (day.posts[indexPath.row].type == PostTypeAthletics)
@@ -539,50 +537,6 @@
     }
 }
 
-#pragma mark - Gestures
-
--(void)panAction:(UIPanGestureRecognizer *)pan{
-    
-    CGPoint location = [pan locationInView:self.postsView];
-    NSIndexPath *indexPath = [self.postsView indexPathForItemAtPoint:location];
-    UICollectionViewCellPosts *cell = (UICollectionViewCellPosts *)[self.postsView cellForItemAtIndexPath:indexPath];
-    
-    if (pan.state == UIGestureRecognizerStateBegan) {
-        [cell beginPanAccessoryView:location];
-        cell.canSwipe = YES;
-    }else if (pan.state == UIGestureRecognizerStateChanged){
-        if (cell.menuOpened == YES) {
-            [cell panAccessoryViewRight:location];
-        }else{
-            [cell panAccessoryViewLeft:location];
-        }
-    }else if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled){
-        [cell endPanAccessoryView:location];
-    }
-}
-
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    
-    if (gestureRecognizer == self.pan && otherGestureRecognizer == self.postsView.panGestureRecognizer) {
-        return NO;
-    }
-    return NO;
-}
-
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    
-    //look at gesture recognizer
-    NSLog(@"%@", gestureRecognizer);
-    if ([gestureRecognizer isEqual:self.pan]) {
-        CGPoint vel = [self.pan velocityInView:self.postsView];
-        if (fabs(vel.x) != 0 && fabs(vel.y) < fabs(vel.x))
-            return YES;
-        else
-            return NO;
-    }
-    return NO;
-}
-
 #pragma mark - View lifecycle
 
 -(void)viewDidLayoutSubviews{
@@ -629,10 +583,6 @@
         [self.locationManager requestWhenInUseAuthorization];
     else
         [self getForcast];
-    
-    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-    self.pan.delegate = self;
-    [self.postsView addGestureRecognizer:self.pan];
     
 }
 
