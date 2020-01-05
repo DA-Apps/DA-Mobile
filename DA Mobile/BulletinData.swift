@@ -12,7 +12,6 @@ import UIKit
     // func recievedNewData(posts: [Post]?, announcements: [Announcement]?)
     func finishLoadingData()
     func finishLoadingData(refresh: UIRefreshControl)
-    // oops, we have issues
     func bulletinDataLoadingError(error: Error)
 }
 
@@ -35,7 +34,9 @@ public class BulletinData: NSObject{
         
         let dailyBlocks = hpple?.search(withXPathQuery: "//div[@class='content-block daily']")
         
-        for index in 0...self.dayCount - 1 {
+        let numDays = self.dayCount <= dailyBlocks!.count ? self.dayCount : dailyBlocks!.count
+        
+        for index in 0...numDays - 1 {
             
             let dailyElement = dailyBlocks?[index] as! TFHppleElement
             
@@ -62,10 +63,9 @@ public class BulletinData: NSObject{
         }
     }
     
+    // * This method parses out all the post for one day *
+    // return a list of bulletin posts for this day
     @objc public func parseBulletinPosts(posts: [TFHppleElement], date: Date) -> [Post]? {
-        
-        // * This method parses out all the post for one day *
-        // return a list of bulletin posts for this day
         
         var pts = [Post]()
         // var announcements = [Announcement]()

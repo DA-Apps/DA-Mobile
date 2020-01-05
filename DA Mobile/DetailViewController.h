@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
-#import "DGActivityIndicatorView.h"
+#import <DGActivityIndicatorView/DGActivityIndicatorView.h>
 #import "CustomTableViewCell.h"
 #import "BulletinPost.h"
 #import "UIImageView+WebCache.h"

@@ -455,7 +455,9 @@
 }
 
 - (IBAction)filter:(id)sender {
+    
 # warning implementation needed
+    
 }
 
 #pragma mark - UI Button
@@ -487,12 +489,10 @@
         self._isExpanded = !self._isExpanded;
         [self.postsView reloadData];
         
-        if (self._isExpanded){
-            [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"] forState:UIControlStateNormal];
-        }else{
-            [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"] forState:UIControlStateNormal];
-        }
+        if (self._isExpanded)   [self.expandCollapseButton setImage:[UIImage imageNamed:@"collapse"] forState:UIControlStateNormal];
+        else                    [self.expandCollapseButton setImage:[UIImage imageNamed:@"expand"] forState:UIControlStateNormal];
     }
+    
     if (sender == self.filterButton) {
 #warning missing implementation
     }

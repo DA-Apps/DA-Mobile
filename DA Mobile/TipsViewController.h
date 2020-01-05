@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EAIntroView.h"
+#import <EAIntroView/EAIntroView.h>
 
 @interface TipsViewController : UIViewController <EAIntroDelegate>
 

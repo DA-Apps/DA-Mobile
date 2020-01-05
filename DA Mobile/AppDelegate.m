@@ -7,7 +7,7 @@
 #import "AppDelegate.h"
 #import "TFHpple.h"
 #import "BulletinViewController.h"
-#import "EAIntroView.h"
+#import <EAIntroView/EAIntroView.h>
 #import <FirebaseCore/FirebaseCore.h>
 #import <FirebaseMessaging/FirebaseMessaging.h>
 #import <FirebaseInstanceID/FirebaseInstanceID.h>
